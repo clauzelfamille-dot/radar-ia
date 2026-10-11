@@ -18,6 +18,7 @@ des faits vérifiés, pas du spectacle.
 | Surface (cartes) | `#fffefa` | `#11171b` |
 | Encre (texte) | `#12161a` | `#e7ece8` |
 | Texte secondaire | `#4a525c` | `#a6b0aa` |
+| Texte tertiaire (étiquettes) | `#5f6770` | `#8a968f` |
 | Filets | `#ddd8cc` | `#24302c` |
 | **Signal** (accent, liens, jauges ≥ 70) | `#0a7155` | `#3fd69b` |
 | Signal sombre (liens au survol) | `#065240` | `#7be8bd` |
@@ -47,3 +48,7 @@ image-vidéo `#d2501a` · données `#5b7a12` · tendances `#5f6b78` (versions é
 
 ## Ton
 Phrases courtes, chiffres sourcés, pas de superlatifs, pas d'émojis. On dit ce qu'on ne sait pas.
+
+## Accessibilité
+Contrastes WCAG AA (4,5:1 minimum) vérifiés pour tous les textes ; lien « Aller au contenu » ; focus visible (contour ambre) ;
+jauges de score lisibles par les lecteurs d'écran ; barres décoratives masquées ; mouvement réduit respecté.

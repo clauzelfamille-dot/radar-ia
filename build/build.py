@@ -367,14 +367,14 @@ class Site:
 
 CSS = r"""
 /* Charte Radar IA v2 : « instrument de bord éditorial ». Voir CHARTE.md. */
-:root{--bg:#f6f4ee;--bg2:#fffefa;--bg3:#ece8de;--fg:#12161a;--fg2:#4a525c;--fg3:#757d86;--line:#ddd8cc;--rule:#12161a;
+:root{--bg:#f6f4ee;--bg2:#fffefa;--bg3:#ece8de;--fg:#12161a;--fg2:#4a525c;--fg3:#5f6770;--line:#ddd8cc;--rule:#12161a;
 --acc:#0a7155;--acc-ink:#065240;--soft:#dcefe6;--acc2:#a8530a;--star:#a8530a;--ring:#d9d4c7;--band:#12161a;--on-band:#eef1ec;
 --d-local:#2463d6;--d-documents:#a8530a;--d-agents:#7a3fd6;--d-audio:#c42a72;--d-code:#08799a;--d-multilingue:#178a3e;
 --d-image-video:#d2501a;--d-donnees:#5b7a12;--d-tendances:#5f6b78;
 --serif:"Iowan Old Style","Charter","Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
 --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 --mono:ui-monospace,"Cascadia Code","JetBrains Mono",SFMono-Regular,Menlo,Consolas,monospace;--r:4px;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0b0f12;--bg2:#11171b;--bg3:#18211f;--fg:#e7ece8;--fg2:#a6b0aa;--fg3:#7b8781;--line:#24302c;--rule:#e7ece8;
+@media (prefers-color-scheme:dark){:root{--bg:#0b0f12;--bg2:#11171b;--bg3:#18211f;--fg:#e7ece8;--fg2:#a6b0aa;--fg3:#8a968f;--line:#24302c;--rule:#e7ece8;
 --acc:#3fd69b;--acc-ink:#7be8bd;--soft:#10291f;--acc2:#f0a64a;--star:#f0a64a;--ring:#24302c;--band:#050709;--on-band:#e7ece8;
 --d-local:#6b9cff;--d-documents:#f0a64a;--d-agents:#b08cff;--d-audio:#ff7ab2;--d-code:#4cc9e8;--d-multilingue:#5fd68a;
 --d-image-video:#ff8a5c;--d-donnees:#a9cf52;--d-tendances:#9aa6b2;color-scheme:dark}}
@@ -389,6 +389,8 @@ h3 a,h2 a,.card h3 a{color:var(--fg);text-decoration:none}h3 a:hover,h2 a:hover{
 .mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .eb{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
 .mut{color:var(--fg2)}.sm{font-size:.88rem}
+.vh{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:8px;top:-60px;z-index:10;background:var(--acc);color:var(--bg2);padding:8px 12px;border-radius:var(--r);font-weight:600;text-decoration:none}.skip:focus{top:8px}
 /* Bandeau et en-tête façon quotidien */
 .strip{background:var(--band);color:var(--on-band);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em}
 .strip .w{display:flex;justify-content:space-between;gap:12px;padding-block:6px;flex-wrap:wrap}.strip a{color:var(--on-band)}
@@ -422,7 +424,7 @@ main{padding-block:30px 60px}section{margin-top:40px}section:first-child{margin-
 .card h3{overflow-wrap:anywhere}.card p{margin:0;font-size:.92rem;color:var(--fg2)}
 .meta{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--fg2);margin-top:auto;padding-top:4px}
 /* Jauge Score Radar */
-.sc{--p:0;display:inline-grid;place-items:center;width:2.35em;height:2.35em;border-radius:50%;vertical-align:middle;flex:none;
+.sc{--p:0;position:relative;display:inline-grid;place-items:center;width:2.35em;height:2.35em;border-radius:50%;vertical-align:middle;flex:none;
 background:radial-gradient(closest-side,var(--bg2) 76%,transparent 78% 100%),conic-gradient(var(--fg3) calc(var(--p)*1%),var(--ring) 0);
 font:700 .78rem/1 var(--mono);color:var(--fg)}
 .sc.hot{background:radial-gradient(closest-side,var(--bg2) 76%,transparent 78% 100%),conic-gradient(var(--acc) calc(var(--p)*1%),var(--ring) 0);color:var(--acc-ink)}
@@ -468,6 +470,7 @@ a.btn:hover,form.nl button:hover{background:var(--acc-ink)}.btns{display:flex;ga
 [data-d=code]{--dc:var(--d-code)}[data-d=multilingue]{--dc:var(--d-multilingue)}[data-d=image-video]{--dc:var(--d-image-video)}[data-d=donnees]{--dc:var(--d-donnees)}[data-d=tendances]{--dc:var(--d-tendances)}
 @media(max-width:600px){body{font-size:16px}.bar{padding-block:12px 6px;gap:8px}.logo b{font-size:1.45rem}.logo svg{width:32px;height:32px}.strip .long{display:none}
 nav.m{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:0;scrollbar-width:none;margin-inline:-4px}nav.m a{padding:7px 8px;font-size:.78rem;white-space:nowrap}.lead{gap:24px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{.strip,nav.m,.spon,.cta,footer nav{display:none}body{background:#fff;color:#000}}
 """
 
@@ -592,9 +595,9 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 {og_img}<meta name="theme-color" content="#0b0f12">
 <script type="application/ld+json">{json.dumps(ld if len(ld) > 1 else ld[0], ensure_ascii=False).replace("</", "<\\/")}</script>"""
     marque = f'{LOGO}<span><b>{SITE_NAME}</b><i>LE QUOTIDIEN DES MODÈLES IA OUVERTS</i></span>'
-    shell_top = f"""<div class="strip"><div class="w"><span>Édition du {d_long(site.today)}<span class="long"> · veille quotidienne Hugging Face en français</span></span><span><a href="{root}abonnement.html">S'abonner</a> · <a href="{root}feed.xml">RSS</a> · <a href="{root}llms.txt">llms.txt</a></span></div></div>
+    shell_top = f"""<a class="skip" href="#contenu">Aller au contenu</a><div class="strip"><div class="w"><span>Édition du {d_long(site.today)}<span class="long"> · veille quotidienne Hugging Face en français</span></span><span><a href="{root}abonnement.html">S'abonner</a> · <a href="{root}feed.xml">RSS</a> · <a href="{root}llms.txt">llms.txt</a></span></div></div>
 <header class="top"><div class="w bar"><a class="logo" href="{root}index.html">{marque}</a><nav class="m" aria-label="Rubriques">{nav}</nav></div></header>
-<main class="w">{crumb_html}{body}</main>
+<main class="w" id="contenu" tabindex="-1">{crumb_html}{body}</main>
 <footer><div class="w"><div><a class="logo" href="{root}index.html">{marque}</a><p>{esc(SITE_TAGLINE)}. Rédigé par des agents IA ; licences, dates et tailles vérifiées sur l'API Hugging Face ; sources liées sur chaque page. Données sous licence <a href="{LICENSE_URL}" rel="license">CC BY 4.0</a> · mise à jour {d_short(site.today)}.</p></div>
 <nav aria-label="Pied de page"><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}guides.html">Guides</a><a href="{root}glossaire.html">Glossaire</a><a href="{root}methode.html">Méthode</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a></nav></div></footer>{pixel(site, path)}"""
     if artifact_shell:  # page racine d'un artefact Claude : pas de doctype, le squelette est ajouté à la publication
@@ -679,7 +682,7 @@ def ld_dataset(site):
 def score_badge(s):
     if s is None: return ""
     s = max(0, min(100, round(float(s))))
-    return f'<span class="sc{" hot" if s >= 70 else ""}" style="--p:{s}" title="Score Radar {s}/100">{s}</span>'
+    return f'<span class="sc{" hot" if s >= 70 else ""}" style="--p:{s}" title="Score Radar {s}/100"><span class="vh">Score Radar </span>{s}<span class="vh"> sur 100</span></span>'
 
 def item_card(site, it, root, rank=None):
     star = '<span class="star" title="Pertinent : local, documents, agents, audio, code, français">★</span> ' if it.get("pertinent") else ""
@@ -725,7 +728,7 @@ def radar_panel(site, n=6) -> str:
     ent = [(e, site.items[e["itemId"]]) for e in (site.classements.get("jour") or {}).get("entrees") or [] if e.get("itemId") in site.items][:n]
     if not ent: return ""
     li = "".join(f'<li><div class="t"><a href="{site.item_page(it)}">{esc(it.get("nom"))}</a><span>{round(float(e.get("score") or it.get("score") or 0))}</span></div>'
-                 f'<div class="g"><i style="width:{max(2, min(100, round(float(e.get("score") or it.get("score") or 0))))}%"></i></div></li>' for e, it in ent)
+                 f'<div class="g" aria-hidden="true"><i style="width:{max(2, min(100, round(float(e.get("score") or it.get("score") or 0))))}%"></i></div></li>' for e, it in ent)
     return f'<div class="radar"><h2>Le radar du jour</h2><ol class="bars">{li}</ol><p class="sm" style="margin:10px 0 0"><a href="classements.html">Classement complet →</a></p></div>'
 
 def ranking_items(site, per):
