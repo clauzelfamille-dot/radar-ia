@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-14",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 129000,
+  "hfId": "Qwen/Qwen-Image-2.1",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 129000,
+      "likes": 3200,
+      "score": 69
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 3200,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Qwen-Image-2.1",
+  "org": "Qwen",
+  "pertinent": false,
+  "pourquoi": "Origine de la vague Turbo",
+  "premiereVue": "2026-10-11",
+  "resume": "A généré toute la vague Turbo / LoRA / Spaces.",
+  "score": 69,
+  "source": "likes30d",
+  "tache": "Texte→image",
+  "taille": "7 B",
+  "type": "model",
+  "url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+}

@@ -1,0 +1,35 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents",
+    "local",
+    "multilingue"
+  ],
+  "downloads": 1200,
+  "hfId": "fastino/GLiNER2.5-multi-Decide",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 1200,
+      "likes": 40,
+      "score": 58
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 40,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "GLiNER2.5-multi-Decide",
+  "org": "Fastino",
+  "pertinent": true,
+  "pourquoi": "Variante multilingue pour le français",
+  "premiereVue": "2026-10-11",
+  "resume": "Variante multilingue de GLiNER2.5-Decide.",
+  "score": 58,
+  "source": "nouveau",
+  "tache": "Classification",
+  "taille": "0,29 B",
+  "type": "model",
+  "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide"
+}

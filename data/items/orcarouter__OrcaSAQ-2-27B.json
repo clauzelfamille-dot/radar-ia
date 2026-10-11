@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-09",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "agents",
+    "code"
+  ],
+  "downloads": 1180,
+  "hfId": "orcarouter/OrcaSAQ-2-27B",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 1180,
+      "likes": 148,
+      "score": 63
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 148,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "OrcaSAQ-2-27B",
+  "org": "orcarouter",
+  "pertinent": true,
+  "pourquoi": "12,3 Go, outils et réflexion conservés",
+  "premiereVue": "2026-10-11",
+  "resume": "Qwen3.8-27B texte à 3,2 bits : 12,3 Go au lieu de 54, appel d'outils et mode réflexion conservés.",
+  "score": 63,
+  "source": "nouveau",
+  "tache": "Génération de texte",
+  "taille": "27 B (12,3 Go)",
+  "type": "model",
+  "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-27B"
+}

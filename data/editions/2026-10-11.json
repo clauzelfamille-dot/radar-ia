@@ -1,0 +1,74 @@
+{
+  "aTester": [
+    {
+      "itemId": "fastino__GLiNER2.5-Decide",
+      "texte": "tri de courriers ou de PV en une passe sur CPU ; prendre la variante multi-Decide pour le français, puis comparer à Laya sur le même lot."
+    },
+    {
+      "itemId": "orcarouter__OrcaSAQ-2-27B",
+      "texte": "agent local avec appel d'outils sur une carte 16 Go (12,3 Go de poids), alternative plus fidèle que Saluki."
+    },
+    {
+      "itemId": "moondream__parakeet-redux",
+      "texte": "transcription de réunions en français sur CPU avec horodatage par mot ; WER 7,7 %, à vérifier sur un enregistrement avant d'abandonner Whistle."
+    }
+  ],
+  "agent": "veille",
+  "creeLe": "2026-10-11T07:30:00+02:00",
+  "date": "2026-10-11",
+  "essentiel": [
+    {
+      "itemIds": [
+        "fastino__GLiNER2.5-Decide"
+      ],
+      "texte": "Nouvel entrant « décision » taillé pour le CPU : Fastino publie GLiNER2.5-Decide (0,34 B, Apache 2.0), plusieurs décisions typées en un appel, sans génération."
+    },
+    {
+      "itemIds": [
+        "orcarouter__OrcaSAQ-2-27B",
+        "ukisai__Swift-Qwen3.8-27b"
+      ],
+      "texte": "Qwen3.8-27B compressé pour agents locaux : OrcaSAQ-2-27B tient en 12,3 Go avec appel d'outils ; Swift-Qwen3.8-27B coupe 58 % des tokens de réflexion (licence restrictive)."
+    },
+    {
+      "itemIds": [
+        "moondream__parakeet-redux"
+      ],
+      "texte": "Transcription multilingue en 178 Mo : parakeet-redux (poids ternaires, 25 langues dont le français, CPU). L'écosystème Qwen-Image-2.1-Turbo occupe toujours un tiers du classement image."
+    }
+  ],
+  "mailEnvoye": true,
+  "nouveauxIds": [
+    "fastino__GLiNER2.5-Decide",
+    "ukisai__Swift-Qwen3.8-27b",
+    "orcarouter__OrcaSAQ-2-27B",
+    "moondream__parakeet-redux",
+    "nerkyor__Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
+    "AtomicChat__Qwen-Image-2.1-Turbo-Uncensored-GGUF",
+    "LocalLLaMA__typed-decisions",
+    "MoreThought__Fable-5.1-Max-Reasoning-Filtered-10000x",
+    "docling-project__DeskForge-1M",
+    "autotrust__jev-9b-decision-demo"
+  ],
+  "stats": {
+    "analyses": 110,
+    "etoiles": 17,
+    "fichesLues": 15
+  },
+  "tendance": "Le genre « modèle de décision » (réponse typée + probabilité calibrée, zéro génération) gagne un quatrième acteur en trois semaines — Fastino après Cloudflare, Convai et Liquid AI — et son premier benchmark communautaire (typed-decisions). Qwen3.8-27B est devenu la plateforme que tout le monde compresse ou raccourcit : Saluki (7,9 Go), OrcaSAQ (12,3 Go), Swift (−58 % de réflexion). Vigilance : des licences « ouvertes sous conditions de chiffre d'affaires » apparaissent sur ces dérivés.",
+  "titre": "La décision typée gagne un quatrième acteur, Qwen3.8-27B se compresse pour les agents locaux",
+  "topIds": [
+    "fastino__GLiNER2.5-Decide",
+    "orcarouter__OrcaSAQ-2-27B",
+    "moondream__parakeet-redux",
+    "google__embeddinggemma-2",
+    "Cloudflare__clef-flash",
+    "convaiinnovations__laya",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "ukisai__Swift-Qwen3.8-27b",
+    "XingChen-AGI__TeleOCR",
+    "LiquidAI__d1-3B",
+    "Qwen__Qwen3.8-27B",
+    "Cloudflare__clef"
+  ]
+}

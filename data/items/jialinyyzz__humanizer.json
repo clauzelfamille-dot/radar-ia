@@ -1,0 +1,30 @@
+{
+  "creeLe": "2026-10-02",
+  "derniereVue": "2026-10-11",
+  "domaines": [],
+  "downloads": 33700,
+  "hfId": "jialinyyzz/humanizer",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 33700,
+      "likes": 978,
+      "score": 61
+    }
+  ],
+  "licence": null,
+  "likes": 978,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "humanizer",
+  "org": "jialinyyzz",
+  "pertinent": false,
+  "pourquoi": "Réécriture « humaine » 12 B, n°2 du trending",
+  "premiereVue": "2026-10-11",
+  "resume": "Modèle de réécriture « humaine » de 12 B.",
+  "score": 61,
+  "source": "trending",
+  "tache": "Génération de texte",
+  "taille": "12 B",
+  "type": "model",
+  "url": "https://huggingface.co/jialinyyzz/humanizer"
+}

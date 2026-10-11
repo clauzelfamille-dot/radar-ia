@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "agents"
+  ],
+  "downloads": 59200,
+  "hfId": "ConwayResearch/Underdog-Saluki-27B-1.0",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 59200,
+      "likes": 284,
+      "score": 73
+    }
+  ],
+  "licence": null,
+  "likes": 284,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Underdog-Saluki-27B-1.0",
+  "org": "Conway Research",
+  "pertinent": true,
+  "pourquoi": "Qwen3.8-27B en 7,9 Go, outils intacts",
+  "premiereVue": "2026-10-11",
+  "resume": "Qwen3.8-27B ramené à 7,9 Go avec l'appel d'outils intact.",
+  "score": 73,
+  "source": "trending",
+  "tache": "Génération de texte",
+  "taille": "27 B (7,9 Go)",
+  "type": "model",
+  "url": "https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0"
+}

@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "code"
+  ],
+  "downloads": 189000,
+  "hfId": "ukisai/Swift-Qwen3.8-27B-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 189000,
+      "likes": 406,
+      "score": 77
+    }
+  ],
+  "licence": "Swift Open License v1.0",
+  "likes": 406,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Swift-Qwen3.8-27B-GGUF",
+  "org": "ukisai",
+  "pertinent": true,
+  "pourquoi": "Version GGUF de Swift",
+  "premiereVue": "2026-10-11",
+  "resume": "GGUF de Swift-Qwen3.8-27B.",
+  "score": 77,
+  "source": "nouveau",
+  "tache": "Vision-langage",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27B-GGUF"
+}

@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-08-05",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "code",
+    "agents"
+  ],
+  "downloads": 6770000,
+  "hfId": "Qwen/Qwen3.8-27B",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 6770000,
+      "likes": 17400,
+      "score": 77
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 17400,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Qwen3.8-27B",
+  "org": "Qwen",
+  "pertinent": false,
+  "pourquoi": "Socle de la moitié des dérivés du classement",
+  "premiereVue": "2026-10-11",
+  "resume": "Le modèle socle de la période : la moitié des dérivés du classement en sont issus.",
+  "score": 77,
+  "source": "trending",
+  "tache": "Vision-langage",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+}

@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents",
+    "local"
+  ],
+  "downloads": 9090,
+  "hfId": "LiquidAI/d1-3B",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 9090,
+      "likes": 275,
+      "score": 70
+    }
+  ],
+  "licence": null,
+  "likes": 275,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "d1-3B",
+  "org": "Liquid AI",
+  "pertinent": true,
+  "pourquoi": "Décision multimodale 3 B",
+  "premiereVue": "2026-10-11",
+  "resume": "Modèle de décision multimodal de 3 B : réponse typée en une passe, sans texte généré.",
+  "score": 70,
+  "source": "trending",
+  "tache": "Vision-langage",
+  "taille": "3 B",
+  "type": "model",
+  "url": "https://huggingface.co/LiquidAI/d1-3B"
+}

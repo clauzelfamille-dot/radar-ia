@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "audio",
+    "local"
+  ],
+  "downloads": 12800,
+  "hfId": "Cactus-Compute/whistle",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 12800,
+      "likes": 316,
+      "score": 65
+    }
+  ],
+  "licence": null,
+  "likes": 316,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "whistle",
+  "org": "Cactus Compute",
+  "pertinent": true,
+  "pourquoi": "ASR ultra-léger",
+  "premiereVue": "2026-10-11",
+  "resume": "ASR ultra-léger pour l'embarqué et le CPU.",
+  "score": 65,
+  "source": "trending",
+  "tache": "Transcription",
+  "taille": "17 Mo",
+  "type": "model",
+  "url": "https://huggingface.co/Cactus-Compute/whistle"
+}

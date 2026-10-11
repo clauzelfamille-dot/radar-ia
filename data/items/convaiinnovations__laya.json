@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-09-18",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents",
+    "local"
+  ],
+  "downloads": 42900,
+  "hfId": "convaiinnovations/laya",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 42900,
+      "likes": 5470,
+      "score": 79
+    }
+  ],
+  "licence": null,
+  "likes": 5470,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "laya",
+  "org": "Convai",
+  "pertinent": true,
+  "pourquoi": "Décision typée 0,4 B sur CPU",
+  "premiereVue": "2026-10-11",
+  "resume": "Modèle de décision typée de 0,4 B qui tourne sur CPU ; n°1 des likes sur 30 jours.",
+  "score": 79,
+  "source": "trending",
+  "tache": "Classification",
+  "taille": "0,4 B",
+  "type": "model",
+  "url": "https://huggingface.co/convaiinnovations/laya"
+}

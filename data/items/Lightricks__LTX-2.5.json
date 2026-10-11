@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-07-23",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 1720000,
+  "hfId": "Lightricks/LTX-2.5",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 1720000,
+      "likes": 7210,
+      "score": 71
+    }
+  ],
+  "licence": null,
+  "likes": 7210,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "LTX-2.5",
+  "org": "Lightricks",
+  "pertinent": false,
+  "pourquoi": "Vidéo ouverte de référence",
+  "premiereVue": "2026-10-11",
+  "resume": "Modèle vidéo ouvert de référence, mis à jour en continu.",
+  "score": 71,
+  "source": "trending",
+  "tache": "Image→vidéo",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/Lightricks/LTX-2.5"
+}

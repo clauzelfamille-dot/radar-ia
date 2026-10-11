@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-20",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 727000,
+  "hfId": "openbmb/MiniCPM5-2B",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 727000,
+      "likes": 1690,
+      "score": 79
+    }
+  ],
+  "licence": null,
+  "likes": 1690,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "MiniCPM5-2B",
+  "org": "OpenBMB",
+  "pertinent": true,
+  "pourquoi": "2 B de référence on-device",
+  "premiereVue": "2026-10-11",
+  "resume": "Le 2 B de référence pour le on-device.",
+  "score": 79,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "2 B",
+  "type": "model",
+  "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+}

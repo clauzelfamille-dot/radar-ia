@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "audio"
+  ],
+  "downloads": 15700,
+  "hfId": "canberkkkkkk/ema-lightning",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 15700,
+      "likes": 345,
+      "score": 62
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 345,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "ema-lightning",
+  "org": "canberkkkkkk",
+  "pertinent": false,
+  "pourquoi": "TTS 34 Mo en streaming, turc uniquement",
+  "premiereVue": "2026-10-11",
+  "resume": "TTS de 8,6 millions de paramètres (34 Mo), streaming, turc uniquement.",
+  "score": 62,
+  "source": "trending",
+  "tache": "Synthèse vocale",
+  "taille": "8,6 M",
+  "type": "model",
+  "url": "https://huggingface.co/canberkkkkkk/ema-lightning"
+}

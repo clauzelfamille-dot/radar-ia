@@ -1,0 +1,40 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Moondream publie une version à poids ternaires du parakeet de NVIDIA. Le français y est, le CPU suffit, et l'horodatage par mot est inclus. Le taux d'erreur monte un peu : la question est de savoir si c'est acceptable pour des comptes rendus de réunion.",
+  "corpsHtml": "<p><a href=\"https://huggingface.co/moondream/parakeet-redux\">parakeet-redux</a> est une version à 1,58 bit (poids ternaires) du modèle parakeet-tdt-0.6b-v3 de NVIDIA. Le fichier passe de 1,2 Go à 178 Mo, pour 25 langues dont le français, sous licence CC-BY-4.0. Sur huit cœurs x86, la fiche annonce 113 fois le temps réel : une heure de réunion transcrite en une trentaine de secondes, sans GPU.</p>\n<h2>Ce que la compression coûte</h2>\n<p>Les chiffres sont publiés et honnêtes. En anglais, le taux d'erreur de mots passe de 6,26 % à 6,55 %. En français (FLEURS), il passe de 4,81 % à 7,71 % : c'est l'écart le plus visible. Avec du bruit de fond, l'original tient mieux (6,72 % contre 9,04 %). En moyenne sur toutes les langues, le modèle compressé fait pourtant légèrement mieux (10,56 % contre 11,62 %).</p>\n<h2>Ce que la version apporte</h2>\n<ul>\n<li>Découpage automatique des audios longs.</li>\n<li>Horodatage par mot ou par segment, utile pour retrouver un passage dans un enregistrement.</li>\n<li>Un format qui tourne sur un portable d'entreprise standard.</li>\n</ul>\n<h2>Comment le situer</h2>\n<p>Pour un flux en français, <a href=\"https://huggingface.co/Cactus-Compute/whistle\">Whistle</a> (17 Mo) reste la référence de l'ultra-léger, et le parakeet original reste plus précis. parakeet-redux se place entre les deux : plus de langues et des horodatages, dans un format qui évite le GPU. Associé à <a href=\"https://huggingface.co/nvidia/Nemotron-3-Diarization\">Nemotron-3-Diarization</a> pour savoir qui parle, il forme une chaîne complète de compte rendu de réunion entièrement locale.</p>\n<p>Le test à faire : un enregistrement réel de trente minutes, transcrit par les trois modèles, puis une relecture des passages techniques. Si l'écart de 3 points de WER ne touche que des mots courants, la version compressée suffit.</p>",
+  "date": "2026-10-11",
+  "domaine": "audio",
+  "itemIds": [
+    "moondream__parakeet-redux",
+    "Cactus-Compute__whistle",
+    "nvidia__Nemotron-3-Diarization"
+  ],
+  "motsCles": [
+    "transcription",
+    "ASR",
+    "français",
+    "CPU",
+    "poids ternaires",
+    "parakeet",
+    "Whistle"
+  ],
+  "publieLe": "2026-10-11T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche moondream/parakeet-redux",
+      "url": "https://huggingface.co/moondream/parakeet-redux"
+    },
+    {
+      "titre": "Fiche nvidia/Nemotron-3-Diarization",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization"
+    },
+    {
+      "titre": "Fiche Cactus-Compute/whistle",
+      "url": "https://huggingface.co/Cactus-Compute/whistle"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 3,
+  "titre": "parakeet-redux : la transcription en 25 langues tient désormais en 178 Mo",
+  "verifiePar": "redac-chef"
+}

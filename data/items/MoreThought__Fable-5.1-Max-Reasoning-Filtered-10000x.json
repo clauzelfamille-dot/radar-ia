@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "code",
+    "donnees"
+  ],
+  "downloads": 5090,
+  "hfId": "MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 5090,
+      "likes": 293,
+      "score": 69
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 293,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Fable-5.1-Max-Reasoning-Filtered-10000x",
+  "org": "MoreThought",
+  "pertinent": true,
+  "pourquoi": "Traces de raisonnement pour distillation",
+  "premiereVue": "2026-10-11",
+  "resume": "Traces de raisonnement et de codage agentique générées par Fable 5.1, pour distiller vers de petits LLM.",
+  "score": 69,
+  "source": "nouveau",
+  "tache": "Traces de raisonnement",
+  "taille": "10-15 k traces",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x"
+}

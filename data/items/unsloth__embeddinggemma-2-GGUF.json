@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "multilingue"
+  ],
+  "downloads": 50600,
+  "hfId": "unsloth/embeddinggemma-2-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 50600,
+      "likes": 237,
+      "score": 72
+    }
+  ],
+  "licence": null,
+  "likes": 237,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "embeddinggemma-2-GGUF",
+  "org": "Unsloth",
+  "pertinent": true,
+  "pourquoi": "Version GGUF 0,3 B",
+  "premiereVue": "2026-10-11",
+  "resume": "Version GGUF d'EmbeddingGemma 2.",
+  "score": 72,
+  "source": "trending",
+  "tache": "Embeddings",
+  "taille": "0,3 B",
+  "type": "model",
+  "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF"
+}

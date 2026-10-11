@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "multilingue"
+  ],
+  "downloads": 10500,
+  "hfId": "Aleph-Alpha/Kolibri-1",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 10500,
+      "likes": 871,
+      "score": 59
+    }
+  ],
+  "licence": null,
+  "likes": 871,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Kolibri-1",
+  "org": "Aleph Alpha",
+  "pertinent": false,
+  "pourquoi": "LLM européen 78 B",
+  "premiereVue": "2026-10-11",
+  "resume": "LLM européen de 78 B publié par Aleph Alpha.",
+  "score": 59,
+  "source": "trending",
+  "tache": "Génération de texte",
+  "taille": "78 B",
+  "type": "model",
+  "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1"
+}

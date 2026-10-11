@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-09",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 2140,
+  "hfId": "Qwen/Qwen-Image-2.1-Turbo",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 2140,
+      "likes": 466,
+      "score": 59
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 466,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Qwen-Image-2.1-Turbo",
+  "org": "Qwen",
+  "pertinent": false,
+  "pourquoi": "Génération en 8 étapes, écosystème très actif",
+  "premiereVue": "2026-10-11",
+  "resume": "Génération d'images en 8 étapes à partir de Qwen-Image-2.1 ; a lancé une vague de GGUF, LoRA et Spaces.",
+  "score": 59,
+  "source": "trending",
+  "tache": "Texte→image",
+  "taille": "7 B",
+  "type": "model",
+  "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo"
+}

@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-09",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents",
+    "donnees"
+  ],
+  "downloads": 34500,
+  "hfId": "LocalLLaMA/typed-decisions",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 34500,
+      "likes": 158,
+      "score": 70
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 158,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "typed-decisions",
+  "org": "LocalLLaMA",
+  "pertinent": true,
+  "pourquoi": "Benchmark décisions, dont factures",
+  "premiereVue": "2026-10-11",
+  "resume": "Benchmark de 1,6 k décisions typées sur 4 domaines dont le traitement de factures.",
+  "score": 70,
+  "source": "nouveau",
+  "tache": "Benchmark décisions",
+  "taille": "1,6 k lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions"
+}

@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-08-31",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "donnees"
+  ],
+  "downloads": 28500,
+  "hfId": "openbmb/UltraData-SFT-Agent-2609",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 28500,
+      "likes": 291,
+      "score": 60
+    }
+  ],
+  "licence": null,
+  "likes": 291,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "UltraData-SFT-Agent-2609",
+  "org": "OpenBMB",
+  "pertinent": true,
+  "pourquoi": "240 k exemples d'agents tool-use",
+  "premiereVue": "2026-10-11",
+  "resume": "240 k exemples pour entraîner des agents tool-use.",
+  "score": 60,
+  "source": "likes30d",
+  "tache": "Dataset agents",
+  "taille": "240 k exemples",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/openbmb/UltraData-SFT-Agent-2609"
+}

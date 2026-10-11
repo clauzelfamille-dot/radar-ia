@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-30",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 81100,
+  "hfId": "Edge0/Edge0-35B-A3B-preview",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 81100,
+      "likes": 3570,
+      "score": 78
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 3570,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Edge0-35B-A3B-preview",
+  "org": "Edge0",
+  "pertinent": true,
+  "pourquoi": "MoE 35 B servi depuis SSD",
+  "premiereVue": "2026-10-11",
+  "resume": "MoE 35 B servi depuis SSD (paper « Memory Wall »), int4.",
+  "score": 78,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "35 B MoE / 3 B actifs, int4",
+  "type": "model",
+  "url": "https://huggingface.co/Edge0/Edge0-35B-A3B-preview"
+}

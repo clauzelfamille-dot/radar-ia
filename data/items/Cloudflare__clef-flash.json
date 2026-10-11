@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-03",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents",
+    "local"
+  ],
+  "downloads": 20700,
+  "hfId": "Cloudflare/clef-flash",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 20700,
+      "likes": 742,
+      "score": 69
+    }
+  ],
+  "licence": null,
+  "likes": 742,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "clef-flash",
+  "org": "Cloudflare",
+  "pertinent": true,
+  "pourquoi": "Version 9 B de Clef, exécutable en local",
+  "premiereVue": "2026-10-11",
+  "resume": "Version 9 B de Clef, exécutable en local.",
+  "score": 69,
+  "source": "trending",
+  "tache": "Vision-langage",
+  "taille": "9 B",
+  "type": "model",
+  "url": "https://huggingface.co/Cloudflare/clef-flash"
+}

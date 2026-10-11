@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-03",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "documents"
+  ],
+  "downloads": 13600,
+  "hfId": "Cloudflare/clef",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 13600,
+      "likes": 2000,
+      "score": 72
+    }
+  ],
+  "licence": null,
+  "likes": 2000,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "clef",
+  "org": "Cloudflare",
+  "pertinent": true,
+  "pourquoi": "Modèle de décision multimodal 27 B",
+  "premiereVue": "2026-10-11",
+  "resume": "Modèle de décision multimodal 27 B de Cloudflare : réponse typée et calibrée à partir d'un texte ou d'une image.",
+  "score": 72,
+  "source": "trending",
+  "tache": "Vision-langage",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/Cloudflare/clef"
+}

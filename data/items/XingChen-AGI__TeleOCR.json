@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-08-17",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "documents",
+    "local"
+  ],
+  "downloads": 45100,
+  "hfId": "XingChen-AGI/TeleOCR",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 45100,
+      "likes": 1290,
+      "score": 67
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 1290,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "TeleOCR",
+  "org": "XingChen-AGI",
+  "pertinent": true,
+  "pourquoi": "OCR + tableaux + layout en 1,2 B",
+  "premiereVue": "2026-10-11",
+  "resume": "VLM de parsing de documents : OCR, tableaux, formules, layout ; GGUF disponibles ; chinois et anglais.",
+  "score": 67,
+  "source": "likes30d",
+  "tache": "OCR / documents",
+  "taille": "1,2 B",
+  "type": "model",
+  "url": "https://huggingface.co/XingChen-AGI/TeleOCR"
+}

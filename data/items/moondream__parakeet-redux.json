@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "audio",
+    "local",
+    "multilingue"
+  ],
+  "downloads": 1640,
+  "hfId": "moondream/parakeet-redux",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 1640,
+      "likes": 157,
+      "score": 64
+    }
+  ],
+  "licence": "CC-BY-4.0",
+  "likes": 157,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "parakeet-redux",
+  "org": "Moondream",
+  "pertinent": true,
+  "pourquoi": "178 Mo, 25 langues dont le français, CPU",
+  "premiereVue": "2026-10-11",
+  "resume": "ASR parakeet en poids ternaires : 178 Mo, 25 langues dont le français, CPU 113× temps réel.",
+  "score": 64,
+  "source": "nouveau",
+  "tache": "Transcription",
+  "taille": "0,6 B (178 Mo)",
+  "type": "model",
+  "url": "https://huggingface.co/moondream/parakeet-redux"
+}

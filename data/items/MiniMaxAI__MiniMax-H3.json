@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-08-13",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 3660000,
+  "hfId": "MiniMaxAI/MiniMax-H3",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 3660000,
+      "likes": 5680,
+      "score": 71
+    }
+  ],
+  "licence": null,
+  "likes": 5680,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "MiniMax-H3",
+  "org": "MiniMax",
+  "pertinent": false,
+  "pourquoi": "Vidéo + bande-son, n°1 des Spaces",
+  "premiereVue": "2026-10-11",
+  "resume": "Vidéo avec bande-son synchronisée ; n°1 des Spaces.",
+  "score": 71,
+  "source": "likes30d",
+  "tache": "Image+texte→vidéo",
+  "taille": "33 B",
+  "type": "model",
+  "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+}

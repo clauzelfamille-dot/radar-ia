@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-09-10",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "code",
+    "agents"
+  ],
+  "downloads": 1360000,
+  "hfId": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 1360000,
+      "likes": 4340,
+      "score": 68
+    }
+  ],
+  "licence": "MIT",
+  "likes": 4340,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "DeepSeek-V4.1-Flash",
+  "org": "DeepSeek",
+  "pertinent": false,
+  "pourquoi": "MoE contexte 1 M, licence MIT",
+  "premiereVue": "2026-10-11",
+  "resume": "MoE, contexte 1 M, licence MIT.",
+  "score": 68,
+  "source": "likes30d",
+  "tache": "Vision-langage",
+  "taille": "MoE",
+  "type": "model",
+  "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+}

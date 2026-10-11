@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": null,
+  "hfId": "Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": null,
+      "likes": 1270,
+      "score": 43
+    }
+  ],
+  "licence": null,
+  "likes": 1270,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "MiniMax-H3-Turbo-Lora",
+  "org": "Pepe104",
+  "pertinent": false,
+  "pourquoi": "N°1 des Spaces",
+  "premiereVue": "2026-10-11",
+  "resume": "N°1 des Spaces : vidéo + bande-son synchronisée à partir d'un prompt.",
+  "score": 43,
+  "source": "trending",
+  "tache": "Vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED"
+}

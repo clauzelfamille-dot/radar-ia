@@ -1,0 +1,47 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Fastino publie un classifieur de 340 millions de paramètres qui répond à plusieurs questions typées en un seul appel, sur CPU. Quatrième acteur en trois semaines sur un créneau qui intéresse directement le traitement documentaire.",
+  "corpsHtml": "<p>Depuis trois semaines, une famille de modèles se détache sur Hugging Face : les <strong>modèles de décision</strong>. Au lieu de produire un texte, ils renvoient une réponse typée (oui ou non, un choix parmi une liste, une note sur une échelle) accompagnée d'une probabilité calibrée. Cloudflare a ouvert le bal avec Clef et Clef-Flash, Convai a suivi avec Laya (0,4 B, numéro 1 des likes sur trente jours), Liquid AI avec d1-3B en version multimodale. Fastino complète la série avec <a href=\"https://huggingface.co/fastino/GLiNER2.5-Decide\">GLiNER2.5-Decide</a>.</p>\n<h2>Ce que fait le modèle</h2>\n<p>GLiNER2.5-Decide est un fine-tune de gliner2-large de 340 millions de paramètres, sous licence Apache 2.0. On lui donne un passage de texte et une ou plusieurs questions : une question fermée, un choix multiple, une échelle ordinale, une étiquette multi-label. Il répond à toutes en un seul appel, sans raisonnement intermédiaire ni texte libre. La fiche annonce 60,2 % de précision moyenne sur le benchmark maison « fast-decisions », évalué en anglais. Le modèle tourne sur CPU via la bibliothèque <code>gliner2</code>, ce qui le place dans la même catégorie d'usage que Laya.</p>\n<p>Pour les textes non anglais, Fastino renvoie vers <a href=\"https://huggingface.co/fastino/GLiNER2.5-multi-Decide\">GLiNER2.5-multi-Decide</a> (287 M), étiqueté multilingue. Le français n'y est pas évalué explicitement : c'est le premier point à vérifier.</p>\n<h2>Pourquoi c'est intéressant pour le traitement documentaire</h2>\n<p>Le tri de courriers, de procès-verbaux ou de fiches de non-conformité se résume souvent à quelques décisions : à traiter ou à archiver, urgent ou non, quel service, quelle criticité. Un LLM génératif sait le faire, mais il est lent, coûteux et difficile à calibrer. Un modèle de décision répond en quelques millisecondes, sur une machine sans GPU, et fournit une confiance exploitable pour router les cas douteux vers un humain.</p>\n<p>La communauté s'est d'ailleurs dotée d'un premier jeu d'évaluation neutre : <a href=\"https://huggingface.co/datasets/LocalLLaMA/typed-decisions\">typed-decisions</a>, 1 600 décisions réparties en quatre domaines, dont un sous-ensemble <em>invoice_processing</em> (traitement de factures). C'est le terrain idéal pour comparer GLiNER2.5-Decide, Laya, d1-3B et Clef-Flash sur des cas proches du réel.</p>\n<h2>Comment l'essayer</h2>\n<ul>\n<li>Installer <code>gliner2</code>, charger la variante multi-Decide, et lui soumettre une vingtaine de documents déjà classés à la main avec deux questions : « À traiter ? » (oui/non) et « Urgence » (0 à 5).</li>\n<li>Comparer les réponses et les scores de confiance avec Laya sur le même lot.</li>\n<li>Fixer un seuil de confiance en dessous duquel le document part en revue humaine.</li>\n</ul>\n<p>Le point de vigilance reste la langue : si la variante multilingue décroche sur le français, d1-3B (multimodal, 3 B) ou Clef-Flash (9 B) restent les options locales les plus solides, au prix d'un GPU.</p>",
+  "date": "2026-10-11",
+  "domaine": "documents",
+  "itemIds": [
+    "fastino__GLiNER2.5-Decide",
+    "fastino__GLiNER2.5-multi-Decide",
+    "convaiinnovations__laya",
+    "LiquidAI__d1-3B",
+    "Cloudflare__clef-flash",
+    "LocalLLaMA__typed-decisions"
+  ],
+  "motsCles": [
+    "décision typée",
+    "classification",
+    "CPU",
+    "GLiNER",
+    "Laya",
+    "Clef",
+    "documents"
+  ],
+  "publieLe": "2026-10-11T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche fastino/GLiNER2.5-Decide",
+      "url": "https://huggingface.co/fastino/GLiNER2.5-Decide"
+    },
+    {
+      "titre": "Fiche fastino/GLiNER2.5-multi-Decide",
+      "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide"
+    },
+    {
+      "titre": "Dataset LocalLLaMA/typed-decisions",
+      "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions"
+    },
+    {
+      "titre": "Fiche convaiinnovations/laya",
+      "url": "https://huggingface.co/convaiinnovations/laya"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "Trier des documents sans générer un mot : GLiNER2.5-Decide rejoint la vague des modèles de décision",
+  "verifiePar": "redac-chef"
+}

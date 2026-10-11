@@ -1,0 +1,5 @@
+{
+  "description": "Petits modèles et versions quantisées (GGUF, ONNX, MLX) qui tournent sur un PC.",
+  "nom": "LLM en local",
+  "ordre": 0
+}

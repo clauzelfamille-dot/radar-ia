@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-08-13",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 6450000,
+  "hfId": "unsloth/Qwen3.8-27B-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 6450000,
+      "likes": 5010,
+      "score": 82
+    }
+  ],
+  "licence": null,
+  "likes": 5010,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Qwen3.8-27B-GGUF",
+  "org": "Unsloth",
+  "pertinent": true,
+  "pourquoi": "GGUF le plus téléchargé",
+  "premiereVue": "2026-10-11",
+  "resume": "Le GGUF le plus téléchargé de la période.",
+  "score": 82,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
+}

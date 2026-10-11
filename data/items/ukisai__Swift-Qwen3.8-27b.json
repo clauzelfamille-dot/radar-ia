@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "local",
+    "code"
+  ],
+  "downloads": 19100,
+  "hfId": "ukisai/Swift-Qwen3.8-27b",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 19100,
+      "likes": 583,
+      "score": 74
+    }
+  ],
+  "licence": "Swift Open License v1.0",
+  "likes": 583,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Swift-Qwen3.8-27b",
+  "org": "ukisai",
+  "pertinent": true,
+  "pourquoi": "−58 % de réflexion, licence sous conditions",
+  "premiereVue": "2026-10-11",
+  "resume": "LoRA anti-surréflexion : −58 % de tokens de réflexion, ×1,95 en vitesse ; licence gratuite sous 1 M$ de CA.",
+  "score": 74,
+  "source": "nouveau",
+  "tache": "Vision-langage",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b"
+}

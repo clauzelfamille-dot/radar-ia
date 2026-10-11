@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-01",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "audio"
+  ],
+  "downloads": 72300,
+  "hfId": "nvidia/Nemotron-3-Diarization",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 72300,
+      "likes": 752,
+      "score": 66
+    }
+  ],
+  "licence": null,
+  "likes": 752,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Nemotron-3-Diarization",
+  "org": "NVIDIA",
+  "pertinent": true,
+  "pourquoi": "Diarisation, complément de parakeet",
+  "premiereVue": "2026-10-11",
+  "resume": "Qui parle quand — complément naturel de parakeet.",
+  "score": 66,
+  "source": "likes30d",
+  "tache": "Diarisation",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization"
+}

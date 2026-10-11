@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-11",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "code",
+    "local"
+  ],
+  "downloads": 42300,
+  "hfId": "nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 42300,
+      "likes": 205,
+      "score": 71
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 205,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "Qwen3.8-27B-Coder390",
+  "org": "nerkyor",
+  "pertinent": true,
+  "pourquoi": "Fine-tune code 27 B, chiffres auto-déclarés",
+  "premiereVue": "2026-10-11",
+  "resume": "Fine-tune code de Qwen3.8-27B (SFT + RLOO), GGUF Q2 à Q8 ; benchmarks auto-déclarés.",
+  "score": 71,
+  "source": "nouveau",
+  "tache": "Génération de code",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2"
+}

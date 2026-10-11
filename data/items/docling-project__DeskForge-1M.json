@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents",
+    "donnees"
+  ],
+  "downloads": 2300,
+  "hfId": "docling-project/DeskForge-1M",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 2300,
+      "likes": 33,
+      "score": 49
+    }
+  ],
+  "licence": "MIT",
+  "likes": 33,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "DeskForge-1M",
+  "org": "docling-project (IBM / ETH)",
+  "pertinent": false,
+  "pourquoi": "Captures annotées pour agents, équipe Docling",
+  "premiereVue": "2026-10-11",
+  "resume": "1,2 M captures d'écran annotées pour agents « computer-use », par l'équipe Docling.",
+  "score": 49,
+  "source": "nouveau",
+  "tache": "Agents computer-use",
+  "taille": "1,2 M captures",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/docling-project/DeskForge-1M"
+}

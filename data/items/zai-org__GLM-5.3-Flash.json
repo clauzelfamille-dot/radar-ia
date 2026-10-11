@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-09-22",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "code",
+    "agents"
+  ],
+  "downloads": 4240000,
+  "hfId": "zai-org/GLM-5.3-Flash",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": 4240000,
+      "likes": 2570,
+      "score": 74
+    }
+  ],
+  "licence": null,
+  "likes": 2570,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "GLM-5.3-Flash",
+  "org": "Z.ai",
+  "pertinent": false,
+  "pourquoi": "GLM 5.3 Flash, 4,2 M téléch.",
+  "premiereVue": "2026-10-11",
+  "resume": "Le « Flash » de GLM 5.3.",
+  "score": 74,
+  "source": "likes30d",
+  "tache": "Vision-langage",
+  "taille": "321 B",
+  "type": "model",
+  "url": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+}

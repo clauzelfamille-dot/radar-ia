@@ -1,0 +1,46 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Saluki, OrcaSAQ et Swift compressent ou raccourcissent le même modèle socle. Tour d'horizon de ce que chacun sacrifie, et d'une licence à lire avant de déployer.",
+  "corpsHtml": "<p>Avec 17 400 likes et 6,8 millions de téléchargements, <a href=\"https://huggingface.co/Qwen/Qwen3.8-27B\">Qwen3.8-27B</a> est le modèle socle de la rentrée. En BF16 il pèse 54 Go, hors de portée d'un PC. Trois dérivés apparus ces dix derniers jours visent le même objectif : garder ses capacités d'agent (appel d'outils, mode réflexion, long contexte) dans un format qui tient sur une carte grand public.</p>\n<h2>Saluki : 7,9 Go, le plus petit</h2>\n<p><a href=\"https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0\">Underdog-Saluki-27B-1.0</a> (Conway Research) ramène le modèle à 7,9 Go en quantisation IQ2 avec entraînement, en annonçant l'appel d'outils intact. C'est le choix pour une carte de 8 Go ou un portable. Le prix se paie en finesse de raisonnement sur les tâches longues, ce que la fiche ne cache pas.</p>\n<h2>OrcaSAQ-2 : 12,3 Go, le plus fidèle</h2>\n<p><a href=\"https://huggingface.co/orcarouter/OrcaSAQ-2-27B\">OrcaSAQ-2-27B</a> applique une quantisation mixte à 3,21 bits par poids en moyenne : 12,3 Go, contexte de 262 000 tokens, appel d'outils et mode réflexion conservés, licence Apache 2.0. La fiche annonce une perplexité à +0,02 % du BF16 et un SWE-bench Verified à 70. Ces chiffres sont auto-déclarés, mais l'ordre de grandeur est cohérent avec ce que fait ISTA-DASLab sur le même modèle. Sur une carte de 16 Go, c'est l'option à essayer en premier pour un agent local.</p>\n<h2>Swift : moins de réflexion, pas moins de poids</h2>\n<p><a href=\"https://huggingface.co/ukisai/Swift-Qwen3.8-27b\">Swift-Qwen3.8-27b</a> ne compresse pas : c'est un adaptateur LoRA qui pénalise les marqueurs de « sur-réflexion ». Résultat annoncé : 58 % de tokens de réflexion en moins, une vitesse multipliée par 1,95, et une qualité stable sauf sur AIME (98,7 à 94). Une <a href=\"https://huggingface.co/ukisai/Swift-Qwen3.8-27B-GGUF\">version GGUF</a> existe. Attention à la licence : « Swift Open License v1.0 », gratuite sous un million de dollars de chiffre d'affaires annuel, licence Enterprise au-delà. Pour un usage en entreprise, ce n'est pas un modèle ouvert au sens habituel.</p>\n<h2>Lequel choisir</h2>\n<table><thead><tr><th>Dérivé</th><th>Poids</th><th>Ce qu'il garde</th><th>Licence</th></tr></thead>\n<tbody><tr><td>Saluki</td><td>7,9 Go</td><td>Appel d'outils</td><td>Ouverte</td></tr>\n<tr><td>OrcaSAQ-2</td><td>12,3 Go</td><td>Outils, réflexion, 262 k de contexte</td><td>Apache 2.0</td></tr>\n<tr><td>Swift</td><td>Comme l'original (GGUF disponibles)</td><td>Tout, en réfléchissant moins</td><td>Sous conditions de CA</td></tr></tbody></table>\n<p>La tendance de fond est claire : la quantisation sous 3 bits avec entraînement devient la norme du local, et Qwen3.8-27B en est la plateforme. Prochaine étape à surveiller : les mêmes techniques appliquées aux modèles de 9 B, qui tiendraient alors en moins de 4 Go.</p>",
+  "date": "2026-10-11",
+  "domaine": "local",
+  "itemIds": [
+    "orcarouter__OrcaSAQ-2-27B",
+    "ukisai__Swift-Qwen3.8-27b",
+    "ukisai__Swift-Qwen3.8-27B-GGUF",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "prism-ml__Ternary-Bonsai-2-27B-gguf",
+    "Qwen__Qwen3.8-27B"
+  ],
+  "motsCles": [
+    "Qwen3.8-27B",
+    "quantisation",
+    "GGUF",
+    "appel d'outils",
+    "agents locaux",
+    "licence"
+  ],
+  "publieLe": "2026-10-11T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche orcarouter/OrcaSAQ-2-27B",
+      "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-27B"
+    },
+    {
+      "titre": "Fiche ukisai/Swift-Qwen3.8-27b",
+      "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b"
+    },
+    {
+      "titre": "Fiche ConwayResearch/Underdog-Saluki-27B-1.0",
+      "url": "https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0"
+    },
+    {
+      "titre": "Fiche Qwen/Qwen3.8-27B",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 5,
+  "titre": "Qwen3.8-27B en 8 à 12 Go : trois façons de faire tourner un agent sur un PC",
+  "verifiePar": "redac-chef"
+}

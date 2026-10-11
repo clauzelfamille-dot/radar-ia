@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-11",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": null,
+  "hfId": "autotrust/jev-9b-decision-demo",
+  "historique": [
+    {
+      "date": "2026-10-11",
+      "downloads": null,
+      "likes": 92,
+      "score": 48
+    }
+  ],
+  "licence": null,
+  "likes": 92,
+  "majLe": "2026-10-11T07:30:00+02:00",
+  "nom": "jev-9b-decision-demo",
+  "org": "AutoTrust",
+  "pertinent": true,
+  "pourquoi": "Démo de décision typée 9 B",
+  "premiereVue": "2026-10-11",
+  "resume": "Texte + 4 questions typées avec score de confiance, raisonnement « System 2 » en option.",
+  "score": 48,
+  "source": "trending",
+  "tache": "Démo décision",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo"
+}
