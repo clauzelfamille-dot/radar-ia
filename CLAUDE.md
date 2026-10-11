@@ -1,8 +1,8 @@
 # Radar IA — contexte projet pour Claude Code
 
 Langue : français uniquement (code commenté en français, messages de commit en français).
-Propriétaire : Guillaume, compte GitHub `clauzelfamille-dot`. Ne jamais publier d'adresse e-mail personnelle dans le
-dépôt ; commits avec l'adresse anonyme GitHub (`250761295+clauzelfamille-dot@users.noreply.github.com`).
+Hébergé sur le compte GitHub `clauzelfamille-dot`. Ne jamais publier de donnée personnelle du propriétaire (nom, e-mail,
+profils de réseaux) dans le dépôt ni sur le site ; commits avec l'adresse anonyme GitHub (`250761295+clauzelfamille-dot@users.noreply.github.com`).
 
 ## Ce qu'est le projet
 Site statique de veille sur les modèles IA ouverts (Hugging Face), optimisé SEO + GEO (moteurs et assistants IA).
@@ -18,7 +18,7 @@ Site statique de veille sur les modèles IA ouverts (Hugging Face), optimisé SE
   dates, langues, paramètres, formats, modèle de base, compteurs). Ces faits priment sur la saisie des agents et
   alimentent les guides (`guides/francais`, `guides/licences`, `guides/gguf`, `familles/<base>`).
 - `build/verifier.py` : contrôles avant publication ; `build/indexnow.py` ; `build/diffusion.py`.
-- `SEO-GEO.md` : cahier des charges de référencement à respecter.
+- `SEO-GEO.md` : cahier des charges de référencement à respecter ; `CHARTE.md` : charte graphique (à respecter).
 
 ## Commandes
 - Générer : `python3 build/build.py --data data --out dist --site-url https://clauzelfamille-dot.github.io/radar-ia/`
@@ -32,7 +32,7 @@ Ils écrivent dans la base de l'artefact back-office https://claude.ai/artifact/
 le site public miroir est https://claude.ai/artifact/FiYty6LrpA8fpC6WMEyVgd. L'agent 5 pousse `data/` ici si le dépôt
 lui est attaché.
 Tâches planifiées locales (application Claude, une conversation par passage) : Synchro GitHub 08:55 (exporte la base
-vers `data/`, contrôle, pousse), Diffusion 09:20 (posts prêts à publier dans `../diffusion/`), Croissance SEO/GEO
+vers `data/`, vérifie sur Hugging Face, contrôle, pousse), Diffusion (en pause : pas de profil personnel), Croissance SEO/GEO
 le lundi 10:00, Revenus & pilotage le lundi 10:30 (rapport dans `../pilotage/`).
 
 ## Règles
@@ -41,4 +41,4 @@ le lundi 10:00, Revenus & pilotage le lundi 10:30 (rapport dans `../pilotage/`).
 - Score Radar = 40·popularité + 30·diffusion + 20·fraîcheur + 10·pertinence (voir build.py et SEO-GEO.md).
 - Garder le site sans JavaScript côté lecteur ; tout le texte doit être dans le HTML.
 - Monétisation : tout contenu payant est signalé et en `rel="sponsored"` ; aucun partenaire n'influence le Score Radar ;
-  aucun message envoyé à un tiers sans validation de Guillaume (brouillons seulement).
+  aucun message envoyé à un tiers sans validation du propriétaire (brouillons seulement).

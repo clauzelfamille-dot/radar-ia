@@ -14,7 +14,7 @@ Coûts directs actuels : 0 € (GitHub Pages gratuit ; les agents tournent sur l
 | Abonnement | Page `abonnement.html` + encart sur la une, les articles, les éditions et les fiches (RSS tant que la newsletter n'est pas branchée) |
 | Partenaires | Page `soutenir.html#annoncer` (offres, règles, contact) + encart « Espace partenaire » sur la une, les éditions, les articles |
 | Réseaux | Après chaque déploiement, les nouveaux articles partent sur Bluesky et Mastodon dès que les secrets existent |
-| Agents | Synchro GitHub (quotidien), Diffusion (quotidien), Croissance SEO/GEO (hebdo), Revenus & pilotage (hebdo) |
+| Agents | Synchro GitHub (quotidien), Croissance SEO/GEO (hebdo), Revenus & pilotage (hebdo) |
 
 ## Ce que seul le propriétaire peut faire (comptes, signatures, paiements)
 Par ordre d'impact. Chaque ligne active un bloc déjà prêt : remplir le champ dans `config/site.json`, commit, push.
@@ -24,8 +24,8 @@ Par ordre d'impact. Chaque ligne active un bloc déjà prêt : remplir le champ 
 2. **Bing Webmaster Tools** (5 min) — importer depuis Search Console, ou balise → `verification.bing`.
 3. **Newsletter** (15 min) — Buttondown (le plus simple) ou Brevo (français, gratuit jusqu'à 300 envois/jour) →
    `newsletter.action` (+ `champEmail`, `champsCaches`). C'est l'actif principal : une audience qui revient et qui se sponsorise.
-4. **Profil LinkedIn** — publier chaque matin le post préparé par l'agent Diffusion (dossier `diffusion/` du projet).
-   Le réseau personnel est la source de visiteurs la plus rapide les 30 premiers jours.
+4. **Aucun profil personnel** — le propriétaire ne veut pas que ses données ni ses profils de réseaux soient utilisés :
+   la diffusion passe uniquement par des comptes au nom de Radar IA.
 5. **Bluesky + Mastodon** (10 min) — créer « Radar IA », puis dans GitHub → Settings → Secrets → Actions :
    `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` (mot de passe d'application), `MASTODON_URL`, `MASTODON_TOKEN`.
    Ajouter les URL des profils dans `reseaux`.

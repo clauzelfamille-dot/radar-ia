@@ -304,61 +304,125 @@ class Site:
 # ------------------------------------------------------------------ gabarit
 
 CSS = r"""
-:root{--bg:#f7f7f5;--bg2:#fff;--bg3:#ecece6;--fg:#16181d;--fg2:#4a505b;--fg3:#7a808a;--line:#dcdcd4;--acc:#5b3fd9;--acc2:#c2410c;--soft:#ebe6ff;--star:#a16207;
---mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--r:6px;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#101116;--bg2:#171922;--bg3:#20232e;--fg:#e9e9ef;--fg2:#a9adbb;--fg3:#7c8191;--line:#2a2e3b;--acc:#a593ff;--acc2:#fb923c;--soft:#25204a;--star:#eab308;color-scheme:dark}}
+/* Charte Radar IA v2 : « instrument de bord éditorial ». Voir CHARTE.md. */
+:root{--bg:#f6f4ee;--bg2:#fffefa;--bg3:#ece8de;--fg:#12161a;--fg2:#4a525c;--fg3:#757d86;--line:#ddd8cc;--rule:#12161a;
+--acc:#0a7155;--acc-ink:#065240;--soft:#dcefe6;--acc2:#a8530a;--star:#a8530a;--ring:#d9d4c7;--band:#12161a;--on-band:#eef1ec;
+--d-local:#2463d6;--d-documents:#a8530a;--d-agents:#7a3fd6;--d-audio:#c42a72;--d-code:#08799a;--d-multilingue:#178a3e;
+--d-image-video:#d2501a;--d-donnees:#5b7a12;--d-tendances:#5f6b78;
+--serif:"Iowan Old Style","Charter","Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--mono:ui-monospace,"Cascadia Code","JetBrains Mono",SFMono-Regular,Menlo,Consolas,monospace;--r:4px;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0b0f12;--bg2:#11171b;--bg3:#18211f;--fg:#e7ece8;--fg2:#a6b0aa;--fg3:#7b8781;--line:#24302c;--rule:#e7ece8;
+--acc:#3fd69b;--acc-ink:#7be8bd;--soft:#10291f;--acc2:#f0a64a;--star:#f0a64a;--ring:#24302c;--band:#050709;--on-band:#e7ece8;
+--d-local:#6b9cff;--d-documents:#f0a64a;--d-agents:#b08cff;--d-audio:#ff7ab2;--d-code:#4cc9e8;--d-multilingue:#5fd68a;
+--d-image-video:#ff8a5c;--d-donnees:#a9cf52;--d-tendances:#9aa6b2;color-scheme:dark}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans)}
-a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
-.w{max-width:1120px;margin:0 auto;padding-inline:16px}
-h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}h1{font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:-.02em}h2{font-size:1.3rem}h3{font-size:1.05rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:16.5px/1.62 var(--sans)}
+a{color:var(--acc-ink);text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);text-underline-offset:2px}
+a:hover{text-decoration-color:currentColor}:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
+.w{max-width:1160px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(1.8rem,4.2vw,2.9rem)}h2{font-size:1.35rem}h3{font-size:1.08rem}
+h3 a,h2 a,.card h3 a{color:var(--fg);text-decoration:none}h3 a:hover,h2 a:hover{color:var(--acc-ink)}
 .mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eb{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3)}
+.eb{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
 .mut{color:var(--fg2)}.sm{font-size:.88rem}
-header.top{border-bottom:1px solid var(--line);background:var(--bg)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px;flex-wrap:wrap}
-.logo{font-family:var(--mono);font-weight:700;font-size:1.15rem;color:var(--fg)}.logo b{color:var(--acc)}
-nav.m{display:flex;gap:2px;flex-wrap:wrap}nav.m a{font-family:var(--mono);font-size:.84rem;padding:6px 10px;border-radius:var(--r);color:var(--fg2)}
-nav.m a[aria-current=page]{background:var(--fg);color:var(--bg)}
-main{padding-block:28px 56px}section{margin-top:36px}section:first-child{margin-top:0}
-.sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
-.crumb{font-family:var(--mono);font-size:.78rem;color:var(--fg3);margin-bottom:12px}.crumb a{color:var(--fg3)}
-.lead{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px}@media(max-width:820px){.lead{grid-template-columns:1fr}}
-.ess{list-style:none;margin:16px 0 0;padding:0}.ess li{padding:10px 0;border-top:1px solid var(--line)}.ess li:first-child{border-top:0}
-.ess li::before{content:"> ";font-family:var(--mono);color:var(--acc2);font-weight:700}
-.box{background:var(--bg3);border-radius:var(--r);padding:14px 16px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+/* Bandeau et en-tête façon quotidien */
+.strip{background:var(--band);color:var(--on-band);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em}
+.strip .w{display:flex;justify-content:space-between;gap:12px;padding-block:6px;flex-wrap:wrap}.strip a{color:var(--on-band)}
+header.top{background:var(--bg);border-bottom:3px double var(--rule)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:16px 12px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none}
+.logo svg{width:38px;height:38px;flex:none}.logo b{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.02em;line-height:1}
+.logo i{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--fg3);letter-spacing:.08em;display:block;margin-top:3px}
+nav.m{display:flex;gap:2px;flex-wrap:wrap}
+nav.m a{font-family:var(--mono);font-size:.8rem;padding:6px 9px;border-radius:var(--r);color:var(--fg2);text-decoration:none}
+nav.m a:hover{color:var(--fg);background:var(--bg3)}nav.m a[aria-current=page]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--acc)}
+nav.m a.sub{background:var(--acc);color:var(--bg2);font-weight:600}nav.m a.sub:hover{background:var(--acc-ink)}
+main{padding-block:30px 60px}section{margin-top:40px}section:first-child{margin-top:0}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:2px solid var(--rule);padding-top:8px;margin-bottom:16px}
+.sh h2{font-size:1.25rem}.sh a{font-family:var(--mono);font-size:.8rem;white-space:nowrap}.sh .eb{white-space:nowrap}
+.crumb{font-family:var(--mono);font-size:.76rem;color:var(--fg3);margin-bottom:14px}.crumb a{color:var(--fg3)}
+/* Une */
+.lead{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:36px}@media(max-width:860px){.lead{grid-template-columns:1fr}}
+.ess{list-style:none;margin:18px 0 0;padding:0;counter-reset:e}
+.ess li{counter-increment:e;display:grid;grid-template-columns:2.2rem 1fr;gap:6px;padding:12px 0;border-top:1px solid var(--line)}
+.ess li:first-child{border-top:0}.ess li::before{content:counter(e,decimal-leading-zero);font-family:var(--mono);font-weight:700;color:var(--acc);padding-top:2px}
+.box{background:var(--bg3);border-radius:var(--r);padding:16px 18px}
+.radar{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.radar h2{font-size:1rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--fg2)}
+.bars{list-style:none;margin:12px 0 0;padding:0}.bars li{margin:10px 0}.bars a{color:var(--fg);text-decoration:none;font-weight:600;font-size:.92rem}
+.bars .t{display:flex;justify-content:space-between;gap:8px}.bars .t span{font-family:var(--mono);font-size:.8rem;color:var(--fg2)}
+.bars .g{height:6px;background:var(--ring);border-radius:3px;margin-top:4px;overflow:hidden}.bars .g i{display:block;height:100%;background:var(--acc);border-radius:3px}
+/* Cartes */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-top:3px solid var(--dc,var(--line));border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:7px;min-width:0}
 .card h3{overflow-wrap:anywhere}.card p{margin:0;font-size:.92rem;color:var(--fg2)}
-.meta{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.76rem;color:var(--fg2);margin-top:auto}
-.sc{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:12px;font-family:var(--mono);font-size:.82rem;background:var(--soft);color:var(--acc)}
-.sc.hot{background:var(--acc);color:var(--bg)}
-.chip{display:inline-block;font-family:var(--mono);font-size:.7rem;padding:1px 7px;border-radius:3px;background:var(--bg3);color:var(--fg2);margin:0 4px 4px 0}
+.meta{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--fg2);margin-top:auto;padding-top:4px}
+/* Jauge Score Radar */
+.sc{--p:0;display:inline-grid;place-items:center;width:2.35em;height:2.35em;border-radius:50%;vertical-align:middle;flex:none;
+background:radial-gradient(closest-side,var(--bg2) 76%,transparent 78% 100%),conic-gradient(var(--fg3) calc(var(--p)*1%),var(--ring) 0);
+font:700 .78rem/1 var(--mono);color:var(--fg)}
+.sc.hot{background:radial-gradient(closest-side,var(--bg2) 76%,transparent 78% 100%),conic-gradient(var(--acc) calc(var(--p)*1%),var(--ring) 0);color:var(--acc-ink)}
+h1 .sc{font-size:1.1rem}
+.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:.7rem;padding:2px 7px;border-radius:999px;background:var(--bg3);color:var(--fg2);margin:0 4px 4px 0;text-decoration:none}
+.chip[data-d]::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dc,var(--fg3))}
+a.chip:hover{color:var(--fg)}
 .star{color:var(--star)}
+/* Tableaux */
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
-table{border-collapse:collapse;width:100%;font-size:.9rem}th{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--fg3);text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
-td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}.r{text-align:right}
-.tw table{min-width:680px}
-.up{color:#15803d}.dn{color:var(--acc2)}
-article.a{max-width:70ch}article.a .chapo{font-size:1.12rem;color:var(--fg2)}
-.by{font-family:var(--mono);font-size:.78rem;color:var(--fg3);border-block:1px solid var(--line);padding-block:8px;margin:14px 0 20px;display:flex;gap:14px;flex-wrap:wrap}
-.body h2{margin:26px 0 8px}.body h3{margin:18px 0 6px}.body p{margin:0 0 14px}.body ul,.body ol{padding-left:22px;margin:0 0 14px}
-.body table{margin-bottom:14px;display:block;overflow-x:auto;max-width:100%}main{overflow-wrap:anywhere}.body blockquote{margin:0 0 14px;padding-left:14px;border-left:3px solid var(--acc);color:var(--fg2)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);text-align:left;padding:10px;border-bottom:2px solid var(--rule);white-space:nowrap;background:var(--bg2)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}tr:last-child td{border-bottom:0}tbody tr:hover td{background:var(--bg3)}
+td a{text-decoration:none}td a strong{color:var(--fg)}.r{text-align:right}.tw table{min-width:680px}
+.up{color:#178a3e}.dn{color:var(--acc2)}
+/* Articles */
+article.a{max-width:68ch}article.a h1{font-size:clamp(1.9rem,4.4vw,3rem)}
+article.a .chapo{font-family:var(--serif);font-size:1.22rem;line-height:1.5;color:var(--fg2);margin:14px 0 0}
+.by{font-family:var(--mono);font-size:.76rem;color:var(--fg3);border-block:1px solid var(--line);padding-block:9px;margin:18px 0 24px;display:flex;gap:14px;flex-wrap:wrap}
+.body{font-size:1.04rem}.body h2{margin:30px 0 10px;font-size:1.4rem}.body h3{margin:20px 0 6px}.body p{margin:0 0 15px}.body ul,.body ol{padding-left:22px;margin:0 0 15px}
+.body table{margin-bottom:15px;display:block;overflow-x:auto;max-width:100%}main{overflow-wrap:anywhere}
+.body blockquote{margin:0 0 15px;padding:4px 0 4px 16px;border-left:3px solid var(--acc);color:var(--fg2);font-family:var(--serif);font-size:1.08rem}
 .body code,code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:1px 5px;border-radius:3px}
-dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0}dl.kv dt{font-family:var(--mono);font-size:.8rem;color:var(--fg3)}dl.kv dd{margin:0}
-.faq dt{font-weight:600;margin-top:16px}.faq dd{margin:4px 0 0}
-pre.code{font-family:var(--mono);font-size:.82rem;background:var(--bg3);padding:12px 14px;border-radius:var(--r);overflow-x:auto}
-footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:.85rem;color:var(--fg2)}
-footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer nav{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem}
-nav.m a.sub{color:var(--acc);font-weight:600}
-.spon{margin-top:28px;padding:10px 14px;border:1px dashed var(--line);border-radius:var(--r);font-size:.88rem;color:var(--fg2)}.spon .eb{margin-right:6px}
-.cta{margin-top:36px;border-left:3px solid var(--acc)}.cta h2{font-size:1.1rem}.cta p{margin:6px 0}
+dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:0;margin:0;border-top:1px solid var(--line)}
+dl.kv dt,dl.kv dd{padding:7px 0;border-bottom:1px solid var(--line)}dl.kv dt{font-family:var(--mono);font-size:.76rem;color:var(--fg3);padding-right:18px;text-transform:uppercase;letter-spacing:.05em}dl.kv dd{margin:0}
+.faq dt{font-family:var(--serif);font-weight:700;font-size:1.12rem;margin-top:22px}.faq dd{margin:6px 0 0}
+pre.code{font-family:var(--mono);font-size:.82rem;background:var(--band);color:var(--on-band);padding:14px 16px;border-radius:var(--r);overflow-x:auto}
+/* Pied de page */
+footer{background:var(--band);color:var(--on-band);border-top:1px solid var(--line);padding-block:28px 36px;font-size:.86rem;margin-top:20px}
+footer a{color:var(--on-band)}footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem}footer .logo{color:var(--on-band)}footer .logo i{color:color-mix(in srgb,var(--on-band) 65%,transparent)}
+footer p{margin:10px 0 0;max-width:62ch;color:color-mix(in srgb,var(--on-band) 78%,transparent)}
+/* Audience et revenus */
+.spon{margin-top:30px;padding:10px 14px;border:1px dashed var(--line);border-radius:var(--r);font-size:.86rem;color:var(--fg2)}.spon .eb{margin-right:8px}
+.cta{margin-top:40px;border-left:4px solid var(--acc);background:var(--soft)}.cta h2{font-size:1.2rem}.cta p{margin:6px 0}
 form.nl{margin:10px 0 4px}form.nl div{display:flex;gap:8px;flex-wrap:wrap}form.nl label{display:block;margin-bottom:4px}
-form.nl input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);color:var(--fg)}
-form.nl button,a.btn{font:600 .9rem var(--sans);padding:8px 14px;border:0;border-radius:var(--r);background:var(--acc);color:var(--bg);cursor:pointer;display:inline-block}
-a.btn:hover{text-decoration:none;opacity:.9}.btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.offres{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}.offres .card strong.prix{font-family:var(--mono);color:var(--acc)}
+form.nl input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);color:var(--fg)}
+form.nl button,a.btn{font:600 .9rem var(--sans);padding:9px 15px;border:0;border-radius:var(--r);background:var(--acc);color:var(--bg2);cursor:pointer;display:inline-block;text-decoration:none}
+a.btn:hover,form.nl button:hover{background:var(--acc-ink)}.btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.offres{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}.offres .card strong.prix{font-family:var(--mono);color:var(--acc-ink)}
+/* Couleurs de domaine */
+[data-d=local]{--dc:var(--d-local)}[data-d=documents]{--dc:var(--d-documents)}[data-d=agents]{--dc:var(--d-agents)}[data-d=audio]{--dc:var(--d-audio)}
+[data-d=code]{--dc:var(--d-code)}[data-d=multilingue]{--dc:var(--d-multilingue)}[data-d=image-video]{--dc:var(--d-image-video)}[data-d=donnees]{--dc:var(--d-donnees)}[data-d=tendances]{--dc:var(--d-tendances)}
+@media(max-width:600px){body{font-size:16px}.bar{padding-block:12px 6px;gap:8px}.logo b{font-size:1.45rem}.logo svg{width:32px;height:32px}.strip .long{display:none}
+nav.m{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:0;scrollbar-width:none;margin-inline:-4px}nav.m a{padding:7px 8px;font-size:.78rem;white-space:nowrap}.lead{gap:24px}}
+@media print{.strip,nav.m,.spon,.cta,footer nav{display:none}body{background:#fff;color:#000}}
 """
+
+LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<circle cx="20" cy="20" r="11" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5"/>'
+        '<path d="M20 20 L20 2 A18 18 0 0 1 35.6 11 Z" fill="var(--acc)" opacity=".3"/>'
+        '<line x1="20" y1="20" x2="35.6" y2="11" stroke="var(--acc)" stroke-width="2.4" stroke-linecap="round"/>'
+        '<circle cx="27.5" cy="9.6" r="2.7" fill="var(--acc2)"/><circle cx="20" cy="20" r="2.3" fill="currentColor"/></svg>')
+FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#0b0f12"/>'
+           '<circle cx="20" cy="20" r="15" fill="none" stroke="#3fd69b" stroke-width="2.2"/><circle cx="20" cy="20" r="8.5" fill="none" stroke="#3fd69b" stroke-width="1.4" opacity=".55"/>'
+           '<line x1="20" y1="20" x2="33" y2="12.5" stroke="#3fd69b" stroke-width="2.6" stroke-linecap="round"/><circle cx="27" cy="11" r="2.8" fill="#f0a64a"/></svg>')
+
+def dom_chip(site, d, root=None) -> str:
+    """Pastille de domaine colorée (lien si root est fourni)."""
+    if root is None:
+        return f'<span class="chip" data-d="{esc(d)}">{esc(site.dom_name(d))}</span>'
+    return f'<a class="chip" data-d="{esc(d)}" href="{root}{site.dom_page(d)}">{esc(site.dom_name(d))}</a>'
 
 NAV = [("index.html", "Une"), ("classements.html", "Classements"), ("articles.html", "Articles"), ("modeles.html", "Modèles"),
        ("domaines.html", "Domaines"), ("guides.html", "Guides"), ("editions.html", "Éditions"), ("faq.html", "FAQ"), ("pour-les-ia.html", "API & IA"),
@@ -453,7 +517,7 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 <meta name="description" content="{esc(clip(desc, 158))}">
 <meta name="robots" content="{'noindex' if path == '404.html' else 'index,follow,max-snippet:-1,max-image-preview:large'}">{verif_meta}
 {f'<link rel="canonical" href="{esc(canonical)}">' if site.url and path != '404.html' else ''}
-<link rel="stylesheet" href="{root}assets/style.css">
+<link rel="stylesheet" href="{root}assets/style.css"><link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME} — RSS" href="{root}feed.xml">
 <link rel="alternate" type="application/feed+json" title="{SITE_NAME} — JSON Feed" href="{root}feed.json">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{root}llms.txt">
@@ -463,12 +527,14 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 <meta property="og:type" content="{og_type}"><meta property="og:title" content="{esc(clip(title, 90))}">
 <meta property="og:description" content="{esc(clip(desc, 200))}">{f'<meta property="og:url" content="{esc(canonical)}">' if site.url else ''}
 {f'<meta property="article:published_time" content="{esc(iso_dt(published))}">' if published else ''}{f'<meta property="article:modified_time" content="{esc(iso_dt(modified))}">' if modified else ''}
-{og_img}<meta name="theme-color" content="#5b3fd9">
+{og_img}<meta name="theme-color" content="#0b0f12">
 <script type="application/ld+json">{json.dumps(ld if len(ld) > 1 else ld[0], ensure_ascii=False).replace("</", "<\\/")}</script>"""
-    shell_top = f"""<header class="top"><div class="w bar"><a class="logo" href="{root}index.html">radar<b>_ia</b></a><nav class="m" aria-label="Rubriques">{nav}</nav></div></header>
+    marque = f'{LOGO}<span><b>{SITE_NAME}</b><i>LE QUOTIDIEN DES MODÈLES IA OUVERTS</i></span>'
+    shell_top = f"""<div class="strip"><div class="w"><span>Édition du {d_long(site.today)}<span class="long"> · veille quotidienne Hugging Face en français</span></span><span><a href="{root}abonnement.html">S'abonner</a> · <a href="{root}feed.xml">RSS</a> · <a href="{root}llms.txt">llms.txt</a></span></div></div>
+<header class="top"><div class="w bar"><a class="logo" href="{root}index.html">{marque}</a><nav class="m" aria-label="Rubriques">{nav}</nav></div></header>
 <main class="w">{crumb_html}{body}</main>
-<footer><div class="w"><div>{SITE_NAME} — {esc(SITE_TAGLINE)}.<br>Données sous licence <a href="{LICENSE_URL}" rel="license">CC BY 4.0</a> · mise à jour {d_short(site.today)} · rédigé par des agents IA, sources liées sur chaque page.</div>
-<nav><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a><a href="{root}methode.html">Méthode</a></nav></div></footer>{pixel(site, path)}"""
+<footer><div class="w"><div><a class="logo" href="{root}index.html">{marque}</a><p>{esc(SITE_TAGLINE)}. Rédigé par des agents IA ; licences, dates et tailles vérifiées sur l'API Hugging Face ; sources liées sur chaque page. Données sous licence <a href="{LICENSE_URL}" rel="license">CC BY 4.0</a> · mise à jour {d_short(site.today)}.</p></div>
+<nav aria-label="Pied de page"><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}guides.html">Guides</a><a href="{root}methode.html">Méthode</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a></nav></div></footer>{pixel(site, path)}"""
     if artifact_shell:  # page racine d'un artefact Claude : pas de doctype, le squelette est ajouté à la publication
         return head + "\n" + shell_top
     return f"""<!doctype html>
@@ -550,17 +616,19 @@ def ld_dataset(site):
 
 def score_badge(s):
     if s is None: return ""
-    s = round(float(s)); return f'<span class="sc{" hot" if s >= 70 else ""}" title="Score Radar /100">{s}</span>'
+    s = max(0, min(100, round(float(s))))
+    return f'<span class="sc{" hot" if s >= 70 else ""}" style="--p:{s}" title="Score Radar {s}/100">{s}</span>'
 
 def item_card(site, it, root, rank=None):
     star = '<span class="star" title="Pertinent : local, documents, agents, audio, code, français">★</span> ' if it.get("pertinent") else ""
-    doms = "".join(f'<span class="chip">{esc(site.dom_name(d))}</span>' for d in it.get("domaines") or [])
-    return f"""<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><div class="eb">{f"#{rank} · " if rank else ""}{esc(it.get('org'))}</div>{score_badge(it.get('score'))}</div>
+    doms = "".join(dom_chip(site, d) for d in it.get("domaines") or [])
+    d0 = (it.get("domaines") or ["tendances"])[0]
+    return f"""<div class="card" data-d="{esc(d0)}"><div style="display:flex;justify-content:space-between;gap:8px"><div class="eb">{f"#{rank} · " if rank else ""}{esc(it.get('org'))}</div>{score_badge(it.get('score'))}</div>
 <h3>{star}<a href="{root}{site.item_page(it)}">{esc(it.get('nom'))}</a></h3><div>{doms}<span class="chip">{esc(TYPE_LABEL.get(it.get('type'), ''))}</span></div>
 <p>{esc(it.get('pourquoi') or it.get('resume'))}</p><div class="meta"><span>♥ {fmt_n(it.get('likes'))}</span><span>↓ {fmt_n(it.get('downloads'))}</span>{f"<span>{esc(site.taille(it))}</span>" if site.taille(it) else ''}</div></div>"""
 
 def art_card(site, a, root):
-    return f"""<div class="card"><div><span class="chip">{esc(site.dom_name(a.get('domaine')))}</span></div><h3><a href="{root}{site.art_page(a)}">{esc(a.get('titre'))}</a></h3>
+    return f"""<div class="card" data-d="{esc(a.get('domaine'))}"><div>{dom_chip(site, a.get('domaine'))}</div><h3><a href="{root}{site.art_page(a)}">{esc(a.get('titre'))}</a></h3>
 <p>{esc(a.get('chapo'))}</p><div class="meta"><span>{d_short(a.get('date'))}</span><span>{esc(a.get('tempsLecture') or '')} min</span></div></div>"""
 
 def ranking_table(site, entries, root, limit=None):
@@ -571,9 +639,17 @@ def ranking_table(site, entries, root, limit=None):
         d = e.get("delta")
         dl = '<span class="star">nouveau</span>' if d is None else (f'<span class="up">▲ {d}</span>' if d > 0 else (f'<span class="dn">▼ {-d}</span>' if d < 0 else "="))
         rows.append(f"""<tr><td class="num">{e.get('rank') or e.get('rang') or i+1}</td><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get('nom'))}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(it.get('org'))} · {esc(TYPE_LABEL.get(it.get('type'), ''))}{(' · ' + esc(it['tache'])) if it.get('tache') else ''}</div></td>
-<td>{''.join(f'<span class="chip">{esc(site.dom_name(x))}</span>' for x in it.get('domaines') or [])}</td><td class="r num">{fmt_n(e.get('likes', it.get('likes')))}</td><td class="r num">{fmt_n(e.get('downloads', it.get('downloads')))}</td><td class="r">{score_badge(e.get('score', it.get('score')))}</td><td class="mono sm">{dl}</td></tr>""")
+<td>{''.join(dom_chip(site, x) for x in it.get('domaines') or [])}</td><td class="r num">{fmt_n(e.get('likes', it.get('likes')))}</td><td class="r num">{fmt_n(e.get('downloads', it.get('downloads')))}</td><td class="r">{score_badge(e.get('score', it.get('score')))}</td><td class="mono sm">{dl}</td></tr>""")
     if not rows: return '<p class="mut">Classement en cours de calcul.</p>'
     return f'<div class="tw"><table><thead><tr><th>#</th><th>Élément</th><th>Domaines</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th><th>Évol.</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+
+def radar_panel(site, n=6) -> str:
+    """Top du jour en jauges horizontales (CSS seul)."""
+    ent = [(e, site.items[e["itemId"]]) for e in (site.classements.get("jour") or {}).get("entrees") or [] if e.get("itemId") in site.items][:n]
+    if not ent: return ""
+    li = "".join(f'<li><div class="t"><a href="{site.item_page(it)}">{esc(it.get("nom"))}</a><span>{round(float(e.get("score") or it.get("score") or 0))}</span></div>'
+                 f'<div class="g"><i style="width:{max(2, min(100, round(float(e.get("score") or it.get("score") or 0))))}%"></i></div></li>' for e, it in ent)
+    return f'<div class="radar"><h2>Le radar du jour</h2><ol class="bars">{li}</ol><p class="sm" style="margin:10px 0 0"><a href="classements.html">Classement complet →</a></p></div>'
 
 def ranking_items(site, per):
     cl = site.classements.get(per) or {}
@@ -725,6 +801,7 @@ def build(site: Site, out: Path, artifact=False):
     if out.exists(): shutil.rmtree(out)
     (out / "assets").mkdir(parents=True)
     (out / "assets/style.css").write_text(CSS.strip(), encoding="utf-8")
+    (out / "assets/favicon.svg").write_text(FAVICON, encoding="utf-8")
     urls: list[tuple[str, str]] = []  # (path, lastmod)
     md_docs: list[tuple[str, str, str]] = []  # (title, path_md, markdown)
 
@@ -745,7 +822,7 @@ def build(site: Site, out: Path, artifact=False):
                          for t in ed.get("aTester") or [] if t.get("itemId") in site.items)
         top = [site.items[i] for i in ed.get("topIds") or [] if i in site.items][:6]
         r = f"""<section class="lead"><div><div class="eb">Édition du {d_long(ed['date'])}</div><h1>{esc(ed.get('titre'))}</h1><ol class="ess">{ess}</ol></div>
-<aside><div class="box"><h2 style="font-size:1rem">Tendance de fond</h2><p class="sm" style="margin:6px 0 0">{esc(ed.get('tendance'))}</p></div>
+<aside>{radar_panel(site)}<div class="box" style="margin-top:16px"><h2 style="font-size:1rem">Tendance de fond</h2><p class="sm" style="margin:6px 0 0">{esc(ed.get('tendance'))}</p></div>
 {f'<div style="margin-top:16px"><div class="eb">À tester</div><ul class="sm" style="padding-left:18px">{tester}</ul></div>' if tester else ''}</aside></section>
 <section><div class="sh"><h2>Les modèles qui comptent aujourd'hui</h2><a class="mono sm" href="classements.html">classements →</a></div><div class="cards">{''.join(item_card(site, it, '', i+1) for i, it in enumerate(top))}</div></section>"""
     r += f"""<section><div class="sh"><h2>Derniers articles</h2><a class="mono sm" href="articles.html">tous →</a></div><div class="cards">{''.join(art_card(site, a, '') for a in site.art_sorted[:6]) or '<p class="mut">Premiers articles demain matin.</p>'}</div></section>
@@ -819,7 +896,7 @@ def build(site: Site, out: Path, artifact=False):
         kv, kv_md = fiche_faits(site, it, "../")
         body = f"""<div class="eb">{esc(tl)} · {esc(it.get('org'))}</div><h1 style="margin:6px 0 10px">{esc(it['nom'])} {score_badge(it.get('score'))}</h1>
 <p style="max-width:70ch;font-size:1.08rem">{esc(it.get('resume'))}</p>
-<div class="lead" style="margin-top:18px"><div><dl class="kv">{kv}<dt>Domaines</dt><dd>{''.join(f'<a class="chip" href="../{site.dom_page(d)}">{esc(site.dom_name(d))}</a>' for d in it.get('domaines') or [])}</dd>
+<div class="lead" style="margin-top:18px"><div><dl class="kv">{kv}<dt>Domaines</dt><dd>{''.join(dom_chip(site, d, '../') for d in it.get('domaines') or [])}</dd>
 <dt>Pertinent IA pratique</dt><dd>{'oui ★' if it.get('pertinent') else 'non'}</dd><dt>Fiche officielle</dt><dd><a href="{esc(site.hf_url(it))}" rel="noopener">{esc(site.hf_url(it))}</a></dd></dl>
 {f'<p class="sm mut" style="margin-top:8px">Licence, dates, langues, paramètres, formats, modèle de base et compteurs vérifiés sur l’API Hugging Face le {d_short(site.v(it)["verifieLe"])}.</p>' if site.v(it).get("verifieLe") else ''}
 <p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p>{bloc_affiliation(site, it)}</div>
