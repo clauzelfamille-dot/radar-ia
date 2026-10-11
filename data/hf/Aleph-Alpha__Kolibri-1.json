@@ -1,0 +1,32 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2512.11614",
+  "2601.17858"
+ ],
+ "bibliotheque": "vllm",
+ "creeLe": "2026-10-02",
+ "downloads": 12550,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Aleph-Alpha/Kolibri-1",
+ "langues": [
+  "de",
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 886,
+ "majLe": "2026-10-03",
+ "modeleBase": [
+  {
+   "id": "Aleph-Alpha/Kolibri-1-BF16",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 78103074560,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

@@ -1,0 +1,46 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2511.23404"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-10-05",
+ "downloads": 10843,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "LiquidAI/d1-3B",
+ "langues": [
+  "ar",
+  "zh",
+  "en",
+  "fr",
+  "de",
+  "hi",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "pl",
+  "pt",
+  "ru",
+  "es",
+  "th",
+  "vi"
+ ],
+ "licence": "lfm1.0",
+ "licenceLien": "https://huggingface.co/LiquidAI/d1-3B/blob/main/LICENSE",
+ "likes": 294,
+ "majLe": "2026-10-07",
+ "modeleBase": [
+  {
+   "id": "LiquidAI/LFM2.5-VL-3B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 3123483888,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/LiquidAI/d1-3B",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

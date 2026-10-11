@@ -1,0 +1,19 @@
+{
+ "acces": "libre",
+ "bibliotheque": "minimax-h3",
+ "creeLe": "2026-07-28",
+ "downloads": 3607946,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "MiniMaxAI/MiniMax-H3",
+ "licence": "minimax-h3-community-license-agreement",
+ "licenceLien": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+ "likes": 6039,
+ "majLe": "2026-08-13",
+ "parametres": 33122992896,
+ "tache": "image-text-to-video",
+ "type": "model",
+ "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

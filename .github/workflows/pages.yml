@@ -23,6 +23,9 @@ jobs:
           python-version: "3.12"
       - id: pages
         uses: actions/configure-pages@v5
+      - name: Vérifier les faits sur Hugging Face (licences, dates, langues, paramètres)
+        continue-on-error: true
+        run: python3 build/enrichir.py --data data
       - name: Générer le site
         run: python3 build/build.py --data data --out dist --site-url "${{ steps.pages.outputs.base_url }}/"
       - uses: actions/upload-pages-artifact@v3

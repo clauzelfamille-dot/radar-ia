@@ -1,0 +1,29 @@
+{
+ "acces": "libre",
+ "contexte": 262144,
+ "creeLe": "2026-10-04",
+ "downloads": 56525,
+ "formats": [
+  "GGUF",
+  "safetensors"
+ ],
+ "hfId": "nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 231,
+ "majLe": "2026-10-11",
+ "modeleBase": [
+  {
+   "id": "nerkyor/Qwen3.8-27B-EfficientThink-Uncensored-K3-Opus5-Grok4.6-GPT5.6Sol-SFT-SimPO-DFlash2",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 27320697856,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

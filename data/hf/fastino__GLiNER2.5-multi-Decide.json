@@ -1,0 +1,30 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2507.18546"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-24",
+ "downloads": 14911,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "fastino/GLiNER2.5-multi-Decide",
+ "langues": [
+  "multilingual",
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 61,
+ "majLe": "2026-10-08",
+ "modeleBase": [
+  {
+   "id": "fastino/gliner2.5-multi-v1",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 287355159,
+ "type": "model",
+ "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

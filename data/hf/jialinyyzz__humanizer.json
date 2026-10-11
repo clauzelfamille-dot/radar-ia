@@ -1,0 +1,30 @@
+{
+ "acces": "libre",
+ "bibliotheque": "gguf",
+ "contexte": 262144,
+ "creeLe": "2026-09-11",
+ "downloads": 37647,
+ "formats": [
+  "GGUF",
+  "safetensors"
+ ],
+ "hfId": "jialinyyzz/humanizer",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 1056,
+ "majLe": "2026-10-08",
+ "modeleBase": [
+  {
+   "id": "google/gemma-4-12B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 11959730224,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/jialinyyzz/humanizer",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

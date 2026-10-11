@@ -1,0 +1,29 @@
+{
+ "acces": "sur demande",
+ "arxiv": [
+  "2601.03233"
+ ],
+ "bibliotheque": "diffusion-single-file",
+ "creeLe": "2026-07-23",
+ "downloads": 1726683,
+ "hfId": "Lightricks/LTX-2.5",
+ "langues": [
+  "en",
+  "de",
+  "es",
+  "fr",
+  "ja",
+  "ko",
+  "zh",
+  "it",
+  "pt"
+ ],
+ "licence": "ltx-2.x-community-license-agreement",
+ "licenceLien": "https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x",
+ "likes": 7296,
+ "majLe": "2026-10-11",
+ "tache": "image-to-video",
+ "type": "model",
+ "url": "https://huggingface.co/Lightricks/LTX-2.5",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

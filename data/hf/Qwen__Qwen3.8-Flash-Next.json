@@ -1,0 +1,19 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "creeLe": "2026-08-24",
+ "downloads": 1870465,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Qwen/Qwen3.8-Flash-Next",
+ "licence": "qwen-community-1.0",
+ "licenceLien": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/LICENSE",
+ "likes": 6111,
+ "majLe": "2026-08-27",
+ "parametres": 179999981459,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

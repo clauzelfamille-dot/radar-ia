@@ -58,6 +58,34 @@ def fmt_n(n) -> str:
         return f"{n/1e3:.1f}".replace(".", ",").replace(",0", "") + " k"
     return str(int(n))
 
+def fmt_params(n) -> str:
+    """Nombre de paramètres lisible : 27,3 B (milliards), 287 M (millions)."""
+    try:
+        n = float(n)
+    except (TypeError, ValueError):
+        return ""
+    if n >= 1e9: return f"{n/1e9:.1f}".replace(".", ",").replace(",0", "") + " B"
+    if n >= 1e6: return f"{n/1e6:.0f} M"
+    return f"{n:.0f}" if n else ""
+
+LANGUES = {"fr": "français", "en": "anglais", "de": "allemand", "es": "espagnol", "it": "italien", "pt": "portugais", "nl": "néerlandais",
+           "pl": "polonais", "zh": "chinois", "ja": "japonais", "ko": "coréen", "ru": "russe", "ar": "arabe", "tr": "turc", "hi": "hindi",
+           "vi": "vietnamien", "uk": "ukrainien", "sv": "suédois", "cs": "tchèque", "multilingual": "multilingue (langues non détaillées)"}
+RELATIONS = {"quantized": "quantification", "finetune": "fine-tune", "adapter": "adaptateur", "merge": "fusion", None: "dérivé"}
+# Résumés de licences connues. Toute autre licence reçoit le texte prudent LICENCE_AUTRE (pas d'interprétation inventée).
+LICENCES = {
+    "apache-2.0": "Licence permissive : usage, modification et redistribution autorisés, y compris commercialement, en conservant la licence et les mentions ; elle comprend une licence sur les brevets des contributeurs.",
+    "mit": "Licence permissive : usage, y compris commercial, modification et redistribution autorisés, à condition de conserver la mention de copyright et la licence.",
+    "cc-by-4.0": "Réutilisation libre, y compris commerciale, à condition de citer l'auteur et d'indiquer les modifications.",
+    "cc-by-sa-4.0": "Réutilisation libre, y compris commerciale, avec citation de l'auteur ; les œuvres dérivées doivent être partagées sous la même licence.",
+    "cc-by-nc-4.0": "Réutilisation libre avec citation de l'auteur, mais usage commercial interdit.",
+}
+LICENCE_AUTRE = "Licence propre à l'éditeur : ses conditions (usage commercial, seuils d'utilisateurs, restrictions d'usage) sont à lire avant tout déploiement en entreprise."
+LICENCE_AUCUNE = "Aucune licence déclarée sur Hugging Face : sans autorisation explicite de l'auteur, la réutilisation n'est pas garantie."
+
+def langue(code: str) -> str:
+    return LANGUES.get(code, code)
+
 def d_long(s: str | None) -> str:
     if not s:
         return "—"
@@ -218,6 +246,7 @@ class Site:
         self.articles = {k: v for k, v in load_dir(data / "articles").items() if v.get("statut") == "publie"}
         self.editions = load_dir(data / "editions")
         self.classements = load_dir(data / "classements")
+        self.hf = load_dir(data / "hf")  # faits vérifiés sur l'API Hugging Face (build/enrichir.py), prioritaires
         doms = load_dir(data / "domaines")
         if not doms:
             doms = {d: {"nom": d, "description": "", "ordre": i} for i, d in enumerate(DOMAIN_ORDER_FALLBACK)}
@@ -247,6 +276,30 @@ class Site:
 
     def items_in(self, dom):
         return sorted([i for i in self.items.values() if dom in (i.get("domaines") or [])], key=lambda i: -(i.get("score") or 0))
+
+    # --- faits vérifiés : la valeur de l'API Hugging Face prime sur la saisie des agents
+    def v(self, it) -> dict: return self.hf.get(it.get("_id")) or {}
+    def lic(self, it): return self.v(it).get("licence") or it.get("licence")
+    def cree(self, it): return self.v(it).get("creeLe") or it.get("creeLe")
+    def taille(self, it): return fmt_params(self.v(it).get("parametres")) or it.get("taille")
+    def by_hf(self) -> dict: return {i.get("hfId"): i for i in self.items.values() if i.get("hfId")}
+
+    def familles(self) -> dict:
+        """Modèle de base → dérivés suivis, d'après les tags base_model de Hugging Face (calculé une fois)."""
+        if getattr(self, "_fam", None) is None:
+            self._fam = self._calc_familles()
+        return self._fam
+
+    def _calc_familles(self) -> dict:
+        fam: dict[str, list] = {}
+        for it in self.items.values():
+            for b in self.v(it).get("modeleBase") or []:
+                fam.setdefault(b["id"], []).append((it, b.get("relation")))
+        suivis = self.by_hf()
+        return {b: sorted(d, key=lambda x: -(x[0].get("score") or 0)) for b, d in sorted(fam.items())
+                if len(d) >= 2 or (b in suivis and d)}
+
+    def fam_page(self, base_id) -> str: return f"familles/{slugify(base_id.replace('/', '__'))}.html"
 
 # ------------------------------------------------------------------ gabarit
 
@@ -308,7 +361,7 @@ a.btn:hover{text-decoration:none;opacity:.9}.btns{display:flex;gap:10px;flex-wra
 """
 
 NAV = [("index.html", "Une"), ("classements.html", "Classements"), ("articles.html", "Articles"), ("modeles.html", "Modèles"),
-       ("domaines.html", "Domaines"), ("editions.html", "Éditions"), ("faq.html", "FAQ"), ("pour-les-ia.html", "API & IA"),
+       ("domaines.html", "Domaines"), ("guides.html", "Guides"), ("editions.html", "Éditions"), ("faq.html", "FAQ"), ("pour-les-ia.html", "API & IA"),
        ("abonnement.html", "S'abonner")]
 
 # ------------------------------------------------------------------ blocs d'audience et de revenus (masqués tant que non configurés)
@@ -446,11 +499,14 @@ def ld_breadcrumb(site, crumbs):
 def ld_item(site, it):
     t = it.get("type")
     typ = {"dataset": "Dataset", "space": "WebApplication"}.get(t, "SoftwareApplication")
+    v = site.v(it)
     d = {"@context": "https://schema.org", "@type": typ, "name": it.get("nom"), "url": site.hf_url(it),
          "description": it.get("resume") or it.get("pourquoi"), "sameAs": site.hf_url(it),
-         "creator": {"@type": "Organization", "name": it.get("org")}, "dateModified": it.get("majLe")}
-    if it.get("creeLe"): d["datePublished"] = it["creeLe"]
-    if it.get("licence"): d["license"] = it["licence"]
+         "creator": {"@type": "Organization", "name": it.get("org")}, "dateModified": v.get("majLe") or it.get("majLe")}
+    if site.cree(it): d["datePublished"] = site.cree(it)
+    if site.lic(it): d["license"] = v.get("licenceLien") or site.lic(it)
+    langs = [l for l in v.get("langues") or [] if l != "multilingual"]
+    if langs: d["inLanguage"] = langs
     if typ != "Dataset":
         d["applicationCategory"] = "AI model" if t == "model" else "AI demo"; d["operatingSystem"] = "Cross-platform"
     d["keywords"] = ", ".join([it.get("tache") or ""] + [site.dom_name(x) for x in it.get("domaines") or []])
@@ -501,7 +557,7 @@ def item_card(site, it, root, rank=None):
     doms = "".join(f'<span class="chip">{esc(site.dom_name(d))}</span>' for d in it.get("domaines") or [])
     return f"""<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><div class="eb">{f"#{rank} · " if rank else ""}{esc(it.get('org'))}</div>{score_badge(it.get('score'))}</div>
 <h3>{star}<a href="{root}{site.item_page(it)}">{esc(it.get('nom'))}</a></h3><div>{doms}<span class="chip">{esc(TYPE_LABEL.get(it.get('type'), ''))}</span></div>
-<p>{esc(it.get('pourquoi') or it.get('resume'))}</p><div class="meta"><span>♥ {fmt_n(it.get('likes'))}</span><span>↓ {fmt_n(it.get('downloads'))}</span>{f"<span>{esc(it['taille'])}</span>" if it.get('taille') else ''}</div></div>"""
+<p>{esc(it.get('pourquoi') or it.get('resume'))}</p><div class="meta"><span>♥ {fmt_n(it.get('likes'))}</span><span>↓ {fmt_n(it.get('downloads'))}</span>{f"<span>{esc(site.taille(it))}</span>" if site.taille(it) else ''}</div></div>"""
 
 def art_card(site, a, root):
     return f"""<div class="card"><div><span class="chip">{esc(site.dom_name(a.get('domaine')))}</span></div><h3><a href="{root}{site.art_page(a)}">{esc(a.get('titre'))}</a></h3>
@@ -522,6 +578,146 @@ def ranking_table(site, entries, root, limit=None):
 def ranking_items(site, per):
     cl = site.classements.get(per) or {}
     return [site.items[e["itemId"]] for e in cl.get("entrees") or [] if e.get("itemId") in site.items]
+
+def fiche_faits(site, it, root) -> tuple[str, str]:
+    """Lignes « clé : valeur » d'une fiche (HTML pour dl.kv, Markdown) ; faits vérifiés prioritaires."""
+    v, rows = site.v(it), []
+    add = lambda lab, h, m: rows.append((lab, h, m))
+    add("Identifiant", f"<code>{esc(it.get('hfId'))}</code>", None)
+    add("Organisation", esc(it.get("org")), it.get("org"))
+    tache = it.get("tache") or v.get("tache")
+    add("Tâche", esc(tache) + (f' <span class="mut mono sm">({esc(v["tache"])})</span>' if v.get("tache") and v["tache"] != tache else ""), tache)
+    if v.get("parametres"): add("Paramètres", f'<span class="num">{fmt_params(v["parametres"])}</span>', fmt_params(v["parametres"]))
+    else: add("Taille", esc(it.get("taille") or "non communiquée"), it.get("taille") or "n.c.")
+    lic = site.lic(it)
+    add("Licence", (f'<a href="{root}guides/licences.html#{slugify(lic)}">{esc(lic)}</a>' + (f' · <a href="{esc(v["licenceLien"])}" rel="noopener">texte de la licence</a>' if v.get("licenceLien") else ""))
+        if lic else "non déclarée", lic or "non déclarée")
+    if v.get("langues"):
+        add("Langues déclarées", ", ".join(f'<a href="{root}guides/francais.html">français</a>' if l == "fr" else esc(langue(l)) for l in v["langues"]),
+            ", ".join(langue(l) for l in v["langues"]))
+    if v.get("formats"):
+        add("Formats", ", ".join(f'<a href="{root}guides/gguf.html">GGUF</a>' if f == "GGUF" else esc(f) for f in v["formats"]), ", ".join(v["formats"]))
+    if v.get("contexte"): add("Contexte", f'<span class="num">{fmt_n(v["contexte"])}</span> tokens', f'{v["contexte"]} tokens')
+    if v.get("modeleBase"):
+        fam, suivis = site.familles(), site.by_hf()
+        def lien(b):
+            bid = b["id"]
+            href = root + site.fam_page(bid) if bid in fam else (root + site.item_page(suivis[bid]) if bid in suivis else "https://huggingface.co/" + bid)
+            return f'<a href="{esc(href)}">{esc(bid)}</a> <span class="mut sm">({RELATIONS.get(b.get("relation"), "dérivé")})</span>'
+        add("Modèle de base", "<br>".join(lien(b) for b in v["modeleBase"]),
+            ", ".join(f'{b["id"]} ({RELATIONS.get(b.get("relation"), "dérivé")})' for b in v["modeleBase"]))
+    if v.get("bibliotheque"): add("Bibliothèque", esc(v["bibliotheque"]), v["bibliotheque"])
+    if v.get("volumetrie"): add("Volumétrie", esc(v["volumetrie"]), v["volumetrie"])
+    if v.get("acces"): add("Accès aux poids", esc(v["acces"]), v["acces"])
+    add("Créé le", d_long(site.cree(it)), site.cree(it) or "n.c.")
+    if v.get("majLe"): add("Mis à jour le", d_long(v["majLe"]), v["majLe"])
+    likes = v["likes"] if "likes" in v else it.get("likes")
+    add("Likes", f'<span class="num">{fmt_n(likes)}</span>', likes)
+    if "downloads" in v: add("Téléchargements (30 j)", f'<span class="num">{fmt_n(v["downloads"])}</span>', v["downloads"])
+    elif it.get("downloads") is not None: add("Téléchargements", f'<span class="num">{fmt_n(it["downloads"])}</span>', it["downloads"])
+    if v.get("arxiv"):
+        add("arXiv", ", ".join(f'<a href="https://arxiv.org/abs/{esc(a)}" rel="noopener">{esc(a)}</a>' for a in v["arxiv"]), ", ".join(v["arxiv"]))
+    return ("".join(f"<dt>{lab}</dt><dd>{h}</dd>" for lab, h, _ in rows),
+            "".join(f"- {lab} : {m}\n" for lab, _, m in rows if m is not None))
+
+def table_faits(site, items, root, cols=("base", "params", "licence", "dl", "score")) -> str:
+    """Tableau compact d'éléments avec faits vérifiés (pages guides et familles)."""
+    noms = {"base": "Modèle de base", "params": "Paramètres", "contexte": "Contexte", "licence": "Licence", "langues": "Langues",
+            "dl": "Téléch. 30 j", "score": "Score", "relation": "Relation"}
+    head = "<th>Élément</th>" + "".join(f'<th{" class=r" if c in ("dl", "score", "params", "contexte") else ""}>{noms[c]}</th>' for c in cols)
+    rows = []
+    for x in items:
+        it, rel = x if isinstance(x, tuple) else (x, None)
+        v = site.v(it)
+        cell = {"base": lambda: ", ".join(esc(b["id"]) for b in v.get("modeleBase") or []) or "—",
+                "params": lambda: fmt_params(v.get("parametres")) or esc(it.get("taille") or "—"),
+                "contexte": lambda: fmt_n(v["contexte"]) if v.get("contexte") else "—",
+                "licence": lambda: esc(site.lic(it) or "non déclarée"),
+                "langues": lambda: esc(", ".join(langue(l) for l in v.get("langues") or []) or "—"),
+                "dl": lambda: fmt_n(v.get("downloads", it.get("downloads"))),
+                "score": lambda: score_badge(it.get("score")),
+                "relation": lambda: esc(RELATIONS.get(rel, "dérivé"))}
+        rows.append(f'<tr><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get("nom"))}</strong></a><div class="sm mut mono">{esc(it.get("org"))}</div></td>'
+                    + "".join(f'<td class="{"r num" if c in ("dl", "score", "params", "contexte") else "sm"}">{cell[c]()}</td>' for c in cols) + "</tr>")
+    return f'<div class="tw"><table><thead><tr>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>' if rows else '<p class="mut">Aucun élément suivi pour le moment.</p>'
+
+def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
+    """Pages guides générées uniquement à partir des faits vérifiés sur Hugging Face. Renvoie (titre, page, résumé)."""
+    mois = d_long(site.today).split(" ", 1)[-1]
+    tous = sorted(site.items.values(), key=lambda i: -(i.get("score") or 0))
+    verif = d_short(max((v.get("verifieLe", "") for v in site.hf.values()), default="")) if site.hf else None
+    note = (f'<p class="sm mut">Faits relevés sur l’API publique Hugging Face le {verif} ; ils sont déclarés par les auteurs des modèles.</p>' if verif
+            else '<p class="sm mut">Vérification Hugging Face indisponible pour cette génération : données des fiches Radar IA.</p>')
+    guides = []
+    crumbs = lambda t: [("Accueil", "index.html"), ("Guides", "guides.html"), (t, None)]
+
+    # Français
+    fr = [i for i in tous if "fr" in (site.v(i).get("langues") or [])]
+    multi = [i for i in tous if "multilingual" in (site.v(i).get("langues") or []) and i not in fr]
+    t = f"Modèles IA open source en français ({mois})"
+    body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les modèles, datasets et Spaces suivis par Radar IA dont les auteurs déclarent le français '
+            f'sur Hugging Face. Une langue déclarée n’est pas une garantie de qualité : testez sur vos propres textes.</p>{note}'
+            f'<section><div class="sh"><h2>Français déclaré ({len(fr)})</h2></div>{table_faits(site, fr, "../", ("params", "langues", "licence", "dl", "score"))}</section>'
+            + (f'<section><div class="sh"><h2>Déclarés « multilingues » sans liste de langues ({len(multi)})</h2></div><p class="sm">Le français n’est ni confirmé ni exclu : vérifiez sur la fiche officielle.</p>{table_faits(site, multi, "../", ("params", "licence", "dl", "score"))}</section>' if multi else ""))
+    write("guides/francais.html", page(site, "guides/francais.html", t, f"{len(fr)} modèles IA open source suivis déclarent le français sur Hugging Face : taille, licence, téléchargements et Score Radar, vérifiés le {verif or site.today}.",
+                                       body, crumbs=crumbs("Français"), nav_key="guides.html", md_path="guides/francais.md", jsonld=[ld_itemlist(site, t, fr, "guides/francais.html")] if fr else None))
+    write_md("guides/francais.md", t, f"# {t}\n\nÉléments dont les auteurs déclarent le français sur Hugging Face.\n\n" +
+             "\n".join(f"- [{i['nom']}]({site.abs(site.item_page(i))}) — {site.taille(i) or 'taille n.c.'}, licence {site.lic(i) or 'non déclarée'}, score {i.get('score')}" for i in fr))
+    guides.append((t, "guides/francais.html", f"{len(fr)} éléments déclarent le français"))
+
+    # Licences
+    par_lic: dict[str, list] = {}
+    for i in tous: par_lic.setdefault(site.lic(i) or "", []).append(i)
+    ordre = sorted(par_lic, key=lambda l: (l == "", -len(par_lic[l]), l))
+    t = f"Licences des modèles IA open source suivis ({mois})"
+    sommaire = " · ".join(f'<a href="#{slugify(l) if l else "non-declaree"}">{esc(l or "non déclarée")} ({len(par_lic[l])})</a>' for l in ordre)
+    secs = "".join(f'<section id="{slugify(l) if l else "non-declaree"}"><div class="sh"><h2>{esc(l or "Licence non déclarée")}</h2><span class="eb">{len(par_lic[l])} élément(s)</span></div>'
+                   f'<p class="sm" style="max-width:70ch">{esc(LICENCES.get(l.lower(), LICENCE_AUTRE) if l else LICENCE_AUCUNE)}</p>{table_faits(site, par_lic[l], "../", ("params", "dl", "score"))}</section>' for l in ordre)
+    body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Avant d’utiliser un modèle en entreprise, sa licence compte autant que ses performances. '
+            f'Voici la licence déclarée de chaque élément suivi, regroupée et résumée. Résumés indicatifs, pas un avis juridique : lisez le texte de la licence (lien sur chaque fiche).</p>{note}'
+            f'<p class="sm mono">{sommaire}</p>{secs}')
+    write("guides/licences.html", page(site, "guides/licences.html", t, "Licence de chaque modèle IA open source suivi (Apache 2.0, MIT, licences propres aux éditeurs) : ce qu'elle autorise, vérifié sur Hugging Face.",
+                                       body, crumbs=crumbs("Licences"), nav_key="guides.html", md_path="guides/licences.md"))
+    write_md("guides/licences.md", t, f"# {t}\n\n" + "\n\n".join(f"## {l or 'Licence non déclarée'}\n\n{LICENCES.get(l.lower(), LICENCE_AUTRE) if l else LICENCE_AUCUNE}\n\n" +
+             "\n".join(f"- [{i['nom']}]({site.abs(site.item_page(i))})" for i in par_lic[l]) for l in ordre))
+    guides.append((t, "guides/licences.html", f"{len(ordre)} licences différentes"))
+
+    # GGUF
+    gg = [i for i in tous if "GGUF" in (site.v(i).get("formats") or [])]
+    t = f"Modèles GGUF pour llama.cpp, Ollama, LM Studio ({mois})"
+    body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Le format GGUF est celui de llama.cpp et des outils qui l’utilisent (Ollama, LM Studio). '
+            f'Voici les dépôts GGUF suivis par Radar IA, avec leur modèle de base, leur nombre de paramètres et leur contexte déclarés.</p>{note}'
+            f'{table_faits(site, gg, "../", ("base", "params", "contexte", "licence", "dl", "score"))}'
+            '<h2 style="margin-top:24px">Lancer un dépôt GGUF</h2><ul class="sm"><li>llama.cpp : <code>llama-cli -hf organisation/depot</code></li>'
+            '<li>Ollama : <code>ollama run hf.co/organisation/depot</code></li><li>LM Studio : rechercher l’identifiant du dépôt dans l’onglet de recherche.</li></ul>'
+            '<p class="sm">Chaque dépôt propose plusieurs quantifications (Q4, Q5, Q8…) : la taille du fichier choisi, visible sur la fiche Hugging Face, donne la mémoire nécessaire.</p>')
+    write("guides/gguf.html", page(site, "guides/gguf.html", t, f"{len(gg)} modèles au format GGUF suivis par Radar IA : modèle de base, paramètres, contexte, licence, vérifiés sur Hugging Face.",
+                                   body, crumbs=crumbs("GGUF"), nav_key="guides.html", md_path="guides/gguf.md", jsonld=[ld_itemlist(site, t, gg, "guides/gguf.html")] if gg else None))
+    write_md("guides/gguf.md", t, f"# {t}\n\n" + "\n".join(f"- [{i['nom']}]({site.abs(site.item_page(i))}) — base : {', '.join(b['id'] for b in site.v(i).get('modeleBase') or []) or 'n.c.'} ; {fmt_params(site.v(i).get('parametres')) or 'n.c.'} ; licence {site.lic(i) or 'non déclarée'}" for i in gg))
+    guides.append((t, "guides/gguf.html", f"{len(gg)} dépôts GGUF"))
+
+    # Familles : un modèle de base et ses dérivés suivis
+    suivis = site.by_hf()
+    for bid, ders in site.familles().items():
+        p = site.fam_page(bid)
+        nom = bid.split("/", 1)[-1]
+        t = f"{nom} : dérivés, GGUF et fine-tunes ({mois})"
+        base = suivis.get(bid)
+        tete = (f'<p>Modèle de base suivi : <a href="../{site.item_page(base)}"><strong>{esc(base["nom"])}</strong></a> {score_badge(base.get("score"))} — {esc(base.get("resume"))}</p>' if base
+                else f'<p>Modèle de base : <a href="https://huggingface.co/{esc(bid)}" rel="noopener">{esc(bid)}</a> (non suivi par Radar IA).</p>')
+        body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les éléments suivis par Radar IA qui déclarent <code>{esc(bid)}</code> comme modèle de base sur Hugging Face, '
+                f'avec la nature du lien (quantification, fine-tune, adaptateur, fusion).</p>{note}{tete}{table_faits(site, ders, "../", ("relation", "params", "licence", "dl", "score"))}')
+        write(p, page(site, p, t, f"{len(ders)} dérivés de {bid} suivis par Radar IA : quantifications GGUF, fine-tunes, adaptateurs, avec licence et téléchargements.",
+                      body, crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), (nom, None)], nav_key="guides.html",
+                      jsonld=[ld_itemlist(site, t, [d for d, _ in ders], p)]))
+        guides.append((t, p, f"{len(ders)} dérivés suivis"))
+
+    # Index des guides
+    body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
+            + '<ul class="ess">' + "".join(f'<li><a href="{gp}"><strong>{esc(gt)}</strong></a> — {esc(gr)}</li>' for gt, gp, gr in guides) + "</ul>")
+    write("guides.html", page(site, "guides.html", "Guides : modèles IA open source par langue, licence, format", "Guides Radar IA générés depuis les données Hugging Face : modèles en français, licences, GGUF, familles de modèles.",
+                              body, crumbs=[("Accueil", "index.html"), ("Guides", None)]))
+    return guides
 
 # ------------------------------------------------------------------ pages
 
@@ -554,6 +750,7 @@ def build(site: Site, out: Path, artifact=False):
 <section><div class="sh"><h2>Les modèles qui comptent aujourd'hui</h2><a class="mono sm" href="classements.html">classements →</a></div><div class="cards">{''.join(item_card(site, it, '', i+1) for i, it in enumerate(top))}</div></section>"""
     r += f"""<section><div class="sh"><h2>Derniers articles</h2><a class="mono sm" href="articles.html">tous →</a></div><div class="cards">{''.join(art_card(site, a, '') for a in site.art_sorted[:6]) or '<p class="mut">Premiers articles demain matin.</p>'}</div></section>
 <section><div class="sh"><h2>Classement du jour — top 10</h2><span class="eb">Score Radar /100</span></div>{ranking_table(site, (site.classements.get('jour') or {}).get('entrees') or [], '', 10)}</section>
+<section><div class="sh"><h2>Guides vérifiés</h2><a class="mono sm" href="guides.html">tous →</a></div><p class="sm">Listes régénérées chaque jour depuis les données Hugging Face : <a href="guides/francais.html">modèles qui gèrent le français</a> · <a href="guides/licences.html">licences et usage en entreprise</a> · <a href="guides/gguf.html">modèles GGUF à lancer en local</a>.</p></section>
 <section class="box"><p class="sm" style="margin:0"><strong>{SITE_NAME}</strong> — {esc(SITE_DESC)} Données ouvertes : <a href="pour-les-ia.html">API JSON, llms.txt, RSS</a>.</p></section>
 {bloc_abonnement(site, '')}{bloc_sponsor(site, '')}"""
     title_home = f"{SITE_NAME} — tendances IA open source du {d_short(site.today)}"
@@ -607,7 +804,7 @@ def build(site: Site, out: Path, artifact=False):
 
     # --- Modèles (longue traîne)
     all_items = sorted(site.items.values(), key=lambda i: -(i.get("score") or 0))
-    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(it.get('org'))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(it.get('taille') or '—')}</td><td class="mono sm">{esc(it.get('licence') or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
+    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(it.get('org'))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
     write("modeles.html", page(site, "modeles.html", "Annuaire des modèles IA suivis : taille, licence, score", f"{len(all_items)} modèles, datasets et Spaces Hugging Face suivis par Radar IA, avec taille, licence, tâche et Score Radar.",
           f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments, triés par Score Radar. ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
           crumbs=[("Accueil", "index.html"), ("Modèles", None)], jsonld=[ld_itemlist(site, "Modèles suivis par Radar IA", all_items[:100], "modeles.html")]))
@@ -618,13 +815,13 @@ def build(site: Site, out: Path, artifact=False):
         hist_rows = "".join(f'<tr><td class="num">{d_short(h.get("date"))}</td><td class="r num">{fmt_n(h.get("likes"))}</td><td class="r num">{fmt_n(h.get("downloads"))}</td><td class="r">{score_badge(h.get("score"))}</td></tr>' for h in reversed(hist[-15:]))
         same = [x for x in site.items_in((it.get("domaines") or ["_"])[0]) if x["_id"] != it["_id"]][:4]
         tl = TYPE_LABEL.get(it.get("type"), "Modèle")
-        desc = f"{it['nom']} ({it.get('org')}) : {clip(it.get('resume') or '', 110)} Taille {it.get('taille') or 'n.c.'}, licence {it.get('licence') or 'n.c.'}, Score Radar {it.get('score')}/100."
+        desc = f"{it['nom']} ({it.get('org')}) : {clip(it.get('resume') or '', 110)} Taille {site.taille(it) or 'n.c.'}, licence {site.lic(it) or 'n.c.'}, Score Radar {it.get('score')}/100."
+        kv, kv_md = fiche_faits(site, it, "../")
         body = f"""<div class="eb">{esc(tl)} · {esc(it.get('org'))}</div><h1 style="margin:6px 0 10px">{esc(it['nom'])} {score_badge(it.get('score'))}</h1>
 <p style="max-width:70ch;font-size:1.08rem">{esc(it.get('resume'))}</p>
-<div class="lead" style="margin-top:18px"><div><dl class="kv"><dt>Identifiant</dt><dd><code>{esc(it.get('hfId'))}</code></dd><dt>Organisation</dt><dd>{esc(it.get('org'))}</dd><dt>Tâche</dt><dd>{esc(it.get('tache'))}</dd>
-<dt>Taille</dt><dd>{esc(it.get('taille') or 'non communiquée')}</dd><dt>Licence</dt><dd>{esc(it.get('licence') or 'à vérifier sur la fiche')}</dd><dt>Créé le</dt><dd>{d_long(it.get('creeLe'))}</dd>
-<dt>Likes</dt><dd class="num">{fmt_n(it.get('likes'))}</dd><dt>Téléchargements</dt><dd class="num">{fmt_n(it.get('downloads'))}</dd><dt>Domaines</dt><dd>{''.join(f'<a class="chip" href="../{site.dom_page(d)}">{esc(site.dom_name(d))}</a>' for d in it.get('domaines') or [])}</dd>
+<div class="lead" style="margin-top:18px"><div><dl class="kv">{kv}<dt>Domaines</dt><dd>{''.join(f'<a class="chip" href="../{site.dom_page(d)}">{esc(site.dom_name(d))}</a>' for d in it.get('domaines') or [])}</dd>
 <dt>Pertinent IA pratique</dt><dd>{'oui ★' if it.get('pertinent') else 'non'}</dd><dt>Fiche officielle</dt><dd><a href="{esc(site.hf_url(it))}" rel="noopener">{esc(site.hf_url(it))}</a></dd></dl>
+{f'<p class="sm mut" style="margin-top:8px">Licence, dates, langues, paramètres, formats, modèle de base et compteurs vérifiés sur l’API Hugging Face le {d_short(site.v(it)["verifieLe"])}.</p>' if site.v(it).get("verifieLe") else ''}
 <p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p>{bloc_affiliation(site, it)}</div>
 <aside>{f'<h2 style="font-size:1rem">Historique des relevés</h2><div class="tw" style="margin-top:8px"><table style="min-width:0"><thead><tr><th>Date</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th></tr></thead><tbody>{hist_rows}</tbody></table></div>' if hist_rows else ''}</aside></div>
 {f'<section><div class="sh"><h2>Articles qui en parlent</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
@@ -633,9 +830,10 @@ def build(site: Site, out: Path, artifact=False):
         write(p, page(site, p, f"{it['nom']} — {tl} {it.get('tache') or ''} : fiche, licence, score", desc, body, md_path=p.replace(".html", ".md"),
                       crumbs=[("Accueil", "index.html"), ("Modèles", "modeles.html"), (it["nom"], None)], jsonld=[ld_item(site, it)], nav_key="modeles.html"),
               it.get("derniereVue"))
-        md = (f"# {it['nom']}\n\n> {it.get('resume')}\n\n- Identifiant Hugging Face : `{it.get('hfId')}` — {site.hf_url(it)}\n- Organisation : {it.get('org')}\n- Type : {tl} · tâche : {it.get('tache')}\n"
-              f"- Taille : {it.get('taille') or 'n.c.'} · licence : {it.get('licence') or 'n.c.'}\n- Créé le : {it.get('creeLe') or 'n.c.'}\n- Likes : {it.get('likes')} · téléchargements : {it.get('downloads')}\n"
-              f"- Score Radar : {it.get('score')}/100 · pertinent IA pratique : {'oui' if it.get('pertinent') else 'non'}\n- Domaines : {', '.join(site.dom_name(d) for d in it.get('domaines') or [])}\n\n**Pourquoi ça compte.** {it.get('pourquoi')}\n")
+        md = (f"# {it['nom']}\n\n> {it.get('resume')}\n\n- Identifiant Hugging Face : `{it.get('hfId')}` — {site.hf_url(it)}\n- Type : {tl}\n" + kv_md +
+              f"- Score Radar : {it.get('score')}/100 · pertinent IA pratique : {'oui' if it.get('pertinent') else 'non'}\n- Domaines : {', '.join(site.dom_name(d) for d in it.get('domaines') or [])}\n"
+              + (f"- Faits vérifiés sur l'API Hugging Face le {d_short(site.v(it)['verifieLe'])}\n" if site.v(it).get("verifieLe") else "")
+              + f"\n**Pourquoi ça compte.** {it.get('pourquoi')}\n")
         write_md(p.replace(".html", ".md"), it["nom"], md)
 
     # --- Domaines
@@ -654,6 +852,9 @@ def build(site: Site, out: Path, artifact=False):
                       jsonld=[ld_itemlist(site, dv.get("nom"), its[:20], p)] if its else None))
     write("domaines.html", page(site, "domaines.html", "Domaines de l'IA open source suivis", "LLM en local, documents et OCR, agents, audio, code, multilingue, image et vidéo, données : les rubriques de Radar IA.",
                                 r + "</div>", crumbs=[("Accueil", "index.html"), ("Domaines", None)]))
+
+    # --- Guides (faits vérifiés sur Hugging Face)
+    guides = build_guides(site, write, write_md)
 
     # --- Éditions
     r = '<h1>Éditions</h1><ul class="ess">' + "".join(f'<li><a href="{site.ed_page(e)}"><strong>{d_long(e["date"])}</strong></a> — {esc(e.get("titre"))}</li>' for e in site.ed_sorted) + "</ul>"
@@ -692,7 +893,17 @@ def build(site: Site, out: Path, artifact=False):
         ("Qu'est-ce que le Score Radar ?",
          "Une note de 0 à 100 : 40 % popularité (likes, échelle log), 30 % diffusion (téléchargements, échelle log), 20 % fraîcheur (date de création), 10 % pertinence pour l'IA pratique. Détail sur la page Méthode."),
         ("D'où viennent les données de Radar IA ?",
-         "Des pages publiques de huggingface.co (tendances, likes sur 30 jours, fiches des modèles), relevées chaque matin par des agents IA. Chaque article cite ses sources."),
+         "Des pages publiques de huggingface.co (tendances, likes sur 30 jours, fiches des modèles), relevées chaque matin par des agents IA. Licences, dates, langues, paramètres et formats sont ensuite revérifiés sur l'API Hugging Face à chaque publication. Chaque article cite ses sources."),
+        *([("Quels modèles IA open source gèrent le français ?",
+            f"Parmi les éléments suivis, ceux dont les auteurs déclarent le français sur Hugging Face sont : {top_names(fr_items)}. Liste complète : "
+            f'<a href="guides/francais.html">modèles qui gèrent le français</a>.')] if (fr_items := [i for i in all_items if "fr" in (site.v(i).get("langues") or [])]) else []),
+        *([("Quels modèles GGUF lancer avec Ollama ou LM Studio ?",
+            f"Dépôts GGUF suivis les mieux classés : {top_names(gg_items)}. Voir le <a href=\"guides/gguf.html\">guide GGUF</a> (paramètres, contexte, licence).")]
+          if (gg_items := [i for i in all_items if "GGUF" in (site.v(i).get("formats") or [])]) else []),
+        *([("Quels modèles IA open source sont sous licence Apache 2.0 ou MIT ?",
+            f"Les mieux classés sous licence Apache 2.0 ou MIT d'après Hugging Face : {top_names(perm)}. Détail par licence : "
+            f'<a href="guides/licences.html">licences des modèles suivis</a>.')]
+          if (perm := [i for i in all_items if (site.lic(i) or "").lower() in ("apache-2.0", "mit")]) else []),
         ("Comment un agent IA peut-il réutiliser ces données ?",
          'Via l\'API JSON statique (<a href="api/v1/index.json">api/v1/index.json</a>, décrite par <a href="openapi.json">openapi.json</a>), le fichier <a href="llms.txt">llms.txt</a> ou le flux <a href="feed.xml">RSS</a>. Licence CC BY 4.0.'),
     ]
@@ -710,7 +921,8 @@ popularité = min(1, log10(1 + likes) / log10(20 001))
 diffusion  = min(1, log10(1 + téléchargements) / log10(10 000 001))
 fraîcheur  = 1 si créé ≤ 7 j · 0,7 ≤ 30 j · 0,4 ≤ 90 j · 0,15 au-delà · 0,4 si inconnu
 pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code, français)</pre>
-<h2>Limites</h2><p>Les chiffres proviennent des pages de liste de Hugging Face et sont arrondis. Les benchmarks cités sont ceux des fiches, souvent auto-déclarés : les articles le signalent.</p>
+<h2>Vérification des faits</h2><p>À chaque publication, la licence, les dates de création et de mise à jour, les langues déclarées, le nombre de paramètres, les formats (GGUF, safetensors…), le modèle de base, les likes et les téléchargements sur 30 jours de chaque élément sont relus sur l'API publique de Hugging Face. Ces valeurs remplacent celles saisies par les agents sur les fiches et dans les <a href="guides.html">guides</a>, avec la date de vérification. Les guides (français, licences, GGUF, familles de modèles) sont produits uniquement à partir de ces faits.</p>
+<h2>Limites</h2><p>Les chiffres des classements proviennent des pages de liste de Hugging Face au moment du relevé et sont arrondis ; les faits vérifiés sont ceux que déclarent les auteurs des modèles. Les benchmarks cités sont ceux des fiches, souvent auto-déclarés : les articles le signalent.</p>
 <h2>Licence</h2><p>Textes et données sous <a href="{LICENSE_URL}">CC BY 4.0</a> : réutilisation libre avec mention « Radar IA » et lien.</p></article>"""
     write("methode.html", page(site, "methode.html", "Méthode et Score Radar", "Comment Radar IA relève Hugging Face, calcule le Score Radar et vérifie ses articles.",
                                body, crumbs=[("Accueil", "index.html"), ("Méthode", None)], jsonld=[ld_faq(meth_q)]))
@@ -763,7 +975,7 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
     # --- API JSON
     def clean(d):
         return {k: v for k, v in d.items() if not k.startswith("_")}
-    api_items = [dict(clean(it), id=it["_id"], page=site.abs(site.item_page(it))) for it in all_items]
+    api_items = [dict(clean(it), id=it["_id"], page=site.abs(site.item_page(it)), **({"verifieHuggingFace": site.v(it)} if site.v(it) else {})) for it in all_items]
     api_arts = [dict(clean(a), id=a["_id"], page=site.abs(site.art_page(a)), markdown=site.abs(f"articles/{a['_slug']}.md")) for a in site.art_sorted]
     meta = {"source": SITE_NAME, "site": base, "licence": "CC-BY-4.0", "genereLe": site.built_at, "dateDonnees": site.today}
     api = {"items.json": {**meta, "items": api_items}, "articles.json": {**meta, "articles": api_arts},
@@ -793,7 +1005,8 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
             f"- [Accueil, édition du jour]({site.abs('index.md')}): l'essentiel, la tendance de fond, les derniers articles",
             f"- [Classements]({site.abs('classements.md')}): top jour, 7 jours, 30 jours, 3 mois avec scores",
             f"- [FAQ]({site.abs('faq.md')}): réponses directes (modèles populaires, IA locale, OCR, agents, transcription)", "",
-            "## Articles", ""] + [f"- [{a['titre']}]({site.abs('articles/' + a['_slug'] + '.md')}): {clip(a.get('chapo', ''), 160)}" for a in site.art_sorted] + [
+            "## Guides (faits vérifiés sur Hugging Face)", ""] + [f"- [{gt}]({site.abs(gp.replace('.html', '.md') if gp.startswith('guides/') else gp)}): {gr}" for gt, gp, gr in guides] + [
+            "", "## Articles", ""] + [f"- [{a['titre']}]({site.abs('articles/' + a['_slug'] + '.md')}): {clip(a.get('chapo', ''), 160)}" for a in site.art_sorted] + [
             "", "## Fiches modèles", ""] + [f"- [{it['nom']}]({site.abs(site.item_page(it).replace('.html', '.md'))}): {it.get('org')}, {it.get('tache')}, score {it.get('score')}" for it in all_items[:60]] + [
             "", "## Données", "", f"- [API JSON]({site.abs('api/v1/index.json')}): items, articles, éditions, classements, domaines",
             f"- [OpenAPI]({site.abs('openapi.json')}): description des points d'accès", "", "## Optional", "",

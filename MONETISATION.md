@@ -7,6 +7,7 @@ Coûts directs actuels : 0 € (GitHub Pages gratuit ; les agents tournent sur l
 | Levier | Fonctionnement |
 |---|---|
 | Référencement Google/Bing | Pages statiques, JSON-LD, sitemap, titres « Meilleurs modèles … (mois année) » sur les domaines |
+| Contenu vérifié | Faits relus sur l'API Hugging Face à chaque publication ; guides français, licences, GGUF, familles de modèles |
 | Assistants IA (GEO) | `llms.txt`, `.md` jumeaux, API JSON + OpenAPI, robots IA autorisés |
 | IndexNow | Chaque déploiement signale toutes les pages à Bing (→ ChatGPT Search, Copilot), Yandex, Seznam, Naver |
 | Partage | Image `og.png` 1200×630, liens de partage sans traceur sous chaque article |
@@ -31,7 +32,9 @@ Par ordre d'impact. Chaque ligne active un bloc déjà prêt : remplir le champ 
 6. **Mesure d'audience** — GoatCounter (sans cookie, sans bandeau) → `mesure.pixel` = `https://CODE.goatcounter.com/count?p={path}`.
 7. **Dons** — Ko-fi, Liberapay ou GitHub Sponsors → `soutien[].url`.
 8. **Affiliation GPU** — programme de parrainage d'un loueur de GPU → `affiliation.gpu` (mention « lien affilié » automatique).
-9. **Contact partenaires** — une adresse dédiée → `contact.email` (sinon : ticket GitHub public).
+9. **Adresse du site** — créer une boîte dédiée (ex. Gmail ou Proton « radar.ia… », ou contact@ d'un futur nom de domaine)
+   → `contact.email`. Sans elle : ticket GitHub public. Les messages de prospection préparés (`pilotage/prospection-*.md`)
+   l'utilisent comme adresse de réponse.
 10. **Statut** — pour facturer un sponsor, il faut une structure (micro-entreprise par exemple) ; vérifier aussi la clause
     d'exclusivité du contrat de travail. Les prix des offres sont dans `offres` (tarifs de lancement modifiables).
 11. **Facultatif** — nom de domaine (~10 €/an) : marque plus forte, éligibilité aux régies publicitaires ; GitHub redirige

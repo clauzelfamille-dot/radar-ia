@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2602.15763"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-08-25",
+ "downloads": 6539199,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "zai-org/GLM-5.3-Flash",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "mit",
+ "likes": 2799,
+ "majLe": "2026-09-07",
+ "parametres": 321323031390,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

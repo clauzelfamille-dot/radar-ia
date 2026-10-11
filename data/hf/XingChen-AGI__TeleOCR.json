@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2608.12898"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-08-14",
+ "downloads": 45547,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "XingChen-AGI/TeleOCR",
+ "langues": [
+  "zh",
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 1290,
+ "majLe": "2026-10-09",
+ "parametres": 1415072768,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/XingChen-AGI/TeleOCR",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

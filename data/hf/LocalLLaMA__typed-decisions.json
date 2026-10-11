@@ -1,0 +1,17 @@
+{
+ "acces": "libre",
+ "creeLe": "2026-09-16",
+ "downloads": 38542,
+ "hfId": "LocalLLaMA/typed-decisions",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 163,
+ "majLe": "2026-10-10",
+ "tache": "text-classification",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions",
+ "verifieLe": "2026-10-11T20:47+00:00",
+ "volumetrie": "n<1K"
+}

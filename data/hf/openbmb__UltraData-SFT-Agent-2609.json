@@ -1,0 +1,21 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2602.09003"
+ ],
+ "creeLe": "2026-08-31",
+ "downloads": 26237,
+ "hfId": "openbmb/UltraData-SFT-Agent-2609",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 292,
+ "majLe": "2026-09-06",
+ "tache": "text-generation, question-answering",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/openbmb/UltraData-SFT-Agent-2609",
+ "verifieLe": "2026-10-11T20:47+00:00",
+ "volumetrie": "100K<n<1M"
+}

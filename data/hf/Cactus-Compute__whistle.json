@@ -1,0 +1,23 @@
+{
+ "acces": "libre",
+ "bibliotheque": "cactus-needle",
+ "creeLe": "2026-09-30",
+ "downloads": 16434,
+ "hfId": "Cactus-Compute/whistle",
+ "langues": [
+  "en",
+  "de",
+  "fr",
+  "es",
+  "it",
+  "nl",
+  "pl"
+ ],
+ "licence": "apache-2.0",
+ "likes": 333,
+ "majLe": "2026-10-10",
+ "tache": "automatic-speech-recognition",
+ "type": "model",
+ "url": "https://huggingface.co/Cactus-Compute/whistle",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

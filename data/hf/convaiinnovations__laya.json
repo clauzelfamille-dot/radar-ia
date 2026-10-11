@@ -1,0 +1,18 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-18",
+ "downloads": 44088,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "convaiinnovations/laya",
+ "licence": "apache-2.0",
+ "likes": 5489,
+ "majLe": "2026-10-03",
+ "parametres": 421293830,
+ "tache": "text-classification",
+ "type": "model",
+ "url": "https://huggingface.co/convaiinnovations/laya",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

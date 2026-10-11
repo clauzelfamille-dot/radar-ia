@@ -1,0 +1,24 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-30",
+ "downloads": 14351,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Cloudflare/clef",
+ "licence": "apache-2.0",
+ "likes": 2025,
+ "majLe": "2026-10-09",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 27356728560,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/Cloudflare/clef",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

@@ -1,0 +1,26 @@
+{
+ "acces": "libre",
+ "bibliotheque": "gguf",
+ "contexte": 262144,
+ "creeLe": "2026-09-11",
+ "downloads": 472388,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "ukisai/Swift-Qwen3.8-27B-GGUF",
+ "licence": "swift-open-license-1.0",
+ "licenceLien": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b#license-and-access",
+ "likes": 459,
+ "majLe": "2026-10-01",
+ "modeleBase": [
+  {
+   "id": "ukisai/Swift-Qwen3.8-27b",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 27320697856,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27B-GGUF",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

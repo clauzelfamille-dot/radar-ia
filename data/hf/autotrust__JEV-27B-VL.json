@@ -1,0 +1,30 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2512.16899"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-30",
+ "downloads": 1545492,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "autotrust/JEV-27B-VL",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 3775,
+ "majLe": "2026-10-11",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "adapter"
+  }
+ ],
+ "parametres": 27781427952,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/autotrust/JEV-27B-VL",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

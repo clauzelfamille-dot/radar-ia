@@ -1,0 +1,28 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2609.18063"
+ ],
+ "bibliotheque": "mlx",
+ "creeLe": "2026-09-08",
+ "downloads": 80966,
+ "formats": [
+  "MLX",
+  "safetensors"
+ ],
+ "hfId": "Edge0/Edge0-35B-A3B-preview",
+ "licence": "apache-2.0",
+ "likes": 3568,
+ "majLe": "2026-10-01",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.6-35B-A3B",
+   "relation": "adapter"
+  }
+ ],
+ "parametres": 34660610688,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/Edge0/Edge0-35B-A3B-preview",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "bibliotheque": "gguf",
+ "contexte": 262144,
+ "creeLe": "2026-10-09",
+ "downloads": 100530,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF",
+ "licence": "apache-2.0",
+ "likes": 317,
+ "majLe": "2026-10-10",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3-VL-8B-Instruct",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 8190735360,
+ "tache": "text-to-image",
+ "type": "model",
+ "url": "https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

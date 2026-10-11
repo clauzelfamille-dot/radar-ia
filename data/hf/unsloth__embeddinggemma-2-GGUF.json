@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "contexte": 262144,
+ "creeLe": "2026-10-06",
+ "downloads": 59274,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "unsloth/embeddinggemma-2-GGUF",
+ "langues": [
+  "multilingual"
+ ],
+ "licence": "apache-2.0",
+ "likes": 250,
+ "majLe": "2026-10-07",
+ "modeleBase": [
+  {
+   "id": "google/embeddinggemma-2",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 271002648,
+ "tache": "feature-extraction",
+ "type": "model",
+ "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

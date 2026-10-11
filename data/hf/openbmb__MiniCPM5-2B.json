@@ -1,0 +1,26 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2506.07900",
+  "2602.09003"
+ ],
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-06",
+ "downloads": 1285616,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "openbmb/MiniCPM5-2B",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 1739,
+ "majLe": "2026-09-29",
+ "parametres": 2516756480,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

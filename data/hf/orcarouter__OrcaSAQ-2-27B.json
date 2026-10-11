@@ -1,0 +1,28 @@
+{
+ "acces": "libre",
+ "bibliotheque": "vllm",
+ "creeLe": "2026-09-24",
+ "downloads": 5379,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "orcarouter/OrcaSAQ-2-27B",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 280,
+ "majLe": "2026-10-02",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 6770790400,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-27B",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

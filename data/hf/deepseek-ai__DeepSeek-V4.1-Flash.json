@@ -1,0 +1,18 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-10",
+ "downloads": 1382367,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "deepseek-ai/DeepSeek-V4.1-Flash",
+ "licence": "mit",
+ "likes": 4361,
+ "majLe": "2026-10-01",
+ "parametres": 763205315794,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

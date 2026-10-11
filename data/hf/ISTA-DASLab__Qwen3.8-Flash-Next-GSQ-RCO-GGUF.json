@@ -1,0 +1,29 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2604.18556",
+  "2605.00649"
+ ],
+ "bibliotheque": "gguf",
+ "contexte": 262144,
+ "creeLe": "2026-09-07",
+ "downloads": 4189006,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+ "licence": "apache-2.0",
+ "likes": 795,
+ "majLe": "2026-09-29",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-Flash-Next",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 176943899520,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

@@ -1,0 +1,24 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "creeLe": "2026-09-30",
+ "downloads": 22123,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Cloudflare/clef-flash",
+ "licence": "apache-2.0",
+ "likes": 752,
+ "majLe": "2026-10-09",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.5-9B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 9409813744,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/Cloudflare/clef-flash",
+ "verifieLe": "2026-10-11T20:47+00:00"
+}

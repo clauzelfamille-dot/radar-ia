@@ -1,7 +1,8 @@
 # Radar IA — contexte projet pour Claude Code
 
 Langue : français uniquement (code commenté en français, messages de commit en français).
-Propriétaire : Guillaume, compte GitHub `clauzelfamille-dot`.
+Propriétaire : Guillaume, compte GitHub `clauzelfamille-dot`. Ne jamais publier d'adresse e-mail personnelle dans le
+dépôt ; commits avec l'adresse anonyme GitHub (`250761295+clauzelfamille-dot@users.noreply.github.com`).
 
 ## Ce qu'est le projet
 Site statique de veille sur les modèles IA ouverts (Hugging Face), optimisé SEO + GEO (moteurs et assistants IA).
@@ -13,6 +14,9 @@ Site statique de veille sur les modèles IA ouverts (Hugging Face), optimisé SE
 - `config/site.json` : leviers d'audience et de revenus (vérification moteurs, mesure, newsletter, sponsor, dons,
   affiliation, IndexNow, réseaux). Champ vide = bloc masqué. Mode d'emploi : `MONETISATION.md`.
 - `static/` : fichiers fixes copiés dans `assets/` (image de partage `og.png`).
+- `build/enrichir.py` : relit chaque élément sur l'API publique Hugging Face → `data/hf/<id>.json` (licence exacte,
+  dates, langues, paramètres, formats, modèle de base, compteurs). Ces faits priment sur la saisie des agents et
+  alimentent les guides (`guides/francais`, `guides/licences`, `guides/gguf`, `familles/<base>`).
 - `build/verifier.py` : contrôles avant publication ; `build/indexnow.py` ; `build/diffusion.py`.
 - `SEO-GEO.md` : cahier des charges de référencement à respecter.
 
@@ -32,7 +36,8 @@ vers `data/`, contrôle, pousse), Diffusion 09:20 (posts prêts à publier dans 
 le lundi 10:00, Revenus & pilotage le lundi 10:30 (rapport dans `../pilotage/`).
 
 ## Règles
-- Ne jamais inventer de chiffres : les données viennent de `data/`.
+- Ne jamais inventer de chiffres : les données viennent de `data/`. Pour un fait vérifiable (licence, date, taille,
+  langue), la source est l'API Hugging Face (`data/hf/`) ; un contenu ajouté ne peut pas dépasser ce que disent les données.
 - Score Radar = 40·popularité + 30·diffusion + 20·fraîcheur + 10·pertinence (voir build.py et SEO-GEO.md).
 - Garder le site sans JavaScript côté lecteur ; tout le texte doit être dans le HTML.
 - Monétisation : tout contenu payant est signalé et en `rel="sponsored"` ; aucun partenaire n'influence le Score Radar ;
