@@ -1021,7 +1021,17 @@ def build(site: Site, out: Path, artifact=False):
     md = "# Classements Radar IA\n\nScore Radar /100 = 40·popularité + 30·diffusion + 20·fraîcheur + 10·pertinence.\n"
     for per, lab in PERIODES:
         cl = site.classements.get(per) or {}
-        r += f'<section id="{per}"><div class="sh"><h2>{esc(cl.get("titre") or lab)}</h2><span class="eb">{lab}</span></div>{ranking_table(site, cl.get("entrees") or [], "")}</section>'
+        ent = cl.get("entrees") or []
+        r += (f'<section id="{per}"><div class="sh"><h2>{esc(cl.get("titre") or lab)}</h2><a href="classements/{per}.html">classement complet ({len(ent)}) →</a></div>'
+              f'{ranking_table(site, ent, "", 10)}</section>')
+        # page complète de la période (allège la page d'ensemble)
+        pp = f"classements/{per}.html"
+        titre_p = f"Classement {lab.lower()} des modèles IA open source" if per != "jour" else "Classement du jour des modèles IA open source"
+        write(pp, page(site, pp, titre_p, f"{len(ent)} modèles, datasets et Spaces Hugging Face classés par Score Radar ({lab.lower()}) : likes, téléchargements, évolution.",
+                       f'<h1>{esc(cl.get("titre") or titre_p)}</h1><p class="mut">Période : {esc(lab)} · Score Radar sur 100 (<a href="../methode.html">méthode</a>). '
+                       + " · ".join(f'<a href="{q}.html">{esc(l)}</a>' for q, l in PERIODES if q != per) + f'</p>{ranking_table(site, ent, "../")}',
+                       crumbs=[("Accueil", "index.html"), ("Classements", "classements.html"), (lab, None)], nav_key="classements.html",
+                       jsonld=[ld_itemlist(site, titre_p, ranking_items(site, per), pp)] if ranking_items(site, per) else None))
         md += f"\n## {cl.get('titre') or lab}\n\n| # | Élément | Organisation | Score | Likes | Téléchargements |\n|---|---|---|---|---|---|\n"
         for e in cl.get("entrees") or []:
             it = site.items.get(e.get("itemId"))
@@ -1029,7 +1039,7 @@ def build(site: Site, out: Path, artifact=False):
     write("classements.html", page(site, "classements.html", "Classements des modèles IA open source (jour, 7 j, 30 j, 3 mois)",
           "Classement quotidien des modèles, datasets et Spaces Hugging Face par Score Radar : popularité, téléchargements, fraîcheur, pertinence.",
           r, md_path="classements.md", artifact_shell=False, crumbs=[("Accueil", "index.html"), ("Classements", None)],
-          jsonld=[ld_itemlist(site, f"Classement {lab}", ranking_items(site, per), f"classements.html#{per}") for per, lab in PERIODES if ranking_items(site, per)]))
+          jsonld=[ld_itemlist(site, f"Classement {lab}", ranking_items(site, per)[:10], f"classements/{per}.html") for per, lab in PERIODES if ranking_items(site, per)]))
     write_md("classements.md", "Classements", md)
 
     # --- Articles
