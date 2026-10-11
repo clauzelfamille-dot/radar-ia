@@ -979,6 +979,33 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
     write_md("glossaire.md", t, f"# {t}\n\n" + "\n\n".join(f"## {terme}\n\n{d}" for _, terme, d in GLOSSAIRE))
     guides.append((t, "glossaire.html", f"{len(GLOSSAIRE)} termes définis"))
 
+    # Nouveautés : entrées dans le radar (premiereVue) et créations récentes vérifiées sur Hugging Face
+    par_jour: dict[str, list] = {}
+    for i in tous:
+        if i.get("premiereVue"): par_jour.setdefault(i["premiereVue"][:10], []).append(i)
+    try:
+        ref = date.fromisoformat(site.today)
+        recents = sorted([i for i in tous if site.v(i).get("creeLe") and (ref - date.fromisoformat(site.v(i)["creeLe"])).days <= 30],
+                         key=lambda i: site.v(i)["creeLe"], reverse=True)
+    except ValueError:
+        recents = []
+    t = f"Nouveaux modèles IA open source repérés ({mois})"
+    secs = "".join(f'<section><div class="sh"><h2>Entrés dans le radar le {d_long(j)}</h2><span class="eb">{len(v)} élément(s)</span></div>'
+                   f'<div class="cards">{"".join(item_card(site, x, "") for x in v[:12])}</div>'
+                   + (f'<p class="sm mut">Et {len(v) - 12} autres : voir l’<a href="modeles.html">annuaire des modèles</a>.</p>' if len(v) > 12 else "") + '</section>' for j, v in sorted(par_jour.items(), reverse=True)[:7])
+    rec = (f'<section><div class="sh"><h2>Créés sur Hugging Face depuis 30 jours</h2><span class="eb">{len(recents)} élément(s)</span></div>'
+           f'<div class="tw"><table style="min-width:560px"><thead><tr><th>Élément</th><th>Créé le</th><th>Paramètres</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>'
+           + "".join(f'<tr><td><a href="{site.item_page(i)}"><strong>{esc(i["nom"])}</strong></a><div class="sm mut mono">{esc(site.org(i))}</div></td>'
+                     f'<td class="mono sm">{d_short(site.v(i)["creeLe"])}</td><td class="r num">{esc(fmt_params(site.v(i).get("parametres")) or "—")}</td>'
+                     f'<td class="sm">{esc(site.lic(i) or "non déclarée")}</td><td class="r">{score_badge(i.get("score"))}</td></tr>' for i in recents)
+           + '</tbody></table></div></section>') if recents else ""
+    body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les éléments entrés dans le radar de Radar IA, jour par jour, et ceux créés sur Hugging Face au cours des 30 derniers jours (date vérifiée). '
+            f'<a href="feed.xml">Flux RSS</a> · <a href="domaines.html">flux par domaine</a>.</p>{note}{rec}{secs}')
+    write("nouveautes.html", page(site, "nouveautes.html", t, f"Les derniers modèles, datasets et Spaces IA open source repérés par Radar IA : {len(recents)} créés sur Hugging Face depuis 30 jours, avec licence et taille vérifiées.",
+                                  body, crumbs=[("Accueil", "index.html"), ("Nouveautés", None)], nav_key="guides.html",
+                                  jsonld=[ld_itemlist(site, t, recents[:30], "nouveautes.html")] if recents else None))
+    guides.append((t, "nouveautes.html", f"{len(recents)} créés depuis 30 jours"))
+
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
             + '<ul class="ess">' + "".join(f'<li><a href="{gp}"><strong>{esc(gt)}</strong></a> — {esc(gr)}</li>' for gt, gp, gr in guides) + "</ul>")
@@ -1018,7 +1045,7 @@ def build(site: Site, out: Path, artifact=False):
 <section><div class="sh"><h2>Les modèles qui comptent aujourd'hui</h2><a class="mono sm" href="classements.html">classements →</a></div><div class="cards">{''.join(item_card(site, it, '', i+1) for i, it in enumerate(top))}</div></section>"""
     r += f"""<section><div class="sh"><h2>Derniers articles</h2><a class="mono sm" href="articles.html">tous →</a></div><div class="cards">{''.join(art_card(site, a, '') for a in site.art_sorted[:6]) or '<p class="mut">Premiers articles demain matin.</p>'}</div></section>
 <section><div class="sh"><h2>Classement du jour — top 10</h2><span class="eb">Score Radar /100</span></div>{ranking_table(site, (site.classements.get('jour') or {}).get('entrees') or [], '', 10)}</section>
-<section><div class="sh"><h2>Guides vérifiés</h2><a class="mono sm" href="guides.html">tous →</a></div><p class="sm">Listes régénérées chaque jour depuis les données Hugging Face : <a href="guides/francais.html">modèles qui gèrent le français</a> · <a href="guides/licences.html">licences et usage en entreprise</a> · <a href="guides/gguf.html">modèles GGUF à lancer en local</a>.</p></section>
+<section><div class="sh"><h2>Guides vérifiés</h2><a class="mono sm" href="guides.html">tous →</a></div><p class="sm">Listes régénérées chaque jour depuis les données Hugging Face : <a href="nouveautes.html">nouveautés</a> · <a href="guides/francais.html">modèles qui gèrent le français</a> · <a href="guides/licences.html">licences et usage en entreprise</a> · <a href="guides/gguf.html">modèles GGUF à lancer en local</a>.</p></section>
 <section class="box"><p class="sm" style="margin:0"><strong>{SITE_NAME}</strong> — {esc(SITE_DESC)} Données ouvertes : <a href="pour-les-ia.html">API JSON, llms.txt, RSS</a>.</p></section>
 {bloc_abonnement(site, '')}{bloc_sponsor(site, '')}"""
     title_home = f"{SITE_NAME} — tendances IA open source du {d_short(site.today)}"
