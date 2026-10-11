@@ -305,6 +305,17 @@ class Site:
         return {b: sorted(d, key=lambda x: -(x[0].get("score") or 0)) for b, d in sorted(fam.items())
                 if len(d) >= 2 or (b in suivis and d)}
 
+    def editeurs(self) -> dict:
+        """Compte Hugging Face → éléments suivis (triés par score)."""
+        ed: dict[str, list] = {}
+        for it in self.items.values():
+            acc = (it.get("hfId") or "").split("/")[0]
+            if acc: ed.setdefault(acc, []).append(it)
+        return {k: sorted(v, key=lambda i: -(i.get("score") or 0)) for k, v in sorted(ed.items(), key=lambda kv: kv[0].lower())}
+
+    def ed_page_url(self, acc) -> str: return f"editeurs/{slugify(acc)}.html"
+    def has_ed_page(self, acc) -> bool: return len(self.editeurs().get(acc, [])) >= 2
+
     def fam_page(self, base_id) -> str: return f"familles/{slugify(base_id.replace('/', '__'))}.html"
 
 # ------------------------------------------------------------------ gabarit
@@ -666,8 +677,8 @@ def fiche_faits(site, it, root) -> tuple[str, str]:
     v, rows = site.v(it), []
     add = lambda lab, h, m: rows.append((lab, h, m))
     add("Identifiant", f"<code>{esc(it.get('hfId'))}</code>", None)
-    add("Éditeur", esc(site.org(it)), site.org(it))
     acc = (it.get("hfId") or "").split("/")[0]
+    add("Éditeur", (f'<a href="{root}{site.ed_page_url(acc)}">{esc(site.org(it))}</a>' if site.has_ed_page(acc) else esc(site.org(it))), site.org(it))
     if acc: add("Compte Hugging Face", f'<a href="https://huggingface.co/{esc(acc)}" rel="noopener">{esc(acc)}</a>' + (f' <span class="mut sm">({esc(v["compteType"])})</span>' if v.get("compteType") else ""), acc)
     tache = it.get("tache") or v.get("tache")
     add("Tâche", esc(tache) + (f' <span class="mut mono sm">({esc(v["tache"])})</span>' if v.get("tache") and v["tache"] != tache else ""), tache)
@@ -795,6 +806,30 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
                       body, crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), (nom, None)], nav_key="guides.html",
                       jsonld=[ld_itemlist(site, t, [d for d, _ in ders], p)]))
         guides.append((t, p, f"{len(ders)} dérivés suivis"))
+
+    # Éditeurs : une page par compte qui publie au moins deux éléments suivis, et un annuaire
+    eds = site.editeurs()
+    lignes = []
+    for acc, its in eds.items():
+        nom = site.org(its[0])
+        if len(its) >= 2:
+            p = site.ed_page_url(acc)
+            t = f"Modèles {nom} suivis par Radar IA ({mois})"
+            body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">{len(its)} éléments publiés par le compte Hugging Face '
+                    f'<a href="https://huggingface.co/{esc(acc)}" rel="noopener"><code>{esc(acc)}</code></a> et suivis par Radar IA, classés par Score Radar.</p>{note}'
+                    f'{table_faits(site, its, "../", ("params", "licence", "dl", "score"))}'
+                    f'<section><div class="sh"><h2>En cartes</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in its)}</div></section>')
+            write(p, page(site, p, t, f"{len(its)} modèles, datasets ou Spaces de {nom} suivis par Radar IA : taille, licence, téléchargements, Score Radar vérifiés sur Hugging Face.",
+                          body, crumbs=[("Accueil", "index.html"), ("Éditeurs", "editeurs.html"), (nom, None)], nav_key="guides.html",
+                          jsonld=[ld_itemlist(site, t, its, p)]))
+            lignes.append(f'<li><a href="{p}"><strong>{esc(nom)}</strong></a> <span class="mut mono sm">{esc(acc)} · {len(its)} éléments</span></li>')
+        else:
+            lignes.append(f'<li><a href="{site.item_page(its[0])}">{esc(nom)}</a> <span class="mut mono sm">{esc(acc)} · {esc(its[0].get("nom"))}</span></li>')
+    t = f"Éditeurs de modèles IA ouverts suivis ({mois})"
+    write("editeurs.html", page(site, "editeurs.html", t, f"Les {len(eds)} éditeurs (organisations et comptes Hugging Face) dont Radar IA suit au moins un modèle, dataset ou Space.",
+                                f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Organisations et comptes Hugging Face dont au moins un élément est suivi. Noms vérifiés sur Hugging Face.</p>{note}<ul class="ess">{"".join(lignes)}</ul>',
+                                crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), ("Éditeurs", None)], nav_key="guides.html"))
+    guides.append((t, "editeurs.html", f"{len(eds)} éditeurs, {sum(1 for v in eds.values() if len(v) >= 2)} avec une page dédiée"))
 
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
