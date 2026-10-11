@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "vllm",
+ "compte": "orcarouter",
+ "compteNom": "OrcaRouter",
+ "compteType": "organisation",
  "creeLe": "2026-09-24",
  "downloads": 5379,
  "formats": [
@@ -24,5 +27,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-27B",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

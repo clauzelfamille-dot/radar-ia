@@ -4,6 +4,9 @@
   "2602.15763"
  ],
  "bibliotheque": "transformers",
+ "compte": "zai-org",
+ "compteNom": "Z.ai",
+ "compteType": "organisation",
  "creeLe": "2026-08-25",
  "downloads": 6539199,
  "formats": [
@@ -21,5 +24,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

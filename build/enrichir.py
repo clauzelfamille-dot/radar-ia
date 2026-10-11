@@ -4,7 +4,7 @@
 Pour chaque data/items/<id>.json, écrit data/hf/<id>.json : licence (nom exact et lien), dates de création et de mise à
 jour, likes, téléchargements (30 jours), tâche, bibliothèque, langues déclarées, nombre de paramètres, formats (GGUF,
 safetensors…), longueur de contexte, modèle de base et relation (quantification, fine-tune…), accès restreint, articles
-arXiv. Ces faits priment sur les valeurs saisies par les agents. En cas d'échec réseau, l'ancien fichier est conservé.
+arXiv, compte éditeur (nom officiel des organisations). Ces faits priment sur les valeurs saisies par les agents. En cas d'échec réseau, l'ancien fichier est conservé.
 
 Usage : python3 build/enrichir.py --data data [--workers 4]
 """
@@ -62,6 +62,28 @@ def faits(it: dict, d: dict, maintenant: str) -> dict:
     }
     return {k: v for k, v in out.items() if v not in (None, [], "")}
 
+_COMPTES: dict[str, dict] = {}
+
+def compte(acc: str, token: str | None) -> dict:
+    """Nom officiel d'une organisation Hugging Face ; pour un particulier, seulement l'identifiant (pas de nom de personne)."""
+    if acc in _COMPTES: return _COMPTES[acc]
+    res = {"compte": acc}
+    for kind in ("organizations", "users"):
+        req = urllib.request.Request(f"https://huggingface.co/api/{kind}/{acc}/overview",
+                                     headers={"User-Agent": "radar-ia-verification", **({"Authorization": f"Bearer {token}"} if token else {})})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                d = json.loads(r.read().decode())
+        except (urllib.error.URLError, TimeoutError, ValueError):
+            continue
+        if kind == "organizations" and d.get("fullname"):
+            res.update(compteNom=d["fullname"], compteType="organisation")
+        elif kind == "users":
+            res["compteType"] = "utilisateur"
+        break
+    _COMPTES[acc] = res
+    return res
+
 def un(item_path: Path, out_dir: Path, maintenant: str, token: str | None) -> str:
     it = json.loads(item_path.read_text(encoding="utf-8"))
     if not it.get("hfId"): return f"ignoré {item_path.stem} (pas de hfId)"
@@ -75,7 +97,9 @@ def un(item_path: Path, out_dir: Path, maintenant: str, token: str | None) -> st
         return f"HTTP {e.code} {it['hfId']}"
     except (urllib.error.URLError, TimeoutError, ValueError) as e:
         return f"échec {it['hfId']} ({e})"
-    (out_dir / f"{item_path.stem}.json").write_text(json.dumps(faits(it, d, maintenant), ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
+    f = faits(it, d, maintenant)
+    f.update(compte(it["hfId"].split("/")[0], token))
+    (out_dir / f"{item_path.stem}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
     return "ok"
 
 def main():

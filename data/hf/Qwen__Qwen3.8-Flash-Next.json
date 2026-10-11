@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "transformers",
+ "compte": "Qwen",
+ "compteNom": "Qwen",
+ "compteType": "organisation",
  "creeLe": "2026-08-24",
  "downloads": 1870465,
  "formats": [
@@ -15,5 +18,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

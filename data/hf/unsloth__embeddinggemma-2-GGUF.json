@@ -1,5 +1,8 @@
 {
  "acces": "libre",
+ "compte": "unsloth",
+ "compteNom": "Unsloth AI",
+ "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-10-06",
  "downloads": 59274,
@@ -23,5 +26,5 @@
  "tache": "feature-extraction",
  "type": "model",
  "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

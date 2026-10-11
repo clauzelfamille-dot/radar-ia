@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "transformers",
+ "compte": "Cloudflare",
+ "compteNom": "Cloudflare",
+ "compteType": "organisation",
  "creeLe": "2026-09-30",
  "downloads": 22123,
  "formats": [
@@ -20,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Cloudflare/clef-flash",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

@@ -4,6 +4,9 @@
   "2512.16899"
  ],
  "bibliotheque": "transformers",
+ "compte": "autotrust",
+ "compteNom": "AutoTrust AI Lab",
+ "compteType": "organisation",
  "creeLe": "2026-09-30",
  "downloads": 1545492,
  "formats": [
@@ -26,5 +29,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/autotrust/JEV-27B-VL",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

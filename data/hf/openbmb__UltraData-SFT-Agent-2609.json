@@ -3,6 +3,9 @@
  "arxiv": [
   "2602.09003"
  ],
+ "compte": "openbmb",
+ "compteNom": "OpenBMB",
+ "compteType": "organisation",
  "creeLe": "2026-08-31",
  "downloads": 26237,
  "hfId": "openbmb/UltraData-SFT-Agent-2609",
@@ -16,6 +19,6 @@
  "tache": "text-generation, question-answering",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/openbmb/UltraData-SFT-Agent-2609",
- "verifieLe": "2026-10-11T20:47+00:00",
+ "verifieLe": "2026-10-11T21:07+00:00",
  "volumetrie": "100K<n<1M"
 }

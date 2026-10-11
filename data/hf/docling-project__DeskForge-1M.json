@@ -3,6 +3,9 @@
  "arxiv": [
   "2610.02320"
  ],
+ "compte": "docling-project",
+ "compteNom": "Docling",
+ "compteType": "organisation",
  "creeLe": "2026-08-25",
  "downloads": 5457,
  "hfId": "docling-project/DeskForge-1M",
@@ -15,6 +18,6 @@
  "tache": "image-to-text, object-detection",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/docling-project/DeskForge-1M",
- "verifieLe": "2026-10-11T20:47+00:00",
+ "verifieLe": "2026-10-11T21:07+00:00",
  "volumetrie": "1M<n<10M"
 }

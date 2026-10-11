@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "cactus-needle",
+ "compte": "Cactus-Compute",
+ "compteNom": "Cactus Compute, Inc.",
+ "compteType": "organisation",
  "creeLe": "2026-09-30",
  "downloads": 16434,
  "hfId": "Cactus-Compute/whistle",
@@ -19,5 +22,5 @@
  "tache": "automatic-speech-recognition",
  "type": "model",
  "url": "https://huggingface.co/Cactus-Compute/whistle",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

@@ -5,6 +5,9 @@
   "2601.17858"
  ],
  "bibliotheque": "vllm",
+ "compte": "Aleph-Alpha",
+ "compteNom": "Aleph Alpha",
+ "compteType": "organisation",
  "creeLe": "2026-10-02",
  "downloads": 12550,
  "formats": [
@@ -28,5 +31,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

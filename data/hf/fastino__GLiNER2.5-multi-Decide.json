@@ -4,6 +4,9 @@
   "2507.18546"
  ],
  "bibliotheque": "transformers",
+ "compte": "fastino",
+ "compteNom": "fastino",
+ "compteType": "organisation",
  "creeLe": "2026-09-24",
  "downloads": 14911,
  "formats": [
@@ -26,5 +29,5 @@
  "parametres": 287355159,
  "type": "model",
  "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

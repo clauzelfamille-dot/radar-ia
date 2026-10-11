@@ -280,6 +280,12 @@ class Site:
     # --- faits vérifiés : la valeur de l'API Hugging Face prime sur la saisie des agents
     def v(self, it) -> dict: return self.hf.get(it.get("_id")) or {}
     def lic(self, it): return self.v(it).get("licence") or it.get("licence")
+    def org(self, it):
+        """Éditeur vérifié : nom officiel de l'organisation, identifiant pour un compte personnel, sinon saisie de l'agent."""
+        v, acc = self.v(it), (it.get("hfId") or "").split("/")[0]
+        if v.get("compteNom"): return v["compteNom"].strip()
+        if v.get("compteType") == "utilisateur": return acc
+        return it.get("org") or acc
     def cree(self, it): return self.v(it).get("creeLe") or it.get("creeLe")
     def taille(self, it): return fmt_params(self.v(it).get("parametres")) or it.get("taille")
     def by_hf(self) -> dict: return {i.get("hfId"): i for i in self.items.values() if i.get("hfId")}
@@ -568,7 +574,7 @@ def ld_item(site, it):
     v = site.v(it)
     d = {"@context": "https://schema.org", "@type": typ, "name": it.get("nom"), "url": site.hf_url(it),
          "description": it.get("resume") or it.get("pourquoi"), "sameAs": site.hf_url(it),
-         "creator": {"@type": "Organization", "name": it.get("org")}, "dateModified": v.get("majLe") or it.get("majLe")}
+         "creator": {"@type": "Organization", "name": site.org(it)}, "dateModified": v.get("majLe") or it.get("majLe")}
     if site.cree(it): d["datePublished"] = site.cree(it)
     if site.lic(it): d["license"] = v.get("licenceLien") or site.lic(it)
     langs = [l for l in v.get("langues") or [] if l != "multilingual"]
@@ -623,7 +629,7 @@ def item_card(site, it, root, rank=None):
     star = '<span class="star" title="Pertinent : local, documents, agents, audio, code, français">★</span> ' if it.get("pertinent") else ""
     doms = "".join(dom_chip(site, d) for d in it.get("domaines") or [])
     d0 = (it.get("domaines") or ["tendances"])[0]
-    return f"""<div class="card" data-d="{esc(d0)}"><div style="display:flex;justify-content:space-between;gap:8px"><div class="eb">{f"#{rank} · " if rank else ""}{esc(it.get('org'))}</div>{score_badge(it.get('score'))}</div>
+    return f"""<div class="card" data-d="{esc(d0)}"><div style="display:flex;justify-content:space-between;gap:8px"><div class="eb">{f"#{rank} · " if rank else ""}{esc(site.org(it))}</div>{score_badge(it.get('score'))}</div>
 <h3>{star}<a href="{root}{site.item_page(it)}">{esc(it.get('nom'))}</a></h3><div>{doms}<span class="chip">{esc(TYPE_LABEL.get(it.get('type'), ''))}</span></div>
 <p>{esc(it.get('pourquoi') or it.get('resume'))}</p><div class="meta"><span>♥ {fmt_n(it.get('likes'))}</span><span>↓ {fmt_n(it.get('downloads'))}</span>{f"<span>{esc(site.taille(it))}</span>" if site.taille(it) else ''}</div></div>"""
 
@@ -638,7 +644,7 @@ def ranking_table(site, entries, root, limit=None):
         if not it: continue
         d = e.get("delta")
         dl = '<span class="star">nouveau</span>' if d is None else (f'<span class="up">▲ {d}</span>' if d > 0 else (f'<span class="dn">▼ {-d}</span>' if d < 0 else "="))
-        rows.append(f"""<tr><td class="num">{e.get('rank') or e.get('rang') or i+1}</td><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get('nom'))}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(it.get('org'))} · {esc(TYPE_LABEL.get(it.get('type'), ''))}{(' · ' + esc(it['tache'])) if it.get('tache') else ''}</div></td>
+        rows.append(f"""<tr><td class="num">{e.get('rank') or e.get('rang') or i+1}</td><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get('nom'))}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(site.org(it))} · {esc(TYPE_LABEL.get(it.get('type'), ''))}{(' · ' + esc(it['tache'])) if it.get('tache') else ''}</div></td>
 <td>{''.join(dom_chip(site, x) for x in it.get('domaines') or [])}</td><td class="r num">{fmt_n(e.get('likes', it.get('likes')))}</td><td class="r num">{fmt_n(e.get('downloads', it.get('downloads')))}</td><td class="r">{score_badge(e.get('score', it.get('score')))}</td><td class="mono sm">{dl}</td></tr>""")
     if not rows: return '<p class="mut">Classement en cours de calcul.</p>'
     return f'<div class="tw"><table><thead><tr><th>#</th><th>Élément</th><th>Domaines</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th><th>Évol.</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
@@ -660,7 +666,9 @@ def fiche_faits(site, it, root) -> tuple[str, str]:
     v, rows = site.v(it), []
     add = lambda lab, h, m: rows.append((lab, h, m))
     add("Identifiant", f"<code>{esc(it.get('hfId'))}</code>", None)
-    add("Organisation", esc(it.get("org")), it.get("org"))
+    add("Éditeur", esc(site.org(it)), site.org(it))
+    acc = (it.get("hfId") or "").split("/")[0]
+    if acc: add("Compte Hugging Face", f'<a href="https://huggingface.co/{esc(acc)}" rel="noopener">{esc(acc)}</a>' + (f' <span class="mut sm">({esc(v["compteType"])})</span>' if v.get("compteType") else ""), acc)
     tache = it.get("tache") or v.get("tache")
     add("Tâche", esc(tache) + (f' <span class="mut mono sm">({esc(v["tache"])})</span>' if v.get("tache") and v["tache"] != tache else ""), tache)
     if v.get("parametres"): add("Paramètres", f'<span class="num">{fmt_params(v["parametres"])}</span>', fmt_params(v["parametres"]))
@@ -713,7 +721,7 @@ def table_faits(site, items, root, cols=("base", "params", "licence", "dl", "sco
                 "dl": lambda: fmt_n(v.get("downloads", it.get("downloads"))),
                 "score": lambda: score_badge(it.get("score")),
                 "relation": lambda: esc(RELATIONS.get(rel, "dérivé"))}
-        rows.append(f'<tr><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get("nom"))}</strong></a><div class="sm mut mono">{esc(it.get("org"))}</div></td>'
+        rows.append(f'<tr><td><a href="{root}{site.item_page(it)}"><strong>{esc(it.get("nom"))}</strong></a><div class="sm mut mono">{esc(site.org(it))}</div></td>'
                     + "".join(f'<td class="{"r num" if c in ("dl", "score", "params", "contexte") else "sm"}">{cell[c]()}</td>' for c in cols) + "</tr>")
     return f'<div class="tw"><table><thead><tr>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>' if rows else '<p class="mut">Aucun élément suivi pour le moment.</p>'
 
@@ -849,7 +857,7 @@ def build(site: Site, out: Path, artifact=False):
         md += f"\n## {cl.get('titre') or lab}\n\n| # | Élément | Organisation | Score | Likes | Téléchargements |\n|---|---|---|---|---|---|\n"
         for e in cl.get("entrees") or []:
             it = site.items.get(e.get("itemId"))
-            if it: md += f"| {e.get('rang')} | [{it['nom']}]({site.hf_url(it)}) | {it.get('org')} | {e.get('score')} | {it.get('likes')} | {it.get('downloads')} |\n"
+            if it: md += f"| {e.get('rang')} | [{it['nom']}]({site.hf_url(it)}) | {site.org(it)} | {e.get('score')} | {it.get('likes')} | {it.get('downloads')} |\n"
     write("classements.html", page(site, "classements.html", "Classements des modèles IA open source (jour, 7 j, 30 j, 3 mois)",
           "Classement quotidien des modèles, datasets et Spaces Hugging Face par Score Radar : popularité, téléchargements, fraîcheur, pertinence.",
           r, md_path="classements.md", artifact_shell=False, crumbs=[("Accueil", "index.html"), ("Classements", None)],
@@ -881,7 +889,7 @@ def build(site: Site, out: Path, artifact=False):
 
     # --- Modèles (longue traîne)
     all_items = sorted(site.items.values(), key=lambda i: -(i.get("score") or 0))
-    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(it.get('org'))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
+    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(site.org(it))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
     write("modeles.html", page(site, "modeles.html", "Annuaire des modèles IA suivis : taille, licence, score", f"{len(all_items)} modèles, datasets et Spaces Hugging Face suivis par Radar IA, avec taille, licence, tâche et Score Radar.",
           f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments, triés par Score Radar. ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
           crumbs=[("Accueil", "index.html"), ("Modèles", None)], jsonld=[ld_itemlist(site, "Modèles suivis par Radar IA", all_items[:100], "modeles.html")]))
@@ -892,9 +900,9 @@ def build(site: Site, out: Path, artifact=False):
         hist_rows = "".join(f'<tr><td class="num">{d_short(h.get("date"))}</td><td class="r num">{fmt_n(h.get("likes"))}</td><td class="r num">{fmt_n(h.get("downloads"))}</td><td class="r">{score_badge(h.get("score"))}</td></tr>' for h in reversed(hist[-15:]))
         same = [x for x in site.items_in((it.get("domaines") or ["_"])[0]) if x["_id"] != it["_id"]][:4]
         tl = TYPE_LABEL.get(it.get("type"), "Modèle")
-        desc = f"{it['nom']} ({it.get('org')}) : {clip(it.get('resume') or '', 110)} Taille {site.taille(it) or 'n.c.'}, licence {site.lic(it) or 'n.c.'}, Score Radar {it.get('score')}/100."
+        desc = f"{it['nom']} ({site.org(it)}) : {clip(it.get('resume') or '', 110)} Taille {site.taille(it) or 'n.c.'}, licence {site.lic(it) or 'n.c.'}, Score Radar {it.get('score')}/100."
         kv, kv_md = fiche_faits(site, it, "../")
-        body = f"""<div class="eb">{esc(tl)} · {esc(it.get('org'))}</div><h1 style="margin:6px 0 10px">{esc(it['nom'])} {score_badge(it.get('score'))}</h1>
+        body = f"""<div class="eb">{esc(tl)} · {esc(site.org(it))}</div><h1 style="margin:6px 0 10px">{esc(it['nom'])} {score_badge(it.get('score'))}</h1>
 <p style="max-width:70ch;font-size:1.08rem">{esc(it.get('resume'))}</p>
 <div class="lead" style="margin-top:18px"><div><dl class="kv">{kv}<dt>Domaines</dt><dd>{''.join(dom_chip(site, d, '../') for d in it.get('domaines') or [])}</dd>
 <dt>Pertinent IA pratique</dt><dd>{'oui ★' if it.get('pertinent') else 'non'}</dd><dt>Fiche officielle</dt><dd><a href="{esc(site.hf_url(it))}" rel="noopener">{esc(site.hf_url(it))}</a></dd></dl>
@@ -1084,7 +1092,7 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
             f"- [FAQ]({site.abs('faq.md')}): réponses directes (modèles populaires, IA locale, OCR, agents, transcription)", "",
             "## Guides (faits vérifiés sur Hugging Face)", ""] + [f"- [{gt}]({site.abs(gp.replace('.html', '.md') if gp.startswith('guides/') else gp)}): {gr}" for gt, gp, gr in guides] + [
             "", "## Articles", ""] + [f"- [{a['titre']}]({site.abs('articles/' + a['_slug'] + '.md')}): {clip(a.get('chapo', ''), 160)}" for a in site.art_sorted] + [
-            "", "## Fiches modèles", ""] + [f"- [{it['nom']}]({site.abs(site.item_page(it).replace('.html', '.md'))}): {it.get('org')}, {it.get('tache')}, score {it.get('score')}" for it in all_items[:60]] + [
+            "", "## Fiches modèles", ""] + [f"- [{it['nom']}]({site.abs(site.item_page(it).replace('.html', '.md'))}): {site.org(it)}, {it.get('tache')}, score {it.get('score')}" for it in all_items[:60]] + [
             "", "## Données", "", f"- [API JSON]({site.abs('api/v1/index.json')}): items, articles, éditions, classements, domaines",
             f"- [OpenAPI]({site.abs('openapi.json')}): description des points d'accès", "", "## Optional", "",
             f"- [Tout le contenu]({site.abs('llms-full.txt')}): toutes les pages en Markdown", f"- [Méthode]({site.abs('methode.html')}): calcul du score et limites"]

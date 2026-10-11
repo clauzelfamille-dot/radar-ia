@@ -4,6 +4,9 @@
   "2511.23404"
  ],
  "bibliotheque": "transformers",
+ "compte": "LiquidAI",
+ "compteNom": "Liquid AI",
+ "compteType": "organisation",
  "creeLe": "2026-10-05",
  "downloads": 10843,
  "formats": [
@@ -42,5 +45,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/LiquidAI/d1-3B",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

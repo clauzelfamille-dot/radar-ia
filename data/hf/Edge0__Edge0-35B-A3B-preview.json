@@ -4,6 +4,9 @@
   "2609.18063"
  ],
  "bibliotheque": "mlx",
+ "compte": "Edge0",
+ "compteNom": "Edge0",
+ "compteType": "organisation",
  "creeLe": "2026-09-08",
  "downloads": 80966,
  "formats": [
@@ -24,5 +27,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/Edge0/Edge0-35B-A3B-preview",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

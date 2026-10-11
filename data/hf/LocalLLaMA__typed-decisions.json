@@ -1,5 +1,8 @@
 {
  "acces": "libre",
+ "compte": "LocalLLaMA",
+ "compteNom": "LocalLLaMA",
+ "compteType": "organisation",
  "creeLe": "2026-09-16",
  "downloads": 38542,
  "hfId": "LocalLLaMA/typed-decisions",
@@ -12,6 +15,6 @@
  "tache": "text-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions",
- "verifieLe": "2026-10-11T20:47+00:00",
+ "verifieLe": "2026-10-11T21:07+00:00",
  "volumetrie": "n<1K"
 }

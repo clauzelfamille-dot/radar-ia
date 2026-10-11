@@ -3,6 +3,8 @@
  "arxiv": [
   "2405.14867"
  ],
+ "compte": "canberkkkkkk",
+ "compteType": "utilisateur",
  "creeLe": "2026-10-01",
  "downloads": 18079,
  "hfId": "canberkkkkkk/ema-lightning",
@@ -10,10 +12,10 @@
   "tr"
  ],
  "licence": "apache-2.0",
- "likes": 355,
+ "likes": 356,
  "majLe": "2026-10-06",
  "tache": "text-to-speech",
  "type": "model",
  "url": "https://huggingface.co/canberkkkkkk/ema-lightning",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

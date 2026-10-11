@@ -1,6 +1,8 @@
 {
  "acces": "libre",
  "bibliotheque": "transformers",
+ "compte": "ukisai",
+ "compteType": "utilisateur",
  "creeLe": "2026-09-08",
  "downloads": 23242,
  "formats": [
@@ -21,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

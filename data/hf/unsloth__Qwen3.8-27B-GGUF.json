@@ -1,5 +1,8 @@
 {
  "acces": "libre",
+ "compte": "unsloth",
+ "compteNom": "Unsloth AI",
+ "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-08-13",
  "downloads": 6488262,
@@ -19,5 +22,5 @@
  "parametres": 27320697856,
  "type": "model",
  "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

@@ -5,6 +5,9 @@
   "2602.09003"
  ],
  "bibliotheque": "transformers",
+ "compte": "openbmb",
+ "compteNom": "OpenBMB",
+ "compteType": "organisation",
  "creeLe": "2026-09-06",
  "downloads": 1285616,
  "formats": [
@@ -22,5 +25,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

@@ -1,5 +1,8 @@
 {
  "acces": "libre",
+ "compte": "moondream",
+ "compteNom": "moondream",
+ "compteType": "organisation",
  "creeLe": "2026-09-18",
  "downloads": 16008,
  "formats": [
@@ -40,5 +43,5 @@
  "tache": "automatic-speech-recognition",
  "type": "model",
  "url": "https://huggingface.co/moondream/parakeet-redux",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

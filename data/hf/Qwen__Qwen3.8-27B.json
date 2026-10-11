@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "transformers",
+ "compte": "Qwen",
+ "compteNom": "Qwen",
+ "compteType": "organisation",
  "creeLe": "2026-08-05",
  "downloads": 6843108,
  "formats": [
@@ -8,11 +11,11 @@
  ],
  "hfId": "Qwen/Qwen3.8-27B",
  "licence": "apache-2.0",
- "likes": 17501,
+ "likes": 17502,
  "majLe": "2026-08-14",
  "parametres": 27781427952,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

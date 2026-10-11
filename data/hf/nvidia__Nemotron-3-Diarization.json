@@ -8,6 +8,9 @@
   "2605.15442"
  ],
  "bibliotheque": "nemo",
+ "compte": "nvidia",
+ "compteNom": "NVIDIA",
+ "compteType": "organisation",
  "creeLe": "2026-09-01",
  "downloads": 74877,
  "formats": [
@@ -22,5 +25,5 @@
  "tache": "voice-activity-detection",
  "type": "model",
  "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }

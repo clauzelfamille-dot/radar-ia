@@ -1,6 +1,9 @@
 {
  "acces": "libre",
  "bibliotheque": "gguf",
+ "compte": "AtomicChat",
+ "compteNom": "Atomic Chat",
+ "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-10-09",
  "downloads": 100530,
@@ -21,5 +24,5 @@
  "tache": "text-to-image",
  "type": "model",
  "url": "https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF",
- "verifieLe": "2026-10-11T20:47+00:00"
+ "verifieLe": "2026-10-11T21:07+00:00"
 }
