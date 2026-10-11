@@ -316,6 +316,23 @@ class Site:
     def ed_page_url(self, acc) -> str: return f"editeurs/{slugify(acc)}.html"
     def has_ed_page(self, acc) -> bool: return len(self.editeurs().get(acc, [])) >= 2
 
+    def comparatifs(self) -> list:
+        """Paires (a, b, domaine) : les 3 modèles les mieux classés de chaque domaine, comparés deux à deux, sans doublon."""
+        if getattr(self, "_cmp", None) is None:
+            vus, out = set(), []
+            for dk in self.domaines:
+                top = [i for i in self.items_in(dk) if i.get("type") == "model" and "uncensored" not in (i.get("hfId") or "").lower()][:3]
+                for x in range(len(top)):
+                    for y in range(x + 1, len(top)):
+                        a, b = top[x], top[y]
+                        k = tuple(sorted((a["_id"], b["_id"])))
+                        if k not in vus:
+                            vus.add(k); out.append((a, b, dk))
+            self._cmp = out
+        return self._cmp
+
+    def cmp_page(self, a, b) -> str: return f"comparer/{slugify(a['_id'])}-vs-{slugify(b['_id'])}.html"
+
     def fam_page(self, base_id) -> str: return f"familles/{slugify(base_id.replace('/', '__'))}.html"
 
 # ------------------------------------------------------------------ gabarit
@@ -831,6 +848,66 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
                                 crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), ("Éditeurs", None)], nav_key="guides.html"))
     guides.append((t, "editeurs.html", f"{len(eds)} éditeurs, {sum(1 for v in eds.values() if len(v) >= 2)} avec une page dédiée"))
 
+    # Comparatifs « X ou Y ? » : faits vérifiés et phrases calculées à partir d'eux, sans verdict de qualité
+    cmp_liens = []
+    for a, b, dk in site.comparatifs():
+        p = site.cmp_page(a, b)
+        va, vb = site.v(a), site.v(b)
+        t = f"{a['nom']} ou {b['nom']} ? Comparatif ({mois})"
+        def faits_dict(it):
+            _, md = fiche_faits(site, it, "../")
+            return dict(l[2:].split(" : ", 1) for l in md.strip().split("\n") if " : " in l)
+        da, db = faits_dict(a), faits_dict(b)
+        cles = list(da) + [k for k in db if k not in da]
+        lignes = "".join(f'<tr><th scope="row">{esc(k)}</th><td>{esc(da.get(k, "—"))}</td><td>{esc(db.get(k, "—"))}</td></tr>' for k in cles)
+        lignes += f'<tr><th scope="row">Score Radar</th><td>{score_badge(a.get("score"))}</td><td>{score_badge(b.get("score"))}</td></tr>'
+        constats = []
+        sa, sb = a.get("score"), b.get("score")
+        if sa is not None and sb is not None and sa != sb:
+            h = a if sa > sb else b
+            constats.append(f"Score Radar plus élevé pour {h['nom']} ({max(sa, sb)} contre {min(sa, sb)}).")
+        try:
+            r = float(va["downloads"]) / float(vb["downloads"])
+        except (KeyError, TypeError, ValueError, ZeroDivisionError):
+            r = None
+        if r and (r >= 1.5 or r <= 1 / 1.5):
+            h, l, k = (a, b, r) if r > 1 else (b, a, 1 / r)
+            constats.append(f"{h['nom']} est {str(round(k, 1)).replace('.', ',')} fois plus téléchargé que {l['nom']} sur les 30 derniers jours, selon Hugging Face.")
+        pa, pb = va.get("parametres"), vb.get("parametres")
+        if pa and pb and pa != pb:
+            le = a if pa < pb else b
+            constats.append(f"{le['nom']} est le plus léger : {fmt_params(min(pa, pb))} paramètres contre {fmt_params(max(pa, pb))}.")
+        la, lb = site.lic(a), site.lic(b)
+        if la and lb:
+            constats.append(f"Même licence : {la}." if la == lb else f"Licences différentes : {la} pour {a['nom']}, {lb} pour {b['nom']}.")
+        fa, fb = "fr" in (va.get("langues") or []), "fr" in (vb.get("langues") or [])
+        if fa != fb:
+            constats.append(f"Seul {(a if fa else b)['nom']} déclare le français sur Hugging Face.")
+        ga, gb = "GGUF" in (va.get("formats") or []), "GGUF" in (vb.get("formats") or [])
+        if ga != gb:
+            constats.append(f"Seul {(a if ga else b)['nom']} est publié au format GGUF (llama.cpp, Ollama, LM Studio).")
+        body = (f'<div class="eb">Comparatif · {esc(site.dom_name(dk))}</div><h1 style="margin-top:6px">{esc(a["nom"])} ou {esc(b["nom"])} ?</h1>'
+                f'<p class="mut" style="max-width:70ch">Deux des modèles les mieux classés du domaine « {esc(site.dom_name(dk))} » sur Radar IA, comparés point par point. '
+                f'Les faits viennent des fiches Hugging Face ; aucun jugement de qualité n’est inventé : testez sur vos propres données.</p>{note}'
+                + (f'<section><div class="sh"><h2>Ce que disent les chiffres</h2></div><ul class="ess">{"".join(f"<li>{esc(x)}</li>" for x in constats)}</ul></section>' if constats else "")
+                + f'<section><div class="sh"><h2>Fiche contre fiche</h2></div><div class="tw"><table style="min-width:520px"><thead><tr><th></th>'
+                f'<th><a href="../{site.item_page(a)}">{esc(a["nom"])}</a></th><th><a href="../{site.item_page(b)}">{esc(b["nom"])}</a></th></tr></thead><tbody>{lignes}</tbody></table></div></section>'
+                f'<section><div class="sh"><h2>Pourquoi ils comptent</h2></div><div class="cards">{item_card(site, a, "../")}{item_card(site, b, "../")}</div></section>')
+        write(p, page(site, p, t, f"{a['nom']} ou {b['nom']} : paramètres, licence, langues, formats, téléchargements et Score Radar comparés, d'après Hugging Face.",
+                      body, crumbs=[("Accueil", "index.html"), ("Comparatifs", "comparer.html"), (f"{a['nom']} ou {b['nom']}", None)], nav_key="guides.html",
+                      jsonld=[ld_itemlist(site, t, [a, b], p)]))
+        cmp_liens.append((dk, a, b, p))
+    if cmp_liens:
+        par_dom: dict[str, list] = {}
+        for dk, a, b, p in cmp_liens:
+            par_dom.setdefault(dk, []).append(f'<li><a href="{p}"><strong>{esc(a["nom"])}</strong> ou <strong>{esc(b["nom"])}</strong> ?</a></li>')
+        t = f"Comparatifs de modèles IA open source ({mois})"
+        write("comparer.html", page(site, "comparer.html", t, f"{len(cmp_liens)} comparatifs entre les modèles open source les mieux classés de chaque domaine : faits vérifiés sur Hugging Face.",
+                                    f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les modèles les mieux classés de chaque domaine, comparés deux à deux sur des faits vérifiables.</p>'
+                                    + "".join(f'<section><div class="sh"><h2>{esc(site.dom_name(dk))}</h2></div><ul class="ess">{"".join(v)}</ul></section>' for dk, v in par_dom.items()),
+                                    crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), ("Comparatifs", None)], nav_key="guides.html"))
+        guides.append((t, "comparer.html", f"{len(cmp_liens)} comparatifs"))
+
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
             + '<ul class="ess">' + "".join(f'<li><a href="{gp}"><strong>{esc(gt)}</strong></a> — {esc(gr)}</li>' for gt, gp, gr in guides) + "</ul>")
@@ -944,6 +1021,7 @@ def build(site: Site, out: Path, artifact=False):
 {f'<p class="sm mut" style="margin-top:8px">Licence, dates, langues, paramètres, formats, modèle de base et compteurs vérifiés sur l’API Hugging Face le {d_short(site.v(it)["verifieLe"])}.</p>' if site.v(it).get("verifieLe") else ''}
 <p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p>{bloc_affiliation(site, it)}</div>
 <aside>{f'<h2 style="font-size:1rem">Historique des relevés</h2><div class="tw" style="margin-top:8px"><table style="min-width:0"><thead><tr><th>Date</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th></tr></thead><tbody>{hist_rows}</tbody></table></div>' if hist_rows else ''}</aside></div>
+{(lambda cs: f'<section><div class="sh"><h2>Comparer</h2></div><ul class="ess">{cs}</ul></section>' if cs else '')("".join(f'<li><a href="../{site.cmp_page(x, y)}">{esc(x["nom"])} ou {esc(y["nom"])} ?</a></li>' for x, y, _ in site.comparatifs() if it["_id"] in (x["_id"], y["_id"])))}
 {f'<section><div class="sh"><h2>Articles qui en parlent</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
 {f'<section><div class="sh"><h2>Dans le même domaine</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in same)}</div></section>' if same else ''}
 {bloc_abonnement(site, '../')}"""
