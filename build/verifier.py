@@ -41,7 +41,7 @@ def main():
         t = re.search(r"<title>(.*?)</title>", h, re.S)
         if t and len(html.unescape(t.group(1))) > 70:
             alertes.append(f"{rel} : titre de {len(html.unescape(t.group(1)))} caractères")
-    for n in ("sitemap.xml", "feed.xml"):
+    for n in ["sitemap.xml", "feed.xml"] + [f.relative_to(dist).as_posix() for f in sorted((dist / "feeds").glob("*.xml"))]:
         try:
             ET.parse(dist / n)
         except (ET.ParseError, OSError) as e:

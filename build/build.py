@@ -555,7 +555,7 @@ def contact_url(site, sujet="Partenariat Radar IA") -> str:
 
 def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: list | None = None, crumbs=None,
          og_type="website", md_path: str | None = None, nav_key: str | None = None, artifact_shell=False,
-         published: str | None = None, modified: str | None = None) -> str:
+         published: str | None = None, modified: str | None = None, feed: tuple[str, str] | None = None) -> str:
     depth = path.count("/")
     root = "../" * depth
     if path == "404.html" and site.url:  # servie à n'importe quelle profondeur : liens absolus
@@ -580,7 +580,7 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 <meta name="robots" content="{'noindex' if path == '404.html' else 'index,follow,max-snippet:-1,max-image-preview:large'}">{verif_meta}
 {f'<link rel="canonical" href="{esc(canonical)}">' if site.url and path != '404.html' else ''}
 <link rel="stylesheet" href="{root}assets/style.css"><link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="{SITE_NAME} — RSS" href="{root}feed.xml">
+<link rel="alternate" type="application/rss+xml" title="{SITE_NAME} — RSS" href="{root}feed.xml">{f'<link rel="alternate" type="application/rss+xml" title="{esc(feed[1])}" href="{root}{feed[0]}">' if feed else ''}
 <link rel="alternate" type="application/feed+json" title="{SITE_NAME} — JSON Feed" href="{root}feed.json">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{root}llms.txt">
 {f'<link rel="alternate" type="text/markdown" href="{root}{md_path}">' if md_path else ''}
@@ -704,6 +704,21 @@ def ranking_table(site, entries, root, limit=None):
 <td>{''.join(dom_chip(site, x) for x in it.get('domaines') or [])}</td><td class="r num">{fmt_n(e.get('likes', it.get('likes')))}</td><td class="r num">{fmt_n(e.get('downloads', it.get('downloads')))}</td><td class="r">{score_badge(e.get('score', it.get('score')))}</td><td class="mono sm">{dl}</td></tr>""")
     if not rows: return '<p class="mut">Classement en cours de calcul.</p>'
     return f'<div class="tw"><table><thead><tr><th>#</th><th>Élément</th><th>Domaines</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th><th>Évol.</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+
+def rss_domaine(site, dk) -> str:
+    """Flux RSS 2.0 d'un domaine : ses articles et ses éléments nouvellement suivis, du plus récent au plus ancien."""
+    entrees = [(a.get("publieLe") or a.get("date") or "", a.get("titre"), site.abs(site.art_page(a)), a.get("chapo"), sanitize(a.get("corpsHtml")))
+               for a in site.art_sorted if a.get("domaine") == dk]
+    entrees += [(it.get("premiereVue") or site.cree(it) or "", f"Nouveau dans le radar : {it.get('nom')} ({site.org(it)})", site.abs(site.item_page(it)),
+                 it.get("resume") or it.get("pourquoi"), None) for it in site.items_in(dk) if it.get("premiereVue")]
+    entrees.sort(key=lambda e: e[0], reverse=True)
+    nom = site.dom_name(dk); url = site.abs(f"feeds/{dk}.xml")
+    items = "".join(f"<item><title>{esc(t)}</title><link>{esc(u)}</link><guid isPermaLink=\"true\">{esc(u)}</guid><pubDate>{rfc822(d)}</pubDate>"
+                    f"<category>{esc(nom)}</category><description>{esc(c)}</description>"
+                    + (f"<content:encoded><![CDATA[{h.replace(']]>', ']]&gt;')}]]></content:encoded>" if h else "") + "</item>" for d, t, u, c, h in entrees[:40])
+    return (f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+            f"<title>{esc(SITE_NAME)} — {esc(nom)}</title><link>{esc(site.abs(site.dom_page(dk)))}</link><description>{esc(site.domaines.get(dk, {}).get('description') or nom)}</description>"
+            f'<language>fr-fr</language><lastBuildDate>{rfc822(site.built_at)}</lastBuildDate><atom:link href="{esc(url)}" rel="self" type="application/rss+xml"/>{items}</channel></rss>')
 
 def radar_panel(site, n=6) -> str:
     """Top du jour en jauges horizontales (CSS seul)."""
@@ -1108,11 +1123,15 @@ def build(site: Site, out: Path, artifact=False):
         its = site.items_in(dk); arts = [a for a in site.art_sorted if a.get("domaine") == dk]
         p = site.dom_page(dk)
         mois = d_long(site.today).split(" ", 1)[-1]  # « octobre 2026 » : vise les requêtes « meilleur modèle … »
+        (out / "feeds").mkdir(parents=True, exist_ok=True)
+        (out / "feeds" / f"{dk}.xml").write_text(rss_domaine(site, dk), encoding="utf-8")
         body = f"""<div class="eb">Mis à jour le {d_long(site.today)}</div><h1 style="margin-top:6px">Meilleurs modèles open source : {esc(dv.get('nom'))}</h1><p class="mut" style="max-width:70ch">{esc(dv.get('description'))} Sélection {esc(mois)} classée par Score Radar.</p>
+<p class="sm mono"><a href="../feeds/{dk}.xml">Flux RSS de ce domaine</a> · <a href="https://feedly.com/i/subscription/feed/{quote(site.abs(f'feeds/{dk}.xml'), safe='')}" rel="noopener">Suivre sur Feedly</a></p>
 {f'<section><div class="sh"><h2>Articles</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
 <section><div class="sh"><h2>Meilleurs scores du domaine</h2></div>{f'<div class="cards">{"".join(item_card(site, it, "../", i+1) for i, it in enumerate(its[:12]))}</div>' if its else '<p class="mut">Aucun élément pour le moment.</p>'}</section>"""
         write(p, page(site, p, f"Meilleurs modèles {dv.get('nom')} open source ({mois})", f"Les meilleurs modèles IA open source pour {dv.get('nom')} en {mois} : {dv.get('description')} Classement par Score Radar et analyses en français.",
                       body, crumbs=[("Accueil", "index.html"), ("Domaines", "domaines.html"), (dv.get("nom"), None)], nav_key="domaines.html",
+                      feed=(f"feeds/{dk}.xml", f"{SITE_NAME} — {dv.get('nom')} (RSS)"),
                       jsonld=[ld_itemlist(site, dv.get("nom"), its[:20], p)] if its else None))
     write("domaines.html", page(site, "domaines.html", "Domaines de l'IA open source suivis", "LLM en local, documents et OCR, agents, audio, code, multilingue, image et vidéo, données : les rubriques de Radar IA.",
                                 r + "</div>", crumbs=[("Accueil", "index.html"), ("Domaines", None)]))
@@ -1197,7 +1216,7 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
     body = f"""<h1>Suivre Radar IA</h1><p class="mut" style="max-width:70ch">Une édition chaque matin vers 9 h : les modèles IA ouverts qui comptent, ceux à tester en local, les scores et les analyses. Gratuit.</p>
 {bloc_abonnement(site, '')}
 <section><div class="sh"><h2>Lecteurs de flux</h2></div><ul class="ess"><li><a href="feed.xml">Flux RSS 2.0</a> (contenu complet des articles)</li><li><a href="feed.json">JSON Feed 1.1</a></li>
-<li><a href="https://feedly.com/i/subscription/feed/{quote(feed, safe='')}" rel="noopener">Ajouter à Feedly</a></li><li><a href="https://www.inoreader.com/?add_feed={quote(feed, safe='')}" rel="noopener">Ajouter à Inoreader</a></li></ul></section>
+<li><a href="https://feedly.com/i/subscription/feed/{quote(feed, safe='')}" rel="noopener">Ajouter à Feedly</a></li>{"".join(f'<li><a href="feeds/{dk}.xml">Flux « {esc(dv.get("nom"))} »</a></li>' for dk, dv in site.domaines.items())}<li><a href="https://www.inoreader.com/?add_feed={quote(feed, safe='')}" rel="noopener">Ajouter à Inoreader</a></li></ul></section>
 {f'<section><div class="sh"><h2>Réseaux</h2></div><ul class="ess">{res}</ul></section>' if res else ''}
 <section><div class="sh"><h2>Pour les agents IA</h2></div><p class="sm"><a href="llms.txt">llms.txt</a>, <a href="api/v1/index.json">API JSON</a> et <a href="openapi.json">OpenAPI</a> : voir <a href="pour-les-ia.html">API &amp; IA</a>.</p></section>"""
     write("abonnement.html", page(site, "abonnement.html", "S'abonner à Radar IA : newsletter, RSS, réseaux", "Recevez chaque matin l'essentiel des modèles IA open source en français : newsletter gratuite, flux RSS, JSON Feed, réseaux.",
