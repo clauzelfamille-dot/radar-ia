@@ -4,7 +4,9 @@ Site statique en français sur les modèles IA ouverts (Hugging Face) : édition
 articles, fiches modèles, FAQ, `llms.txt`, API JSON + OpenAPI, RSS. Pensé pour Google/Bing **et** pour les assistants IA
 (voir `SEO-GEO.md`).
 
-## Mise en ligne (5 minutes, une seule fois)
+**En ligne : https://clauzelfamille-dot.github.io/radar-ia/** — audience et revenus : voir `MONETISATION.md`.
+
+## Mise en ligne (fait le 11/10/2026)
 1. Sur github.com, créer un dépôt public **`radar-ia`** (compte `clauzelfamille-dot`), sans README.
 2. « Add file » → « Upload files » : déposer **tout le contenu** de ce dossier (y compris le dossier caché `.github`).
    Ou en ligne de commande :

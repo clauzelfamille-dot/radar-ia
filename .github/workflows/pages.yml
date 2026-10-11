@@ -30,3 +30,15 @@ jobs:
           path: dist
       - id: deploy
         uses: actions/deploy-pages@v4
+      # Après la mise en ligne : faire connaître les pages. Un échec ici ne remet pas en cause la publication.
+      - name: Signaler les pages aux moteurs (IndexNow)
+        continue-on-error: true
+        run: python3 build/indexnow.py --dist dist --site-url "${{ steps.pages.outputs.base_url }}/"
+      - name: Diffuser les nouveaux articles (Bluesky, Mastodon)
+        continue-on-error: true
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_URL: ${{ secrets.MASTODON_URL }}
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+        run: python3 build/diffusion.py --dist dist

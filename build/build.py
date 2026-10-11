@@ -6,13 +6,19 @@ Entrée : un dossier de données exporté de la base (un sous-dossier par collec
 Sortie : un site statique complet (HTML sans JavaScript, .md jumeaux, JSON-LD, sitemap, RSS, JSON Feed,
 llms.txt, llms-full.txt, API JSON + OpenAPI, robots.txt).
 
-Usage : python3 build.py --data DATA --out DIST [--site-url https://exemple.org/radar-ia/]
+Usage : python3 build.py --data DATA --out DIST [--site-url https://exemple.org/radar-ia/] [--config config/site.json]
+
+La configuration (config/site.json, facultative) active les leviers d'audience et de revenus : vérification des moteurs,
+mesure d'audience sans cookie, newsletter, sponsor, dons, affiliation, IndexNow, réseaux. Champ vide = bloc masqué.
 """
 from __future__ import annotations
 import argparse, html, json, math, os, re, shutil, sys
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import quote
+
+RACINE_DEPOT = Path(__file__).resolve().parent.parent
 
 SITE_NAME = "Radar IA"
 SITE_TAGLINE = "Le quotidien des modèles IA ouverts : tendances Hugging Face, scores et analyses en français"
@@ -96,6 +102,23 @@ def clip(s: str, n: int) -> str:
 def safe_url(u: str | None) -> str:
     u = str(u or "")
     return u if re.match(r"^https?://", u, re.I) else "#"
+
+# ------------------------------------------------------------------ configuration (leviers d'audience et de revenus)
+
+CONFIG_DEFAUT = {"depot": "", "verification": {}, "mesure": {}, "newsletter": {}, "soutien": [], "sponsor": {}, "contact": {},
+                 "offres": [], "affiliation": {}, "indexnow": {}, "reseaux": []}
+
+def load_config(p: Path | None) -> dict:
+    cfg = json.loads(json.dumps(CONFIG_DEFAUT))
+    if p and p.is_file():
+        try:
+            cfg.update({k: v for k, v in json.loads(p.read_text(encoding="utf-8")).items() if not k.startswith("_")})
+        except Exception as e:  # une configuration illisible ne doit pas bloquer la publication
+            print(f"configuration ignorée {p}: {e}", file=sys.stderr)
+    return cfg
+
+def has_url(u) -> bool:
+    return safe_url(u) != "#"
 
 # ------------------------------------------------------------------ HTML d'article : nettoyage + Markdown
 
@@ -186,8 +209,11 @@ def word_count(h: str) -> int:
 # ------------------------------------------------------------------ modèle de données
 
 class Site:
-    def __init__(self, data: Path, site_url: str):
+    def __init__(self, data: Path, site_url: str, cfg: dict | None = None, static: Path | None = None):
         self.url = site_url.rstrip("/") + "/" if site_url else ""
+        self.cfg = cfg or load_config(None)
+        self.static = static if static and static.is_dir() else None
+        self.og = bool(self.static and (self.static / "og.png").is_file())
         self.items = load_dir(data / "items")
         self.articles = {k: v for k, v in load_dir(data / "articles").items() if v.get("statut") == "publie"}
         self.editions = load_dir(data / "editions")
@@ -271,30 +297,109 @@ dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0}d
 pre.code{font-family:var(--mono);font-size:.82rem;background:var(--bg3);padding:12px 14px;border-radius:var(--r);overflow-x:auto}
 footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:.85rem;color:var(--fg2)}
 footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer nav{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem}
+nav.m a.sub{color:var(--acc);font-weight:600}
+.spon{margin-top:28px;padding:10px 14px;border:1px dashed var(--line);border-radius:var(--r);font-size:.88rem;color:var(--fg2)}.spon .eb{margin-right:6px}
+.cta{margin-top:36px;border-left:3px solid var(--acc)}.cta h2{font-size:1.1rem}.cta p{margin:6px 0}
+form.nl{margin:10px 0 4px}form.nl div{display:flex;gap:8px;flex-wrap:wrap}form.nl label{display:block;margin-bottom:4px}
+form.nl input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);color:var(--fg)}
+form.nl button,a.btn{font:600 .9rem var(--sans);padding:8px 14px;border:0;border-radius:var(--r);background:var(--acc);color:var(--bg);cursor:pointer;display:inline-block}
+a.btn:hover{text-decoration:none;opacity:.9}.btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.offres{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}.offres .card strong.prix{font-family:var(--mono);color:var(--acc)}
 """
 
 NAV = [("index.html", "Une"), ("classements.html", "Classements"), ("articles.html", "Articles"), ("modeles.html", "Modèles"),
-       ("domaines.html", "Domaines"), ("editions.html", "Éditions"), ("faq.html", "FAQ"), ("pour-les-ia.html", "API & IA")]
+       ("domaines.html", "Domaines"), ("editions.html", "Éditions"), ("faq.html", "FAQ"), ("pour-les-ia.html", "API & IA"),
+       ("abonnement.html", "S'abonner")]
+
+# ------------------------------------------------------------------ blocs d'audience et de revenus (masqués tant que non configurés)
+
+def bloc_abonnement(site, root) -> str:
+    """Appel à s'abonner : formulaire de newsletter s'il est configuré, sinon flux RSS."""
+    nl = site.cfg.get("newsletter") or {}
+    if has_url(nl.get("action")):
+        caches = "".join(f'<input type="hidden" name="{esc(k)}" value="{esc(v)}">' for k, v in (nl.get("champsCaches") or {}).items())
+        form = (f'<form class="nl" action="{esc(nl["action"])}" method="post" target="_blank"><label class="sm" for="nl-email">Votre adresse e-mail</label>'
+                f'<div><input id="nl-email" type="email" name="{esc(nl.get("champEmail") or "email")}" required placeholder="vous@exemple.fr" autocomplete="email">'
+                f'<button type="submit">Recevoir l\'édition</button></div>{caches}</form>'
+                '<p class="sm mut">Gratuit. Une adresse utilisée uniquement pour envoyer Radar IA, désinscription en un clic.</p>')
+    else:
+        form = (f'<p class="btns"><a class="btn" href="{root}feed.xml">Flux RSS</a>'
+                f'<a class="btn" href="https://feedly.com/i/subscription/feed/{quote(site.abs("feed.xml"), safe="")}" rel="noopener">Suivre sur Feedly</a></p>')
+    return (f'<section class="box cta"><h2>Recevez Radar IA chaque matin</h2><p class="sm">L\'essentiel des modèles IA ouverts en deux minutes : '
+            f'nouveautés Hugging Face, modèles à tester en local, scores et analyses en français.</p>{form}'
+            f'<p class="sm"><a href="{root}abonnement.html">Toutes les façons de suivre Radar IA →</a></p></section>')
+
+def bloc_sponsor(site, root) -> str:
+    """Emplacement partenaire : sponsor actif (lien rel=sponsored) ou invitation à sponsoriser."""
+    sp = site.cfg.get("sponsor") or {}
+    if sp.get("nom") and has_url(sp.get("url")) and (not sp.get("jusquau") or str(sp["jusquau"]) >= site.today):
+        return (f'<aside class="spon"><span class="eb">Partenaire</span><a href="{esc(sp["url"])}" rel="sponsored noopener"><strong>{esc(sp["nom"])}</strong></a>'
+                f'{" — " + esc(sp["accroche"]) if sp.get("accroche") else ""}</aside>')
+    return (f'<aside class="spon"><span class="eb">Espace partenaire</span>Présentez votre outil IA à des développeurs et décideurs francophones : '
+            f'<a href="{root}soutenir.html#annoncer">devenir partenaire de Radar IA</a>.</aside>')
+
+def bloc_affiliation(site, it) -> str:
+    """Lien affilié signalé comme tel, seulement sur les fiches de modèles."""
+    af = (site.cfg.get("affiliation") or {}).get("gpu") or {}
+    if it.get("type") != "model" or not has_url(af.get("url")) or not af.get("nom"):
+        return ""
+    return (f'<p class="box sm" style="margin-top:12px"><strong>Pas de carte graphique adaptée ?</strong> {esc(af.get("texte") or "Louez un GPU à l’heure pour tester ce modèle")} : '
+            f'<a href="{esc(af["url"])}" rel="sponsored noopener">{esc(af["nom"])}</a> <span class="mut">(lien affilié : Radar IA perçoit une commission, sans surcoût pour vous)</span>.</p>')
+
+def pixel(site, path) -> str:
+    """Mesure d'audience sans cookie ni JavaScript (pixel image, ex. GoatCounter)."""
+    tpl = (site.cfg.get("mesure") or {}).get("pixel") or ""
+    if not tpl.startswith("https://"):
+        return ""
+    src = tpl.replace("{path}", quote("/" + (path if path != "index.html" else ""), safe="/"))
+    return f'<img src="{esc(src)}" alt="" width="1" height="1" style="position:absolute;left:-9999px" referrerpolicy="no-referrer-when-downgrade">'
+
+def bloc_partage(site, url, titre) -> str:
+    """Liens de partage sans JavaScript ni bouton tiers (aucun traceur chargé)."""
+    if not url.startswith("http"):
+        return ""
+    u, t = quote(url, safe=""), quote(titre, safe="")
+    liens = [("LinkedIn", f"https://www.linkedin.com/sharing/share-offsite/?url={u}"), ("Bluesky", f"https://bsky.app/intent/compose?text={t}%20{u}"),
+             ("X", f"https://x.com/intent/post?text={t}&url={u}"), ("Mastodon", f"https://tootpick.org/#text={t}%20{u}"),
+             ("E-mail", f"mailto:?subject={t}&body={u}")]
+    return '<p class="sm mono">Partager : ' + " · ".join(f'<a href="{esc(h)}" rel="noopener nofollow">{n}</a>' for n, h in liens) + "</p>"
+
+def contact_url(site, sujet="Partenariat Radar IA") -> str:
+    c = site.cfg.get("contact") or {}
+    if c.get("email") and re.match(r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$", c["email"], re.I):
+        return f"mailto:{c['email']}?subject={quote(sujet)}"
+    if has_url(c.get("formulaire")):
+        return c["formulaire"]
+    if has_url(site.cfg.get("depot")):
+        return site.cfg["depot"].rstrip("/") + "/issues/new?template=partenariat.md"
+    return ""
 
 def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: list | None = None, crumbs=None,
          og_type="website", md_path: str | None = None, nav_key: str | None = None, artifact_shell=False,
          published: str | None = None, modified: str | None = None) -> str:
     depth = path.count("/")
     root = "../" * depth
+    if path == "404.html" and site.url:  # servie à n'importe quelle profondeur : liens absolus
+        root = site.url
     canonical = site.abs(path if path != "index.html" else "")
+    verif = site.cfg.get("verification") or {}
+    verif_meta = "".join(f'<meta name="{n}" content="{esc(verif[k])}">' for k, n in (("google", "google-site-verification"), ("bing", "msvalidate.01"))
+                         if re.match(r"^[\w-]{6,}$", str(verif.get(k) or "")))
+    og_img = (f'<meta property="og:image" content="{esc(site.abs("assets/og.png"))}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+              f'<meta name="twitter:card" content="summary_large_image">') if site.og and site.url else '<meta name="twitter:card" content="summary">'
     full_title = title if title.endswith(SITE_NAME) else f"{title} · {SITE_NAME}"
     ld = [ld_website(site), ld_org(site)] + (jsonld or [])
     if crumbs:
         ld.append(ld_breadcrumb(site, crumbs))
-    nav = "".join(f'<a href="{root}{h}"{" aria-current=page" if (nav_key or path)==h else ""}>{esc(l)}</a>' for h, l in NAV)
+    nav = "".join(f'<a href="{root}{h}"{" class=sub" if h == "abonnement.html" else ""}{" aria-current=page" if (nav_key or path)==h else ""}>{esc(l)}</a>' for h, l in NAV)
     crumb_html = ""
     if crumbs:
         parts = [f'<a href="{root}{h}">{esc(l)}</a>' if h else esc(l) for l, h in crumbs]
         crumb_html = f'<div class="crumb">{" / ".join(parts)}</div>'
     head = f"""<title>{esc(clip(full_title, 70))}</title>
 <meta name="description" content="{esc(clip(desc, 158))}">
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
-{f'<link rel="canonical" href="{esc(canonical)}">' if site.url else ''}
+<meta name="robots" content="{'noindex' if path == '404.html' else 'index,follow,max-snippet:-1,max-image-preview:large'}">{verif_meta}
+{f'<link rel="canonical" href="{esc(canonical)}">' if site.url and path != '404.html' else ''}
 <link rel="stylesheet" href="{root}assets/style.css">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME} — RSS" href="{root}feed.xml">
 <link rel="alternate" type="application/feed+json" title="{SITE_NAME} — JSON Feed" href="{root}feed.json">
@@ -305,12 +410,12 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 <meta property="og:type" content="{og_type}"><meta property="og:title" content="{esc(clip(title, 90))}">
 <meta property="og:description" content="{esc(clip(desc, 200))}">{f'<meta property="og:url" content="{esc(canonical)}">' if site.url else ''}
 {f'<meta property="article:published_time" content="{esc(iso_dt(published))}">' if published else ''}{f'<meta property="article:modified_time" content="{esc(iso_dt(modified))}">' if modified else ''}
-<meta name="twitter:card" content="summary"><meta name="theme-color" content="#5b3fd9">
+{og_img}<meta name="theme-color" content="#5b3fd9">
 <script type="application/ld+json">{json.dumps(ld if len(ld) > 1 else ld[0], ensure_ascii=False).replace("</", "<\\/")}</script>"""
     shell_top = f"""<header class="top"><div class="w bar"><a class="logo" href="{root}index.html">radar<b>_ia</b></a><nav class="m" aria-label="Rubriques">{nav}</nav></div></header>
 <main class="w">{crumb_html}{body}</main>
 <footer><div class="w"><div>{SITE_NAME} — {esc(SITE_TAGLINE)}.<br>Données sous licence <a href="{LICENSE_URL}" rel="license">CC BY 4.0</a> · mise à jour {d_short(site.today)} · rédigé par des agents IA, sources liées sur chaque page.</div>
-<nav><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a><a href="{root}methode.html">Méthode</a></nav></div></footer>"""
+<nav><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a><a href="{root}methode.html">Méthode</a></nav></div></footer>{pixel(site, path)}"""
     if artifact_shell:  # page racine d'un artefact Claude : pas de doctype, le squelette est ajouté à la publication
         return head + "\n" + shell_top
     return f"""<!doctype html>
@@ -323,8 +428,12 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 # ------------------------------------------------------------------ JSON-LD
 
 def ld_org(site):
-    return {"@context": "https://schema.org", "@type": "Organization", "@id": site.abs("#org"), "name": SITE_NAME,
-            "url": site.abs(""), "description": SITE_DESC}
+    d = {"@context": "https://schema.org", "@type": "Organization", "@id": site.abs("#org"), "name": SITE_NAME,
+         "url": site.abs(""), "description": SITE_DESC}
+    same = [r.get("url") for r in site.cfg.get("reseaux") or [] if has_url(r.get("url"))] + ([site.cfg["depot"]] if has_url(site.cfg.get("depot")) else [])
+    if same: d["sameAs"] = same
+    if site.og and site.url: d["image"] = site.abs("assets/og.png")
+    return d
 
 def ld_website(site):
     return {"@context": "https://schema.org", "@type": "WebSite", "@id": site.abs("#site"), "name": SITE_NAME, "url": site.abs(""),
@@ -445,7 +554,8 @@ def build(site: Site, out: Path, artifact=False):
 <section><div class="sh"><h2>Les modèles qui comptent aujourd'hui</h2><a class="mono sm" href="classements.html">classements →</a></div><div class="cards">{''.join(item_card(site, it, '', i+1) for i, it in enumerate(top))}</div></section>"""
     r += f"""<section><div class="sh"><h2>Derniers articles</h2><a class="mono sm" href="articles.html">tous →</a></div><div class="cards">{''.join(art_card(site, a, '') for a in site.art_sorted[:6]) or '<p class="mut">Premiers articles demain matin.</p>'}</div></section>
 <section><div class="sh"><h2>Classement du jour — top 10</h2><span class="eb">Score Radar /100</span></div>{ranking_table(site, (site.classements.get('jour') or {}).get('entrees') or [], '', 10)}</section>
-<section class="box"><p class="sm" style="margin:0"><strong>{SITE_NAME}</strong> — {esc(SITE_DESC)} Données ouvertes : <a href="pour-les-ia.html">API JSON, llms.txt, RSS</a>.</p></section>"""
+<section class="box"><p class="sm" style="margin:0"><strong>{SITE_NAME}</strong> — {esc(SITE_DESC)} Données ouvertes : <a href="pour-les-ia.html">API JSON, llms.txt, RSS</a>.</p></section>
+{bloc_abonnement(site, '')}{bloc_sponsor(site, '')}"""
     title_home = f"{SITE_NAME} — tendances IA open source du {d_short(site.today)}"
     desc_home = (ed.get("titre") + ". " if ed else "") + SITE_DESC
     write("index.html", page(site, "index.html", title_home, desc_home, r, md_path="index.md", artifact_shell=artifact,
@@ -486,8 +596,8 @@ def build(site: Site, out: Path, artifact=False):
         src = "".join(f'<li><a href="{esc(safe_url(s.get("url")))}" rel="noopener">{esc(s.get("titre") or s.get("url"))}</a></li>' for s in a.get("sources") or [])
         body = f"""<article class="a"><div class="eb"><a href="../{site.dom_page(a.get('domaine'))}">{esc(site.dom_name(a.get('domaine')))}</a></div><h1 style="margin-top:6px">{esc(a.get('titre'))}</h1>
 <p class="chapo">{esc(a.get('chapo'))}</p><div class="by"><time datetime="{esc(a.get('date'))}">{d_long(a.get('date'))}</time><span>{esc(a.get('auteur'))}</span><span>{esc(a.get('tempsLecture'))} min</span><a href="{a['_slug']}.md">version Markdown</a></div>
-<div class="body">{sanitize(a.get('corpsHtml'))}</div>{f'<h2 style="margin-top:28px">Sources</h2><ol class="sm">{src}</ol>' if src else ''}</article>
-{f'<section><div class="sh"><h2>Éléments cités</h2></div><div class="cards">{"".join(item_card(site, it, "../") for it in rel)}</div></section>' if rel else ''}"""
+<div class="body">{sanitize(a.get('corpsHtml'))}</div>{f'<h2 style="margin-top:28px">Sources</h2><ol class="sm">{src}</ol>' if src else ''}{bloc_partage(site, site.abs(p), a.get('titre') or '')}{bloc_sponsor(site, '../')}</article>
+{f'<section><div class="sh"><h2>Éléments cités</h2></div><div class="cards">{"".join(item_card(site, it, "../") for it in rel)}</div></section>' if rel else ''}{bloc_abonnement(site, '../')}"""
         write(p, page(site, p, a.get("titre"), a.get("chapo"), body, og_type="article", md_path=f"articles/{a['_slug']}.md",
                       crumbs=[("Accueil", "index.html"), ("Articles", "articles.html"), (site.dom_name(a.get("domaine")), site.dom_page(a.get("domaine"))), (clip(a.get("titre"), 50), None)],
                       jsonld=[ld_article(site, a)], nav_key="articles.html", published=a.get("publieLe") or a.get("date"), modified=a.get("publieLe")), a.get("date"))
@@ -515,10 +625,11 @@ def build(site: Site, out: Path, artifact=False):
 <dt>Taille</dt><dd>{esc(it.get('taille') or 'non communiquée')}</dd><dt>Licence</dt><dd>{esc(it.get('licence') or 'à vérifier sur la fiche')}</dd><dt>Créé le</dt><dd>{d_long(it.get('creeLe'))}</dd>
 <dt>Likes</dt><dd class="num">{fmt_n(it.get('likes'))}</dd><dt>Téléchargements</dt><dd class="num">{fmt_n(it.get('downloads'))}</dd><dt>Domaines</dt><dd>{''.join(f'<a class="chip" href="../{site.dom_page(d)}">{esc(site.dom_name(d))}</a>' for d in it.get('domaines') or [])}</dd>
 <dt>Pertinent IA pratique</dt><dd>{'oui ★' if it.get('pertinent') else 'non'}</dd><dt>Fiche officielle</dt><dd><a href="{esc(site.hf_url(it))}" rel="noopener">{esc(site.hf_url(it))}</a></dd></dl>
-<p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p></div>
+<p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p>{bloc_affiliation(site, it)}</div>
 <aside>{f'<h2 style="font-size:1rem">Historique des relevés</h2><div class="tw" style="margin-top:8px"><table style="min-width:0"><thead><tr><th>Date</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th></tr></thead><tbody>{hist_rows}</tbody></table></div>' if hist_rows else ''}</aside></div>
 {f'<section><div class="sh"><h2>Articles qui en parlent</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
-{f'<section><div class="sh"><h2>Dans le même domaine</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in same)}</div></section>' if same else ''}"""
+{f'<section><div class="sh"><h2>Dans le même domaine</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in same)}</div></section>' if same else ''}
+{bloc_abonnement(site, '../')}"""
         write(p, page(site, p, f"{it['nom']} — {tl} {it.get('tache') or ''} : fiche, licence, score", desc, body, md_path=p.replace(".html", ".md"),
                       crumbs=[("Accueil", "index.html"), ("Modèles", "modeles.html"), (it["nom"], None)], jsonld=[ld_item(site, it)], nav_key="modeles.html"),
               it.get("derniereVue"))
@@ -534,10 +645,11 @@ def build(site: Site, out: Path, artifact=False):
         r += f'<div class="card"><h3><a href="{site.dom_page(dk)}">{esc(dv.get("nom"))}</a></h3><p>{esc(dv.get("description"))}</p><div class="meta"><span>{n} éléments</span><span>{na} articles</span></div></div>'
         its = site.items_in(dk); arts = [a for a in site.art_sorted if a.get("domaine") == dk]
         p = site.dom_page(dk)
-        body = f"""<h1>{esc(dv.get('nom'))}</h1><p class="mut" style="max-width:70ch">{esc(dv.get('description'))}</p>
+        mois = d_long(site.today).split(" ", 1)[-1]  # « octobre 2026 » : vise les requêtes « meilleur modèle … »
+        body = f"""<div class="eb">Mis à jour le {d_long(site.today)}</div><h1 style="margin-top:6px">Meilleurs modèles open source : {esc(dv.get('nom'))}</h1><p class="mut" style="max-width:70ch">{esc(dv.get('description'))} Sélection {esc(mois)} classée par Score Radar.</p>
 {f'<section><div class="sh"><h2>Articles</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
 <section><div class="sh"><h2>Meilleurs scores du domaine</h2></div>{f'<div class="cards">{"".join(item_card(site, it, "../", i+1) for i, it in enumerate(its[:12]))}</div>' if its else '<p class="mut">Aucun élément pour le moment.</p>'}</section>"""
-        write(p, page(site, p, f"{dv.get('nom')} : modèles IA open source et analyses", f"{dv.get('nom')} — {dv.get('description')} Classement par Score Radar et articles Radar IA.",
+        write(p, page(site, p, f"Meilleurs modèles {dv.get('nom')} open source ({mois})", f"Les meilleurs modèles IA open source pour {dv.get('nom')} en {mois} : {dv.get('description')} Classement par Score Radar et analyses en français.",
                       body, crumbs=[("Accueil", "index.html"), ("Domaines", "domaines.html"), (dv.get("nom"), None)], nav_key="domaines.html",
                       jsonld=[ld_itemlist(site, dv.get("nom"), its[:20], p)] if its else None))
     write("domaines.html", page(site, "domaines.html", "Domaines de l'IA open source suivis", "LLM en local, documents et OCR, agents, audio, code, multilingue, image et vidéo, données : les rubriques de Radar IA.",
@@ -554,7 +666,8 @@ def build(site: Site, out: Path, artifact=False):
         body = f"""<div class="eb">Édition du {d_long(e['date'])}</div><h1 style="margin-top:6px">{esc(e.get('titre'))}</h1><ol class="ess">{''.join(f"<li>{esc(x.get('texte'))}</li>" for x in e.get('essentiel') or [])}</ol>
 <div class="box" style="margin-top:16px"><strong>Tendance de fond.</strong> {esc(e.get('tendance'))}</div>
 {f'<section><div class="sh"><h2>Top du jour</h2></div><div class="cards">{"".join(item_card(site, it, "../", i+1) for i, it in enumerate(top))}</div></section>' if top else ''}
-{f'<section><div class="sh"><h2>Nouveautés 48 h</h2></div><div class="cards">{"".join(item_card(site, it, "../") for it in nouv)}</div></section>' if nouv else ''}"""
+{f'<section><div class="sh"><h2>Nouveautés 48 h</h2></div><div class="cards">{"".join(item_card(site, it, "../") for it in nouv)}</div></section>' if nouv else ''}
+{bloc_sponsor(site, '../')}{bloc_abonnement(site, '../')}"""
         write(p, page(site, p, f"Édition du {d_short(e['date'])} : {e.get('titre')}", " ".join(x.get("texte", "") for x in e.get("essentiel") or []),
                       body, og_type="article", crumbs=[("Accueil", "index.html"), ("Éditions", "editions.html"), (d_short(e["date"]), None)], nav_key="editions.html",
                       jsonld=[{"@context": "https://schema.org", "@type": "NewsArticle", "headline": clip(e.get("titre", ""), 110), "datePublished": iso_dt(e.get("creeLe") or e["date"]),
@@ -601,6 +714,35 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
 <h2>Licence</h2><p>Textes et données sous <a href="{LICENSE_URL}">CC BY 4.0</a> : réutilisation libre avec mention « Radar IA » et lien.</p></article>"""
     write("methode.html", page(site, "methode.html", "Méthode et Score Radar", "Comment Radar IA relève Hugging Face, calcule le Score Radar et vérifie ses articles.",
                                body, crumbs=[("Accueil", "index.html"), ("Méthode", None)], jsonld=[ld_faq(meth_q)]))
+
+    # --- S'abonner
+    feed = site.abs("feed.xml")
+    res = "".join(f'<li><a href="{esc(r["url"])}" rel="me noopener">{esc(r.get("nom") or r["url"])}</a></li>' for r in site.cfg.get("reseaux") or [] if has_url(r.get("url")))
+    body = f"""<h1>Suivre Radar IA</h1><p class="mut" style="max-width:70ch">Une édition chaque matin vers 9 h : les modèles IA ouverts qui comptent, ceux à tester en local, les scores et les analyses. Gratuit.</p>
+{bloc_abonnement(site, '')}
+<section><div class="sh"><h2>Lecteurs de flux</h2></div><ul class="ess"><li><a href="feed.xml">Flux RSS 2.0</a> (contenu complet des articles)</li><li><a href="feed.json">JSON Feed 1.1</a></li>
+<li><a href="https://feedly.com/i/subscription/feed/{quote(feed, safe='')}" rel="noopener">Ajouter à Feedly</a></li><li><a href="https://www.inoreader.com/?add_feed={quote(feed, safe='')}" rel="noopener">Ajouter à Inoreader</a></li></ul></section>
+{f'<section><div class="sh"><h2>Réseaux</h2></div><ul class="ess">{res}</ul></section>' if res else ''}
+<section><div class="sh"><h2>Pour les agents IA</h2></div><p class="sm"><a href="llms.txt">llms.txt</a>, <a href="api/v1/index.json">API JSON</a> et <a href="openapi.json">OpenAPI</a> : voir <a href="pour-les-ia.html">API &amp; IA</a>.</p></section>"""
+    write("abonnement.html", page(site, "abonnement.html", "S'abonner à Radar IA : newsletter, RSS, réseaux", "Recevez chaque matin l'essentiel des modèles IA open source en français : newsletter gratuite, flux RSS, JSON Feed, réseaux.",
+                                  body, crumbs=[("Accueil", "index.html"), ("S'abonner", None)]))
+
+    # --- Soutenir et devenir partenaire
+    dons = "".join(f'<a class="btn" href="{esc(s["url"])}" rel="noopener">{esc(s.get("nom") or "Soutenir")}</a>' for s in site.cfg.get("soutien") or [] if has_url(s.get("url")))
+    offres = "".join(f'<div class="card"><h3>{esc(o.get("nom"))}</h3><p>{esc(o.get("detail"))}</p><div class="meta"><strong class="prix">{esc(o.get("prix") or "sur devis")}</strong></div></div>'
+                     for o in site.cfg.get("offres") or [] if o.get("nom") and o.get("actif", True))
+    cu = contact_url(site)
+    body = f"""<h1>Soutenir Radar IA</h1><p class="mut" style="max-width:70ch">Radar IA est gratuit, sans traceur publicitaire, et ses données sont ouvertes (CC BY 4.0). Trois façons de l'aider à durer.</p>
+<section id="soutien"><div class="sh"><h2>1. Partager et s'abonner</h2></div><p class="sm">Le soutien le plus utile : <a href="abonnement.html">s'abonner</a> et transmettre une édition à un collègue qui travaille avec l'IA.</p>{bloc_partage(site, site.abs(''), SITE_NAME + ' — ' + SITE_TAGLINE)}</section>
+{f'<section><div class="sh"><h2>2. Faire un don</h2></div><p class="sm">Un café par mois finance l’hébergement, le nom de domaine et le temps de relecture.</p><div class="btns">{dons}</div></section>' if dons else ''}
+<section id="annoncer"><div class="sh"><h2>{'3' if dons else '2'}. Devenir partenaire</h2></div>
+<p style="max-width:70ch">Radar IA est lu par des développeurs, data scientists, DSI et chefs de projet francophones qui choisissent et déploient des modèles IA ouverts : en local, sur des documents, pour des agents. Un public rare, et difficile à toucher en français.</p>
+{f'<div class="offres">{offres}</div>' if offres else ''}
+<h3 style="margin-top:20px">Règles</h3><ul class="sm"><li>Les partenaires sont toujours signalés (« Partenaire », « contenu sponsorisé ») et leurs liens portent <code>rel="sponsored"</code>.</li>
+<li>Le Score Radar et les classements sont calculés automatiquement à partir des données Hugging Face : aucun partenaire ne peut les modifier.</li><li>Pas de partenaire dont le produit contredit nos analyses publiées.</li></ul>
+{f'<p class="btns"><a class="btn" href="{esc(cu)}" rel="noopener">Proposer un partenariat</a></p>' if cu else ''}</section>"""
+    write("soutenir.html", page(site, "soutenir.html", "Soutenir Radar IA et devenir partenaire", "Soutenez Radar IA, la veille francophone des modèles IA open source : partage, don, partenariat signalé auprès d'un public technique francophone.",
+                                body, crumbs=[("Accueil", "index.html"), ("Soutenir", None)]))
 
     # --- Pour les IA
     base = site.abs("")
@@ -681,16 +823,25 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
     (out / "robots.txt").write_text("# Radar IA : contenu ouvert (CC BY 4.0), robots de recherche et d'IA bienvenus.\n" +
         "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + "User-agent: *\nAllow: /\n\n" + (f"Sitemap: {site.abs('sitemap.xml')}\n" if site.url else ""), encoding="utf-8")
     (out / ".nojekyll").write_text("")
+    if site.static:  # fichiers fixes (image de partage…) copiés tels quels
+        for f in site.static.iterdir():
+            if f.is_file(): shutil.copy2(f, out / "assets" / f.name)
+    cle = str((site.cfg.get("indexnow") or {}).get("cle") or "")
+    if re.fullmatch(r"[a-zA-Z0-9-]{8,128}", cle):  # fichier de clé IndexNow (Bing, Yandex, Seznam, Naver)
+        (out / f"{cle}.txt").write_text(cle, encoding="utf-8")
     (out / "404.html").write_text(page(site, "404.html", "Page introuvable", "Cette page n'existe pas ou plus.", '<h1>Page introuvable</h1><p><a href="index.html">Retour à la une</a> · <a href="llms.txt">llms.txt</a></p>'), encoding="utf-8")
     return urls
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"): sys.stdout.reconfigure(errors="replace")  # consoles Windows (cp1252)
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--site-url", default=os.environ.get("SITE_URL", ""))
     ap.add_argument("--artifact", action="store_true", help="page racine sans doctype (publication en artefact Claude)")
+    ap.add_argument("--config", default=str(RACINE_DEPOT / "config" / "site.json"), help="leviers d'audience et de revenus (facultatif)")
+    ap.add_argument("--static", default=str(RACINE_DEPOT / "static"), help="fichiers fixes copiés dans assets/ (facultatif)")
     a = ap.parse_args()
-    site = Site(Path(a.data), a.site_url)
+    site = Site(Path(a.data), a.site_url, load_config(Path(a.config)), Path(a.static))
     urls = build(site, Path(a.out), artifact=a.artifact)
     print(f"{len(urls)} pages HTML, {len(site.items)} items, {len(site.articles)} articles, {len(site.editions)} éditions → {a.out}")
 

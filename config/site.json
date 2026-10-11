@@ -1,0 +1,60 @@
+{
+  "_aide": "Leviers d'audience et de revenus de Radar IA. Un champ vide = bloc masqué sur le site. Après modification : commit + push, le site se régénère. Mode d'emploi : MONETISATION.md.",
+  "depot": "https://github.com/clauzelfamille-dot/radar-ia",
+  "verification": {
+    "_aide": "Codes des balises meta de Google Search Console (google-site-verification) et Bing Webmaster Tools (msvalidate.01).",
+    "google": "",
+    "bing": ""
+  },
+  "mesure": {
+    "_aide": "Pixel de mesure d'audience sans cookie ni JavaScript. GoatCounter : https://CODE.goatcounter.com/count?p={path}",
+    "pixel": ""
+  },
+  "newsletter": {
+    "_aide": "Formulaire HTML du fournisseur. Buttondown : action https://buttondown.com/api/emails/embed-subscribe/IDENTIFIANT, champEmail email, champsCaches {\"embed\": \"1\"}. Kit : action https://app.kit.com/forms/ID/subscriptions, champEmail email_address. Brevo : URL du formulaire, champEmail EMAIL.",
+    "fournisseur": "",
+    "action": "",
+    "champEmail": "email",
+    "champsCaches": {}
+  },
+  "soutien": [
+    {"nom": "Ko-fi", "url": ""},
+    {"nom": "Liberapay", "url": ""},
+    {"nom": "GitHub Sponsors", "url": ""}
+  ],
+  "sponsor": {
+    "_aide": "Partenaire affiché sur la une, les éditions et les articles (lien rel=sponsored). jusquau = AAAA-MM-JJ, vide = sans fin.",
+    "nom": "",
+    "url": "",
+    "accroche": "",
+    "jusquau": ""
+  },
+  "contact": {
+    "_aide": "Adresse ou formulaire pour les partenariats. Vide = ticket GitHub (modèle partenariat).",
+    "email": "",
+    "formulaire": ""
+  },
+  "offres": [
+    {"nom": "Partenaire de la semaine", "prix": "150 € HT · tarif de lancement", "detail": "Votre outil ou modèle cité en tête de la une, des éditions et des articles pendant 7 jours, avec lien et mention « Partenaire »."},
+    {"nom": "Article partenaire", "prix": "300 € HT", "detail": "Un article consacré à votre modèle ou outil, rédigé par la rédaction, signalé « contenu sponsorisé », publié sur le site et dans le flux RSS."},
+    {"nom": "Partenaire du mois", "prix": "450 € HT", "detail": "Quatre semaines de mention partenaire et un article partenaire."},
+    {"nom": "Veille IA sur mesure", "prix": "sur devis", "detail": "Une édition privée, chaque semaine, centrée sur les cas d'usage de votre équipe (documents, agents, IA locale…).", "actif": false}
+  ],
+  "affiliation": {
+    "gpu": {
+      "_aide": "Lien de parrainage d'un loueur de GPU (RunPod, Vast.ai, Scaleway…), affiché sur les fiches de modèles avec la mention « lien affilié ».",
+      "nom": "",
+      "url": "",
+      "texte": "Louez un GPU à l'heure pour tester ce modèle"
+    }
+  },
+  "indexnow": {
+    "_aide": "Clé publique IndexNow : chaque déploiement signale les pages à Bing (qui alimente aussi ChatGPT Search et Copilot), Yandex, Seznam, Naver.",
+    "cle": "48f28f4f1bd894af525bcce643c0f8cb"
+  },
+  "reseaux": [
+    {"nom": "Bluesky", "url": ""},
+    {"nom": "Mastodon", "url": ""},
+    {"nom": "LinkedIn", "url": ""}
+  ]
+}
