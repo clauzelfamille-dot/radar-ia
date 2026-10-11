@@ -83,6 +83,34 @@ LICENCES = {
 LICENCE_AUTRE = "Licence propre à l'éditeur : ses conditions (usage commercial, seuils d'utilisateurs, restrictions d'usage) sont à lire avant tout déploiement en entreprise."
 LICENCE_AUCUNE = "Aucune licence déclarée sur Hugging Face : sans autorisation explicite de l'auteur, la réutilisation n'est pas garantie."
 
+GLOSSAIRE = [
+    ("poids-ouverts", "Poids ouverts (open weights)", "Modèle dont les paramètres entraînés sont téléchargeables, ce qui permet de l'exécuter chez soi. Cela ne dit rien de la licence : certains poids ouverts interdisent l'usage commercial."),
+    ("parametres", "Paramètres", "Nombres appris pendant l'entraînement ; leur quantité (en milliards, « B ») donne l'ordre de grandeur de la taille du modèle et de la mémoire nécessaire."),
+    ("quantification", "Quantification", "Réduction de la précision des paramètres (par exemple de 16 bits à 4 ou 8 bits) pour diminuer la mémoire et accélérer l'exécution, au prix d'une légère perte de qualité."),
+    ("gguf", "GGUF", "Format de fichier de llama.cpp, repris par Ollama et LM Studio, qui regroupe les poids quantifiés et les métadonnées d'un modèle en un seul fichier exécutable sur un PC."),
+    ("safetensors", "Safetensors", "Format de stockage des poids conçu pour être chargé rapidement et sans exécuter de code, utilisé par défaut par la bibliothèque transformers."),
+    ("mlx", "MLX", "Bibliothèque d'Apple pour exécuter des modèles sur les puces Apple Silicon ; un dépôt MLX contient des poids préparés pour elle."),
+    ("fine-tune", "Fine-tune (affinage)", "Entraînement complémentaire d'un modèle existant sur des données ciblées, pour le spécialiser sur une tâche, un style ou une langue."),
+    ("adaptateur", "Adaptateur (LoRA)", "Petit jeu de paramètres supplémentaires entraîné par-dessus un modèle de base, qu'on charge avec lui ; LoRA est la méthode la plus répandue."),
+    ("fusion", "Fusion (merge)", "Modèle obtenu en combinant les poids de plusieurs modèles de même architecture, sans nouvel entraînement complet."),
+    ("modele-de-base", "Modèle de base", "Modèle dont un autre est dérivé (quantification, fine-tune, adaptateur, fusion). Hugging Face l'indique dans les métadonnées base_model."),
+    ("moe", "Mixture of Experts (MoE)", "Architecture où seule une partie des paramètres (les « experts » choisis) travaille pour chaque mot : le modèle est gros sur le disque mais moins coûteux à exécuter qu'un modèle dense de même taille."),
+    ("contexte", "Fenêtre de contexte", "Quantité maximale de texte, comptée en tokens, que le modèle peut prendre en compte en une fois (consigne, documents et réponse compris)."),
+    ("token", "Token", "Unité de texte manipulée par un modèle : un mot court, un morceau de mot ou un signe."),
+    ("acces-restreint", "Accès restreint (gated)", "Dépôt Hugging Face dont le téléchargement exige d'accepter des conditions ou d'être approuvé par l'éditeur."),
+    ("licence-permissive", "Licence permissive", "Licence (Apache 2.0, MIT…) qui autorise l'usage, y compris commercial, la modification et la redistribution, sous réserve de conserver les mentions."),
+    ("embedding", "Embedding (plongement)", "Vecteur de nombres qui représente le sens d'un texte ; sert à la recherche sémantique et au RAG."),
+    ("rag", "RAG", "Retrieval-Augmented Generation : le modèle répond en s'appuyant sur des passages retrouvés dans vos documents au lieu de sa seule mémoire."),
+    ("ocr", "OCR", "Reconnaissance optique de caractères : transformation d'une image ou d'un PDF scanné en texte exploitable."),
+    ("asr", "Transcription (ASR)", "Reconnaissance automatique de la parole : conversion d'un enregistrement audio en texte."),
+    ("diarisation", "Diarisation", "Repérage de « qui parle quand » dans un enregistrement, souvent combiné à la transcription."),
+    ("vision-langage", "Modèle vision-langage", "Modèle qui prend en entrée des images et du texte, par exemple pour décrire une image ou lire un document."),
+    ("appel-outils", "Appel d'outils (tool calling)", "Capacité d'un modèle à produire un appel structuré vers une fonction ou une API, base des agents IA."),
+    ("space", "Space", "Application de démonstration hébergée sur Hugging Face, souvent faite avec Gradio ou Streamlit."),
+    ("dataset", "Dataset", "Jeu de données publié sur Hugging Face pour entraîner ou évaluer des modèles."),
+    ("score-radar", "Score Radar", "Note de 0 à 100 calculée par Radar IA : 40 % popularité, 30 % diffusion, 20 % fraîcheur, 10 % pertinence pour l'IA pratique (voir la page Méthode)."),
+]
+
 def langue(code: str) -> str:
     return LANGUES.get(code, code)
 
@@ -568,7 +596,7 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
 <header class="top"><div class="w bar"><a class="logo" href="{root}index.html">{marque}</a><nav class="m" aria-label="Rubriques">{nav}</nav></div></header>
 <main class="w">{crumb_html}{body}</main>
 <footer><div class="w"><div><a class="logo" href="{root}index.html">{marque}</a><p>{esc(SITE_TAGLINE)}. Rédigé par des agents IA ; licences, dates et tailles vérifiées sur l'API Hugging Face ; sources liées sur chaque page. Données sous licence <a href="{LICENSE_URL}" rel="license">CC BY 4.0</a> · mise à jour {d_short(site.today)}.</p></div>
-<nav aria-label="Pied de page"><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}guides.html">Guides</a><a href="{root}methode.html">Méthode</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a></nav></div></footer>{pixel(site, path)}"""
+<nav aria-label="Pied de page"><a href="{root}abonnement.html">S'abonner</a><a href="{root}soutenir.html">Soutenir</a><a href="{root}soutenir.html#annoncer">Devenir partenaire</a><a href="{root}guides.html">Guides</a><a href="{root}glossaire.html">Glossaire</a><a href="{root}methode.html">Méthode</a><a href="{root}feed.xml">RSS</a><a href="{root}llms.txt">llms.txt</a><a href="{root}api/v1/index.json">API</a><a href="{root}sitemap.xml">Sitemap</a></nav></div></footer>{pixel(site, path)}"""
     if artifact_shell:  # page racine d'un artefact Claude : pas de doctype, le squelette est ajouté à la publication
         return head + "\n" + shell_top
     return f"""<!doctype html>
@@ -709,18 +737,19 @@ def fiche_faits(site, it, root) -> tuple[str, str]:
             ", ".join(langue(l) for l in v["langues"]))
     if v.get("formats"):
         add("Formats", ", ".join(f'<a href="{root}guides/gguf.html">GGUF</a>' if f == "GGUF" else esc(f) for f in v["formats"]), ", ".join(v["formats"]))
-    if v.get("contexte"): add("Contexte", f'<span class="num">{fmt_n(v["contexte"])}</span> tokens', f'{v["contexte"]} tokens')
+    if v.get("contexte"): add("Contexte", f'<span class="num">{fmt_n(v["contexte"])}</span> <a href="{root}glossaire.html#token">tokens</a>', f'{v["contexte"]} tokens')
     if v.get("modeleBase"):
         fam, suivis = site.familles(), site.by_hf()
         def lien(b):
             bid = b["id"]
             href = root + site.fam_page(bid) if bid in fam else (root + site.item_page(suivis[bid]) if bid in suivis else "https://huggingface.co/" + bid)
-            return f'<a href="{esc(href)}">{esc(bid)}</a> <span class="mut sm">({RELATIONS.get(b.get("relation"), "dérivé")})</span>'
+            ancre = {"quantized": "quantification", "finetune": "fine-tune", "adapter": "adaptateur", "merge": "fusion"}.get(b.get("relation"), "modele-de-base")
+            return f'<a href="{esc(href)}">{esc(bid)}</a> <span class="mut sm">(<a href="{root}glossaire.html#{ancre}">{RELATIONS.get(b.get("relation"), "dérivé")}</a>)</span>'
         add("Modèle de base", "<br>".join(lien(b) for b in v["modeleBase"]),
             ", ".join(f'{b["id"]} ({RELATIONS.get(b.get("relation"), "dérivé")})' for b in v["modeleBase"]))
     if v.get("bibliotheque"): add("Bibliothèque", esc(v["bibliotheque"]), v["bibliotheque"])
     if v.get("volumetrie"): add("Volumétrie", esc(v["volumetrie"]), v["volumetrie"])
-    if v.get("acces"): add("Accès aux poids", esc(v["acces"]), v["acces"])
+    if v.get("acces"): add("Accès aux poids", esc(v["acces"]) + (f' · <a href="{root}glossaire.html#acces-restreint">définition</a>' if v["acces"] != "libre" else ""), v["acces"])
     add("Créé le", d_long(site.cree(it)), site.cree(it) or "n.c.")
     if v.get("majLe"): add("Mis à jour le", d_long(v["majLe"]), v["majLe"])
     likes = v["likes"] if "likes" in v else it.get("likes")
@@ -907,6 +936,33 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
                                     + "".join(f'<section><div class="sh"><h2>{esc(site.dom_name(dk))}</h2></div><ul class="ess">{"".join(v)}</ul></section>' for dk, v in par_dom.items()),
                                     crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), ("Comparatifs", None)], nav_key="guides.html"))
         guides.append((t, "comparer.html", f"{len(cmp_liens)} comparatifs"))
+
+    # Glossaire : définitions générales + exemples tirés des faits vérifiés
+    def exemples(cle):
+        def rel(r): return [i for i in tous if any(b.get("relation") == r for b in site.v(i).get("modeleBase") or [])]
+        def fmt(f): return [i for i in tous if f in (site.v(i).get("formats") or [])]
+        def tache(*ts): return [i for i in tous if any(t in (site.v(i).get("tache") or "") for t in ts)]
+        return {"gguf": fmt("GGUF"), "safetensors": fmt("safetensors"), "mlx": fmt("MLX"), "quantification": rel("quantized"),
+                "fine-tune": rel("finetune"), "adaptateur": rel("adapter"), "fusion": rel("merge"),
+                "modele-de-base": [i for i in tous if site.v(i).get("modeleBase")],
+                "contexte": [i for i in tous if site.v(i).get("contexte")], "acces-restreint": [i for i in tous if site.v(i).get("acces") == "sur demande"],
+                "licence-permissive": [i for i in tous if (site.lic(i) or "").lower() in ("apache-2.0", "mit")],
+                "embedding": tache("feature-extraction", "sentence-similarity"), "asr": tache("automatic-speech-recognition"),
+                "vision-langage": tache("image-text-to-text"), "ocr": site.items_in("documents"),
+                "space": [i for i in tous if i.get("type") == "space"], "dataset": [i for i in tous if i.get("type") == "dataset"]}.get(cle, [])
+    dts = []
+    for cle, terme, definition in GLOSSAIRE:
+        ex = exemples(cle)[:5]
+        ex_html = (' <span class="sm mut">Exemples suivis : ' + ", ".join(f'<a href="{site.item_page(i)}">{esc(i["nom"])}</a>' for i in ex) + ".</span>") if ex else ""
+        dts.append(f'<dt id="{cle}">{esc(terme)}</dt><dd>{esc(definition)}{ex_html}</dd>')
+    t = "Glossaire de l'IA ouverte : GGUF, quantification, LoRA, MoE…"
+    ld_gl = {"@context": "https://schema.org", "@type": "DefinedTermSet", "name": t, "url": site.abs("glossaire.html"), "inLanguage": "fr-FR",
+             "hasDefinedTerm": [{"@type": "DefinedTerm", "name": terme, "description": d, "url": site.abs(f"glossaire.html#{cle}")} for cle, terme, d in GLOSSAIRE]}
+    write("glossaire.html", page(site, "glossaire.html", t, "Les mots de l'IA open source expliqués simplement : GGUF, quantification, fine-tune, LoRA, MoE, contexte, licences, RAG, OCR, avec des exemples de modèles suivis.",
+                                 f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les termes qu’on croise sur les fiches de modèles, définis en une ou deux phrases. Les exemples sont tirés des éléments suivis par Radar IA.</p><dl class="faq">{"".join(dts)}</dl>',
+                                 crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), ("Glossaire", None)], nav_key="guides.html", md_path="glossaire.md", jsonld=[ld_gl]))
+    write_md("glossaire.md", t, f"# {t}\n\n" + "\n\n".join(f"## {terme}\n\n{d}" for _, terme, d in GLOSSAIRE))
+    guides.append((t, "glossaire.html", f"{len(GLOSSAIRE)} termes définis"))
 
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
