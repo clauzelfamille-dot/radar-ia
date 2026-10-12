@@ -17,7 +17,8 @@ Site statique de veille sur les modèles IA ouverts (Hugging Face), optimisé SE
 - `build/enrichir.py` : relit chaque élément sur l'API publique Hugging Face → `data/hf/<id>.json` (licence exacte,
   dates, langues, paramètres, formats, modèle de base, compteurs). Ces faits priment sur la saisie des agents et
   alimentent les guides (`guides/francais`, `guides/licences`, `guides/gguf`, `familles/<base>`).
-- `build/verifier.py` : contrôles avant publication ; `build/indexnow.py` ; `build/diffusion.py`.
+- `build/verifier.py` : contrôles avant publication ; `build/controle_en_ligne.py` : contrôle après déploiement ;
+  `build/indexnow.py` ; `build/diffusion.py`.
 - `SEO-GEO.md` : cahier des charges de référencement à respecter ; `CHARTE.md` : charte graphique (à respecter).
 
 ## Commandes

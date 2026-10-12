@@ -33,11 +33,15 @@ jobs:
           path: dist
       - id: deploy
         uses: actions/deploy-pages@v4
+      - name: Contrôler le site en ligne (pages clés, échantillon du sitemap, édition du jour)
+        run: python3 build/controle_en_ligne.py --dist dist --site-url "${{ steps.pages.outputs.base_url }}/"
       # Après la mise en ligne : faire connaître les pages. Un échec ici ne remet pas en cause la publication.
       - name: Signaler les pages aux moteurs (IndexNow)
+        if: ${{ !cancelled() && steps.deploy.outcome == 'success' }}
         continue-on-error: true
         run: python3 build/indexnow.py --dist dist --site-url "${{ steps.pages.outputs.base_url }}/"
       - name: Diffuser les nouveaux articles (Bluesky, Mastodon)
+        if: ${{ !cancelled() && steps.deploy.outcome == 'success' }}
         continue-on-error: true
         env:
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
