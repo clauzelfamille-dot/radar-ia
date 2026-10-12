@@ -1355,7 +1355,19 @@ pertinence = 1 si utile à l'IA pratique (local, documents, agents, audio, code,
     cle = str((site.cfg.get("indexnow") or {}).get("cle") or "")
     if re.fullmatch(r"[a-zA-Z0-9-]{8,128}", cle):  # fichier de clé IndexNow (Bing, Yandex, Seznam, Naver)
         (out / f"{cle}.txt").write_text(cle, encoding="utf-8")
-    (out / "404.html").write_text(page(site, "404.html", "Page introuvable", "Cette page n'existe pas ou plus.", '<h1>Page introuvable</h1><p><a href="index.html">Retour à la une</a> · <a href="llms.txt">llms.txt</a></p>'), encoding="utf-8")
+    # 404 : servie à n'importe quelle profondeur, donc liens absolus (ou relatifs à la racine sans URL de site)
+    b4 = site.url
+    doms = "".join(f'<li><a href="{b4}{site.dom_page(dk)}">{esc(dv.get("nom"))}</a></li>' for dk, dv in site.domaines.items())
+    top = "".join(f'<li><a href="{b4}{site.item_page(it)}">{esc(it["nom"])}</a> {score_badge(it.get("score"))}</li>' for it in all_items[:5])
+    body404 = (f'<div class="lead"><div><div class="eb">Erreur 404</div><h1 style="margin-top:6px">Hors du radar</h1>'
+               f'<p class="mut" style="max-width:60ch">Cette page n’existe pas ou plus : un modèle peut avoir quitté le suivi, ou l’adresse a changé. Voici où reprendre.</p>'
+               f'<p class="btns"><a class="btn" href="{b4}index.html">Édition du jour</a><a class="btn" href="{b4}modeles.html" style="background:var(--fg2)">Annuaire des modèles</a></p>'
+               f'<section><div class="sh"><h2>Domaines</h2></div><ul class="ess">{doms}</ul></section></div>'
+               f'<aside><div class="radar"><h2>Les mieux classés</h2><ul class="ess" style="margin-top:6px">{top}</ul></div>'
+               f'<div class="box" style="margin-top:16px"><h2 style="font-size:1rem">Guides</h2><ul class="sm" style="padding-left:18px;margin:8px 0 0">'
+               f'<li><a href="{b4}nouveautes.html">Nouveautés</a></li><li><a href="{b4}guides/francais.html">Modèles en français</a></li>'
+               f'<li><a href="{b4}guides/gguf.html">Modèles GGUF</a></li><li><a href="{b4}comparer.html">Comparatifs</a></li><li><a href="{b4}glossaire.html">Glossaire</a></li></ul></div></aside></div>')
+    (out / "404.html").write_text(page(site, "404.html", "Page introuvable", "Cette page n'existe pas ou plus sur Radar IA.", body404), encoding="utf-8")
     return urls
 
 def main():
