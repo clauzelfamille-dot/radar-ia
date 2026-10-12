@@ -71,6 +71,20 @@ def fmt_params(n) -> str:
 LANGUES = {"fr": "français", "en": "anglais", "de": "allemand", "es": "espagnol", "it": "italien", "pt": "portugais", "nl": "néerlandais",
            "pl": "polonais", "zh": "chinois", "ja": "japonais", "ko": "coréen", "ru": "russe", "ar": "arabe", "tr": "turc", "hi": "hindi",
            "vi": "vietnamien", "uk": "ukrainien", "sv": "suédois", "cs": "tchèque", "multilingual": "multilingue (langues non détaillées)"}
+TACHES = {  # étiquettes « pipeline » de Hugging Face → (slug, nom français)
+    "text-generation": ("generation-de-texte", "Génération de texte (LLM)"),
+    "image-text-to-text": ("vision-langage", "Vision-langage (image et texte vers texte)"),
+    "text-to-image": ("texte-vers-image", "Génération d'images"),
+    "automatic-speech-recognition": ("transcription-audio", "Transcription audio (ASR)"),
+    "text-classification": ("classification-de-texte", "Classification de texte"),
+    "feature-extraction": ("embeddings", "Embeddings (recherche sémantique, RAG)"),
+    "sentence-similarity": ("similarite-de-phrases", "Similarité de phrases"),
+    "text-to-speech": ("synthese-vocale", "Synthèse vocale"),
+    "image-to-video": ("image-vers-video", "Génération de vidéo à partir d'images"),
+    "token-classification": ("extraction-d-entites", "Extraction d'entités (NER)"),
+    "image-to-text": ("image-vers-texte", "Image vers texte (OCR, légendes)"),
+    "translation": ("traduction", "Traduction"),
+}
 RELATIONS = {"quantized": "quantification", "finetune": "fine-tune", "adapter": "adaptateur", "merge": "fusion", None: "dérivé"}
 # Résumés de licences connues. Toute autre licence reçoit le texte prudent LICENCE_AUTRE (pas d'interprétation inventée).
 LICENCES = {
@@ -1028,6 +1042,37 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
                                    f'<p class="mono" style="font-size:1rem;word-spacing:.35em">{nav_az}</p>{secs}',
                                    crumbs=[("Accueil", "index.html"), ("Modèles", "modeles.html"), ("Index A-Z", None)], nav_key="modeles.html"))
     guides.append((t, "modeles-a-z.html", f"{len(tous)} éléments"))
+
+    # Pages par tâche (étiquette pipeline vérifiée sur Hugging Face), avec FAQ calculée
+    par_tache: dict[str, list] = {}
+    for i in tous:
+        tk = site.v(i).get("tache") if i.get("type") == "model" else None
+        if tk in TACHES: par_tache.setdefault(tk, []).append(i)
+    taches_liens = []
+    for tk, its in sorted(par_tache.items(), key=lambda kv: -len(kv[1])):
+        if len(its) < 2: continue
+        slug, nom_t = TACHES[tk]
+        p = f"taches/{slug}.html"
+        t = f"Modèles open source : {nom_t} ({mois})"
+        perm = [i for i in its if (site.lic(i) or "").lower() in ("apache-2.0", "mit")]
+        gg = [i for i in its if "GGUF" in (site.v(i).get("formats") or [])]
+        fr = [i for i in its if "fr" in (site.v(i).get("langues") or [])]
+        leg = sorted([i for i in its if site.v(i).get("parametres")], key=lambda i: site.v(i)["parametres"])
+        lien = lambda i: f'<a href="../{site.item_page(i)}">{esc(i["nom"])}</a>'
+        qas = [(f"Quel modèle « {nom_t} » open source est le mieux classé ?", f"{lien(its[0])} ({site.org(its[0])}), Score Radar {its[0].get('score')}/100, parmi {len(its)} modèles suivis.")]
+        qas.append((f"Lesquels sont sous licence Apache 2.0 ou MIT ?", (", ".join(lien(i) for i in perm[:6]) + ".") if perm else "Aucun des modèles suivis pour cette tâche."))
+        if leg: qas.append(("Quel est le plus léger ?", f"{lien(leg[0])} : {fmt_params(site.v(leg[0])['parametres'])} paramètres déclarés."))
+        qas.append(("Lesquels existent au format GGUF pour un PC ?", (", ".join(lien(i) for i in gg[:6]) + ".") if gg else "Aucun dépôt GGUF suivi pour cette tâche pour l’instant."))
+        qas.append(("Lesquels déclarent le français ?", (", ".join(lien(i) for i in fr[:6]) + ".") if fr else "Aucun ne déclare le français sur Hugging Face ; certains sont multilingues, à vérifier sur leur fiche."))
+        body = (f'<div class="eb">Tâche · <code>{esc(tk)}</code></div><h1 style="margin-top:6px">{esc(nom_t)} : modèles open source</h1>'
+                f'<p class="mut" style="max-width:70ch">{len(its)} modèles suivis par Radar IA déclarent cette tâche sur Hugging Face. Classés par Score Radar.</p>{note}'
+                f'{table_faits(site, its, "../", ("params", "licence", "langues", "dl", "score"))}'
+                f'<section><div class="sh"><h2>Questions fréquentes</h2></div><dl class="faq">{"".join(f"<dt>{esc(q)}</dt><dd>{a}</dd>" for q, a in qas)}</dl></section>')
+        write(p, page(site, p, t, f"{len(its)} modèles open source de {nom_t.lower()} suivis : licence, taille, langues, GGUF et Score Radar vérifiés sur Hugging Face.",
+                      body, crumbs=[("Accueil", "index.html"), ("Guides", "guides.html"), (nom_t, None)], nav_key="guides.html",
+                      jsonld=[ld_itemlist(site, t, its, p), ld_faq(qas)]))
+        taches_liens.append(f'<li><a href="{p}"><strong>{esc(nom_t)}</strong></a> <span class="mut mono sm">{len(its)} modèles</span></li>')
+        guides.append((t, p, f"{len(its)} modèles"))
 
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
