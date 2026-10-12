@@ -12,7 +12,7 @@ La configuration (config/site.json, facultative) active les leviers d'audience e
 mesure d'audience sans cookie, newsletter, sponsor, dons, affiliation, IndexNow, réseaux. Champ vide = bloc masqué.
 """
 from __future__ import annotations
-import argparse, html, json, math, os, re, shutil, sys
+import argparse, html, json, math, os, re, shutil, sys, unicodedata
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -1009,6 +1009,26 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
                                   jsonld=[ld_itemlist(site, t, recents[:30], "nouveautes.html")] if recents else None))
     guides.append((t, "nouveautes.html", f"{len(recents)} créés depuis 30 jours"))
 
+    # Index A-Z de tous les éléments suivis
+    def lettre(nom):
+        c = unicodedata.normalize("NFKD", (nom or "?").strip())[:1].upper()
+        return c if c.isalpha() else "#"
+    az: dict[str, list] = {}
+    for i in sorted(tous, key=lambda i: (i.get("nom") or "").lower()):
+        az.setdefault(lettre(i.get("nom")), []).append(i)
+    ordre_az = sorted(az, key=lambda c: (c == "#", c))
+    nav_az = " ".join(f'<a href="#l-{"0" if c == "#" else c}">{c}</a>' for c in ordre_az)
+    secs = "".join(f'<section id="l-{"0" if c == "#" else c}"><div class="sh"><h2>{c}</h2><span class="eb">{len(az[c])}</span></div><ul class="ess">'
+                   + "".join(f'<li><a href="{site.item_page(i)}"><strong>{esc(i["nom"])}</strong></a> <span class="mut mono sm">{esc(site.org(i))} · '
+                             f'{esc(TYPE_LABEL.get(i.get("type"), ""))}{(" · " + esc(site.taille(i))) if site.taille(i) else ""}</span></li>' for i in az[c])
+                   + "</ul></section>" for c in ordre_az)
+    t = "Index A-Z des modèles IA open source suivis"
+    write("modeles-a-z.html", page(site, "modeles-a-z.html", t, f"Les {len(tous)} modèles, datasets et Spaces Hugging Face suivis par Radar IA, par ordre alphabétique, avec éditeur et taille vérifiés.",
+                                   f'<h1>{esc(t)}</h1><p class="mut">{len(tous)} éléments. Voir aussi l’<a href="modeles.html">annuaire par Score Radar</a>.</p>'
+                                   f'<p class="mono" style="font-size:1rem;word-spacing:.35em">{nav_az}</p>{secs}',
+                                   crumbs=[("Accueil", "index.html"), ("Modèles", "modeles.html"), ("Index A-Z", None)], nav_key="modeles.html"))
+    guides.append((t, "modeles-a-z.html", f"{len(tous)} éléments"))
+
     # Index des guides
     body = ('<h1>Guides</h1><p class="mut" style="max-width:70ch">Des listes régénérées chaque jour à partir des faits déclarés sur Hugging Face : langues, licences, formats, familles de modèles. Rien n’y est saisi à la main.</p>'
             + '<ul class="ess">' + "".join(f'<li><a href="{gp}"><strong>{esc(gt)}</strong></a> — {esc(gr)}</li>' for gt, gp, gr in guides) + "</ul>")
@@ -1114,7 +1134,7 @@ def build(site: Site, out: Path, artifact=False):
     all_items = sorted(site.items.values(), key=lambda i: -(i.get("score") or 0))
     rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(site.org(it))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
     write("modeles.html", page(site, "modeles.html", "Annuaire des modèles IA suivis : taille, licence, score", f"{len(all_items)} modèles, datasets et Spaces Hugging Face suivis par Radar IA, avec taille, licence, tâche et Score Radar.",
-          f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments, triés par Score Radar. ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
+          f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments, triés par Score Radar (<a href="modeles-a-z.html">index A-Z</a>). ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
           crumbs=[("Accueil", "index.html"), ("Modèles", None)], jsonld=[ld_itemlist(site, "Modèles suivis par Radar IA", all_items[:100], "modeles.html")]))
     for it in all_items:
         p = site.item_page(it)
