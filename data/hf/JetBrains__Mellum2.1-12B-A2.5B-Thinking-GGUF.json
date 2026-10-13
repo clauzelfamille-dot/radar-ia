@@ -1,0 +1,31 @@
+{
+ "acces": "libre",
+ "bibliotheque": "gguf",
+ "compte": "JetBrains",
+ "compteNom": "JetBrains",
+ "compteType": "organisation",
+ "contexte": 131072,
+ "creeLe": "2026-10-07",
+ "downloads": 20646,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 78,
+ "majLe": "2026-10-07",
+ "modeleBase": [
+  {
+   "id": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 12149923072,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

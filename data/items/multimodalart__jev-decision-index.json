@@ -1,0 +1,38 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": 0,
+  "hfId": "multimodalart/jev-decision-index",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 535,
+      "score": 43
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 613,
+      "score": 44
+    }
+  ],
+  "licence": null,
+  "likes": 613,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "jev-decision-index",
+  "org": "multimodalart",
+  "pertinent": true,
+  "pourquoi": "L'arbitre de la course aux modèles de décision",
+  "premiereVue": "2026-10-12",
+  "resume": "Tableau de bord communautaire qui compare les modèles de décision (Jev, clef, pplx-decider, d1) sur le Decision Index, avec actualités des reproductions.",
+  "score": 44,
+  "source": "trending",
+  "tache": "Benchmark de décision",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/multimodalart/jev-decision-index"
+}

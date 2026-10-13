@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2503.06674",
+  "2610.09450"
+ ],
+ "bibliotheque": "pytorch",
+ "compte": "speridlabs",
+ "compteNom": "speridlabs",
+ "compteType": "organisation",
+ "creeLe": "2026-10-05",
+ "downloads": 706,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "speridlabs/iris-3b",
+ "licence": "apache-2.0",
+ "likes": 207,
+ "majLe": "2026-10-12",
+ "parametres": 2987511888,
+ "tache": "text-to-image",
+ "type": "model",
+ "url": "https://huggingface.co/speridlabs/iris-3b",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

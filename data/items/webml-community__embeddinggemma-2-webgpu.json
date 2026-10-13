@@ -1,0 +1,39 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "local",
+    "multilingue"
+  ],
+  "downloads": 0,
+  "hfId": "webml-community/embeddinggemma-2-webgpu",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 42,
+      "score": 33
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 42,
+      "score": 33
+    }
+  ],
+  "licence": null,
+  "likes": 42,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "embeddinggemma-2-webgpu",
+  "org": "webml-community",
+  "pertinent": true,
+  "pourquoi": "Démo concrète d'embeddings 100 % locaux",
+  "premiereVue": "2026-10-12",
+  "resume": "Recherche de médias similaires par embeddings calculés dans le navigateur (WebGPU) avec EmbeddingGemma 2, sans serveur.",
+  "score": 33,
+  "source": "nouveau",
+  "tache": "Recherche sémantique locale",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/webml-community/embeddinggemma-2-webgpu"
+}

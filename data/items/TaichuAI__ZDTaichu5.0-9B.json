@@ -1,0 +1,40 @@
+{
+  "creeLe": "2026-09-04",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "documents",
+    "agents",
+    "local"
+  ],
+  "downloads": 13200,
+  "hfId": "TaichuAI/ZDTaichu5.0-9B",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 13294,
+      "likes": 2917,
+      "score": 68
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 13200,
+      "likes": 2920,
+      "score": 68
+    }
+  ],
+  "licence": "NVIDIA Open Model License",
+  "likes": 2920,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "ZDTaichu5.0-9B",
+  "org": "TaichuAI",
+  "pertinent": true,
+  "pourquoi": "VLM documentaire de 10 B, quantisations communautaires disponibles.",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle vision-langage d'environ 10 B (Qwen3.5-9B + encodeur C-RADIOv4) : images, vidéo, documents, graphiques, OCR et usage d'outils multi-étapes, contexte 128 k.",
+  "score": 68,
+  "source": "likes30d",
+  "tache": "Vision-langage",
+  "taille": "10 B",
+  "type": "model",
+  "url": "https://huggingface.co/TaichuAI/ZDTaichu5.0-9B"
+}

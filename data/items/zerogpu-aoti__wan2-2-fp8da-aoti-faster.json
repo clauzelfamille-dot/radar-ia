@@ -1,0 +1,38 @@
+{
+  "creeLe": "2025-07-30",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 3720,
+      "score": 36
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 3720,
+      "score": 36
+    }
+  ],
+  "licence": null,
+  "likes": 3720,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Wan2.2 14B Fast",
+  "org": "zerogpu-aoti",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Génération rapide de vidéo à partir d'une image avec Wan 2.2 14B (ZeroGPU).",
+  "score": 36,
+  "source": "trending",
+  "tache": "Démo image vers vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster"
+}

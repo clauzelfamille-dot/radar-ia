@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-06-05",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "agents"
+  ],
+  "downloads": 2080,
+  "hfId": "aidigestorg/ai-village",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 296,
+      "likes": 128,
+      "score": 33
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 2080,
+      "likes": 128,
+      "score": 37
+    }
+  ],
+  "licence": "other",
+  "likes": 128,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "ai-village",
+  "org": "aidigestorg",
+  "pertinent": false,
+  "pourquoi": "Observation du comportement d'agents autonomes.",
+  "premiereVue": "2026-10-12",
+  "resume": "Journaux de l'expérience AI Village, où des agents LLM autonomes collaborent sur de longues durées.",
+  "score": 37,
+  "source": "trending",
+  "tache": "Journaux d'agents",
+  "taille": "2,1 k",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/aidigestorg/ai-village"
+}

@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-08-24",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "code",
     "agents"
   ],
-  "downloads": 1800000,
+  "downloads": 1930000,
   "hfId": "Qwen/Qwen3.8-Flash-Next",
   "historique": [
     {
@@ -13,11 +13,23 @@
       "downloads": 1800000,
       "likes": 6090,
       "score": 70
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 1870465,
+      "likes": 6114,
+      "score": 70
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1930000,
+      "likes": 6150,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 6090,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 6150,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen3.8-Flash-Next",
   "org": "Qwen",
   "pertinent": false,

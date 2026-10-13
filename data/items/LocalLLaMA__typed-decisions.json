@@ -1,12 +1,12 @@
 {
   "creeLe": "2026-10-09",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "agents",
     "documents",
     "donnees"
   ],
-  "downloads": 34500,
+  "downloads": 38500,
   "hfId": "LocalLLaMA/typed-decisions",
   "historique": [
     {
@@ -14,11 +14,23 @@
       "downloads": 34500,
       "likes": 158,
       "score": 70
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 38500,
+      "likes": 163,
+      "score": 70
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 38500,
+      "likes": 172,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 158,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 172,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "typed-decisions",
   "org": "LocalLLaMA",
   "pertinent": true,

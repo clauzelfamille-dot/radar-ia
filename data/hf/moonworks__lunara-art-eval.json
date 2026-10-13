@@ -1,0 +1,22 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2601.07941",
+  "2602.01666",
+  "2609.22272"
+ ],
+ "compte": "moonworks",
+ "compteNom": "Moonworks AI",
+ "compteType": "organisation",
+ "creeLe": "2026-10-07",
+ "downloads": 808,
+ "hfId": "moonworks/lunara-art-eval",
+ "licence": "apache-2.0",
+ "likes": 32,
+ "majLe": "2026-10-09",
+ "tache": "text-to-image",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/moonworks/lunara-art-eval",
+ "verifieLe": "2026-10-13T05:42+00:00",
+ "volumetrie": "1K<n<10K"
+}

@@ -10,14 +10,14 @@
  "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-09-17",
- "downloads": 48389,
+ "downloads": 52788,
  "formats": [
   "GGUF",
   "safetensors"
  ],
  "hfId": "Venastine-Research/Xing4.0-29B-A4B-GGUF",
  "licence": "apache-2.0",
- "likes": 689,
+ "likes": 706,
  "majLe": "2026-10-11",
  "modeleBase": [
   {
@@ -29,5 +29,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/Venastine-Research/Xing4.0-29B-A4B-GGUF",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

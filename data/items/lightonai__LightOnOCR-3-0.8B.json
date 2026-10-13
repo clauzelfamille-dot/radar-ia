@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "documents",
+    "local"
+  ],
+  "downloads": 1641,
+  "hfId": "lightonai/LightOnOCR-3-0.8B",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 1641,
+      "likes": 56,
+      "score": 60
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 56,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "LightOnOCR-3-0.8B",
+  "org": "LightOn (Paris)",
+  "pertinent": true,
+  "pourquoi": "Un OCR documentaire complet sous 1 B de paramètres, utilisable sur une petite carte.",
+  "premiereVue": "2026-10-13",
+  "resume": "Version légère de LightOnOCR-3 : même sortie markdown et même mode grounding que le 4 B, pensée pour la vitesse. vLLM, Transformers, SGLang.",
+  "score": 60,
+  "source": "nouveau",
+  "tache": "OCR / vision-langage documentaire",
+  "taille": "0,9 B",
+  "type": "model",
+  "url": "https://huggingface.co/lightonai/LightOnOCR-3-0.8B"
+}

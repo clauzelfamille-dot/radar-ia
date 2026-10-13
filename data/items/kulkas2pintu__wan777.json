@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-07-15",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "kulkas2pintu/wan777",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 388,
+      "score": 32
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 388,
+      "score": 32
+    }
+  ],
+  "licence": null,
+  "likes": 388,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Wan2.2 14B Preview",
+  "org": "kulkas2pintu",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Génération de vidéo à partir d'une image et d'un texte avec Wan 2.2 14B.",
+  "score": 32,
+  "source": "trending",
+  "tache": "Démo image vers vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/kulkas2pintu/wan777"
+}

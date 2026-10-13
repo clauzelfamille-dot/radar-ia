@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-22",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "Viggle/Qwen-Image-2.1-viggle-turbo",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 228,
+      "score": 36
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 228,
+      "score": 36
+    }
+  ],
+  "licence": null,
+  "likes": 228,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Viggle Turbo for Qwen-Image-2.1",
+  "org": "Viggle",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Qwen-Image-2.1 en 6 étapes (génération et édition), comparé au modèle de base.",
+  "score": 36,
+  "source": "trending",
+  "tache": "Démo texte vers image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/Viggle/Qwen-Image-2.1-viggle-turbo"
+}

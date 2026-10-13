@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-08-26",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "local",
+    "agents"
+  ],
+  "downloads": 630000,
+  "hfId": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 630000,
+      "likes": 821,
+      "score": 70
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 821,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "org": "orcarouter",
+  "pertinent": true,
+  "pourquoi": "630 k téléchargements ; mis à jour ce matin.",
+  "premiereVue": "2026-10-13",
+  "resume": "GGUF de Qwen3.8-Flash-Next avec projecteur vision et appel de fonctions, mis à jour le 12/10. Variante « abliterated » : garde-fous retirés, à réserver aux tests.",
+  "score": 70,
+  "source": "trending",
+  "tache": "Vision-langage (GGUF)",
+  "taille": "MoE (base Qwen3.8-Flash-Next)",
+  "type": "model",
+  "url": "https://huggingface.co/orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF"
+}

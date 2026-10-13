@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "image-video"
+  ],
+  "downloads": 61100,
+  "hfId": "LightwheelAI/EgoDemo",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 61100,
+      "likes": 189,
+      "score": 62
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 61100,
+      "likes": 189,
+      "score": 62
+    }
+  ],
+  "licence": null,
+  "likes": 189,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "EgoDemo",
+  "org": "Lightwheel AI",
+  "pertinent": false,
+  "pourquoi": "Trois jeux robotiques publiés ensemble, tous dans le top datasets",
+  "premiereVue": "2026-10-12",
+  "resume": "Démonstrations égocentriques pour l'apprentissage robotique, publiées avec EgoPro et EgoStandard (trois jeux le même jour).",
+  "score": 62,
+  "source": "nouveau",
+  "tache": "Robotique / vidéo égocentrique",
+  "taille": null,
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/LightwheelAI/EgoDemo"
+}

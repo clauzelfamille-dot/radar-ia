@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-10-04",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "local",
     "multilingue"
   ],
-  "downloads": 45600,
+  "downloads": 116000,
   "hfId": "google/embeddinggemma-2",
   "historique": [
     {
@@ -13,18 +13,30 @@
       "downloads": 45600,
       "likes": 1530,
       "score": 80
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 98829,
+      "likes": 1748,
+      "score": 76
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 116000,
+      "likes": 1961,
+      "score": 76
     }
   ],
   "licence": "Gemma",
-  "likes": 1530,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 1961,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "embeddinggemma-2",
   "org": "Google",
   "pertinent": true,
   "pourquoi": "Embeddings 0,7 B pour recherche sémantique locale",
   "premiereVue": "2026-10-11",
   "resume": "Modèle d'embeddings de 0,7 B pour la recherche sémantique locale, décliné en GGUF par Unsloth.",
-  "score": 80,
+  "score": 76,
   "source": "trending",
   "tache": "Embeddings",
   "taille": "0,7 B",

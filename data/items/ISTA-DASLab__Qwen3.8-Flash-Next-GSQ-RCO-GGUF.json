@@ -1,8 +1,8 @@
 {
   "creeLe": "2026-09-29",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [],
-  "downloads": 3920000,
+  "downloads": 4410000,
   "hfId": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
   "historique": [
     {
@@ -10,18 +10,30 @@
       "downloads": 3920000,
       "likes": 779,
       "score": 69
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 4190000,
+      "likes": 802,
+      "score": 69
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 4410000,
+      "likes": 835,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 779,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 835,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
   "org": "ISTA-DASLab",
   "pertinent": false,
   "pourquoi": "177 B en 66-84 Go sans perte — station multi-GPU",
   "premiereVue": "2026-10-11",
   "resume": "MoE 177 B ramené à 66-84 Go par quantisation GSQ + RCO, sans perte mesurée en IQ3_S.",
-  "score": 69,
+  "score": 70,
   "source": "trending",
   "tache": "Vision-langage",
   "taille": "177 B MoE",

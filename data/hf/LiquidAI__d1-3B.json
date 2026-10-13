@@ -8,7 +8,7 @@
  "compteNom": "Liquid AI",
  "compteType": "organisation",
  "creeLe": "2026-10-05",
- "downloads": 10843,
+ "downloads": 11866,
  "formats": [
   "safetensors"
  ],
@@ -33,7 +33,7 @@
  ],
  "licence": "lfm1.0",
  "licenceLien": "https://huggingface.co/LiquidAI/d1-3B/blob/main/LICENSE",
- "likes": 294,
+ "likes": 355,
  "majLe": "2026-10-07",
  "modeleBase": [
   {
@@ -45,5 +45,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/LiquidAI/d1-3B",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

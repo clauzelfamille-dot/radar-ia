@@ -5,15 +5,15 @@
  "compteNom": "Qwen",
  "compteType": "organisation",
  "creeLe": "2026-10-09",
- "downloads": 4702,
+ "downloads": 6787,
  "formats": [
   "safetensors"
  ],
  "hfId": "Qwen/Qwen-Image-2.1-Turbo",
  "licence": "qwen-research",
  "licenceLien": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo/blob/main/LICENSE",
- "likes": 531,
- "majLe": "2026-10-09",
+ "likes": 650,
+ "majLe": "2026-10-12",
  "modeleBase": [
   {
    "id": "Qwen/Qwen-Image-2.1",
@@ -24,5 +24,5 @@
  "tache": "text-to-image",
  "type": "model",
  "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

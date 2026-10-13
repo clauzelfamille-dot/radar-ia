@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "Edge0",
+ "compteNom": "Edge0",
+ "compteType": "organisation",
+ "creeLe": "2026-09-21",
+ "downloads": 41395,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Edge0/Audio8-ASR-Infinite",
+ "langues": [
+  "zh",
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 2443,
+ "majLe": "2026-09-24",
+ "parametres": 4086224640,
+ "tache": "automatic-speech-recognition",
+ "type": "model",
+ "url": "https://huggingface.co/Edge0/Audio8-ASR-Infinite",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

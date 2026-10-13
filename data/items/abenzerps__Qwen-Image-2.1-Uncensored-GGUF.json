@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-09-20",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "image-video"
   ],
-  "downloads": 2100000,
+  "downloads": 2190000,
   "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
   "historique": [
     {
@@ -12,18 +12,30 @@
       "downloads": 2100000,
       "likes": 3890,
       "score": 74
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 2190000,
+      "likes": 4003,
+      "score": 75
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 2190000,
+      "likes": 4120,
+      "score": 75
     }
   ],
   "licence": null,
-  "likes": 3890,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 4120,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen-Image-2.1-Uncensored-GGUF",
   "org": "abenzerps",
   "pertinent": false,
   "pourquoi": "GGUF image le plus téléchargé",
   "premiereVue": "2026-10-11",
   "resume": "Version GGUF de Qwen-Image-2.1 la plus téléchargée.",
-  "score": 74,
+  "score": 75,
   "source": "trending",
   "tache": "Texte→image",
   "taille": "7 B",

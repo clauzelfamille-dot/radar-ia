@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "agents"
+  ],
+  "downloads": 1120,
+  "hfId": "harvardMadsys/freeinference_agentic_trace",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 1120,
+      "likes": 30,
+      "score": 57
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1120,
+      "likes": 30,
+      "score": 51
+    }
+  ],
+  "licence": "CC-BY-4.0",
+  "likes": 30,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "freeinference_agentic_trace",
+  "org": "harvardMadsys",
+  "pertinent": true,
+  "pourquoi": "Données réelles d'agents pour analyse ou entraînement.",
+  "premiereVue": "2026-10-12",
+  "resume": "Traces d'exécution d'agents LLM (2,5 millions de lignes) publiées par Harvard.",
+  "score": 51,
+  "source": "trending",
+  "tache": "Traces d'agents",
+  "taille": "2,5 M lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/harvardMadsys/freeinference_agentic_trace"
+}

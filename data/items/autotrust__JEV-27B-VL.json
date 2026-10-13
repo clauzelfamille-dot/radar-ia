@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-25",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "agents"
   ],
@@ -12,18 +12,30 @@
       "downloads": 1540000,
       "likes": 3750,
       "score": 74
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 1550000,
+      "likes": 3780,
+      "score": 84
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1540000,
+      "likes": 3853,
+      "score": 84
     }
   ],
-  "licence": null,
-  "likes": 3750,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "licence": "Apache 2.0",
+  "likes": 3853,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "JEV-27B-VL",
   "org": "AutoTrust",
-  "pertinent": false,
-  "pourquoi": "Décision multimodale jouable",
+  "pertinent": true,
+  "pourquoi": "Le décideur multimodal de référence, mis à jour il y a 17 h",
   "premiereVue": "2026-10-11",
-  "resume": "Premier modèle de décision « jouable » (démo Mario, Tetris).",
-  "score": 74,
+  "resume": "Modèle de décision vision-langage 27 B sur base Qwen3.8-27B : réponse typée calibrée (oui/non, choix, note) en une passe, texte et images ; 1er du Decision Index Vision. Route /v1/decide ajoutée début octobre.",
+  "score": 84,
   "source": "likes30d",
   "tache": "Vision-langage",
   "taille": "27 B",

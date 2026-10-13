@@ -1,0 +1,70 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Premier bilan hebdomadaire du Radar, bâti sur les deux éditions disponibles. Les modèles de décision deviennent une catégorie à part entière, et Qwen3.8-27B sert de socle à la moitié des nouveautés qui tournent en local.",
+  "corpsHtml": "<p>Premier bilan hebdomadaire du Radar, bâti sur les deux éditions disponibles (la base a démarré le 11 octobre). La ligne est déjà nette : les modèles de décision deviennent une catégorie, et Qwen3.8-27B sert de socle à la moitié des nouveautés qui tournent en local.</p>\n<h2>Les cinq faits de la semaine</h2>\n<h3>1. La décision typée a maintenant six acteurs et un arbitre</h3>\n<p>En trois semaines, Cloudflare (<a href=\"https://huggingface.co/Cloudflare/clef\">clef</a>, clef-flash, clef-omni), Convai (laya), Liquid AI (<a href=\"https://huggingface.co/LiquidAI/d1-3B\">d1-3B</a>, <a href=\"https://huggingface.co/LiquidAI/d1-omni-600M\">d1-omni-600M</a>), Fastino (<a href=\"https://huggingface.co/fastino/GLiNER2.5-Decide\">GLiNER2.5-Decide</a>), AutoTrust (<a href=\"https://huggingface.co/autotrust/JEV-27B-VL\">JEV-27B-VL</a>) et Perplexity (<a href=\"https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b\">pplx-decider-v1.1-27b</a>) ont publié ou mis à jour un modèle qui répond à une question fermée par des probabilités, sans générer de texte. Tous se mesurent au même Decision Index communautaire et au jeu <a href=\"https://huggingface.co/datasets/LocalLLaMA/typed-decisions\">typed-decisions</a> (1,6 k lignes, dont des factures). JEV-27B-VL ouvre le classement du jour avec un score Radar de 84.</p>\n<h3>2. Qwen3.8-27B, le socle que tout le monde compresse</h3>\n<p>Sept des quinze premières entrées du classement du jour sont des dérivés de <a href=\"https://huggingface.co/Qwen/Qwen3.8-27B\">Qwen3.8-27B</a> : Saluki (7,9 Go, appel d'outils conservé), Swift (58 % de tokens de réflexion en moins), Ternary-Bonsai-2, le GGUF GSQ-RCO d'ISTA et le GGUF d'Unsloth ; OrcaSAQ-2 (12,3 Go) suit un peu plus loin. Les deux décideurs 27 B de la semaine en sont issus aussi. Point de vigilance relevé par la Veille : des licences « ouvertes sous condition de chiffre d'affaires » apparaissent sur certains dérivés.</p>\n<h3>3. Documents : la sortie structurée rejoint l'OCR</h3>\n<p><a href=\"https://huggingface.co/XingChen-AGI/TeleOCR\">TeleOCR</a> (1,2 B, Apache 2.0, GGUF communautaires) reste la référence pour un PC. Tencent ajoute <a href=\"https://huggingface.co/tencent/Youtu-Parsing-Omni\">Youtu-Parsing-Omni</a> (5 B, GPU requis), qui produit un JSON unifié pour pages, tableaux, audio et vidéo. Les petits décideurs (GLiNER2.5-Decide, d1-omni-600M) couvrent le tri et le routage en amont.</p>\n<h3>4. Audio : la transcription multilingue se miniaturise</h3>\n<p><a href=\"https://huggingface.co/moondream/parakeet-redux\">parakeet-redux</a> tient en 178 Mo pour 25 langues dont le français, sur CPU. En face, le corpus <a href=\"https://huggingface.co/datasets/espnet/yodas3\">yodas3</a> (plus de 1,1 million d'heures, 100 langues et plus, CC-BY 3.0) fournit de quoi évaluer ou affiner, avec environ 102 k lignes en français d'après la fiche de liste.</p>\n<h3>5. Embeddings et code en local</h3>\n<p><a href=\"https://huggingface.co/google/embeddinggemma-2\">EmbeddingGemma 2</a> (0,74 B) arrive avec un GGUF Unsloth de 176 Mo et une démo WebGPU qui calcule tout dans le navigateur. Côté code, JetBrains publie <a href=\"https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking\">Mellum2.1-12B-A2.5B-Thinking</a> : 12 B dont 2,5 B actifs, Apache 2.0, GGUF officiels annoncés mais pas encore en ligne.</p>\n<h2>Les dix meilleurs scores sur 7 jours</h2>\n<p>Classement des éléments créés depuis sept jours, généré le 12 octobre à 7 h 30. Le delta compare au rang de la veille ; « nouveau » signale une première entrée.</p>\n<table>\n<thead><tr><th>Rang</th><th>Élément</th><th>Score</th><th>Likes</th><th>Téléchargements</th><th>Delta</th></tr></thead>\n<tbody>\n<tr><td>1</td><td><a href=\"https://huggingface.co/ukisai/Swift-Qwen3.8-27B-GGUF\">Swift-Qwen3.8-27B-GGUF</a></td><td>77</td><td>406</td><td>189 k</td><td>+1</td></tr>\n<tr><td>2</td><td><a href=\"https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0\">Underdog-Saluki-27B-1.0</a></td><td>75</td><td>327</td><td>109 k</td><td>+2</td></tr>\n<tr><td>3</td><td><a href=\"https://huggingface.co/ukisai/Swift-Qwen3.8-27b\">Swift-Qwen3.8-27b</a></td><td>74</td><td>583</td><td>19,1 k</td><td>0</td></tr>\n<tr><td>4</td><td><a href=\"https://huggingface.co/unsloth/embeddinggemma-2-GGUF\">embeddinggemma-2-GGUF</a></td><td>73</td><td>259</td><td>59,3 k</td><td>+1</td></tr>\n<tr><td>5</td><td><a href=\"https://huggingface.co/nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2\">Qwen3.8-27B-Coder390 (nerkyor)</a></td><td>73</td><td>241</td><td>56,5 k</td><td>+1</td></tr>\n<tr><td>6</td><td><a href=\"https://huggingface.co/LiquidAI/d1-3B\">d1-3B</a></td><td>70</td><td>301</td><td>10,8 k</td><td>+2</td></tr>\n<tr><td>7</td><td><a href=\"https://huggingface.co/datasets/LocalLLaMA/typed-decisions\">typed-decisions</a></td><td>70</td><td>163</td><td>38,5 k</td><td>0</td></tr>\n<tr><td>8</td><td><a href=\"https://huggingface.co/datasets/MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x\">Fable-5.1-Max-Reasoning-Filtered-10000x</a></td><td>69</td><td>304</td><td>5,3 k</td><td>+2</td></tr>\n<tr><td>9</td><td><a href=\"https://huggingface.co/fastino/GLiNER2.5-Decide\">GLiNER2.5-Decide</a></td><td>69</td><td>167</td><td>14,8 k</td><td>0</td></tr>\n<tr><td>10</td><td><a href=\"https://huggingface.co/LiquidAI/d1-omni-600M\">d1-omni-600M</a></td><td>66</td><td>105</td><td>10,5 k</td><td>nouveau</td></tr>\n</tbody>\n</table>\n<p>Lecture : les quantisations de Qwen3.8-27B dominent par les téléchargements, les modèles de décision par le nombre d'entrées (quatre sur dix). Les likes restent modestes partout, signe d'une période encore jeune pour ces sorties.</p>\n<p>À surveiller la semaine prochaine : les GGUF officiels de Mellum 2.1, une quantisation de pplx-decider, et la première comparaison indépendante entre TeleOCR et Youtu-Parsing-Omni sur des documents en français.</p>",
+  "date": "2026-10-12",
+  "domaine": "tendances",
+  "itemIds": [
+    "autotrust__JEV-27B-VL",
+    "perplexity-ai__pplx-decider-v1.1-27b",
+    "Cloudflare__clef",
+    "LiquidAI__d1-3B",
+    "LiquidAI__d1-omni-600M",
+    "fastino__GLiNER2.5-Decide",
+    "LocalLLaMA__typed-decisions",
+    "Qwen__Qwen3.8-27B",
+    "ukisai__Swift-Qwen3.8-27B-GGUF",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "XingChen-AGI__TeleOCR",
+    "tencent__Youtu-Parsing-Omni",
+    "moondream__parakeet-redux",
+    "espnet__yodas3",
+    "google__embeddinggemma-2",
+    "unsloth__embeddinggemma-2-GGUF",
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking",
+    "MoreThought__Fable-5.1-Max-Reasoning-Filtered-10000x",
+    "ukisai__Swift-Qwen3.8-27b",
+    "nerkyor__Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2"
+  ],
+  "motsCles": [
+    "semaine en bref",
+    "modèles de décision",
+    "Qwen3.8-27B",
+    "GGUF",
+    "OCR",
+    "transcription",
+    "embeddings",
+    "classement"
+  ],
+  "publieLe": "2026-10-12T08:16:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche perplexity-ai/pplx-decider-v1.1-27b",
+      "url": "https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b"
+    },
+    {
+      "titre": "Fiche autotrust/JEV-27B-VL",
+      "url": "https://huggingface.co/autotrust/JEV-27B-VL"
+    },
+    {
+      "titre": "Fiche google/embeddinggemma-2",
+      "url": "https://huggingface.co/google/embeddinggemma-2"
+    },
+    {
+      "titre": "Fiche unsloth/embeddinggemma-2-GGUF",
+      "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF"
+    },
+    {
+      "titre": "Fiche tencent/Youtu-Parsing-Omni",
+      "url": "https://huggingface.co/tencent/Youtu-Parsing-Omni"
+    },
+    {
+      "titre": "Fiche LiquidAI/d1-omni-600M",
+      "url": "https://huggingface.co/LiquidAI/d1-omni-600M"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 3,
+  "titre": "La semaine en bref : la décision typée s'impose, Qwen3.8-27B se compresse",
+  "verifiePar": "redac-chef"
+}

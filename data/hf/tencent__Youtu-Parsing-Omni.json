@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2512.24618",
+  "2601.19798",
+  "2601.20430"
+ ],
+ "bibliotheque": "transformers",
+ "compte": "tencent",
+ "compteNom": "Tencent",
+ "compteType": "organisation",
+ "creeLe": "2026-10-09",
+ "downloads": 741,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "tencent/Youtu-Parsing-Omni",
+ "licence": "youtu-parsing",
+ "licenceLien": "https://huggingface.co/tencent/Youtu-Parsing-Omni/blob/main/LICENSE",
+ "likes": 86,
+ "majLe": "2026-10-10",
+ "parametres": 5334472192,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/tencent/Youtu-Parsing-Omni",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

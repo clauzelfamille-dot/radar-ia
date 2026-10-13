@@ -5,7 +5,7 @@
  "compteNom": "Google",
  "compteType": "organisation",
  "creeLe": "2026-09-14",
- "downloads": 98829,
+ "downloads": 115763,
  "formats": [
   "safetensors"
  ],
@@ -14,11 +14,11 @@
   "multilingual"
  ],
  "licence": "apache-2.0",
- "likes": 1676,
+ "likes": 1967,
  "majLe": "2026-10-06",
  "parametres": 744371512,
  "tache": "feature-extraction",
  "type": "model",
  "url": "https://huggingface.co/google/embeddinggemma-2",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

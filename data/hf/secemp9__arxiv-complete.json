@@ -1,0 +1,23 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2401.18030"
+ ],
+ "compte": "secemp9",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-10",
+ "downloads": 180968,
+ "hfId": "secemp9/arxiv-complete",
+ "langues": [
+  "en"
+ ],
+ "licence": "mixed-arxiv-author-licenses",
+ "licenceLien": "https://huggingface.co/datasets/secemp9/arxiv-complete/blob/main/LICENSE",
+ "likes": 668,
+ "majLe": "2026-09-19",
+ "tache": "text-generation, text-retrieval",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/secemp9/arxiv-complete",
+ "verifieLe": "2026-10-13T05:42+00:00",
+ "volumetrie": "10M<n<100M"
+}

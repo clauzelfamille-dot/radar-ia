@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-09-14",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "image-video"
   ],
-  "downloads": 129000,
+  "downloads": 142000,
   "hfId": "Qwen/Qwen-Image-2.1",
   "historique": [
     {
@@ -12,11 +12,23 @@
       "downloads": 129000,
       "likes": 3200,
       "score": 69
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 136103,
+      "likes": 3231,
+      "score": 69
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 142000,
+      "likes": 3270,
+      "score": 69
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 3200,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 3270,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen-Image-2.1",
   "org": "Qwen",
   "pertinent": false,

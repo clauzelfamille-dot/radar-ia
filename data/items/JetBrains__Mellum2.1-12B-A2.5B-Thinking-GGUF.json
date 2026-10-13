@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "code",
+    "local"
+  ],
+  "downloads": 20646,
+  "hfId": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 20646,
+      "likes": 78,
+      "score": 66
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 78,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "org": "JetBrains",
+  "pertinent": true,
+  "pourquoi": "L'agent de code annoncé hier tient maintenant en 8 Go sur un PC.",
+  "premiereVue": "2026-10-13",
+  "resume": "GGUF officiels du MoE de code JetBrains : Q8_0 12,9 Go, Q6_K 10,9 Go, Q4_K_M 8,1 Go, MXFP4 7 Go ; contexte 131 k ; llama.cpp, Ollama, LM Studio.",
+  "score": 66,
+  "source": "nouveau",
+  "tache": "Génération de code",
+  "taille": "12 B (2,5 B actifs)",
+  "type": "model",
+  "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF"
+}

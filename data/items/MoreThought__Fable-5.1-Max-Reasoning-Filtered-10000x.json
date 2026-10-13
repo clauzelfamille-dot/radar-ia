@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-10-10",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "code",
     "donnees"
   ],
-  "downloads": 5090,
+  "downloads": 5290,
   "hfId": "MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x",
   "historique": [
     {
@@ -13,11 +13,23 @@
       "downloads": 5090,
       "likes": 293,
       "score": 69
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 5290,
+      "likes": 304,
+      "score": 69
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 5290,
+      "likes": 304,
+      "score": 69
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 293,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 304,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Fable-5.1-Max-Reasoning-Filtered-10000x",
   "org": "MoreThought",
   "pertinent": true,

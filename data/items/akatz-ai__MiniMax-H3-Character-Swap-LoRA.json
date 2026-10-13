@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-10-11",
+  "derniereVue": "2026-10-12",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 40600,
+  "hfId": "akatz-ai/MiniMax-H3-Character-Swap-LoRA",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 40600,
+      "likes": 415,
+      "score": 64
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 40600,
+      "likes": 415,
+      "score": 64
+    }
+  ],
+  "licence": null,
+  "likes": 415,
+  "majLe": "2026-10-12T07:05:00+02:00",
+  "nom": "MiniMax-H3-Character-Swap-LoRA",
+  "org": "akatz-ai",
+  "pertinent": false,
+  "pourquoi": "Montée fulgurante dans l'écosystème vidéo MiniMax-H3",
+  "premiereVue": "2026-10-12",
+  "resume": "LoRA pour MiniMax-H3 qui remplace un personnage d'un clip par un personnage de référence. 415 likes en un jour, Space de démo officiel.",
+  "score": 64,
+  "source": "nouveau",
+  "tache": "Vidéo vers vidéo",
+  "taille": "LoRA",
+  "type": "model",
+  "url": "https://huggingface.co/akatz-ai/MiniMax-H3-Character-Swap-LoRA"
+}

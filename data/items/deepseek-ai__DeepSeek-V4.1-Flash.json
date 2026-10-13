@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-09-10",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "code",
     "agents"
   ],
-  "downloads": 1360000,
+  "downloads": 1290000,
   "hfId": "deepseek-ai/DeepSeek-V4.1-Flash",
   "historique": [
     {
@@ -13,11 +13,23 @@
       "downloads": 1360000,
       "likes": 4340,
       "score": 68
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 1382367,
+      "likes": 4370,
+      "score": 68
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1290000,
+      "likes": 4420,
+      "score": 68
     }
   ],
   "licence": "MIT",
-  "likes": 4340,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 4420,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "DeepSeek-V4.1-Flash",
   "org": "DeepSeek",
   "pertinent": false,

@@ -9,7 +9,7 @@
  "compteNom": "Aleph Alpha",
  "compteType": "organisation",
  "creeLe": "2026-10-02",
- "downloads": 12550,
+ "downloads": 14018,
  "formats": [
   "safetensors"
  ],
@@ -19,7 +19,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 886,
+ "likes": 918,
  "majLe": "2026-10-03",
  "modeleBase": [
   {
@@ -31,5 +31,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

@@ -1,0 +1,41 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Google publie EmbeddingGemma 2, un modèle d'embeddings de 0,74 B qui place texte, images, audio et vidéo dans le même espace vectoriel, et Unsloth le décline en GGUF à partir de 176 Mo. Pour une recherche documentaire locale, sans serveur ni API, c'est une brique à essayer.",
+  "corpsHtml": "<p>Google publie <a href=\"https://huggingface.co/google/embeddinggemma-2\">EmbeddingGemma 2</a>, un modèle d'embeddings de 0,74 B qui place texte, images, audio et vidéo dans le même espace vectoriel, et Unsloth le décline en <a href=\"https://huggingface.co/unsloth/embeddinggemma-2-GGUF\">GGUF</a> à partir de 176 Mo. Pour une recherche documentaire locale, sans serveur ni API, c'est une brique à essayer.</p>\n<h2>Ce que fait le modèle</h2>\n<p>Un modèle d'embeddings transforme un texte (ou une image) en un vecteur de nombres. Deux contenus proches de sens donnent des vecteurs proches : c'est la base de la recherche sémantique et du RAG. EmbeddingGemma 2 totalise 740 M de paramètres selon sa fiche : un tronc texte de 130 M, un « embedder » de 140 M, un encodeur vision de 170 M et un encodeur audio de 300 M. On peut ne charger qu'une partie : 270 M pour le texte seul, 440 M avec les images, 740 M pour tout.</p>\n<p>Les vecteurs font 768 dimensions, mais le modèle est entraîné en « Matryoshka » : on peut les tronquer à 512, 256 ou 128 dimensions, puis les renormaliser, pour diviser le stockage par six. Le contexte atteint 8 192 tokens, partagés entre modalités (environ 29 images ou 327 secondes d'audio). La fiche annonce plus de 100 langues couvertes et 140 à l'entraînement ; le français n'est pas cité nommément.</p>\n<h2>Ce que la fiche annonce, et ce qu'il faut vérifier</h2>\n<p>Les résultats sont ceux de Google DeepMind, sans vérification tierce mentionnée. Sur MTEB multilingue v2, la fiche donne 61,36, contre 61,15 pour la première version : le gain en texte pur est faible. Le progrès est net sur le code (78,68 contre 68,76) et sur les nouvelles modalités : 57,28 en recherche d'images (MMEB v2), 67,84 sur les documents visuels (VisDoc). La troncature coûte peu : 61,17 en 512 dimensions, 60,41 en 256, 57,89 en 128.</p>\n<p>Trois points à vérifier. La licence, d'abord : l'en-tête affiche Apache 2.0 mais le lien pointe vers un document « gemma_4_license » ; la base Radar l'enregistre comme licence Gemma. À lire avant un usage professionnel. Ensuite, le modèle exige des préfixes de tâche : <code>task: search result | query:</code> pour une requête, <code>title: none | text:</code> pour un document ; les oublier dégrade les résultats. Enfin, la fiche déconseille le float16 (risque de valeurs NaN) et recommande bfloat16 ou float32. Aucun chiffre de mémoire n'est donné.</p>\n<h2>Les versions GGUF et la démo navigateur</h2>\n<p>La fiche Google ne mentionne ni GGUF, ni ONNX, ni MLX, mais son arbre compte 62 quantisations tierces. Celle d'Unsloth est la plus téléchargée (59 k en un mois d'après la page de liste). Elle ne couvre que la partie texte (0,3 B) : pas d'images ni d'audio en GGUF pour l'instant.</p>\n<table>\n<thead><tr><th>Variante</th><th>Précision</th><th>Taille</th></tr></thead>\n<tbody>\n<tr><td>UD-Q4_K_XL</td><td>4 bits</td><td>176 Mo</td></tr>\n<tr><td>UD-Q5_K_XL</td><td>5 bits</td><td>210 Mo</td></tr>\n<tr><td>UD-Q6_K_XL</td><td>6 bits</td><td>249 Mo</td></tr>\n<tr><td>Q8_0</td><td>8 bits</td><td>310 Mo</td></tr>\n<tr><td>BF16 / F16</td><td>16 bits</td><td>558 Mo</td></tr>\n</tbody>\n</table>\n<p>Le Space <a href=\"https://huggingface.co/spaces/webml-community/embeddinggemma-2-webgpu\">embeddinggemma-2-webgpu</a> montre l'autre voie : on dépose images, vidéos, sons ou textes, les embeddings sont calculés dans le navigateur via WebGPU, et une requête retrouve les médias correspondants. Rien ne quitte le poste. Sa page ne détaille ni la pile technique ni les prérequis ; un navigateur compatible WebGPU est à prévoir.</p>\n<h2>Comment l'essayer</h2>\n<ol>\n<li>Installer la version GGUF : <code>ollama run hf.co/unsloth/embeddinggemma-2-GGUF:UD-Q4_K_XL</code>, ou <code>llama-server -hf unsloth/embeddinggemma-2-GGUF:UD-Q4_K_XL</code> pour obtenir un point d'accès local.</li>\n<li>En Python, charger <code>SentenceTransformer(\"google/embeddinggemma-2\")</code> et encoder avec <code>prompt_name=\"SearchQuery\"</code> pour les questions et <code>prompt_name=\"Document\"</code> pour les textes.</li>\n<li>Constituer un lot de 200 documents internes en français (comptes rendus, procédures), indexer en 256 dimensions, puis noter si les 10 premiers résultats de 20 questions sont pertinents. Refaire la mesure en 768 dimensions pour voir si la troncature coûte quelque chose sur votre corpus.</li>\n<li>Pour les scans et schémas, tester la version complète (740 M) en bfloat16 : c'est elle qui indexe les images.</li>\n</ol>\n<p>À surveiller : la clarification de la licence et l'arrivée d'une quantisation qui embarque les encodeurs image et audio, condition pour une recherche multimodale vraiment locale.</p>",
+  "date": "2026-10-12",
+  "domaine": "local",
+  "itemIds": [
+    "google__embeddinggemma-2",
+    "unsloth__embeddinggemma-2-GGUF",
+    "webml-community__embeddinggemma-2-webgpu"
+  ],
+  "motsCles": [
+    "embeddings",
+    "EmbeddingGemma 2",
+    "GGUF",
+    "recherche sémantique",
+    "RAG",
+    "Matryoshka",
+    "WebGPU",
+    "multilingue"
+  ],
+  "publieLe": "2026-10-12T08:16:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche google/embeddinggemma-2",
+      "url": "https://huggingface.co/google/embeddinggemma-2"
+    },
+    {
+      "titre": "Fiche unsloth/embeddinggemma-2-GGUF",
+      "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF"
+    },
+    {
+      "titre": "Fiche webml-community/embeddinggemma-2-webgpu",
+      "url": "https://huggingface.co/spaces/webml-community/embeddinggemma-2-webgpu"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "EmbeddingGemma 2 : la recherche sémantique multilingue tient en 176 Mo sur un PC",
+  "verifiePar": "redac-chef"
+}

@@ -1,39 +1,39 @@
 {
   "entrees": [
     {
-      "delta": null,
-      "downloads": 4460000,
-      "itemId": "prism-ml__Ternary-Bonsai-2-27B-gguf",
-      "likes": 2610,
+      "delta": 0,
+      "downloads": 1540000,
+      "itemId": "autotrust__JEV-27B-VL",
+      "likes": 3853,
       "rang": 1,
       "score": 84
     },
     {
-      "delta": null,
-      "downloads": 45600,
-      "itemId": "google__embeddinggemma-2",
-      "likes": 1530,
+      "delta": 0,
+      "downloads": 4460000,
+      "itemId": "prism-ml__Ternary-Bonsai-2-27B-gguf",
+      "likes": 2633,
       "rang": 2,
-      "score": 80
+      "score": 84
     },
     {
-      "delta": null,
-      "downloads": 727000,
-      "itemId": "openbmb__MiniCPM5-2B",
-      "likes": 1690,
+      "delta": 0,
+      "downloads": 45100,
+      "itemId": "convaiinnovations__laya",
+      "likes": 5540,
       "rang": 3,
       "score": 79
     },
     {
-      "delta": null,
-      "downloads": 42900,
-      "itemId": "convaiinnovations__laya",
-      "likes": 5470,
+      "delta": 0,
+      "downloads": 727000,
+      "itemId": "openbmb__MiniCPM5-2B",
+      "likes": 1690,
       "rang": 4,
       "score": 79
     },
     {
-      "delta": null,
+      "delta": 0,
       "downloads": 81100,
       "itemId": "Edge0__Edge0-35B-A3B-preview",
       "likes": 3570,
@@ -41,7 +41,7 @@
       "score": 78
     },
     {
-      "delta": null,
+      "delta": 0,
       "downloads": 189000,
       "itemId": "ukisai__Swift-Qwen3.8-27B-GGUF",
       "likes": 406,
@@ -49,231 +49,359 @@
       "score": 77
     },
     {
-      "delta": null,
+      "delta": 4,
+      "downloads": 242000,
+      "itemId": "ConwayResearch__Underdog-Saluki-27B-1.0",
+      "likes": 379,
+      "rang": 7,
+      "score": 77
+    },
+    {
+      "delta": -1,
+      "downloads": 116000,
+      "itemId": "google__embeddinggemma-2",
+      "likes": 1961,
+      "rang": 8,
+      "score": 76
+    },
+    {
+      "delta": -1,
+      "downloads": 2190000,
+      "itemId": "abenzerps__Qwen-Image-2.1-Uncensored-GGUF",
+      "likes": 4120,
+      "rang": 9,
+      "score": 75
+    },
+    {
+      "delta": -1,
+      "downloads": 40900,
+      "itemId": "Edge0__Audio8-ASR-Infinite",
+      "likes": 2434,
+      "rang": 10,
+      "score": 75
+    },
+    {
+      "delta": -1,
+      "downloads": 51700,
+      "itemId": "XingChen-AGI__Xing4.0-29B-A4B",
+      "likes": 1840,
+      "rang": 11,
+      "score": 75
+    },
+    {
+      "delta": 0,
       "downloads": 4240000,
       "itemId": "zai-org__GLM-5.3-Flash",
       "likes": 2570,
-      "rang": 7,
+      "rang": 12,
       "score": 74
     },
     {
-      "delta": null,
+      "delta": 0,
       "downloads": 19100,
       "itemId": "ukisai__Swift-Qwen3.8-27b",
       "likes": 583,
-      "rang": 8,
+      "rang": 13,
       "score": 74
     },
     {
-      "delta": null,
-      "downloads": 1540000,
-      "itemId": "autotrust__JEV-27B-VL",
-      "likes": 3750,
-      "rang": 9,
+      "delta": 2,
+      "downloads": 75300,
+      "itemId": "nerkyor__Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
+      "likes": 286,
+      "rang": 14,
       "score": 74
     },
     {
-      "delta": null,
-      "downloads": 2100000,
-      "itemId": "abenzerps__Qwen-Image-2.1-Uncensored-GGUF",
-      "likes": 3890,
-      "rang": 10,
+      "delta": 0,
+      "downloads": 71900,
+      "itemId": "unsloth__embeddinggemma-2-GGUF",
+      "likes": 285,
+      "rang": 15,
       "score": 74
     },
     {
-      "delta": null,
-      "downloads": 59200,
-      "itemId": "ConwayResearch__Underdog-Saluki-27B-1.0",
-      "likes": 284,
-      "rang": 11,
+      "delta": -2,
+      "downloads": 15100,
+      "itemId": "Cloudflare__clef",
+      "likes": 2101,
+      "rang": 16,
       "score": 73
     },
     {
-      "delta": null,
-      "downloads": 50600,
-      "itemId": "unsloth__embeddinggemma-2-GGUF",
-      "likes": 237,
-      "rang": 12,
+      "delta": 0,
+      "downloads": 8220000,
+      "itemId": "Comfy-Org__Qwen-Image-2.1",
+      "likes": 1064,
+      "rang": 17,
       "score": 72
     },
     {
-      "delta": null,
-      "downloads": 13600,
-      "itemId": "Cloudflare__clef",
-      "likes": 2000,
-      "rang": 13,
-      "score": 72
-    },
-    {
-      "delta": null,
-      "downloads": 42300,
-      "itemId": "nerkyor__Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
-      "likes": 205,
-      "rang": 14,
+      "delta": 0,
+      "downloads": 52800,
+      "itemId": "Venastine-Research__Xing4.0-29B-A4B-GGUF",
+      "likes": 705,
+      "rang": 18,
       "score": 71
     },
     {
-      "delta": null,
-      "downloads": 45200,
-      "itemId": "Venastine-Research__Xing4.0-29B-A4B-GGUF",
-      "likes": 686,
-      "rang": 15,
-      "score": 70
-    },
-    {
-      "delta": null,
-      "downloads": 34500,
-      "itemId": "LocalLLaMA__typed-decisions",
-      "likes": 158,
-      "rang": 16,
-      "score": 70
-    },
-    {
-      "delta": null,
-      "downloads": 9090,
+      "delta": 0,
+      "downloads": 11900,
       "itemId": "LiquidAI__d1-3B",
-      "likes": 275,
-      "rang": 17,
+      "likes": 354,
+      "rang": 19,
+      "score": 71
+    },
+    {
+      "delta": 2,
+      "downloads": 4410000,
+      "itemId": "ISTA-DASLab__Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+      "likes": 835,
+      "rang": 20,
       "score": 70
     },
     {
-      "delta": null,
+      "delta": 2,
+      "downloads": 23300,
+      "itemId": "Cloudflare__clef-flash",
+      "likes": 791,
+      "rang": 21,
+      "score": 70
+    },
+    {
+      "delta": -2,
+      "downloads": 38500,
+      "itemId": "LocalLLaMA__typed-decisions",
+      "likes": 172,
+      "rang": 22,
+      "score": 70
+    },
+    {
+      "delta": -2,
+      "downloads": 142000,
+      "itemId": "Qwen__Qwen-Image-2.1",
+      "likes": 3270,
+      "rang": 23,
+      "score": 69
+    },
+    {
+      "delta": 0,
+      "downloads": 5290,
+      "itemId": "MoreThought__Fable-5.1-Max-Reasoning-Filtered-10000x",
+      "likes": 304,
+      "rang": 24,
+      "score": 69
+    },
+    {
+      "delta": 0,
       "downloads": 14800,
       "itemId": "fastino__GLiNER2.5-Decide",
       "likes": 167,
-      "rang": 18,
+      "rang": 25,
       "score": 69
     },
     {
       "delta": null,
-      "downloads": 129000,
-      "itemId": "Qwen__Qwen-Image-2.1",
-      "likes": 3200,
-      "rang": 19,
-      "score": 69
+      "downloads": 6260,
+      "itemId": "autotrust__JEV-35B",
+      "likes": 240,
+      "rang": 26,
+      "score": 68
     },
     {
-      "delta": null,
-      "downloads": 5090,
-      "itemId": "MoreThought__Fable-5.1-Max-Reasoning-Filtered-10000x",
-      "likes": 293,
-      "rang": 20,
-      "score": 69
+      "delta": 1,
+      "downloads": 10942,
+      "itemId": "LiquidAI__d1-omni-600M",
+      "likes": 115,
+      "rang": 27,
+      "score": 67
     },
     {
-      "delta": null,
-      "downloads": 3920000,
-      "itemId": "ISTA-DASLab__Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
-      "likes": 779,
-      "rang": 21,
-      "score": 69
+      "delta": -2,
+      "downloads": 4310,
+      "itemId": "Contrastive-LM__CLM-v0.1-8B",
+      "likes": 764,
+      "rang": 28,
+      "score": 66
     },
     {
-      "delta": null,
-      "downloads": 20700,
-      "itemId": "Cloudflare__clef-flash",
-      "likes": 742,
-      "rang": 22,
-      "score": 69
+      "delta": 0,
+      "downloads": 162000,
+      "itemId": "AtomicChat__Qwen-Image-2.1-Turbo-Uncensored-GGUF",
+      "likes": 378,
+      "rang": 29,
+      "score": 66
     },
     {
-      "delta": null,
-      "downloads": 12800,
+      "delta": -3,
+      "downloads": 18600,
       "itemId": "Cactus-Compute__whistle",
-      "likes": 316,
-      "rang": 23,
-      "score": 65
+      "likes": 367,
+      "rang": 30,
+      "score": 66
     },
     {
       "delta": null,
+      "downloads": 20646,
+      "itemId": "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF",
+      "likes": 78,
+      "rang": 31,
+      "score": 66
+    },
+    {
+      "delta": -2,
+      "downloads": 40600,
+      "itemId": "akatz-ai__MiniMax-H3-Character-Swap-LoRA",
+      "likes": 415,
+      "rang": 32,
+      "score": 64
+    },
+    {
+      "delta": -2,
       "downloads": 1640,
       "itemId": "moondream__parakeet-redux",
       "likes": 157,
-      "rang": 24,
+      "rang": 33,
+      "score": 64
+    },
+    {
+      "delta": -2,
+      "downloads": 2480,
+      "itemId": "perplexity-ai__pplx-decider-v1.1-27b",
+      "likes": 135,
+      "rang": 34,
       "score": 64
     },
     {
       "delta": null,
+      "downloads": 16778,
+      "itemId": "LiquidAI__d1-3B-GGUF",
+      "likes": 52,
+      "rang": 35,
+      "score": 64
+    },
+    {
+      "delta": -2,
+      "downloads": 46100,
+      "itemId": "jialinyyzz__humanizer",
+      "likes": 1350,
+      "rang": 36,
+      "score": 63
+    },
+    {
+      "delta": 1,
+      "downloads": 6790,
+      "itemId": "Qwen__Qwen-Image-2.1-Turbo",
+      "likes": 650,
+      "rang": 37,
+      "score": 63
+    },
+    {
+      "delta": -2,
+      "downloads": 20300,
+      "itemId": "canberkkkkkk__ema-lightning",
+      "likes": 393,
+      "rang": 38,
+      "score": 63
+    },
+    {
+      "delta": -6,
       "downloads": 1180,
       "itemId": "orcarouter__OrcaSAQ-2-27B",
       "likes": 148,
-      "rang": 25,
+      "rang": 39,
       "score": 63
     },
     {
       "delta": null,
-      "downloads": 15700,
-      "itemId": "canberkkkkkk__ema-lightning",
-      "likes": 345,
-      "rang": 26,
+      "downloads": 3222,
+      "itemId": "lightonai__LightOnOCR-3-4B",
+      "likes": 76,
+      "rang": 40,
+      "score": 63
+    },
+    {
+      "delta": -6,
+      "downloads": 95200,
+      "itemId": "XiaomiMiMo__MiMo-V2.6-Pro-RL",
+      "likes": 698,
+      "rang": 41,
+      "score": 62
+    },
+    {
+      "delta": -5,
+      "downloads": 61100,
+      "itemId": "LightwheelAI__EgoDemo",
+      "likes": 189,
+      "rang": 42,
+      "score": 62
+    },
+    {
+      "delta": -4,
+      "downloads": 1068,
+      "itemId": "JetBrains__Mellum2.1-12B-A2.5B-Thinking",
+      "likes": 114,
+      "rang": 43,
       "score": 62
     },
     {
       "delta": null,
-      "downloads": 33700,
-      "itemId": "jialinyyzz__humanizer",
-      "likes": 978,
-      "rang": 27,
+      "downloads": 166,
+      "itemId": "openbmb__MiniCPM-V-4.7-35B-A3B",
+      "likes": 180,
+      "rang": 44,
+      "score": 61
+    },
+    {
+      "delta": -2,
+      "downloads": 600,
+      "itemId": "Cloudflare__clef-omni",
+      "likes": 109,
+      "rang": 45,
       "score": 61
     },
     {
       "delta": null,
-      "downloads": 2140,
-      "itemId": "Qwen__Qwen-Image-2.1-Turbo",
-      "likes": 466,
-      "rang": 28,
-      "score": 59
+      "downloads": 420,
+      "itemId": "vllm-sr__d3",
+      "likes": 99,
+      "rang": 46,
+      "score": 60
+    },
+    {
+      "delta": -3,
+      "downloads": 741,
+      "itemId": "tencent__Youtu-Parsing-Omni",
+      "likes": 86,
+      "rang": 47,
+      "score": 60
     },
     {
       "delta": null,
-      "downloads": 7310,
-      "itemId": "AtomicChat__Qwen-Image-2.1-Turbo-Uncensored-GGUF",
-      "likes": 239,
-      "rang": 29,
-      "score": 59
+      "downloads": 1641,
+      "itemId": "lightonai__LightOnOCR-3-0.8B",
+      "likes": 56,
+      "rang": 48,
+      "score": 60
     },
     {
-      "delta": null,
-      "downloads": 10500,
+      "delta": -9,
+      "downloads": 14000,
       "itemId": "Aleph-Alpha__Kolibri-1",
-      "likes": 871,
-      "rang": 30,
+      "likes": 917,
+      "rang": 49,
       "score": 59
     },
     {
-      "delta": null,
-      "downloads": 1200,
-      "itemId": "fastino__GLiNER2.5-multi-Decide",
-      "likes": 40,
-      "rang": 31,
-      "score": 58
-    },
-    {
-      "delta": null,
-      "downloads": 2300,
-      "itemId": "docling-project__DeskForge-1M",
-      "likes": 33,
-      "rang": 32,
-      "score": 49
-    },
-    {
-      "delta": null,
-      "downloads": null,
-      "itemId": "autotrust__jev-9b-decision-demo",
-      "likes": 92,
-      "rang": 33,
-      "score": 48
-    },
-    {
-      "delta": null,
-      "downloads": null,
-      "itemId": "Pepe104__MiniMax-H3-Turbo-Lora-UNCENSORED",
-      "likes": 1270,
-      "rang": 34,
-      "score": 43
+      "delta": -9,
+      "downloads": 11300,
+      "itemId": "Altworld__Hemmingway-1",
+      "likes": 852,
+      "rang": 50,
+      "score": 59
     }
   ],
-  "genereLe": "2026-10-11T07:30:00+02:00",
+  "genereLe": "2026-10-13T07:30:00+02:00",
   "periode": "30j",
   "titre": "Créés depuis 30 jours"
 }

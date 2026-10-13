@@ -1,12 +1,12 @@
 {
   "creeLe": "2026-10-03",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "agents",
     "documents",
     "local"
   ],
-  "downloads": 20700,
+  "downloads": 23300,
   "hfId": "Cloudflare/clef-flash",
   "historique": [
     {
@@ -14,18 +14,30 @@
       "downloads": 20700,
       "likes": 742,
       "score": 69
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 22123,
+      "likes": 759,
+      "score": 69
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 23300,
+      "likes": 791,
+      "score": 70
     }
   ],
-  "licence": null,
-  "likes": 742,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "licence": "Apache 2.0",
+  "likes": 791,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "clef-flash",
   "org": "Cloudflare",
   "pertinent": true,
   "pourquoi": "Version 9 B de Clef, exécutable en local",
   "premiereVue": "2026-10-11",
   "resume": "Version 9 B de Clef, exécutable en local.",
-  "score": 69,
+  "score": 70,
   "source": "trending",
   "tache": "Vision-langage",
   "taille": "9 B",

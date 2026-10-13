@@ -8,7 +8,7 @@
  "compteNom": "XingChen-AGI",
  "compteType": "organisation",
  "creeLe": "2026-08-14",
- "downloads": 45547,
+ "downloads": 46008,
  "formats": [
   "safetensors"
  ],
@@ -18,11 +18,11 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 1290,
+ "likes": 1299,
  "majLe": "2026-10-09",
  "parametres": 1415072768,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/XingChen-AGI/TeleOCR",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

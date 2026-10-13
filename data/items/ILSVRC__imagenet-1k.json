@@ -1,0 +1,39 @@
+{
+  "creeLe": "2022-05-02",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "image-video"
+  ],
+  "downloads": 89700,
+  "hfId": "ILSVRC/imagenet-1k",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 89700,
+      "likes": 1010,
+      "score": 52
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 89700,
+      "likes": 1010,
+      "score": 52
+    }
+  ],
+  "licence": "other",
+  "likes": 1010,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "imagenet-1k",
+  "org": "ILSVRC",
+  "pertinent": false,
+  "pourquoi": "Référence historique.",
+  "premiereVue": "2026-10-12",
+  "resume": "Le jeu de référence ImageNet (1 000 classes), de retour dans le trending.",
+  "score": 52,
+  "source": "trending",
+  "tache": "Classification d'images",
+  "taille": "1,4 M images",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/ILSVRC/imagenet-1k"
+}

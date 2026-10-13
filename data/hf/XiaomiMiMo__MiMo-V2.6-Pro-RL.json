@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "XiaomiMiMo",
+ "compteNom": "Xiaomi MiMo",
+ "compteType": "organisation",
+ "creeLe": "2026-09-21",
+ "downloads": 96316,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "mit",
+ "likes": 705,
+ "majLe": "2026-10-09",
+ "parametres": 1024216603392,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

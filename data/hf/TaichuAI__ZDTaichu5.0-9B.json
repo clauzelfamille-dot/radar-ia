@@ -1,0 +1,22 @@
+{
+ "acces": "libre",
+ "compte": "TaichuAI",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-04",
+ "downloads": 13322,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "TaichuAI/ZDTaichu5.0-9B",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "likes": 3024,
+ "majLe": "2026-09-20",
+ "parametres": 9794197512,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/TaichuAI/ZDTaichu5.0-9B",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

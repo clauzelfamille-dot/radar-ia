@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-27",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "hugging-apps/bfs-best-face-swap",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 130,
+      "score": 34
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 130,
+      "score": 34
+    }
+  ],
+  "licence": null,
+  "likes": 130,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "BFS Best Face Swap",
+  "org": "hugging-apps",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Échange de visage avec le LoRA BFS sur Qwen-Image-2.1.",
+  "score": 34,
+  "source": "trending",
+  "tache": "Démo édition d'image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/hugging-apps/bfs-best-face-swap"
+}

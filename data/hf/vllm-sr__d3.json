@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "vllm-sr",
+ "compteNom": "vLLM Semantic Router",
+ "compteType": "organisation",
+ "creeLe": "2026-10-10",
+ "downloads": 420,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "vllm-sr/d3",
+ "licence": "apache-2.0",
+ "likes": 99,
+ "majLe": "2026-10-12",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 26085330160,
+ "tache": "zero-shot-classification",
+ "type": "model",
+ "url": "https://huggingface.co/vllm-sr/d3",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

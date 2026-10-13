@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "audio"
   ],
-  "downloads": 15700,
+  "downloads": 20300,
   "hfId": "canberkkkkkk/ema-lightning",
   "historique": [
     {
@@ -12,18 +12,30 @@
       "downloads": 15700,
       "likes": 345,
       "score": 62
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 18100,
+      "likes": 358,
+      "score": 62
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 20300,
+      "likes": 393,
+      "score": 63
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 345,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 393,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "ema-lightning",
   "org": "canberkkkkkk",
   "pertinent": false,
   "pourquoi": "TTS 34 Mo en streaming, turc uniquement",
   "premiereVue": "2026-10-11",
   "resume": "TTS de 8,6 millions de paramètres (34 Mo), streaming, turc uniquement.",
-  "score": 62,
+  "score": 63,
   "source": "trending",
   "tache": "Synthèse vocale",
   "taille": "8,6 M",

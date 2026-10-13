@@ -1,0 +1,38 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees"
+  ],
+  "downloads": 3320,
+  "hfId": "witfoo/precinct6-cybersecurity",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 231,
+      "likes": 55,
+      "score": 34
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 3320,
+      "likes": 55,
+      "score": 39
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 55,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "precinct6-cybersecurity",
+  "org": "witfoo",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Données tabulaires de cybersécurité (classification, graphes).",
+  "score": 39,
+  "source": "trending",
+  "tache": "Cybersécurité",
+  "taille": "3,3 k",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/witfoo/precinct6-cybersecurity"
+}

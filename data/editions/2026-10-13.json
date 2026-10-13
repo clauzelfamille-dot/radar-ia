@@ -1,0 +1,83 @@
+{
+  "aTester": [
+    {
+      "itemId": "lightonai__LightOnOCR-3-4B",
+      "texte": "OCR de PDF scannés vers markdown avec boîtes et tableaux ; prendre une quantisation llama.cpp / LM Studio du 4 B, ou le 0,8 B via vLLM, et comparer à Youtu-Parsing-Omni (vu le 12/10) sur un même lot."
+    },
+    {
+      "itemId": "h2oai__h2o-lightning-4b",
+      "texte": "Tri de tickets ou de documents avec probabilité par option : 4 B, un GPU 8-12 Go via vLLM ; à mettre face à GLiNER2.5-Decide (CPU) sur les mêmes questions."
+    },
+    {
+      "itemId": "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF",
+      "texte": "Agent de code local en une commande : ollama run hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M (8 Go, contexte 131 k)."
+    }
+  ],
+  "agent": "veille",
+  "creeLe": "2026-10-13T07:05:00+02:00",
+  "date": "2026-10-13",
+  "essentiel": [
+    {
+      "itemIds": [
+        "vllm-sr__d3",
+        "autotrust__JEV-35B",
+        "h2oai__h2o-lightning-4b"
+      ],
+      "texte": "Décision typée, trois nouveaux entrants en 72 h : d3 (vLLM Semantic Router, 27 B, Apache 2.0) prend la tête du Decision Index à 65,5 devant pplx-decider (61,6) ; AutoTrust réplique avec JEV-35B (MoE, 3 B actifs) et H2O.ai descend à 4 B. ⭐"
+    },
+    {
+      "itemIds": [
+        "lightonai__LightOnOCR-3-4B",
+        "lightonai__LightOnOCR-3-0.8B",
+        "lightonai__LightOnOCR-3-Demo"
+      ],
+      "texte": "LightOn (Paris) remonte dans le classement avec LightOnOCR-3 (4 B et 0,8 B, Apache 2.0, olmOCR-bench 86,3) : OCR, boîtes et graphiques convertis en tableaux en une seule passe, 13 quantisations pour PC. ⭐"
+    },
+    {
+      "itemIds": [
+        "openbmb__MiniCPM-V-4.7-35B-A3B",
+        "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF"
+      ],
+      "texte": "Le local s'équipe : MiniCPM-V 4.7 passe au MoE (35 B, 3 B actifs, GGUF / Ollama, 13 tok/s sur iPhone) et les GGUF officiels de Mellum 2.1 (8 Go en Q4) sont arrivés. ⭐"
+    }
+  ],
+  "mailEnvoye": true,
+  "nouveauxIds": [
+    "autotrust__JEV-35B",
+    "vllm-sr__d3",
+    "h2oai__h2o-lightning-4b",
+    "lightonai__LightOnOCR-3-4B",
+    "lightonai__LightOnOCR-3-0.8B",
+    "openbmb__MiniCPM-V-4.7-35B-A3B",
+    "openbmb__MiniCPM-V-4.7-1B",
+    "neuphonic__neudecide",
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF",
+    "LiquidAI__d1-3B-GGUF",
+    "autotrust__GLM5.3-Flash-E192-DGX-Spark",
+    "orcarouter__Qwen3.8-Flash-Next-Uncensored-GGUF",
+    "moonworks__lunara-art-eval",
+    "lightonai__LightOnOCR-3-Demo",
+    "LiquidAI__system-one-arcade"
+  ],
+  "stats": {
+    "analyses": 160,
+    "etoiles": 20,
+    "fichesLues": 9
+  },
+  "tendance": "La « décision typée » devient un standard de fait : en trois jours, vLLM Semantic Router (d3), AutoTrust (JEV-35B), H2O.ai (Lightning 4B) et même Neuphonic en vocal (NeuDecide) publient des modèles qui ne génèrent pas de texte mais une probabilité par option, tous mesurés sur le même Decision Index et exposés par une route unique (/v1/decide ou system_one). Toutes les bases sont Qwen3.5 / 3.8, et les tailles se compressent : 27 B, 35 B à 3 B actifs, 4 B, 55 M. Second signal : la vague des GGUF officiels (Mellum, d1-3B, MiniCPM-V 4.7) — les éditeurs livrent eux-mêmes la version locale le jour de la sortie.",
+  "titre": "La décision typée s'impose, LightOn remet l'OCR français en haut",
+  "topIds": [
+    "google__embeddinggemma-2",
+    "jialinyyzz__humanizer",
+    "Cloudflare__clef",
+    "abenzerps__Qwen-Image-2.1-Uncensored-GGUF",
+    "Qwen__Qwen-Image-2.1-Turbo",
+    "Lightricks__LTX-2.5",
+    "Aleph-Alpha__Kolibri-1",
+    "Qwen__Qwen3.8-27B",
+    "Venastine-Research__Xing4.0-29B-A4B-GGUF",
+    "canberkkkkkk__ema-lightning",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "LiquidAI__d1-3B"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "Cloudflare",
+ "compteNom": "Cloudflare",
+ "compteType": "organisation",
+ "creeLe": "2026-10-09",
+ "downloads": 600,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Cloudflare/clef-omni",
+ "licence": "apache-2.0",
+ "likes": 109,
+ "majLe": "2026-10-09",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 35259818545,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/Cloudflare/clef-omni",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

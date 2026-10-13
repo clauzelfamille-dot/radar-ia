@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "documents"
+  ],
+  "downloads": 837,
+  "hfId": "ankitjh4/bharat-government-documents",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 837,
+      "likes": 61,
+      "score": 59
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 837,
+      "likes": 61,
+      "score": 53
+    }
+  ],
+  "licence": null,
+  "likes": 61,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "bharat-government-documents",
+  "org": "ankitjh4",
+  "pertinent": true,
+  "pourquoi": "Jeu de test réaliste pour les pipelines documentaires",
+  "premiereVue": "2026-10-12",
+  "resume": "Corpus de 65 k documents administratifs indiens, utile pour tester OCR, classification et extraction sur des documents réels.",
+  "score": 53,
+  "source": "trending",
+  "tache": "Documents administratifs",
+  "taille": "65 k documents",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/ankitjh4/bharat-government-documents"
+}

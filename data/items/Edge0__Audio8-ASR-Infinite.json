@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-09-21",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "audio",
+    "local"
+  ],
+  "downloads": 40900,
+  "hfId": "Edge0/Audio8-ASR-Infinite",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 41209,
+      "likes": 2434,
+      "score": 75
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 40900,
+      "likes": 2434,
+      "score": 75
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 2434,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Audio8-ASR-Infinite",
+  "org": "Edge0",
+  "pertinent": true,
+  "pourquoi": "ASR temps réel léger, mais sans français annoncé.",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle de reconnaissance vocale en flux continu (streaming), 4 B, bilingue chinois-anglais, en version préliminaire.",
+  "score": 75,
+  "source": "likes30d",
+  "tache": "Reconnaissance vocale",
+  "taille": "4 B",
+  "type": "model",
+  "url": "https://huggingface.co/Edge0/Audio8-ASR-Infinite"
+}

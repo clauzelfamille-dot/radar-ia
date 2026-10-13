@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": null,
+  "hfId": "LiquidAI/system-one-arcade",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 27,
+      "score": 43
+    }
+  ],
+  "licence": null,
+  "likes": 27,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "System One Arcade",
+  "org": "Liquid AI",
+  "pertinent": true,
+  "pourquoi": "Voir ce qu'un modèle de décision sait faire en quelques clics.",
+  "premiereVue": "2026-10-13",
+  "resume": "Arcade de démonstration des modèles de décision « System 1 » de Liquid AI (d1) sur des mini-jeux et des tâches de routage.",
+  "score": 43,
+  "source": "nouveau",
+  "tache": "Démo décision",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/LiquidAI/system-one-arcade"
+}

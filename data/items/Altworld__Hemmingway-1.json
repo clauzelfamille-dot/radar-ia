@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-20",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "tendances"
+  ],
+  "downloads": 11300,
+  "hfId": "Altworld/Hemmingway-1",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 11419,
+      "likes": 852,
+      "score": 59
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 11300,
+      "likes": 852,
+      "score": 59
+    }
+  ],
+  "licence": null,
+  "likes": 852,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Hemmingway-1",
+  "org": "Altworld",
+  "pertinent": false,
+  "pourquoi": "À qualifier : fiche non lue.",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle de génération de texte entré dans le top 30 des likes du mois ; taille et licence non vérifiées.",
+  "score": 59,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "n.c.",
+  "type": "model",
+  "url": "https://huggingface.co/Altworld/Hemmingway-1"
+}

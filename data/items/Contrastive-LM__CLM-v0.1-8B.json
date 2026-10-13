@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-09-21",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents",
+    "documents"
+  ],
+  "downloads": 4310,
+  "hfId": "Contrastive-LM/CLM-v0.1-8B",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 4367,
+      "likes": 764,
+      "score": 66
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 4310,
+      "likes": 764,
+      "score": 66
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 764,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "CLM-v0.1-8B",
+  "org": "Contrastive-LM",
+  "pertinent": true,
+  "pourquoi": "Même famille que les modèles de décision : scorer et vérifier sans générer.",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle contrastif (têtes de projection sur Qwen3-8B gelé) qui classe des candidats fournis au lieu de générer du texte ; anglais, Apache 2.0.",
+  "score": 66,
+  "source": "likes30d",
+  "tache": "Classement de texte",
+  "taille": "8 B",
+  "type": "model",
+  "url": "https://huggingface.co/Contrastive-LM/CLM-v0.1-8B"
+}

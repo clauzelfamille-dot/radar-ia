@@ -1,0 +1,23 @@
+{
+ "acces": "sur demande",
+ "bibliotheque": "onnx",
+ "compte": "neuphonic",
+ "compteNom": "Neuphonic",
+ "compteType": "organisation",
+ "creeLe": "2026-10-06",
+ "downloads": 460,
+ "formats": [
+  "ONNX"
+ ],
+ "hfId": "neuphonic/neudecide",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 72,
+ "majLe": "2026-10-09",
+ "tache": "audio-classification",
+ "type": "model",
+ "url": "https://huggingface.co/neuphonic/neudecide",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

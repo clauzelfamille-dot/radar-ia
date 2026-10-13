@@ -1,0 +1,39 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "documents"
+  ],
+  "downloads": 176000,
+  "hfId": "secemp9/arxiv-complete",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 176000,
+      "likes": 660,
+      "score": 57
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 176000,
+      "likes": 660,
+      "score": 57
+    }
+  ],
+  "licence": "other",
+  "likes": 660,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "arxiv-complete",
+  "org": "secemp9",
+  "pertinent": false,
+  "pourquoi": "Matière première pour RAG scientifique.",
+  "premiereVue": "2026-10-12",
+  "resume": "Corpus complet d'articles arXiv (128 millions de lignes) pour la génération et la recherche de texte.",
+  "score": 57,
+  "source": "trending",
+  "tache": "Corpus scientifique",
+  "taille": "128 M lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/secemp9/arxiv-complete"
+}

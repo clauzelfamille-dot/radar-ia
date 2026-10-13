@@ -1,0 +1,32 @@
+{
+ "acces": "sur demande",
+ "bibliotheque": "gguf",
+ "compte": "orcarouter",
+ "compteNom": "OrcaRouter",
+ "compteType": "organisation",
+ "contexte": 262144,
+ "creeLe": "2026-08-26",
+ "downloads": 629886,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 821,
+ "majLe": "2026-10-12",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-Flash-Next",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 176943899520,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

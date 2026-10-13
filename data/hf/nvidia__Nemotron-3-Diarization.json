@@ -12,18 +12,18 @@
  "compteNom": "NVIDIA",
  "compteType": "organisation",
  "creeLe": "2026-09-01",
- "downloads": 74877,
+ "downloads": 77153,
  "formats": [
   "GGUF",
   "safetensors"
  ],
  "hfId": "nvidia/Nemotron-3-Diarization",
  "licence": "openmdw-1.1",
- "likes": 756,
+ "likes": 766,
  "majLe": "2026-09-24",
  "parametres": 99226504,
  "tache": "voice-activity-detection",
  "type": "model",
  "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

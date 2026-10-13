@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-09-20",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "agents"
+  ],
+  "downloads": 5890,
+  "hfId": "ZefanCai/Open-Jev",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 5890,
+      "likes": 94,
+      "score": 59
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 5890,
+      "likes": 94,
+      "score": 59
+    }
+  ],
+  "licence": "CC0-1.0",
+  "likes": 94,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Open-Jev",
+  "org": "ZefanCai",
+  "pertinent": true,
+  "pourquoi": "Permet d'entraîner son propre modèle de décision.",
+  "premiereVue": "2026-10-12",
+  "resume": "Données ouvertes de reproduction du modèle de décision Jev (classification typée, anglais, chinois, turc).",
+  "score": 59,
+  "source": "trending",
+  "tache": "Classification de texte",
+  "taille": "520 k",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/ZefanCai/Open-Jev"
+}

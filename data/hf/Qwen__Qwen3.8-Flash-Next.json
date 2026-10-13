@@ -5,18 +5,18 @@
  "compteNom": "Qwen",
  "compteType": "organisation",
  "creeLe": "2026-08-24",
- "downloads": 1870465,
+ "downloads": 1934542,
  "formats": [
   "safetensors"
  ],
  "hfId": "Qwen/Qwen3.8-Flash-Next",
  "licence": "qwen-community-1.0",
  "licenceLien": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/LICENSE",
- "likes": 6111,
+ "likes": 6152,
  "majLe": "2026-08-27",
  "parametres": 179999981459,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

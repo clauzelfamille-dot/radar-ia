@@ -1,0 +1,38 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "tendances"
+  ],
+  "downloads": 0,
+  "hfId": "tardellirs/model-pulse",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 144,
+      "score": 28
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 200,
+      "score": 29
+    }
+  ],
+  "licence": null,
+  "likes": 200,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "model-pulse",
+  "org": "tardellirs",
+  "pertinent": false,
+  "pourquoi": "Outil pratique pour suivre les dynamiques du Hub",
+  "premiereVue": "2026-10-12",
+  "resume": "Historique et tendances de téléchargement des modèles Hugging Face, avec courbes par modèle.",
+  "score": 29,
+  "source": "trending",
+  "tache": "Statistiques Hugging Face",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/tardellirs/model-pulse"
+}

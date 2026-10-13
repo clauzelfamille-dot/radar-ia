@@ -1,0 +1,14 @@
+{
+ "acces": "libre",
+ "compte": "LiquidAI",
+ "compteNom": "Liquid AI",
+ "compteType": "organisation",
+ "creeLe": "2026-10-07",
+ "hfId": "LiquidAI/system-one-arcade",
+ "likes": 27,
+ "majLe": "2026-10-09",
+ "tache": "docker",
+ "type": "space",
+ "url": "https://huggingface.co/spaces/LiquidAI/system-one-arcade",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

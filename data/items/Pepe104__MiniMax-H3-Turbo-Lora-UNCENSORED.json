@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-10-01",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "image-video"
   ],
-  "downloads": null,
+  "downloads": 0,
   "hfId": "Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
   "historique": [
     {
@@ -12,11 +12,23 @@
       "downloads": null,
       "likes": 1270,
       "score": 43
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 1270,
+      "score": 43
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 1270,
+      "score": 43
     }
   ],
   "licence": null,
   "likes": 1270,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "MiniMax-H3-Turbo-Lora",
   "org": "Pepe104",
   "pertinent": false,

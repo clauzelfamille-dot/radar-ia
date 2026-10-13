@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 706,
+  "hfId": "speridlabs/iris-3b",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 393,
+      "likes": 155,
+      "score": 52
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 706,
+      "likes": 205,
+      "score": 48
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 205,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "iris-3b",
+  "org": "speridlabs",
+  "pertinent": false,
+  "pourquoi": "Architecture sans VAE, rare chez les générateurs d'images",
+  "premiereVue": "2026-10-12",
+  "resume": "Générateur texte-image 3 B qui produit les pixels directement, sans VAE ni espace latent ; même base affinée pour l'estimation de profondeur et la restauration/upscaling ×4. Encodeur texte Qwen3-VL-4B gelé, ~12 Go de poids.",
+  "score": 48,
+  "source": "trending",
+  "tache": "Texte vers image",
+  "taille": "3 B",
+  "type": "model",
+  "url": "https://huggingface.co/speridlabs/iris-3b"
+}

@@ -1,0 +1,30 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "autotrust",
+ "compteNom": "AutoTrust AI Lab",
+ "compteType": "organisation",
+ "creeLe": "2026-10-11",
+ "downloads": 6262,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "autotrust/JEV-35B",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 247,
+ "majLe": "2026-10-11",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.5-35B-A3B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 35951822704,
+ "tache": "text-classification",
+ "type": "model",
+ "url": "https://huggingface.co/autotrust/JEV-35B",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

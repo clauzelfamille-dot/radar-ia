@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-09-16",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents",
+    "code"
+  ],
+  "downloads": 51700,
+  "hfId": "XingChen-AGI/Xing4.0-29B-A4B",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 51938,
+      "likes": 1835,
+      "score": 75
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 51700,
+      "likes": 1840,
+      "score": 75
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 1840,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Xing4.0-29B-A4B",
+  "org": "XingChen-AGI",
+  "pertinent": true,
+  "pourquoi": "Socle du GGUF déjà suivi ; agent de code local sur une carte 24 Go.",
+  "premiereVue": "2026-10-12",
+  "resume": "MoE de 29 B (4 B actifs) orienté agents : planification multi-étapes, appel d'outils, contexte 256 k ; environ 15 Go de VRAM en 4 bits.",
+  "score": 75,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "29 B (4 B actifs)",
+  "type": "model",
+  "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B"
+}

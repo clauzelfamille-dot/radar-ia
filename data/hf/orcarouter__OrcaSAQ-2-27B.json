@@ -5,7 +5,7 @@
  "compteNom": "OrcaRouter",
  "compteType": "organisation",
  "creeLe": "2026-09-24",
- "downloads": 5379,
+ "downloads": 5460,
  "formats": [
   "safetensors"
  ],
@@ -16,7 +16,7 @@
  ],
  "licence": "apache-2.0",
  "likes": 280,
- "majLe": "2026-10-02",
+ "majLe": "2026-10-12",
  "modeleBase": [
   {
    "id": "Qwen/Qwen3.8-27B",
@@ -27,5 +27,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-27B",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

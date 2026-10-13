@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents",
+    "documents"
+  ],
+  "downloads": 420,
+  "hfId": "vllm-sr/d3",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 420,
+      "likes": 99,
+      "score": 60
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 99,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "d3",
+  "org": "vLLM Semantic Router",
+  "pertinent": true,
+  "pourquoi": "Nouveau record public du Decision Index : 65,5, devant pplx-decider (61,6).",
+  "premiereVue": "2026-10-13",
+  "resume": "Modèle de décision multimodal (texte, JSON, images, vidéos) issu du projet vLLM Semantic Router, base Qwen3.8-27B ; retourne une probabilité par réponse, sans texte.",
+  "score": 60,
+  "source": "nouveau",
+  "tache": "Décision typée multimodale",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/vllm-sr/d3"
+}

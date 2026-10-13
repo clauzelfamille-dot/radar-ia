@@ -1,0 +1,38 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees"
+  ],
+  "downloads": 86500,
+  "hfId": "venvoo/china-a-share-l2-level2-limit-order-book-tick-data",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 19171,
+      "likes": 241,
+      "score": 49
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 86500,
+      "likes": 241,
+      "score": 51
+    }
+  ],
+  "licence": "other",
+  "likes": 241,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "china-a-share-l2-tick-data",
+  "org": "venvoo",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Carnet d'ordres niveau 2 tick par tick des actions A chinoises.",
+  "score": 51,
+  "source": "trending",
+  "tache": "Données financières",
+  "taille": "> 1 To",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/venvoo/china-a-share-l2-level2-limit-order-book-tick-data"
+}

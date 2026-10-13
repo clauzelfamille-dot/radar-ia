@@ -1,0 +1,80 @@
+{
+  "aTester": [
+    {
+      "itemId": "LiquidAI__d1-omni-600M",
+      "texte": "Tri et routage de courriers ou de scans sur un simple CPU, 15 langues, réponse typée immédiate ; à comparer à GLiNER2.5-Decide vu la veille."
+    },
+    {
+      "itemId": "JetBrains__Mellum2.1-12B-A2.5B-Thinking",
+      "texte": "Agent de code local : 2,5 B actifs seulement, donc rapide une fois quantisé ; GGUF officiels annoncés, 13 quantisations communautaires en attendant."
+    },
+    {
+      "itemId": "tencent__Youtu-Parsing-Omni",
+      "texte": "PDF et scans vers JSON (tableaux, formules, mise en page) ; nécessite un GPU, à essayer sur une station ou via vLLM."
+    }
+  ],
+  "agent": "veille",
+  "creeLe": "2026-10-12T07:05:00+02:00",
+  "date": "2026-10-12",
+  "essentiel": [
+    {
+      "itemIds": [
+        "perplexity-ai__pplx-decider-v1.1-27b"
+      ],
+      "texte": "Perplexity entre dans la course aux modèles de décision : pplx-decider-v1.1-27b (base Qwen3.8-27B, Apache 2.0) prend la tête du Decision Index (61,6 contre 57,9 pour Jev). ⭐"
+    },
+    {
+      "itemIds": [
+        "JetBrains__Mellum2.1-12B-A2.5B-Thinking"
+      ],
+      "texte": "JetBrains sort un MoE de code agentique : Mellum2.1-12B-A2.5B-Thinking, 12 B dont 2,5 B actifs, Apache 2.0, 131 k de contexte, GGUF officiels annoncés. ⭐"
+    },
+    {
+      "itemIds": [
+        "tencent__Youtu-Parsing-Omni"
+      ],
+      "texte": "Tencent publie un « parseur omni » de documents : Youtu-Parsing-Omni (5 B) convertit pages, tableaux, formules, audio et vidéo en JSON structuré ; 97 sur OmniDocBench. ⭐"
+    }
+  ],
+  "mailEnvoye": true,
+  "nouveauxIds": [
+    "perplexity-ai__pplx-decider-v1.1-27b",
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking",
+    "tencent__Youtu-Parsing-Omni",
+    "Cloudflare__clef-omni",
+    "LiquidAI__d1-omni-600M",
+    "speridlabs__iris-3b",
+    "akatz-ai__MiniMax-H3-Character-Swap-LoRA",
+    "autotrust__JEV-27B-VL",
+    "espnet__yodas3",
+    "LightwheelAI__EgoDemo",
+    "FineEnvs__openai-math",
+    "ankitjh4__bharat-government-documents",
+    "multimodalart__jev-decision-index",
+    "FineEnvs__multi-harness-rl",
+    "webml-community__embeddinggemma-2-webgpu",
+    "tardellirs__model-pulse",
+    "LocalLLaMA__typed-decisions"
+  ],
+  "stats": {
+    "analyses": 135,
+    "etoiles": 21,
+    "fichesLues": 8
+  },
+  "tendance": "Les modèles de décision deviennent une catégorie à part entière : en 48 h, Perplexity (pplx-decider v1.1), Cloudflare (clef-omni), Liquid AI (d1-omni-600M) et AutoTrust (JEV-27B-VL) publient ou mettent à jour, et tous se mesurent au même « Decision Index » communautaire. Point commun : une réponse typée et calibrée, sans génération de texte, pensée pour router, trier et contrôler des agents. Second signal : la sortie structurée en JSON pour les documents (Tencent Youtu-Parsing-Omni) rejoint cette logique. Presque tout se construit encore sur Qwen3.8-27B ou Qwen3-Omni.",
+  "titre": "Perplexity, Cloudflare et Liquid relancent la course aux modèles de décision",
+  "topIds": [
+    "google__embeddinggemma-2",
+    "jialinyyzz__humanizer",
+    "Cloudflare__clef",
+    "abenzerps__Qwen-Image-2.1-Uncensored-GGUF",
+    "Qwen__Qwen-Image-2.1-Turbo",
+    "Lightricks__LTX-2.5",
+    "Aleph-Alpha__Kolibri-1",
+    "Qwen__Qwen3.8-27B",
+    "Venastine-Research__Xing4.0-29B-A4B-GGUF",
+    "canberkkkkkk__ema-lightning",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "LiquidAI__d1-3B"
+  ]
+}

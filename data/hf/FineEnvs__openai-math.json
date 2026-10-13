@@ -1,0 +1,16 @@
+{
+ "acces": "libre",
+ "compte": "FineEnvs",
+ "compteNom": "FineEnvs",
+ "compteType": "organisation",
+ "creeLe": "2026-10-08",
+ "downloads": 2587,
+ "hfId": "FineEnvs/openai-math",
+ "licence": "apache-2.0",
+ "likes": 60,
+ "majLe": "2026-10-09",
+ "tache": "other",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/FineEnvs/openai-math",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

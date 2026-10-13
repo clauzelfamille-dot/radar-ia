@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents",
+    "documents"
+  ],
+  "downloads": 600,
+  "hfId": "Cloudflare/clef-omni",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 297,
+      "likes": 90,
+      "score": 59
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 600,
+      "likes": 109,
+      "score": 61
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 109,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "clef-omni",
+  "org": "Cloudflare",
+  "pertinent": true,
+  "pourquoi": "Décision multimodale MoE incluant l'audio, avec des cas métier documentaires",
+  "premiereVue": "2026-10-12",
+  "resume": "Variante omni de clef, post-entraînée depuis Qwen3-Omni-30B-A3B : état texte/JSON/image/audio/vidéo + schéma de questions typées, probabilités par option en une passe. Cas cités : factures, routage support, tri d'incidents. 64 Go en BF16, 8 quantisations.",
+  "score": 61,
+  "source": "nouveau",
+  "tache": "Décision multimodale",
+  "taille": "30 B-A3B",
+  "type": "model",
+  "url": "https://huggingface.co/Cloudflare/clef-omni"
+}

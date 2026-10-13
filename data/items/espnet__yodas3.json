@@ -1,0 +1,40 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "audio",
+    "multilingue"
+  ],
+  "downloads": 225000,
+  "hfId": "espnet/yodas3",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 225000,
+      "likes": 232,
+      "score": 63
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 225000,
+      "likes": 232,
+      "score": 63
+    }
+  ],
+  "licence": "CC-BY 3.0",
+  "likes": 232,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "yodas3",
+  "org": "ESPnet",
+  "pertinent": true,
+  "pourquoi": "Le plus gros corpus ouvert pour entraîner ou évaluer la transcription multilingue",
+  "premiereVue": "2026-10-12",
+  "resume": "Plus de 1,1 million d'heures d'audio web en 100+ langues (dont le français, ~102 k lignes), transcriptions segmentées avec horodatage au mot, traductions anglaises, métadonnées audio. Sans recouvrement avec YODAS v1/v2.",
+  "score": 63,
+  "source": "trending",
+  "tache": "Corpus audio / ASR",
+  "taille": "55,7 To",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/espnet/yodas3"
+}

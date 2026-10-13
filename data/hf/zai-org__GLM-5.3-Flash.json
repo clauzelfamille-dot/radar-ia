@@ -8,7 +8,7 @@
  "compteNom": "Z.ai",
  "compteType": "organisation",
  "creeLe": "2026-08-25",
- "downloads": 6539199,
+ "downloads": 6489462,
  "formats": [
   "safetensors"
  ],
@@ -18,11 +18,11 @@
   "zh"
  ],
  "licence": "mit",
- "likes": 2799,
- "majLe": "2026-09-07",
+ "likes": 2825,
+ "majLe": "2026-10-12",
  "parametres": 321323031390,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

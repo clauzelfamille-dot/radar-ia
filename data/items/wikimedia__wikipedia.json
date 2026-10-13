@@ -1,0 +1,39 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "multilingue"
+  ],
+  "downloads": 274000,
+  "hfId": "wikimedia/wikipedia",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 274000,
+      "likes": 1650,
+      "score": 61
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 274000,
+      "likes": 1650,
+      "score": 61
+    }
+  ],
+  "licence": "CC-BY-SA-3.0",
+  "likes": 1650,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "wikipedia",
+  "org": "wikimedia",
+  "pertinent": false,
+  "pourquoi": "Référence classique, de retour dans le trending.",
+  "premiereVue": "2026-10-12",
+  "resume": "Dumps Wikipédia nettoyés dans plus de 300 langues, dont le français.",
+  "score": 61,
+  "source": "trending",
+  "tache": "Corpus encyclopédique",
+  "taille": "61,6 M lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/wikimedia/wikipedia"
+}

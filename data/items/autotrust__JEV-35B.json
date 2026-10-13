@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-11",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": 6260,
+  "hfId": "autotrust/JEV-35B",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 6260,
+      "likes": 240,
+      "score": 68
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 240,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "JEV-35B",
+  "org": "AutoTrust",
+  "pertinent": true,
+  "pourquoi": "Decision Index 59,7 (contre 53,6 pour JEV-27B-VL), latence 204 ms ; variante NVFP4 de 25,6 Go pour un GPU 32 Go.",
+  "premiereVue": "2026-10-13",
+  "resume": "Modèle de décision « System 1 » MoE : répond oui/non, score 0-5 ou choix parmi 256 options avec probabilités calibrées, sans générer de texte. Base Qwen3.5-35B-A3B.",
+  "score": 68,
+  "source": "nouveau",
+  "tache": "Décision typée",
+  "taille": "35 B (3 B actifs)",
+  "type": "model",
+  "url": "https://huggingface.co/autotrust/JEV-35B"
+}

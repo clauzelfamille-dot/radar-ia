@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents",
+    "documents"
+  ],
+  "downloads": 2480,
+  "hfId": "perplexity-ai/pplx-decider-v1.1-27b",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 2220,
+      "likes": 120,
+      "score": 64
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 2480,
+      "likes": 135,
+      "score": 64
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 135,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "pplx-decider-v1.1-27b",
+  "org": "Perplexity",
+  "pertinent": true,
+  "pourquoi": "Perplexity entre dans la course aux modèles de décision et prend la tête du Decision Index",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle de décision de Perplexity sur base Qwen3.8-27B : probabilités sur des options (routage, classification), texte et images, attention non causale. Decision Index 61,6 contre 57,9 pour Jev. Environ 49 Go en BF16, trois quantisations dérivées.",
+  "score": 64,
+  "source": "nouveau",
+  "tache": "Décision / classification",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b"
+}

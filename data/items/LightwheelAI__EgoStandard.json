@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-08-07",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "image-video"
+  ],
+  "downloads": 2430,
+  "hfId": "LightwheelAI/EgoStandard",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 5202,
+      "likes": 227,
+      "score": 46
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 2430,
+      "likes": 227,
+      "score": 44
+    }
+  ],
+  "licence": "other",
+  "likes": 227,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "EgoStandard",
+  "org": "LightwheelAI",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre documentaire.",
+  "premiereVue": "2026-10-12",
+  "resume": "Vidéos égocentriques annotées pour la robotique, série Ego de Lightwheel.",
+  "score": 44,
+  "source": "trending",
+  "tache": "Vidéo égocentrique",
+  "taille": "2,4 k",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/LightwheelAI/EgoStandard"
+}

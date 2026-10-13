@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-08-31",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "agents",
     "donnees"
   ],
-  "downloads": 28500,
+  "downloads": 26200,
   "hfId": "openbmb/UltraData-SFT-Agent-2609",
   "historique": [
     {
@@ -13,11 +13,23 @@
       "downloads": 28500,
       "likes": 291,
       "score": 60
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 28500,
+      "likes": 292,
+      "score": 60
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 26200,
+      "likes": 292,
+      "score": 60
     }
   ],
   "licence": null,
-  "likes": 291,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 292,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "UltraData-SFT-Agent-2609",
   "org": "OpenBMB",
   "pertinent": true,

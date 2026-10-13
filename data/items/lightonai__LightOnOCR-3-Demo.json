@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-08",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "documents"
+  ],
+  "downloads": null,
+  "hfId": "lightonai/LightOnOCR-3-Demo",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 29,
+      "score": 44
+    }
+  ],
+  "licence": null,
+  "likes": 29,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "LightOnOCR-3 Demo",
+  "org": "LightOn (Paris)",
+  "pertinent": true,
+  "pourquoi": "Tester l'OCR de LightOn sans rien installer.",
+  "premiereVue": "2026-10-13",
+  "resume": "Démo Gradio de LightOnOCR-3 : déposer un PDF ou une image, récupérer le markdown et les boîtes.",
+  "score": 44,
+  "source": "nouveau",
+  "tache": "Démo OCR",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/lightonai/LightOnOCR-3-Demo"
+}

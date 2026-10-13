@@ -1,12 +1,12 @@
 {
   "creeLe": "2026-09-18",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "agents",
     "documents",
     "local"
   ],
-  "downloads": 42900,
+  "downloads": 45100,
   "hfId": "convaiinnovations/laya",
   "historique": [
     {
@@ -14,11 +14,23 @@
       "downloads": 42900,
       "likes": 5470,
       "score": 79
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 44100,
+      "likes": 5500,
+      "score": 79
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 45100,
+      "likes": 5540,
+      "score": 79
     }
   ],
   "licence": null,
-  "likes": 5470,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 5540,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "laya",
   "org": "Convai",
   "pertinent": true,

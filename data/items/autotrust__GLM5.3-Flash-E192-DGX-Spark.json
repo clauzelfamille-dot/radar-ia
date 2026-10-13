@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-09",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "tendances"
+  ],
+  "downloads": 2982,
+  "hfId": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 2982,
+      "likes": 174,
+      "score": 56
+    }
+  ],
+  "licence": "MIT",
+  "likes": 174,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "GLM5.3-Flash-E192-DGX-Spark",
+  "org": "AutoTrust",
+  "pertinent": false,
+  "pourquoi": "Signal : la compression par élagage d'experts se démocratise pour les gros MoE.",
+  "premiereVue": "2026-10-13",
+  "resume": "Version non officielle de GLM-5.3-Flash élaguée à 192 experts sur 288 et quantisée NVFP4 (124 Go), visant deux DGX Spark reliés ou un B200.",
+  "score": 56,
+  "source": "nouveau",
+  "tache": "LLM généraliste",
+  "taille": "111 B (18 B actifs)",
+  "type": "model",
+  "url": "https://huggingface.co/autotrust/GLM5.3-Flash-E192-DGX-Spark"
+}

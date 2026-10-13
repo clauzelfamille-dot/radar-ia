@@ -1,0 +1,23 @@
+{
+ "acces": "libre",
+ "bibliotheque": "diffusion-single-file",
+ "compte": "Comfy-Org",
+ "compteNom": "Comfy Org",
+ "compteType": "organisation",
+ "creeLe": "2026-09-15",
+ "downloads": 9090866,
+ "hfId": "Comfy-Org/Qwen-Image-2.1",
+ "licence": "qwen-research",
+ "licenceLien": "https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/LICENSE",
+ "likes": 1083,
+ "majLe": "2026-10-09",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen-Image-2.1",
+   "relation": "finetune"
+  }
+ ],
+ "type": "model",
+ "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-08-04",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "multilingue"
+  ],
+  "downloads": 1590,
+  "hfId": "bakrianoo/jabarti-llm-dataset",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 1590,
+      "likes": 64,
+      "score": 39
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1590,
+      "likes": 64,
+      "score": 39
+    }
+  ],
+  "licence": "CC-BY-SA-4.0",
+  "likes": 64,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "jabarti-llm-dataset",
+  "org": "bakrianoo",
+  "pertinent": false,
+  "pourquoi": "Corpus bilingue de grande taille.",
+  "premiereVue": "2026-10-12",
+  "resume": "Corpus arabe-anglais de 7,5 millions de lignes pour l'entraînement de LLM.",
+  "score": 39,
+  "source": "trending",
+  "tache": "Corpus LLM",
+  "taille": "7,5 M lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/bakrianoo/jabarti-llm-dataset"
+}

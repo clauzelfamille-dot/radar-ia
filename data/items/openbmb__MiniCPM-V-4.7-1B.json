@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-06",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 14,
+  "hfId": "openbmb/MiniCPM-V-4.7-1B",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 14,
+      "likes": 110,
+      "score": 54
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 110,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "MiniCPM-V-4.7-1B",
+  "org": "OpenBMB",
+  "pertinent": true,
+  "pourquoi": "Un VLM de 1 B pour le tri d'images ou de scans sans GPU.",
+  "premiereVue": "2026-10-13",
+  "resume": "Petit frère de MiniCPM-V 4.7 pour mobile et CPU (fiche non lue : la page n'a pas répondu ce matin).",
+  "score": 54,
+  "source": "nouveau",
+  "tache": "Vision-langage",
+  "taille": "1 B",
+  "type": "model",
+  "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-1B"
+}

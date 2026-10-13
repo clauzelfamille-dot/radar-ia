@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-09",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "audio"
+  ],
+  "downloads": 37000,
+  "hfId": "m-a-p/YuE2-3B",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 36450,
+      "likes": 1124,
+      "score": 56
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 37000,
+      "likes": 1124,
+      "score": 56
+    }
+  ],
+  "licence": null,
+  "likes": 1124,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "YuE2-3B",
+  "org": "m-a-p",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre transcription, mais très suivi.",
+  "premiereVue": "2026-10-12",
+  "resume": "Modèle de génération musicale (texte vers audio) de 3 B, deuxième génération de YuE.",
+  "score": 56,
+  "source": "likes30d",
+  "tache": "Texte vers audio",
+  "taille": "3 B",
+  "type": "model",
+  "url": "https://huggingface.co/m-a-p/YuE2-3B"
+}

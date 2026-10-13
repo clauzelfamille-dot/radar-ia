@@ -1,0 +1,20 @@
+{
+ "acces": "libre",
+ "compte": "witfoo",
+ "compteNom": "WitFoo",
+ "compteType": "organisation",
+ "creeLe": "2026-03-21",
+ "downloads": 3378,
+ "hfId": "witfoo/precinct6-cybersecurity",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 60,
+ "majLe": "2026-09-22",
+ "tache": "text-classification, graph-ml",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/witfoo/precinct6-cybersecurity",
+ "verifieLe": "2026-10-13T05:42+00:00",
+ "volumetrie": "1M<n<10M"
+}

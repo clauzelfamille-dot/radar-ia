@@ -1,0 +1,16 @@
+{
+ "acces": "libre",
+ "compte": "harvardMadsys",
+ "compteNom": "Harvard MaDSys",
+ "compteType": "organisation",
+ "creeLe": "2026-10-05",
+ "downloads": 1230,
+ "hfId": "harvardMadsys/freeinference_agentic_trace",
+ "licence": "cc-by-4.0",
+ "likes": 35,
+ "majLe": "2026-10-06",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/harvardMadsys/freeinference_agentic_trace",
+ "verifieLe": "2026-10-13T05:42+00:00",
+ "volumetrie": "1M<n<10M"
+}

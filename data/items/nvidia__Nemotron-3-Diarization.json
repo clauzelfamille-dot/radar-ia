@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-01",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "audio"
   ],
@@ -12,11 +12,23 @@
       "downloads": 72300,
       "likes": 752,
       "score": 66
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 74877,
+      "likes": 756,
+      "score": 66
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 72300,
+      "likes": 756,
+      "score": 66
     }
   ],
   "licence": null,
-  "likes": 752,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 756,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Nemotron-3-Diarization",
   "org": "NVIDIA",
   "pertinent": true,

@@ -1,0 +1,33 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2605.31268"
+ ],
+ "bibliotheque": "transformers",
+ "compte": "JetBrains",
+ "compteNom": "JetBrains",
+ "compteType": "organisation",
+ "creeLe": "2026-09-20",
+ "downloads": 1068,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 114,
+ "majLe": "2026-10-07",
+ "modeleBase": [
+  {
+   "id": "JetBrains/Mellum2-12B-A2.5B-Base",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 12149923072,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

@@ -1,0 +1,39 @@
+{
+  "creeLe": "2026-10-03",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "image-video"
+  ],
+  "downloads": 12300,
+  "hfId": "datasocial/tiktok-5.6B-videos",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 12300,
+      "likes": 222,
+      "score": 53
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 12300,
+      "likes": 222,
+      "score": 53
+    }
+  ],
+  "licence": "CC-BY-NC-4.0",
+  "likes": 222,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "tiktok-5.6B-videos",
+  "org": "datasocial",
+  "pertinent": false,
+  "pourquoi": "Jeu de données le plus tendance du jour.",
+  "premiereVue": "2026-10-12",
+  "resume": "Métadonnées de 5,6 milliards de vidéos TikTok au format parquet, licence non commerciale.",
+  "score": 53,
+  "source": "trending",
+  "tache": "Métadonnées vidéo",
+  "taille": "5,6 Md lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/datasocial/tiktok-5.6B-videos"
+}

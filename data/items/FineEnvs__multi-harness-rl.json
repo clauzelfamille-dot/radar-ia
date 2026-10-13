@@ -1,0 +1,38 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": 0,
+  "hfId": "FineEnvs/multi-harness-rl",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 208,
+      "score": 40
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 208,
+      "score": 40
+    }
+  ],
+  "licence": null,
+  "likes": 208,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "multi-harness-rl",
+  "org": "FineEnvs",
+  "pertinent": true,
+  "pourquoi": "Former ses propres agents outillés devient documenté",
+  "premiereVue": "2026-10-12",
+  "resume": "Guide et outillage pour entraîner des modèles ouverts par apprentissage par renforcement à l'intérieur de vrais harnais d'agents.",
+  "score": 40,
+  "source": "nouveau",
+  "tache": "Guide RL agents",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/FineEnvs/multi-harness-rl"
+}

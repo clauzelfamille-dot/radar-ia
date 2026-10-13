@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-07",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "image-video"
+  ],
+  "downloads": 604,
+  "hfId": "moonworks/lunara-art-eval",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 604,
+      "likes": 32,
+      "score": 46
+    }
+  ],
+  "licence": null,
+  "likes": 32,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "lunara-art-eval",
+  "org": "moonworks",
+  "pertinent": false,
+  "pourquoi": "Benchmark de qualité artistique pour les modèles Qwen-Image / Krea.",
+  "premiereVue": "2026-10-13",
+  "resume": "Jeu d'évaluation esthétique d'images générées (8 k lignes).",
+  "score": 46,
+  "source": "nouveau",
+  "tache": "Évaluation image",
+  "taille": null,
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/moonworks/lunara-art-eval"
+}

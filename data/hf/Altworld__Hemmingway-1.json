@@ -1,0 +1,30 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "Altworld",
+ "compteNom": "Altworld",
+ "compteType": "organisation",
+ "creeLe": "2026-09-20",
+ "downloads": 11510,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "Altworld/Hemmingway-1",
+ "langues": [
+  "en"
+ ],
+ "licence": "cc-by-nc-4.0",
+ "likes": 860,
+ "majLe": "2026-10-01",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "finetune"
+  }
+ ],
+ "parametres": 26895998464,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/Altworld/Hemmingway-1",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

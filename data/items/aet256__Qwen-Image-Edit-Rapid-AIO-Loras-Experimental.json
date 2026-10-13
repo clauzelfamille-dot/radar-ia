@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-02-27",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 413,
+      "score": 27
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 413,
+      "score": 27
+    }
+  ],
+  "licence": null,
+  "likes": 413,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "QIE-2511 Rapid-AIO LoRAs Fast",
+  "org": "aet256",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Démo expérimentale de LoRA d'édition d'images Qwen Image Edit.",
+  "score": 27,
+  "source": "trending",
+  "tache": "Démo édition d'image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental"
+}

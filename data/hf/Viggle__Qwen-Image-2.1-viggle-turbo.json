@@ -1,0 +1,16 @@
+{
+ "acces": "libre",
+ "compte": "Viggle",
+ "compteNom": "Viggle AI",
+ "compteType": "organisation",
+ "creeLe": "2026-09-22",
+ "hfId": "Viggle/Qwen-Image-2.1-viggle-turbo",
+ "licence": "qwen-research",
+ "licenceLien": "https://huggingface.co/spaces/Viggle/Qwen-Image-2.1-viggle-turbo/blob/main/LICENSE",
+ "likes": 281,
+ "majLe": "2026-10-01",
+ "tache": "gradio",
+ "type": "space",
+ "url": "https://huggingface.co/spaces/Viggle/Qwen-Image-2.1-viggle-turbo",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

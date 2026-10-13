@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "bibliotheque": "contrastive-lm",
+ "compte": "Contrastive-LM",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-21",
+ "downloads": 4495,
+ "hfId": "Contrastive-LM/CLM-v0.1-8B",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 768,
+ "majLe": "2026-09-24",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3-8B",
+   "relation": "finetune"
+  }
+ ],
+ "tache": "text-ranking",
+ "type": "model",
+ "url": "https://huggingface.co/Contrastive-LM/CLM-v0.1-8B",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

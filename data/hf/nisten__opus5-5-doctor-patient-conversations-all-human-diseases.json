@@ -1,0 +1,19 @@
+{
+ "acces": "libre",
+ "compte": "nisten",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-26",
+ "downloads": 3613,
+ "hfId": "nisten/opus5-5-doctor-patient-conversations-all-human-diseases",
+ "langues": [
+  "en"
+ ],
+ "licence": "apache-2.0",
+ "likes": 304,
+ "majLe": "2026-09-27",
+ "tache": "question-answering, text-generation",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/nisten/opus5-5-doctor-patient-conversations-all-human-diseases",
+ "verifieLe": "2026-10-13T05:42+00:00",
+ "volumetrie": "1K<n<10K"
+}

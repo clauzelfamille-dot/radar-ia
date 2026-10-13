@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-07-31",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "00000tt/LTX-2.3-10Eros",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 177,
+      "score": 29
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 177,
+      "score": 29
+    }
+  ],
+  "licence": null,
+  "likes": 177,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "LTX 2.3 10Eros Image-to-Video",
+  "org": "00000tt",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Image vers vidéo avec LTX 2.3 et audio natif.",
+  "score": 29,
+  "source": "trending",
+  "tache": "Démo image vers vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/00000tt/LTX-2.3-10Eros"
+}

@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "local",
     "multilingue"
   ],
-  "downloads": 50600,
+  "downloads": 71900,
   "hfId": "unsloth/embeddinggemma-2-GGUF",
   "historique": [
     {
@@ -13,18 +13,30 @@
       "downloads": 50600,
       "likes": 237,
       "score": 72
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 59300,
+      "likes": 259,
+      "score": 73
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 71900,
+      "likes": 285,
+      "score": 74
     }
   ],
   "licence": null,
-  "likes": 237,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 285,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "embeddinggemma-2-GGUF",
   "org": "Unsloth",
   "pertinent": true,
   "pourquoi": "Version GGUF 0,3 B",
   "premiereVue": "2026-10-11",
   "resume": "Version GGUF d'EmbeddingGemma 2.",
-  "score": 72,
+  "score": 74,
   "source": "trending",
   "tache": "Embeddings",
   "taille": "0,3 B",

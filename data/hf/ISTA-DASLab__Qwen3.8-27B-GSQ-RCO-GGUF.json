@@ -1,0 +1,32 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2604.18556",
+  "2605.00649"
+ ],
+ "bibliotheque": "gguf",
+ "compte": "ISTA-DASLab",
+ "compteNom": " IST Austria Distributed Algorithms and Systems Lab",
+ "compteType": "organisation",
+ "contexte": 262144,
+ "creeLe": "2026-08-28",
+ "downloads": 1482471,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+ "licence": "apache-2.0",
+ "likes": 2180,
+ "majLe": "2026-09-02",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 26895998464,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

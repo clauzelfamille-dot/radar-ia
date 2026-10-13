@@ -1,0 +1,16 @@
+{
+ "acces": "libre",
+ "compte": "espnet",
+ "compteNom": "ESPnet",
+ "compteType": "organisation",
+ "creeLe": "2026-06-19",
+ "downloads": 266728,
+ "hfId": "espnet/yodas3",
+ "licence": "cc-by-3.0",
+ "likes": 241,
+ "majLe": "2026-10-07",
+ "tache": "audio-to-audio, automatic-speech-recognition, text-to-speech, translation",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/espnet/yodas3",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

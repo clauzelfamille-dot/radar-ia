@@ -1,0 +1,26 @@
+{
+ "acces": "libre",
+ "bibliotheque": "diffusion-single-file",
+ "compte": "akatz-ai",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-25",
+ "downloads": 44615,
+ "hfId": "akatz-ai/MiniMax-H3-Character-Swap-LoRA",
+ "langues": [
+  "en"
+ ],
+ "licence": "minimax-h3-community-license-agreement",
+ "licenceLien": "https://huggingface.co/akatz-ai/MiniMax-H3-Character-Swap-LoRA/blob/main/LICENSE",
+ "likes": 433,
+ "majLe": "2026-10-10",
+ "modeleBase": [
+  {
+   "id": "Comfy-Org/MiniMax-H3",
+   "relation": "adapter"
+  }
+ ],
+ "tache": "video-to-video",
+ "type": "model",
+ "url": "https://huggingface.co/akatz-ai/MiniMax-H3-Character-Swap-LoRA",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

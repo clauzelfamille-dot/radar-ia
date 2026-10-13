@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-07-29",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "kulkas2pintu/QWEN_EDIT_IMAGE",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 668,
+      "score": 34
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 668,
+      "score": 34
+    }
+  ],
+  "licence": null,
+  "likes": 668,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Qwen-Image-Edit-2511-LoRAs-Fast",
+  "org": "kulkas2pintu",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Édition d'images Qwen avec LoRA de pose (AnyPose).",
+  "score": 34,
+  "source": "trending",
+  "tache": "Démo édition d'image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE"
+}

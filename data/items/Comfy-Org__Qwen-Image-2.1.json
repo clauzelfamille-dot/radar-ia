@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-15",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 8220000,
+  "hfId": "Comfy-Org/Qwen-Image-2.1",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 8674298,
+      "likes": 1064,
+      "score": 72
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 8220000,
+      "likes": 1064,
+      "score": 72
+    }
+  ],
+  "licence": null,
+  "likes": 1064,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Qwen-Image-2.1 (poids ComfyUI)",
+  "org": "Comfy-Org",
+  "pertinent": false,
+  "pourquoi": "Signal de diffusion de Qwen-Image-2.1 chez les créatifs.",
+  "premiereVue": "2026-10-12",
+  "resume": "Reconditionnement des poids de Qwen-Image-2.1 pour ComfyUI ; le dépôt le plus téléchargé de la période.",
+  "score": 72,
+  "source": "likes30d",
+  "tache": "Texte vers image",
+  "taille": "n.c.",
+  "type": "model",
+  "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1"
+}

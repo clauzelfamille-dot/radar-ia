@@ -4,17 +4,17 @@
  "compte": "convaiinnovations",
  "compteType": "utilisateur",
  "creeLe": "2026-09-18",
- "downloads": 44088,
+ "downloads": 45062,
  "formats": [
   "safetensors"
  ],
  "hfId": "convaiinnovations/laya",
  "licence": "apache-2.0",
- "likes": 5489,
+ "likes": 5538,
  "majLe": "2026-10-03",
  "parametres": 421293830,
  "tache": "text-classification",
  "type": "model",
  "url": "https://huggingface.co/convaiinnovations/laya",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

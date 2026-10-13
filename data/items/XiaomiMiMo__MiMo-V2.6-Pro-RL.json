@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-21",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "tendances"
+  ],
+  "downloads": 95200,
+  "hfId": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 95740,
+      "likes": 698,
+      "score": 62
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 95200,
+      "likes": 698,
+      "score": 62
+    }
+  ],
+  "licence": null,
+  "likes": 698,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "MiMo-V2.6-Pro-RL",
+  "org": "XiaomiMiMo",
+  "pertinent": false,
+  "pourquoi": "À qualifier : fiche non lue.",
+  "premiereVue": "2026-10-12",
+  "resume": "Variante entraînée par renforcement de MiMo-V2.6 (Xiaomi) ; taille non vérifiée.",
+  "score": 62,
+  "source": "likes30d",
+  "tache": "Génération de texte",
+  "taille": "n.c.",
+  "type": "model",
+  "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+}

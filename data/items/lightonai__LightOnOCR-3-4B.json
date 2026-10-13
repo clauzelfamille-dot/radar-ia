@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-06",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "documents",
+    "local"
+  ],
+  "downloads": 3222,
+  "hfId": "lightonai/LightOnOCR-3-4B",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 3222,
+      "likes": 76,
+      "score": 63
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 76,
+  "majLe": "2026-10-13T07:05:00+02:00",
+  "nom": "LightOnOCR-3-4B",
+  "org": "LightOn (Paris)",
+  "pertinent": true,
+  "pourquoi": "Éditeur français, olmOCR-bench 86,3, et 13 versions quantisées pour llama.cpp / LM Studio.",
+  "premiereVue": "2026-10-13",
+  "resume": "OCR de bout en bout sur architecture Qwen3.5 : page scannée vers markdown, et en mode « grounding » boîtes englobantes par bloc, descriptions d'images et graphiques convertis en tableaux HTML.",
+  "score": 63,
+  "source": "nouveau",
+  "tache": "OCR / vision-langage documentaire",
+  "taille": "4 B (5 B en BF16)",
+  "type": "model",
+  "url": "https://huggingface.co/lightonai/LightOnOCR-3-4B"
+}

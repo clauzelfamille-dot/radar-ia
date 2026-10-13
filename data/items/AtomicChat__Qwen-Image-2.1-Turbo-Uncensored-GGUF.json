@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-10-10",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "image-video"
   ],
-  "downloads": 7310,
+  "downloads": 162000,
   "hfId": "AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF",
   "historique": [
     {
@@ -12,18 +12,30 @@
       "downloads": 7310,
       "likes": 239,
       "score": 59
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 101000,
+      "likes": 337,
+      "score": 65
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 162000,
+      "likes": 378,
+      "score": 66
     }
   ],
   "licence": null,
-  "likes": 239,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 378,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen-Image-2.1-Turbo-Uncensored-GGUF",
   "org": "AtomicChat",
   "pertinent": false,
   "pourquoi": "Vague Turbo : encodeur GGUF 3,3 à 16 Go",
   "premiereVue": "2026-10-11",
   "resume": "Encodeur texte Qwen3-VL-8B « décensuré » en GGUF (3,3 à 16 Go) pour stable-diffusion.cpp.",
-  "score": 59,
+  "score": 66,
   "source": "nouveau",
   "tache": "Texte→image",
   "taille": "8 B",

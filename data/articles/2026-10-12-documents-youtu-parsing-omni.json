@@ -1,0 +1,41 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Tencent publie Youtu-Parsing-Omni, un modèle de 5 B qui convertit une page de document, un graphique, un organigramme, un fichier audio ou une vidéo en un seul bloc JSON structuré. Sa fiche annonce 97,0 sur OmniDocBench v1.6, au niveau des meilleurs OCR spécialisés, mais il exige un GPU et porte une licence propre.",
+  "corpsHtml": "<p>Tencent publie <a href=\"https://huggingface.co/tencent/Youtu-Parsing-Omni\">Youtu-Parsing-Omni</a>, un modèle de 5 B qui convertit une page de document, un graphique, un organigramme, un fichier audio ou une vidéo en un seul bloc JSON structuré. Sa fiche annonce 97,0 sur OmniDocBench v1.6, au niveau des meilleurs OCR spécialisés, mais il exige un GPU et porte une licence propre.</p>\n<h2>Ce que fait le modèle</h2>\n<p>Les outils de parsing documentaire produisent en général du Markdown. Youtu-Parsing-Omni renvoie du JSON : chaque élément de la page arrive avec son type, son ordre de lecture et sa boîte englobante sur une grille de 0 à 1 000. Les tableaux sont décrits en OTSL, un format compact convertible en HTML ; les formules en LaTeX ; les graphiques en Markdown ; les organigrammes en Mermaid. Pour l'audio et la vidéo, le même JSON contient la transcription et des horodatages au format HH:MM:SS.</p>\n<p>Le modèle repose sur un encodeur unique, Youtu-Omni-Encoder, et un décodeur Youtu-LLM. La fiche décrit trois étapes de post-entraînement : affinage supervisé, apprentissage par renforcement guidé par le schéma de sortie, puis distillation. Huit tâches sont exposées par un paramètre <code>--task</code> : document, image naturelle, graphique, organigramme, figure géométrique, audio, vidéo naturelle, vidéo riche en texte.</p>\n<h2>Ce que la fiche annonce, et ce qu'il faut vérifier</h2>\n<p>Sur OmniDocBench v1.6, la fiche donne 96,96 au global, avec un TEDS tableaux de 96,79 et une distance d'édition texte de 0,027. Dans le même tableau, PaddleOCR-VL-1.6 (0,9 B) obtient 96,34, MinerU2.5-Pro (1,2 B) 95,75 et Gemini-3-Pro 92,91. À titre de comparaison, <a href=\"https://huggingface.co/XingChen-AGI/TeleOCR\">TeleOCR</a> (1,2 B) annonce de son côté 96,87 : un écart de 0,1 point, chacun mesuré par ses auteurs. Sur OmniParsingBench, le benchmark multimodal créé pour l'occasion, le modèle fait 75,08, derrière Gemini-3-Pro (77,44), et se présente comme le meilleur à poids ouverts. Sur la chimie (ChemOCR) et les partitions musicales, il fait jeu égal ou légèrement moins bien que les spécialistes.</p>\n<p>Plusieurs réserves. Le rapport technique est annoncé « à venir » dans l'en-tête alors que la rubrique actualités le dit publié ; le code d'évaluation est marqué « TBD ». Les langues couvertes ne sont pas précisées : rien n'indique le niveau en français. La licence « youtu-parsing » est un texte propre dont nous n'avons pas lu les clauses ; il faut le faire avant tout usage en entreprise. Le format PDF n'est pas cité : la fiche travaille sur des images de pages. Enfin, l'inférence exige un GPU CUDA et <code>trust_remote_code=True</code>, c'est-à-dire l'exécution de code livré avec le modèle ; la fiche recommande d'épingler une révision précise. Aucune VRAM minimale n'est donnée ; la configuration vLLM publiée fixe un contexte de 65 536 tokens et 70 % de la mémoire GPU.</p>\n<h2>Face à TeleOCR et aux OCR légers</h2>\n<table>\n<thead><tr><th></th><th>Youtu-Parsing-Omni</th><th>TeleOCR</th></tr></thead>\n<tbody>\n<tr><td>Taille</td><td>5 B</td><td>1,2 B</td></tr>\n<tr><td>Entrées</td><td>pages, graphiques, audio, vidéo</td><td>pages</td></tr>\n<tr><td>Sortie</td><td>JSON (OTSL, LaTeX, Mermaid, boîtes)</td><td>texte, OTSL, LaTeX, layout</td></tr>\n<tr><td>OmniDocBench v1.6 (fiche)</td><td>96,96</td><td>96,87</td></tr>\n<tr><td>Langues annoncées</td><td>non précisées</td><td>chinois, anglais</td></tr>\n<tr><td>Licence</td><td>youtu-parsing (propre)</td><td>Apache 2.0</td></tr>\n<tr><td>Local sans GPU</td><td>non</td><td>GGUF communautaires (llama.cpp, Ollama)</td></tr>\n</tbody>\n</table>\n<p>Le choix est clair pour un PC de bureau : TeleOCR tourne en GGUF et sa licence est permissive. Youtu-Parsing-Omni vise une station ou un serveur, et apporte en échange la sortie JSON unifiée et les modalités audio et vidéo. Pour tester sur des documents réels, le jeu <a href=\"https://huggingface.co/datasets/ankitjh4/bharat-government-documents\">bharat-government-documents</a> repéré ce matin ne conviendra pas : d'après sa fiche, il contient 65 k textes déjà extraits de sites administratifs indiens (40 Go, droits par source), pas de scans.</p>\n<h2>Comment l'essayer</h2>\n<ol>\n<li>Sur une station avec GPU : installer vLLM 0.19 et le plugin <code>vllm-plugin-vita-omni</code> indiqués par la fiche, puis lancer le serveur compatible OpenAI avec <code>--max-model-len 65536</code>.</li>\n<li>Convertir dix PDF représentatifs en PNG (une page par image, 200 dpi) : factures, formulaires scannés, comptes rendus avec tableaux.</li>\n<li>Appeler la tâche <code>document</code>, enregistrer le JSON, convertir les tableaux OTSL en HTML et compter les cellules fausses sur deux tableaux par page.</li>\n<li>Passer les mêmes pages à TeleOCR en GGUF sur le PC et comparer : qualité des tableaux, respect de l'ordre de lecture, temps par page.</li>\n<li>Lire la licence et noter la révision du dépôt utilisée avant toute intégration.</li>\n</ol>\n<p>À surveiller : la publication du rapport technique et du code d'évaluation, le texte de la licence, et une éventuelle quantisation qui ramènerait le modèle sous 16 Go de VRAM.</p>",
+  "date": "2026-10-12",
+  "domaine": "documents",
+  "itemIds": [
+    "tencent__Youtu-Parsing-Omni",
+    "XingChen-AGI__TeleOCR",
+    "ankitjh4__bharat-government-documents"
+  ],
+  "motsCles": [
+    "OCR",
+    "parsing documentaire",
+    "Youtu-Parsing-Omni",
+    "Tencent",
+    "JSON",
+    "OmniDocBench",
+    "TeleOCR",
+    "tableaux"
+  ],
+  "publieLe": "2026-10-12T08:16:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche tencent/Youtu-Parsing-Omni",
+      "url": "https://huggingface.co/tencent/Youtu-Parsing-Omni"
+    },
+    {
+      "titre": "Fiche XingChen-AGI/TeleOCR",
+      "url": "https://huggingface.co/XingChen-AGI/TeleOCR"
+    },
+    {
+      "titre": "Fiche ankitjh4/bharat-government-documents",
+      "url": "https://huggingface.co/datasets/ankitjh4/bharat-government-documents"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "Youtu-Parsing-Omni : Tencent transforme pages, tableaux et audio en un seul JSON",
+  "verifiePar": "redac-chef"
+}

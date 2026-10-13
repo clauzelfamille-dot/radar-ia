@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-06-19",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "documents",
+    "local"
+  ],
+  "downloads": 1205646,
+  "hfId": "baidu/Unlimited-OCR",
+  "historique": [
+    {
+      "date": "2026-10-13",
+      "downloads": 1205646,
+      "likes": 4520,
+      "score": 73
+    }
+  ],
+  "licence": "MIT",
+  "likes": 4520,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Unlimited-OCR",
+  "org": "baidu",
+  "pertinent": true,
+  "pourquoi": "OCR documentaire multilingue de 3 B exécutable en local, de retour dans le trending",
+  "premiereVue": "2026-10-13",
+  "resume": "Modèle vision-langage de 3 B (Baidu, MIT) qui analyse des documents et PDF multipages en une passe, dans la lignée de DeepSeek-OCR ; 36 quantisations llama.cpp / Ollama / LM Studio disponibles.",
+  "score": 73,
+  "source": "trending",
+  "tache": "OCR / vision-langage documentaire",
+  "taille": "3 B",
+  "type": "model",
+  "url": "https://huggingface.co/baidu/Unlimited-OCR"
+}

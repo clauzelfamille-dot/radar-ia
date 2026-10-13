@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-07-23",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "image-video"
   ],
@@ -12,11 +12,23 @@
       "downloads": 1720000,
       "likes": 7210,
       "score": 71
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 1730000,
+      "likes": 7338,
+      "score": 71
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1720000,
+      "likes": 7510,
+      "score": 71
     }
   ],
   "licence": null,
-  "likes": 7210,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 7510,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "LTX-2.5",
   "org": "Lightricks",
   "pertinent": false,

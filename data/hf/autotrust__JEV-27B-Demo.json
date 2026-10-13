@@ -1,0 +1,14 @@
+{
+ "acces": "libre",
+ "compte": "autotrust",
+ "compteNom": "AutoTrust AI Lab",
+ "compteType": "organisation",
+ "creeLe": "2026-09-26",
+ "hfId": "autotrust/JEV-27B-Demo",
+ "likes": 104,
+ "majLe": "2026-09-30",
+ "tache": "docker",
+ "type": "space",
+ "url": "https://huggingface.co/spaces/autotrust/JEV-27B-Demo",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

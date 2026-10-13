@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-13",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "local"
   ],
@@ -12,11 +12,23 @@
       "downloads": 6450000,
       "likes": 5010,
       "score": 82
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 6490000,
+      "likes": 5030,
+      "score": 82
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 6450000,
+      "likes": 5030,
+      "score": 82
     }
   ],
   "licence": null,
-  "likes": 5010,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 5030,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen3.8-27B-GGUF",
   "org": "Unsloth",
   "pertinent": true,

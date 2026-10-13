@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-26",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "agents"
+  ],
+  "downloads": 0,
+  "hfId": "autotrust/JEV-27B-Demo",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 102,
+      "score": 43
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 102,
+      "score": 43
+    }
+  ],
+  "licence": null,
+  "likes": 102,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "JEV-27B Live Demo",
+  "org": "autotrust",
+  "pertinent": true,
+  "pourquoi": "Montre un modèle de décision en situation.",
+  "premiereVue": "2026-10-12",
+  "resume": "Démo interactive de JEV-27B jouant à Mario, au Rubik's Cube et à Tetris.",
+  "score": 43,
+  "source": "trending",
+  "tache": "Démo modèle de décision",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/autotrust/JEV-27B-Demo"
+}

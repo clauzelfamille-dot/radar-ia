@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-18",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "kulkas2pintu/kv-i2v",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": null,
+      "likes": 130,
+      "score": 34
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 0,
+      "likes": 130,
+      "score": 34
+    }
+  ],
+  "licence": null,
+  "likes": 130,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "KV Image to Clip",
+  "org": "kulkas2pintu",
+  "pertinent": false,
+  "pourquoi": "Hors périmètre.",
+  "premiereVue": "2026-10-12",
+  "resume": "Image vers clip avec Wan 2.2 et adaptateurs KV.",
+  "score": 34,
+  "source": "trending",
+  "tache": "Démo image vers vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/kulkas2pintu/kv-i2v"
+}

@@ -5,7 +5,7 @@
  "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-10-06",
- "downloads": 59274,
+ "downloads": 71914,
  "formats": [
   "GGUF"
  ],
@@ -14,7 +14,7 @@
   "multilingual"
  ],
  "licence": "apache-2.0",
- "likes": 250,
+ "likes": 285,
  "majLe": "2026-10-07",
  "modeleBase": [
   {
@@ -26,5 +26,5 @@
  "tache": "feature-extraction",
  "type": "model",
  "url": "https://huggingface.co/unsloth/embeddinggemma-2-GGUF",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

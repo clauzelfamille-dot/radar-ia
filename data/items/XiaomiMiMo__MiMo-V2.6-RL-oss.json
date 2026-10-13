@@ -1,0 +1,39 @@
+{
+  "creeLe": null,
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees",
+    "tendances"
+  ],
+  "downloads": 114000,
+  "hfId": "XiaomiMiMo/MiMo-V2.6-RL-oss",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 114000,
+      "likes": 910,
+      "score": 57
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 114000,
+      "likes": 910,
+      "score": 57
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 910,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "MiMo-V2.6-RL-oss",
+  "org": "XiaomiMiMo",
+  "pertinent": false,
+  "pourquoi": "Données RL ouvertes d'un grand labo.",
+  "premiereVue": "2026-10-12",
+  "resume": "Données d'entraînement par renforcement publiées avec MiMo-V2.6 (texte, images, documents).",
+  "score": 57,
+  "source": "trending",
+  "tache": "Données RL",
+  "taille": "7,8 k lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/XiaomiMiMo/MiMo-V2.6-RL-oss"
+}

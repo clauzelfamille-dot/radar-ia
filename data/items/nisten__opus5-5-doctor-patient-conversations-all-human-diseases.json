@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-09-26",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "donnees"
+  ],
+  "downloads": 3500,
+  "hfId": "nisten/opus5-5-doctor-patient-conversations-all-human-diseases",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 417,
+      "likes": 296,
+      "score": 48
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 3500,
+      "likes": 296,
+      "score": 52
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 296,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "opus5-5-doctor-patient-conversations",
+  "org": "nisten",
+  "pertinent": false,
+  "pourquoi": "Exemple de corpus synthétique spécialisé.",
+  "premiereVue": "2026-10-12",
+  "resume": "Conversations médecin-patient synthétiques en anglais, générées par un LLM.",
+  "score": 52,
+  "source": "trending",
+  "tache": "Dialogues synthétiques",
+  "taille": "3,5 k",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/nisten/opus5-5-doctor-patient-conversations-all-human-diseases"
+}

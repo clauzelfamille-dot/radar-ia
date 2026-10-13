@@ -5,7 +5,7 @@
  "compteType": "utilisateur",
  "contexte": 262144,
  "creeLe": "2026-09-11",
- "downloads": 37647,
+ "downloads": 46070,
  "formats": [
   "GGUF",
   "safetensors"
@@ -16,7 +16,7 @@
   "zh"
  ],
  "licence": "apache-2.0",
- "likes": 1061,
+ "likes": 1348,
  "majLe": "2026-10-08",
  "modeleBase": [
   {
@@ -28,5 +28,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/jialinyyzz/humanizer",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

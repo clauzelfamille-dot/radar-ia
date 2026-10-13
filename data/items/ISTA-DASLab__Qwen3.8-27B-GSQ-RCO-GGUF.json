@@ -1,0 +1,38 @@
+{
+  "creeLe": "2026-08-28",
+  "derniereVue": "2026-10-13",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 1480000,
+  "hfId": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-12",
+      "downloads": 1490000,
+      "likes": 2160,
+      "score": 75
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 1480000,
+      "likes": 2180,
+      "score": 75
+    }
+  ],
+  "licence": "Apache-2.0",
+  "likes": 2180,
+  "majLe": "2026-10-13T07:30:00+02:00",
+  "nom": "Qwen3.8-27B-GSQ-RCO-GGUF",
+  "org": "ISTA-DASLab",
+  "pertinent": true,
+  "pourquoi": "Fait tenir Qwen3.8-27B sur une carte de 12 à 16 Go.",
+  "premiereVue": "2026-10-12",
+  "resume": "Quantisations GGUF très compressées (8 à 12 Go) de Qwen3.8-27B par la méthode GSQ/RCO, avec encodeur vision et variante MTP pour llama.cpp.",
+  "score": 75,
+  "source": "likes30d",
+  "tache": "Vision-langage",
+  "taille": "27 B (GGUF 2,5 à 3,5 bpw, 8 à 12 Go)",
+  "type": "model",
+  "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF"
+}

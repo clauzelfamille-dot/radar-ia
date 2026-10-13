@@ -5,17 +5,17 @@
  "compteNom": "DeepSeek",
  "compteType": "organisation",
  "creeLe": "2026-09-10",
- "downloads": 1382367,
+ "downloads": 1294550,
  "formats": [
   "safetensors"
  ],
  "hfId": "deepseek-ai/DeepSeek-V4.1-Flash",
  "licence": "mit",
- "likes": 4362,
- "majLe": "2026-10-01",
+ "likes": 4418,
+ "majLe": "2026-10-12",
  "parametres": 763205315794,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

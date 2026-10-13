@@ -1,0 +1,29 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2503.08638",
+  "2609.33757",
+  "2610.05336"
+ ],
+ "compte": "m-a-p",
+ "compteNom": "Multimodal Art Projection",
+ "compteType": "organisation",
+ "creeLe": "2026-09-09",
+ "downloads": 36201,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "m-a-p/YuE2-3B",
+ "langues": [
+  "zh",
+  "en"
+ ],
+ "licence": "cc-by-nc-4.0",
+ "likes": 1136,
+ "majLe": "2026-10-06",
+ "parametres": 3630684224,
+ "tache": "text-to-audio",
+ "type": "model",
+ "url": "https://huggingface.co/m-a-p/YuE2-3B",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

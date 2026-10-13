@@ -4,14 +4,14 @@
  "compte": "ukisai",
  "compteType": "utilisateur",
  "creeLe": "2026-09-08",
- "downloads": 23242,
+ "downloads": 23136,
  "formats": [
   "safetensors"
  ],
  "hfId": "ukisai/Swift-Qwen3.8-27b",
  "licence": "swift-open-license-1.0",
  "licenceLien": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b/blob/main/LICENSE",
- "likes": 626,
+ "likes": 628,
  "majLe": "2026-09-24",
  "modeleBase": [
   {
@@ -23,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

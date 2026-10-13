@@ -1,12 +1,12 @@
 {
   "creeLe": "2026-08-05",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "local",
     "code",
     "agents"
   ],
-  "downloads": 6770000,
+  "downloads": 6900000,
   "hfId": "Qwen/Qwen3.8-27B",
   "historique": [
     {
@@ -14,11 +14,23 @@
       "downloads": 6770000,
       "likes": 17400,
       "score": 77
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 6843108,
+      "likes": 17518,
+      "score": 77
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 6900000,
+      "likes": 17600,
+      "score": 77
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 17400,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 17600,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Qwen3.8-27B",
   "org": "Qwen",
   "pertinent": false,

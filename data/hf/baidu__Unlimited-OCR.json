@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2606.23050"
+ ],
+ "bibliotheque": "transformers",
+ "compte": "baidu",
+ "compteNom": "BAIDU",
+ "compteType": "organisation",
+ "creeLe": "2026-06-19",
+ "downloads": 1205646,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "baidu/Unlimited-OCR",
+ "langues": [
+  "multilingual"
+ ],
+ "licence": "mit",
+ "likes": 4531,
+ "majLe": "2026-07-29",
+ "parametres": 3336106240,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/baidu/Unlimited-OCR",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

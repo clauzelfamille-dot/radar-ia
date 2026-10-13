@@ -1,0 +1,54 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Perplexity publie pplx-decider-v1.1-27b, un modèle de décision dérivé de Qwen3.8-27B qui ne génère aucun texte et renvoie une probabilité par option. Sa fiche annonce 61,6 au Decision Index, devant Jev (57,9), pendant que JEV-27B-VL d'AutoTrust reste premier du tableau vision.",
+  "corpsHtml": "<p>Perplexity publie <a href=\"https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b\">pplx-decider-v1.1-27b</a>, un modèle de décision dérivé de Qwen3.8-27B qui ne génère aucun texte et renvoie une probabilité par option. Sa fiche annonce 61,6 au Decision Index, devant Jev (57,9), pendant que <a href=\"https://huggingface.co/autotrust/JEV-27B-VL\">JEV-27B-VL</a> d'AutoTrust reste premier du tableau vision.</p>\n<h2>Ce que fait le modèle</h2>\n<p>Un modèle de décision ne rédige pas de réponse. On lui donne un texte, éventuellement des images, et une question fermée avec ses options : « facturation », « support » ou « ventes » pour router une demande. Il renvoie une probabilité par option en une seule passe avant. Pas de JSON à réparer, un coût d'inférence prévisible.</p>\n<p>pplx-decider-v1.1 reprend le tronc Qwen3.8-27B et remplace la tête de génération par une tête de décision (un fichier <code>readout.safetensors</code> de 255 × 5 120). La fiche précise une particularité : les couches d'attention complète fonctionnent en mode non causal, chaque token « voit » tout le contexte, comme dans un encodeur. L'entrée est limitée à 8 192 tokens, texte et images compris ; les entrées trop longues sont rejetées plutôt que tronquées. Les images sont ramenées à 512 × 512 pixels au plus pour reproduire les conditions d'évaluation.</p>\n<h2>Ce que la fiche annonce, et ce qu'il faut vérifier</h2>\n<p>Perplexity publie un tableau du Decision Index en cinq catégories. La v1.1 obtient 61,56 au global, contre 56,4 pour la v1 et 57,9 pour Jev. Le gain vient des catégories Language (69,5), Retrieval (61,3) et Knowledge (48,2) ; sur Tools, la v1.1 recule légèrement (78,9 contre 79,3 pour la v1). Ces chiffres sont auto-déclarés. La fiche renvoie au <a href=\"https://huggingface.co/spaces/multimodalart/jev-decision-index\">Space Jev Decision Index</a>, dont nous n'avons pu lire que la description, pas le tableau.</p>\n<p>Trois points pratiques. Les poids pèsent environ 49 Go en BF16 : il faut un GPU de 80 Go ou une quantisation. La fiche ne décrit aucun GGUF officiel ; l'arbre du modèle liste trois quantisations communautaires, sans détail. Enfin, la fiche parle d'un accès Hugging Face authentifié : un jeton peut être nécessaire au téléchargement. Les langues couvertes ne sont pas précisées.</p>\n<h2>Face à JEV-27B-VL, clef-omni et d1-omni-600M</h2>\n<p>Quatre familles partagent désormais le même format d'entrée-sortie. JEV-27B-VL repose sur la même base Qwen3.8-27B, mais garde un tronc intact et ajoute un adaptateur LoRA : il peut donc aussi générer du texte (« System 2 »), accepte jusqu'à 256 k tokens et expose une route <code>/v1/decide</code> dans vLLM. Sa fiche le place premier du Decision Index Vision (69,8, évaluation communautaire du 7 octobre) avec une erreur de calibration de 0,019. Elle précise aussi que la tête de décision n'a été entraînée que sur du texte : les décisions sur image sont zero-shot.</p>\n<table>\n<thead><tr><th>Modèle</th><th>Base</th><th>Taille</th><th>Entrées</th><th>Decision Index (fiche)</th><th>Poids</th><th>Licence</th></tr></thead>\n<tbody>\n<tr><td>pplx-decider-v1.1-27b</td><td>Qwen3.8-27B</td><td>27 B</td><td>texte, image</td><td>61,6 (texte)</td><td>≈ 49 Go BF16</td><td>Apache 2.0</td></tr>\n<tr><td>JEV-27B-VL</td><td>Qwen3.8-27B + LoRA</td><td>27 B</td><td>texte, image, génération</td><td>69,8 (vision)</td><td>≈ 52 Go BF16</td><td>Apache 2.0</td></tr>\n<tr><td>clef-omni</td><td>Qwen3-Omni-30B-A3B</td><td>30 B, 3 B actifs</td><td>texte, image, audio, vidéo</td><td>non publié</td><td>≈ 64 Go BF16, 8 quantisations</td><td>Apache 2.0</td></tr>\n<tr><td>d1-omni-600M</td><td>LFM2</td><td>0,6 B</td><td>texte, image, audio 30 s</td><td>15,95 (calcul Liquid AI)</td><td>F32, tourne sur CPU</td><td>LFM 1.0</td></tr>\n</tbody>\n</table>\n<p>Deux remarques. <a href=\"https://huggingface.co/Cloudflare/clef-omni\">clef-omni</a> est le seul à accepter l'audio et la vidéo, mais sa fiche ne publie pas de score Decision Index global, seulement des benchmarks internes (MMLU 92,7 %, 60,2 % d'actions exactes sur un flux de factures). <a href=\"https://huggingface.co/LiquidAI/d1-omni-600M\">d1-omni-600M</a> est le seul qui tourne sur CPU ; son score de 15,95, calculé par Liquid AI avec le scorer officiel et non soumis au tableau, donne la mesure de l'écart avec les 27 B. Le choix dépend donc du matériel disponible plus que du classement.</p>\n<h2>Comment l'essayer</h2>\n<ol>\n<li>Sans GPU : commencer par d1-omni-600M, ou par GLiNER2.5-Decide vu hier, pour valider le format « question fermée + options » sur un échantillon de vos courriers ou factures.</li>\n<li>Avec un GPU de 24 Go : attendre une quantisation de pplx-decider. La fiche n'en documente pas, et le modèle n'a pas de <code>lm_head</code> complet, ce qui complique les conversions habituelles.</li>\n<li>Avec un GPU de 80 Go : lancer JEV-27B-VL sous vLLM avec <code>--max-num-seqs 8</code> (obligatoire selon la fiche, sinon les probabilités sont fausses), puis pplx-decider via son script <code>autojev.model</code> en Python 3.12, et comparer sur les mêmes lignes.</li>\n<li>Mesurer vous-même : le jeu <a href=\"https://huggingface.co/datasets/LocalLLaMA/typed-decisions\">typed-decisions</a> (1,6 k décisions, dont des factures) sert de base commune ; regarder la calibration plutôt que la seule précision.</li>\n</ol>\n<p>À surveiller : l'inscription de pplx-decider au tableau communautaire, et l'arrivée d'une version quantisée qui le rendrait exploitable sous 80 Go.</p>",
+  "date": "2026-10-12",
+  "domaine": "agents",
+  "itemIds": [
+    "perplexity-ai__pplx-decider-v1.1-27b",
+    "autotrust__JEV-27B-VL",
+    "Cloudflare__clef-omni",
+    "LiquidAI__d1-omni-600M",
+    "multimodalart__jev-decision-index",
+    "LocalLLaMA__typed-decisions",
+    "fastino__GLiNER2.5-Decide",
+    "Qwen__Qwen3.8-27B"
+  ],
+  "motsCles": [
+    "modèle de décision",
+    "Perplexity",
+    "pplx-decider",
+    "JEV-27B-VL",
+    "Decision Index",
+    "Qwen3.8-27B",
+    "routage",
+    "calibration"
+  ],
+  "publieLe": "2026-10-12T08:16:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche perplexity-ai/pplx-decider-v1.1-27b",
+      "url": "https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b"
+    },
+    {
+      "titre": "Fiche autotrust/JEV-27B-VL",
+      "url": "https://huggingface.co/autotrust/JEV-27B-VL"
+    },
+    {
+      "titre": "Fiche Cloudflare/clef-omni",
+      "url": "https://huggingface.co/Cloudflare/clef-omni"
+    },
+    {
+      "titre": "Fiche LiquidAI/d1-omni-600M",
+      "url": "https://huggingface.co/LiquidAI/d1-omni-600M"
+    },
+    {
+      "titre": "Fiche multimodalart/jev-decision-index",
+      "url": "https://huggingface.co/spaces/multimodalart/jev-decision-index"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "pplx-decider v1.1 : Perplexity prend la tête du Decision Index, JEV-27B-VL garde l'image",
+  "verifiePar": "redac-chef"
+}

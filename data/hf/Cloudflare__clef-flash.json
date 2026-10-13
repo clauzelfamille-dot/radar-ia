@@ -5,13 +5,13 @@
  "compteNom": "Cloudflare",
  "compteType": "organisation",
  "creeLe": "2026-09-30",
- "downloads": 22123,
+ "downloads": 23285,
  "formats": [
   "safetensors"
  ],
  "hfId": "Cloudflare/clef-flash",
  "licence": "apache-2.0",
- "likes": 752,
+ "likes": 791,
  "majLe": "2026-10-09",
  "modeleBase": [
   {
@@ -23,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Cloudflare/clef-flash",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

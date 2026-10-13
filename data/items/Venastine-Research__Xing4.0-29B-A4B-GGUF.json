@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-09-28",
-  "derniereVue": "2026-10-11",
+  "derniereVue": "2026-10-13",
   "domaines": [
     "local",
     "agents"
   ],
-  "downloads": 45200,
+  "downloads": 52800,
   "hfId": "Venastine-Research/Xing4.0-29B-A4B-GGUF",
   "historique": [
     {
@@ -13,18 +13,30 @@
       "downloads": 45200,
       "likes": 686,
       "score": 70
+    },
+    {
+      "date": "2026-10-12",
+      "downloads": 48400,
+      "likes": 691,
+      "score": 70
+    },
+    {
+      "date": "2026-10-13",
+      "downloads": 52800,
+      "likes": 705,
+      "score": 71
     }
   ],
   "licence": null,
-  "likes": 686,
-  "majLe": "2026-10-11T07:30:00+02:00",
+  "likes": 705,
+  "majLe": "2026-10-13T07:30:00+02:00",
   "nom": "Xing4.0-29B-A4B-GGUF",
   "org": "Venastine Research",
   "pertinent": true,
   "pourquoi": "MoE 4 B actifs en GGUF, rapide en local",
   "premiereVue": "2026-10-11",
   "resume": "MoE 29 B avec 4 B actifs en GGUF, rapide en local.",
-  "score": 70,
+  "score": 71,
   "source": "trending",
   "tache": "Génération de texte",
   "taille": "29 B MoE / 4 B actifs",

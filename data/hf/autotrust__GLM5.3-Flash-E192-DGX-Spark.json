@@ -1,0 +1,31 @@
+{
+ "acces": "libre",
+ "bibliotheque": "vllm",
+ "compte": "autotrust",
+ "compteNom": "AutoTrust AI Lab",
+ "compteType": "organisation",
+ "creeLe": "2026-10-09",
+ "downloads": 2982,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "mit",
+ "likes": 175,
+ "majLe": "2026-10-11",
+ "modeleBase": [
+  {
+   "id": "zai-org/GLM-5.3-Flash",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 110710222718,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/autotrust/GLM5.3-Flash-E192-DGX-Spark",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

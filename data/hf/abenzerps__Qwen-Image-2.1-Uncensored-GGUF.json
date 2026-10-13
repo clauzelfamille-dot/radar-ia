@@ -6,12 +6,13 @@
  "creeLe": "2026-09-20",
  "downloads": 2188658,
  "formats": [
-  "GGUF"
+  "GGUF",
+  "MLX"
  ],
  "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
  "licence": "qwen-research",
- "likes": 3970,
- "majLe": "2026-10-11",
+ "likes": 4121,
+ "majLe": "2026-10-12",
  "modeleBase": [
   {
    "id": "Qwen/Qwen-Image-2.1",
@@ -22,5 +23,5 @@
  "tache": "text-to-image",
  "type": "model",
  "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

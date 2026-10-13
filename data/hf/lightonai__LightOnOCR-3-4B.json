@@ -1,0 +1,25 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2412.13663",
+  "2601.14251"
+ ],
+ "bibliotheque": "transformers",
+ "compte": "lightonai",
+ "compteNom": "LightOn AI",
+ "compteType": "organisation",
+ "creeLe": "2026-10-06",
+ "downloads": 3222,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "lightonai/LightOnOCR-3-4B",
+ "licence": "apache-2.0",
+ "likes": 76,
+ "majLe": "2026-10-09",
+ "parametres": 4539265536,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/lightonai/LightOnOCR-3-4B",
+ "verifieLe": "2026-10-13T05:42+00:00"
+}

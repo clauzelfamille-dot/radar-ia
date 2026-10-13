@@ -5,7 +5,7 @@
  "compteNom": "Cactus Compute, Inc.",
  "compteType": "organisation",
  "creeLe": "2026-09-30",
- "downloads": 16434,
+ "downloads": 18643,
  "hfId": "Cactus-Compute/whistle",
  "langues": [
   "en",
@@ -17,10 +17,10 @@
   "pl"
  ],
  "licence": "apache-2.0",
- "likes": 333,
+ "likes": 367,
  "majLe": "2026-10-10",
  "tache": "automatic-speech-recognition",
  "type": "model",
  "url": "https://huggingface.co/Cactus-Compute/whistle",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }

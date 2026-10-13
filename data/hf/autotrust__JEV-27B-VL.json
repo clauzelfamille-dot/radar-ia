@@ -8,7 +8,7 @@
  "compteNom": "AutoTrust AI Lab",
  "compteType": "organisation",
  "creeLe": "2026-09-30",
- "downloads": 1545492,
+ "downloads": 1550455,
  "formats": [
   "safetensors"
  ],
@@ -17,7 +17,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 3775,
+ "likes": 3858,
  "majLe": "2026-10-11",
  "modeleBase": [
   {
@@ -29,5 +29,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/autotrust/JEV-27B-VL",
- "verifieLe": "2026-10-11T21:07+00:00"
+ "verifieLe": "2026-10-13T05:42+00:00"
 }
