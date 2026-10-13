@@ -19,6 +19,7 @@ def main():
     dist = Path(sys.argv[1] if len(sys.argv) > 1 else "dist")
     erreurs, alertes = [], []
     pages = sorted(dist.rglob("*.html"))
+    titres: dict[str, list] = {}; descs: dict[str, list] = {}
     for p in pages:
         h = p.read_text(encoding="utf-8")
         rel = p.relative_to(dist).as_posix()
@@ -38,9 +39,21 @@ def main():
                     erreurs.append(f"{rel} : lien cassé → {href}")
         if len(h.encode()) > 60_000:
             alertes.append(f"{rel} : {len(h.encode()) // 1024} ko")
+        if rel != "404.html":  # référencement : titre et description présents et uniques
+            tt = re.search(r"<title>(.*?)</title>", h, re.S); dd = re.search(r'<meta name="description" content="([^"]*)"', h)
+            if not tt or not tt.group(1).strip(): erreurs.append(f"{rel} : <title> absent")
+            else: titres.setdefault(html.unescape(tt.group(1)).strip(), []).append(rel)
+            if not dd or len(dd.group(1).strip()) < 50: alertes.append(f"{rel} : meta description absente ou trop courte")
+            else: descs.setdefault(html.unescape(dd.group(1)).strip(), []).append(rel)
         t = re.search(r"<title>(.*?)</title>", h, re.S)
-        if t and len(html.unescape(t.group(1))) > 70:
+        if t and html.unescape(t.group(1)).rstrip().endswith("…"):
+            alertes.append(f"{rel} : titre tronqué")
+        if t and len(html.unescape(t.group(1))) > 70 and not rel.startswith(("articles/", "editions/")):  # titres éditoriaux gardés entiers
             alertes.append(f"{rel} : titre de {len(html.unescape(t.group(1)))} caractères")
+    for t_, rs in titres.items():
+        if len(rs) > 1: alertes.append(f"titre en double ({len(rs)} pages) : {t_[:60]} — {', '.join(rs[:3])}")
+    for d_, rs in descs.items():
+        if len(rs) > 1: alertes.append(f"description en double ({len(rs)} pages) : {d_[:60]} — {', '.join(rs[:3])}")
     for n in ["sitemap.xml", "feed.xml"] + [f.relative_to(dist).as_posix() for f in sorted((dist / "feeds").glob("*.xml"))]:
         try:
             ET.parse(dist / n)

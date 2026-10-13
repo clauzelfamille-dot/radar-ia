@@ -165,6 +165,12 @@ def slugify(s: str) -> str:
     s = re.sub(r"[^a-zA-Z0-9._-]+", "-", s).strip("-.").lower()
     return s[:120] or "x"
 
+def titre_court(*variantes: str, n: int = 70) -> str:
+    """Première variante de titre qui tient en n caractères (sinon la plus courte)."""
+    for v in variantes:
+        if v and len(v) <= n: return v
+    return min((v for v in variantes if v), key=len)
+
 def clip(s: str, n: int) -> str:
     s = re.sub(r"\s+", " ", s or "").strip()
     return s if len(s) <= n else s[: n - 1].rsplit(" ", 1)[0] + "…"
@@ -583,7 +589,8 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
                          if re.match(r"^[\w-]{6,}$", str(verif.get(k) or "")))
     og_img = (f'<meta property="og:image" content="{esc(site.abs("assets/og.png"))}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
               f'<meta name="twitter:card" content="summary_large_image">') if site.og and site.url else '<meta name="twitter:card" content="summary">'
-    full_title = title if title.endswith(SITE_NAME) else f"{title} · {SITE_NAME}"
+    # suffixe de marque seulement s'il tient dans 70 caractères (pas de titre tronqué dans les résultats)
+    full_title = title if title.endswith(SITE_NAME) or len(f"{title} · {SITE_NAME}") > 70 else f"{title} · {SITE_NAME}"
     ld = [ld_website(site), ld_org(site)] + (jsonld or [])
     if crumbs:
         ld.append(ld_breadcrumb(site, crumbs))
@@ -592,7 +599,7 @@ def page(site: Site, path: str, title: str, desc: str, body: str, *, jsonld: lis
     if crumbs:
         parts = [f'<a href="{root}{h}">{esc(l)}</a>' if h else esc(l) for l, h in crumbs]
         crumb_html = f'<div class="crumb">{" / ".join(parts)}</div>'
-    head = f"""<title>{esc(clip(full_title, 70))}</title>
+    head = f"""<title>{esc(full_title if og_type == "article" else clip(full_title, 70))}</title>
 <meta name="description" content="{esc(clip(desc, 158))}">
 <meta name="robots" content="{'noindex' if path == '404.html' else 'index,follow,max-snippet:-1,max-image-preview:large'}">{verif_meta}
 {f'<link rel="canonical" href="{esc(canonical)}">' if site.url and path != '404.html' else ''}
@@ -914,7 +921,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
     for a, b, dk in site.comparatifs():
         p = site.cmp_page(a, b)
         va, vb = site.v(a), site.v(b)
-        t = f"{a['nom']} ou {b['nom']} ? Comparatif ({mois})"
+        t = titre_court(f"{a['nom']} ou {b['nom']} ? Comparatif ({mois})", f"{a['nom']} ou {b['nom']} ? Comparatif", f"{a['nom']} ou {b['nom']} ?")
         def faits_dict(it):
             _, md = fiche_faits(site, it, "../")
             return dict(l[2:].split(" : ", 1) for l in md.strip().split("\n") if " : " in l)
@@ -987,7 +994,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
         ex = exemples(cle)[:5]
         ex_html = (' <span class="sm mut">Exemples suivis : ' + ", ".join(f'<a href="{site.item_page(i)}">{esc(i["nom"])}</a>' for i in ex) + ".</span>") if ex else ""
         dts.append(f'<dt id="{cle}">{esc(terme)}</dt><dd>{esc(definition)}{ex_html}</dd>')
-    t = "Glossaire de l'IA ouverte : GGUF, quantification, LoRA, MoE…"
+    t = "Glossaire de l'IA ouverte : GGUF, quantification, LoRA, MoE"
     ld_gl = {"@context": "https://schema.org", "@type": "DefinedTermSet", "name": t, "url": site.abs("glossaire.html"), "inLanguage": "fr-FR",
              "hasDefinedTerm": [{"@type": "DefinedTerm", "name": terme, "description": d, "url": site.abs(f"glossaire.html#{cle}")} for cle, terme, d in GLOSSAIRE]}
     write("glossaire.html", page(site, "glossaire.html", t, "Les mots de l'IA open source expliqués simplement : GGUF, quantification, fine-tune, LoRA, MoE, contexte, licences, RAG, OCR, avec des exemples de modèles suivis.",
@@ -1053,7 +1060,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
         if len(its) < 2: continue
         slug, nom_t = TACHES[tk]
         p = f"taches/{slug}.html"
-        t = f"Modèles open source : {nom_t} ({mois})"
+        t = titre_court(f"Modèles open source : {nom_t} ({mois})", f"Modèles open source : {nom_t.split(' (')[0]} ({mois})", f"{nom_t.split(' (')[0]} : modèles open source")
         perm = [i for i in its if (site.lic(i) or "").lower() in ("apache-2.0", "mit")]
         gg = [i for i in its if "GGUF" in (site.v(i).get("formats") or [])]
         fr = [i for i in its if "fr" in (site.v(i).get("langues") or [])]
@@ -1201,7 +1208,8 @@ def build(site: Site, out: Path, artifact=False):
 {f'<section><div class="sh"><h2>Articles qui en parlent</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
 {f'<section><div class="sh"><h2>Dans le même domaine</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in same)}</div></section>' if same else ''}
 {bloc_abonnement(site, '../')}"""
-        write(p, page(site, p, f"{it['nom']} — {tl} {it.get('tache') or ''} : fiche, licence, score", desc, body, md_path=p.replace(".html", ".md"),
+        write(p, page(site, p, titre_court(f"{it['nom']} — {tl} {it.get('tache') or ''} : fiche, licence, score", f"{it['nom']} — {tl} : fiche, licence, score",
+                                              f"{it['nom']} : fiche, licence, score", f"{it['nom']} : fiche", it["nom"]), desc, body, md_path=p.replace(".html", ".md"),
                       crumbs=[("Accueil", "index.html"), ("Modèles", "modeles.html"), (it["nom"], None)], jsonld=[ld_item(site, it)], nav_key="modeles.html"),
               it.get("derniereVue"))
         md = (f"# {it['nom']}\n\n> {it.get('resume')}\n\n- Identifiant Hugging Face : `{it.get('hfId')}` — {site.hf_url(it)}\n- Type : {tl}\n" + kv_md +
