@@ -99,7 +99,7 @@ def un(item_path: Path, out_dir: Path, maintenant: str, token: str | None) -> st
         return f"échec {it['hfId']} ({e})"
     f = faits(it, d, maintenant)
     f.update(compte(it["hfId"].split("/")[0], token))
-    (out_dir / f"{item_path.stem}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
+    (out_dir / f"{item_path.stem}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     return "ok"
 
 def main():

@@ -852,7 +852,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
     t = f"Licences des modèles IA open source suivis ({mois})"
     sommaire = " · ".join(f'<a href="#{slugify(l) if l else "non-declaree"}">{esc(l or "non déclarée")} ({len(par_lic[l])})</a>' for l in ordre)
     secs = "".join(f'<section id="{slugify(l) if l else "non-declaree"}"><div class="sh"><h2>{esc(l or "Licence non déclarée")}</h2><span class="eb">{len(par_lic[l])} élément(s)</span></div>'
-                   f'<p class="sm" style="max-width:70ch">{esc(LICENCES.get(l.lower(), LICENCE_AUTRE) if l else LICENCE_AUCUNE)}</p>{table_faits(site, par_lic[l], "../", ("params", "dl", "score"))}</section>' for l in ordre)
+                   f'<p class="sm" style="max-width:70ch">{esc(LICENCES.get(l.lower(), LICENCE_AUTRE) if l else LICENCE_AUCUNE)}</p>{table_faits(site, par_lic[l][:12], "../", ("params", "dl", "score"))}{f'<p class="sm mut">Les 12 mieux classés sur {len(par_lic[l])}.</p>' if len(par_lic[l]) > 12 else ""}</section>' for l in ordre)
     body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Avant d’utiliser un modèle en entreprise, sa licence compte autant que ses performances. '
             f'Voici la licence déclarée de chaque élément suivi, regroupée et résumée. Résumés indicatifs, pas un avis juridique : lisez le texte de la licence (lien sur chaque fiche).</p>{note}'
             f'<p class="sm mono">{sommaire}</p>{secs}')
@@ -881,7 +881,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
     for bid, ders in site.familles().items():
         p = site.fam_page(bid)
         nom = bid.split("/", 1)[-1]
-        t = f"{nom} : dérivés, GGUF et fine-tunes ({mois})"
+        t = titre_court(f"{nom} : dérivés, GGUF et fine-tunes ({mois})", f"{nom} : dérivés et fine-tunes", f"Dérivés de {nom}", nom)
         base = suivis.get(bid)
         tete = (f'<p>Modèle de base suivi : <a href="../{site.item_page(base)}"><strong>{esc(base["nom"])}</strong></a> {score_badge(base.get("score"))} — {esc(base.get("resume"))}</p>' if base
                 else f'<p>Modèle de base : <a href="https://huggingface.co/{esc(bid)}" rel="noopener">{esc(bid)}</a> (non suivi par Radar IA).</p>')
@@ -899,7 +899,7 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
         nom = site.org(its[0])
         if len(its) >= 2:
             p = site.ed_page_url(acc)
-            t = f"Modèles {nom} suivis par Radar IA ({mois})"
+            t = titre_court(f"Modèles {nom} suivis par Radar IA ({mois})", f"Modèles {nom} suivis par Radar IA", f"Modèles {nom}", nom)
             body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">{len(its)} éléments publiés par le compte Hugging Face '
                     f'<a href="https://huggingface.co/{esc(acc)}" rel="noopener"><code>{esc(acc)}</code></a> et suivis par Radar IA, classés par Score Radar.</p>{note}'
                     f'{table_faits(site, its, "../", ("params", "licence", "dl", "score"))}'
@@ -1015,13 +1015,13 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
         recents = []
     t = f"Nouveaux modèles IA open source repérés ({mois})"
     secs = "".join(f'<section><div class="sh"><h2>Entrés dans le radar le {d_long(j)}</h2><span class="eb">{len(v)} élément(s)</span></div>'
-                   f'<div class="cards">{"".join(item_card(site, x, "") for x in v[:12])}</div>'
-                   + (f'<p class="sm mut">Et {len(v) - 12} autres : voir l’<a href="modeles.html">annuaire des modèles</a>.</p>' if len(v) > 12 else "") + '</section>' for j, v in sorted(par_jour.items(), reverse=True)[:7])
+                   f'<div class="cards">{"".join(item_card(site, x, "") for x in v[:8])}</div>'
+                   + (f'<p class="sm mut">Et {len(v) - 8} autres : voir l’<a href="modeles-a-z.html">index A-Z</a>.</p>' if len(v) > 8 else "") + '</section>' for j, v in sorted(par_jour.items(), reverse=True)[:5])
     rec = (f'<section><div class="sh"><h2>Créés sur Hugging Face depuis 30 jours</h2><span class="eb">{len(recents)} élément(s)</span></div>'
            f'<div class="tw"><table style="min-width:560px"><thead><tr><th>Élément</th><th>Créé le</th><th>Paramètres</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>'
            + "".join(f'<tr><td><a href="{site.item_page(i)}"><strong>{esc(i["nom"])}</strong></a><div class="sm mut mono">{esc(site.org(i))}</div></td>'
                      f'<td class="mono sm">{d_short(site.v(i)["creeLe"])}</td><td class="r num">{esc(fmt_params(site.v(i).get("parametres")) or "—")}</td>'
-                     f'<td class="sm">{esc(site.lic(i) or "non déclarée")}</td><td class="r">{score_badge(i.get("score"))}</td></tr>' for i in recents)
+                     f'<td class="sm">{esc(site.lic(i) or "non déclarée")}</td><td class="r">{score_badge(i.get("score"))}</td></tr>' for i in recents[:40])
            + '</tbody></table></div></section>') if recents else ""
     body = (f'<h1>{esc(t)}</h1><p class="mut" style="max-width:70ch">Les éléments entrés dans le radar de Radar IA, jour par jour, et ceux créés sur Hugging Face au cours des 30 derniers jours (date vérifiée). '
             f'<a href="feed.xml">Flux RSS</a> · <a href="domaines.html">flux par domaine</a>.</p>{note}{rec}{secs}')
@@ -1184,10 +1184,11 @@ def build(site: Site, out: Path, artifact=False):
 
     # --- Modèles (longue traîne)
     all_items = sorted(site.items.values(), key=lambda i: -(i.get("score") or 0))
-    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(site.org(it))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items)
+    MAX_ANNUAIRE = 60  # au-delà, page > 60 ko : la liste complète est l'index A-Z
+    rows = "".join(f"""<tr><td><a href="{site.item_page(it)}"><strong>{esc(it['nom'])}</strong></a>{' <span class="star">★</span>' if it.get('pertinent') else ''}<div class="sm mut mono">{esc(site.org(it))}</div></td><td>{esc(TYPE_LABEL.get(it.get('type'), ''))}</td><td>{esc(it.get('tache'))}</td><td class="mono sm">{esc(site.taille(it) or '—')}</td><td class="mono sm">{esc(site.lic(it) or '—')}</td><td class="r">{score_badge(it.get('score'))}</td></tr>""" for it in all_items[:MAX_ANNUAIRE])
     write("modeles.html", page(site, "modeles.html", "Annuaire des modèles IA suivis : taille, licence, score", f"{len(all_items)} modèles, datasets et Spaces Hugging Face suivis par Radar IA, avec taille, licence, tâche et Score Radar.",
-          f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments, triés par Score Radar (<a href="modeles-a-z.html">index A-Z</a>). ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
-          crumbs=[("Accueil", "index.html"), ("Modèles", None)], jsonld=[ld_itemlist(site, "Modèles suivis par Radar IA", all_items[:100], "modeles.html")]))
+          f'<h1>Modèles, datasets et Spaces suivis</h1><p class="mut">{len(all_items)} éléments suivis{f" ; les {MAX_ANNUAIRE} mieux classés ci-dessous" if len(all_items) > MAX_ANNUAIRE else ""}, triés par Score Radar. Liste complète : <a href="modeles-a-z.html">index A-Z</a>. ★ = utile pour l\'IA pratique (local, documents, agents, audio, code, français).</p><div class="tw"><table><thead><tr><th>Nom</th><th>Type</th><th>Tâche</th><th>Taille</th><th>Licence</th><th class="r">Score</th></tr></thead><tbody>{rows}</tbody></table></div>',
+          crumbs=[("Accueil", "index.html"), ("Modèles", None)], jsonld=[ld_itemlist(site, "Modèles suivis par Radar IA", all_items[:MAX_ANNUAIRE], "modeles.html")]))
     for it in all_items:
         p = site.item_page(it)
         arts = [a for a in site.art_sorted if it["_id"] in (a.get("itemIds") or [])]
