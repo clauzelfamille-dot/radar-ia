@@ -435,6 +435,7 @@ main{padding-block:30px 60px}section{margin-top:40px}section:first-child{margin-
 .box{background:var(--bg3);border-radius:var(--r);padding:16px 18px}
 .radar{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
 .radar h2{font-size:1rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--fg2)}
+.sparks{display:grid;gap:12px;margin:8px 0 4px}.spark svg{display:block;width:100%;height:40px;margin:4px 0 2px;background:var(--bg2);border-bottom:1px solid var(--line)}.spark .t{display:flex;justify-content:space-between;gap:8px}
 .bars{list-style:none;margin:12px 0 0;padding:0}.bars li{margin:10px 0}.bars a{color:var(--fg);text-decoration:none;font-weight:600;font-size:.92rem}
 .bars .t{display:flex;justify-content:space-between;gap:8px}.bars .t span{font-family:var(--mono);font-size:.8rem;color:var(--fg2)}
 .bars .g{height:6px;background:var(--ring);border-radius:3px;margin-top:4px;overflow:hidden}.bars .g i{display:block;height:100%;background:var(--acc);border-radius:3px}
@@ -743,6 +744,21 @@ def rss_domaine(site, dk) -> str:
     return (f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
             f"<title>{esc(SITE_NAME)} — {esc(nom)}</title><link>{esc(site.abs(site.dom_page(dk)))}</link><description>{esc(site.domaines.get(dk, {}).get('description') or nom)}</description>"
             f'<language>fr-fr</language><lastBuildDate>{rfc822(site.built_at)}</lastBuildDate><atom:link href="{esc(url)}" rel="self" type="application/rss+xml"/>{items}</channel></rss>')
+
+def sparkline(hist, cle, libelle, fmt=fmt_n) -> str:
+    """Mini-courbe SVG (sans JavaScript) d'une série de l'historique ; rien si moins de 2 relevés."""
+    pts = [(h.get("date"), h.get(cle)) for h in hist if isinstance(h.get(cle), (int, float))]
+    if len(pts) < 2: return ""
+    vals = [v for _, v in pts]; lo, hi = min(vals), max(vals); W, H = 160, 36
+    xy = [(round(i * W / (len(pts) - 1), 1), round(H - 4 - ((v - lo) / (hi - lo) if hi > lo else .5) * (H - 8), 1)) for i, (_, v) in enumerate(pts)]
+    d = " ".join(f"{'M' if i == 0 else 'L'}{x},{y}" for i, (x, y) in enumerate(xy))
+    var = vals[-1] - vals[0]
+    sens = "stable" if var == 0 else ("en hausse" if var > 0 else "en baisse")
+    resume = f"{libelle} : {fmt(vals[0])} le {d_short(pts[0][0])}, {fmt(vals[-1])} le {d_short(pts[-1][0])} ({sens})"
+    return (f'<div class="spark"><div class="t"><span class="eb">{esc(libelle)}</span><span class="mono sm">{fmt(vals[-1])}</span></div>'
+            f'<svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" role="img" aria-label="{esc(resume)}"><path d="{d}" fill="none" stroke="var(--acc)" stroke-width="2" vector-effect="non-scaling-stroke"/>'
+            f'<circle cx="{xy[-1][0]}" cy="{xy[-1][1]}" r="2.5" fill="var(--acc2)"/></svg>'
+            f'<div class="sm mut mono">{d_short(pts[0][0])} → {d_short(pts[-1][0])} · {sens}</div></div>')
 
 def radar_panel(site, n=6) -> str:
     """Top du jour en jauges horizontales (CSS seul)."""
@@ -1204,7 +1220,7 @@ def build(site: Site, out: Path, artifact=False):
 <dt>Pertinent IA pratique</dt><dd>{'oui ★' if it.get('pertinent') else 'non'}</dd><dt>Fiche officielle</dt><dd><a href="{esc(site.hf_url(it))}" rel="noopener">{esc(site.hf_url(it))}</a></dd></dl>
 {f'<p class="sm mut" style="margin-top:8px">Licence, dates, langues, paramètres, formats, modèle de base et compteurs vérifiés sur l’API Hugging Face le {d_short(site.v(it)["verifieLe"])}.</p>' if site.v(it).get("verifieLe") else ''}
 <p class="box sm" style="margin-top:16px"><strong>Pourquoi ça compte.</strong> {esc(it.get('pourquoi'))}</p>{bloc_affiliation(site, it)}</div>
-<aside>{f'<h2 style="font-size:1rem">Historique des relevés</h2><div class="tw" style="margin-top:8px"><table style="min-width:0"><thead><tr><th>Date</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th></tr></thead><tbody>{hist_rows}</tbody></table></div>' if hist_rows else ''}</aside></div>
+<aside>{f'<h2 style="font-size:1rem">Évolution</h2><div class="sparks">{sparks}</div>' if (sparks := sparkline(hist, "likes", "Likes") + sparkline(hist, "downloads", "Téléchargements") + sparkline(hist, "score", "Score Radar", lambda v: str(round(v)))) else ''}{f'<h2 style="font-size:1rem;margin-top:16px">Historique des relevés</h2><div class="tw" style="margin-top:8px"><table style="min-width:0"><thead><tr><th>Date</th><th class="r">Likes</th><th class="r">Téléch.</th><th class="r">Score</th></tr></thead><tbody>{hist_rows}</tbody></table></div>' if hist_rows else ''}</aside></div>
 {(lambda cs: f'<section><div class="sh"><h2>Comparer</h2></div><ul class="ess">{cs}</ul></section>' if cs else '')("".join(f'<li><a href="../{site.cmp_page(x, y)}">{esc(x["nom"])} ou {esc(y["nom"])} ?</a></li>' for x, y, _ in site.comparatifs() if it["_id"] in (x["_id"], y["_id"])))}
 {f'<section><div class="sh"><h2>Articles qui en parlent</h2></div><div class="cards">{"".join(art_card(site, a, "../") for a in arts)}</div></section>' if arts else ''}
 {f'<section><div class="sh"><h2>Dans le même domaine</h2></div><div class="cards">{"".join(item_card(site, x, "../") for x in same)}</div></section>' if same else ''}
