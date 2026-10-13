@@ -7,7 +7,9 @@ Coûts directs actuels : 0 € (GitHub Pages gratuit ; les agents tournent sur l
 | Levier | Fonctionnement |
 |---|---|
 | Référencement Google/Bing | Pages statiques, JSON-LD, sitemap, titres « Meilleurs modèles … (mois année) » sur les domaines |
-| Contenu vérifié | Faits relus sur l'API Hugging Face à chaque publication ; guides français, licences, GGUF, familles de modèles |
+| Contenu vérifié | Faits relus sur l'API Hugging Face à chaque publication (licence, dates, taille, langues, éditeur) |
+| Pages longue traîne | Guides (français, licences, GGUF), familles de modèles, éditeurs, 21+ comparatifs « X ou Y ? », pages par tâche avec FAQ, glossaire, nouveautés, index A-Z, flux RSS par domaine |
+| Qualité | Contrôle avant publication (liens, JSON-LD, XML, titres/descriptions uniques, poids) et après déploiement (site en ligne) ; accessibilité WCAG AA |
 | Assistants IA (GEO) | `llms.txt`, `.md` jumeaux, API JSON + OpenAPI, robots IA autorisés |
 | IndexNow | Chaque déploiement signale toutes les pages à Bing (→ ChatGPT Search, Copilot), Yandex, Seznam, Naver |
 | Partage | Image `og.png` 1200×630, liens de partage sans traceur sous chaque article |
