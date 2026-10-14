@@ -4,7 +4,7 @@
  "compteNom": "Wikimedia",
  "compteType": "organisation",
  "creeLe": "2022-03-02",
- "downloads": 280280,
+ "downloads": 285580,
  "hfId": "wikimedia/wikipedia",
  "langues": [
   "ab",
@@ -331,11 +331,11 @@
   "zu"
  ],
  "licence": "cc-by-sa-3.0",
- "likes": 1662,
+ "likes": 1681,
  "majLe": "2024-01-09",
  "tache": "text-generation, fill-mask",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "n<1K, 1K<n<10K, 10K<n<100K, 100K<n<1M, 1M<n<10M"
 }

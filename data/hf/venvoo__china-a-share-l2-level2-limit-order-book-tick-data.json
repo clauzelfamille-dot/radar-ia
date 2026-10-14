@@ -3,14 +3,14 @@
  "compte": "venvoo",
  "compteType": "utilisateur",
  "creeLe": "2026-09-01",
- "downloads": 95897,
+ "downloads": 113487,
  "hfId": "venvoo/china-a-share-l2-level2-limit-order-book-tick-data",
  "licence": "research-use-only",
  "licenceLien": "https://huggingface.co/datasets/venvoo/china-a-share-l2-level2-limit-order-book-tick-data/blob/main/LICENSE",
- "likes": 249,
+ "likes": 264,
  "majLe": "2026-09-30",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/venvoo/china-a-share-l2-level2-limit-order-book-tick-data",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "n>1T"
 }

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-29",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [],
   "downloads": 4410000,
   "hfId": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
@@ -22,11 +22,17 @@
       "downloads": 4410000,
       "likes": 835,
       "score": 70
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 4410000,
+      "likes": 835,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
   "likes": 835,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
   "org": "ISTA-DASLab",
   "pertinent": false,

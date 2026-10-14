@@ -6,7 +6,7 @@
  "compteType": "organisation",
  "contexte": 131072,
  "creeLe": "2026-10-07",
- "downloads": 20646,
+ "downloads": 47690,
  "formats": [
   "GGUF"
  ],
@@ -15,7 +15,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 78,
+ "likes": 88,
  "majLe": "2026-10-07",
  "modeleBase": [
   {
@@ -27,5 +27,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

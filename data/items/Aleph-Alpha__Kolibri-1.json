@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-01",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "multilingue"
   ],
@@ -24,15 +24,21 @@
       "downloads": 14000,
       "likes": 917,
       "score": 59
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 14000,
+      "likes": 917,
+      "score": 59
     }
   ],
   "licence": null,
   "likes": 917,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Kolibri-1",
   "org": "Aleph Alpha",
   "pertinent": false,
-  "pourquoi": "LLM européen 78 B",
+  "pourquoi": "Acteur européen dans le top 20.",
   "premiereVue": "2026-10-11",
   "resume": "LLM européen de 78 B publié par Aleph Alpha.",
   "score": 59,

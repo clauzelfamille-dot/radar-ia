@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-08-30",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "local"
+  ],
+  "downloads": 2170000,
+  "hfId": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 2170000,
+      "likes": 1270,
+      "score": 74
+    }
+  ],
+  "licence": null,
+  "likes": 1270,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "Huihui-Qwen3.8-27B-abliterated-GGUF",
+  "org": "huihui-ai",
+  "pertinent": true,
+  "pourquoi": "2,2 M de téléchargements.",
+  "premiereVue": "2026-10-14",
+  "resume": "GGUF « abliterated » (sans refus) de Qwen3.8-27B, mis à jour il y a 1 j.",
+  "score": 74,
+  "source": "trending",
+  "tache": "Vision-langage",
+  "taille": "27 B",
+  "type": "model",
+  "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF"
+}

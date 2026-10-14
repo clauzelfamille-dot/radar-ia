@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "code",
+    "local"
+  ],
+  "downloads": 679000,
+  "hfId": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 679000,
+      "likes": 377,
+      "score": 73
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 377,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+  "org": "ISTA-DASLab",
+  "pertinent": true,
+  "pourquoi": "Un modèle de code « frontier » qui tient dans 32 Go.",
+  "premiereVue": "2026-10-14",
+  "resume": "Qwen3.8-Flash-Next élagué (moitié des experts) et quantisé à 3,5 bits pour le code et les agents : 29,6 Go en mémoire, 32 Go d'accélérateur ; SWE-bench 75,6.",
+  "score": 73,
+  "source": "trending",
+  "tache": "Code",
+  "taille": "117 B élagué (29,6 Go)",
+  "type": "model",
+  "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF"
+}

@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-10-11",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "documents"
   ],
-  "downloads": 741,
+  "downloads": 549,
   "hfId": "tencent/Youtu-Parsing-Omni",
   "historique": [
     {
@@ -18,18 +18,24 @@
       "downloads": 741,
       "likes": 86,
       "score": 60
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 549,
+      "likes": 75,
+      "score": 59
     }
   ],
   "licence": "youtu-parsing (licence propre)",
-  "likes": 86,
-  "majLe": "2026-10-13T07:05:00+02:00",
+  "likes": 75,
+  "majLe": "2026-10-14T07:05:00+02:00",
   "nom": "Youtu-Parsing-Omni",
   "org": "Tencent",
   "pertinent": true,
   "pourquoi": "Parsing documentaire tout-en-un avec sortie JSON exploitable",
   "premiereVue": "2026-10-12",
   "resume": "Modèle omni-modal 5 B de Tencent qui convertit pages, images, graphiques, audio et vidéo en JSON structuré (mise en page, texte, tableaux OTSL, formules LaTeX, Mermaid, boîtes, horodatages). OmniDocBench 97, meilleur open-weight sur OmniParsingBench. GPU requis.",
-  "score": 60,
+  "score": 59,
   "source": "nouveau",
   "tache": "Analyse de documents (OCR, mise en page)",
   "taille": "5 B",

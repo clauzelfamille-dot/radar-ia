@@ -3,14 +3,14 @@
  "compte": "ankitjh4",
  "compteType": "utilisateur",
  "creeLe": "2026-09-30",
- "downloads": 874,
+ "downloads": 929,
  "hfId": "ankitjh4/bharat-government-documents",
  "licence": "source-specific-rights",
  "licenceLien": "https://huggingface.co/datasets/ankitjh4/bharat-government-documents#rights-and-use",
- "likes": 62,
+ "likes": 64,
  "majLe": "2026-10-04",
  "tache": "question-answering, text-retrieval",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/ankitjh4/bharat-government-documents",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

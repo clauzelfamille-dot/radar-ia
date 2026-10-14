@@ -3,7 +3,7 @@
  "compte": "ZefanCai",
  "compteType": "utilisateur",
  "creeLe": "2026-09-20",
- "downloads": 6096,
+ "downloads": 6644,
  "hfId": "ZefanCai/Open-Jev",
  "langues": [
   "en",
@@ -11,11 +11,11 @@
   "tr"
  ],
  "licence": "cc0-1.0",
- "likes": 95,
+ "likes": 103,
  "majLe": "2026-09-20",
  "tache": "text-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/ZefanCai/Open-Jev",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "100K<n<1M"
 }

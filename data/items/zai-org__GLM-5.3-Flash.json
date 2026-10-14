@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-09-22",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "code",
     "agents"
   ],
-  "downloads": 4240000,
+  "downloads": 6540000,
   "hfId": "zai-org/GLM-5.3-Flash",
   "historique": [
     {
@@ -25,18 +25,24 @@
       "downloads": 4240000,
       "likes": 2570,
       "score": 74
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 6540000,
+      "likes": 2800,
+      "score": 75
     }
   ],
-  "licence": null,
-  "likes": 2570,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "licence": "MIT",
+  "likes": 2800,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "GLM-5.3-Flash",
   "org": "Z.ai",
   "pertinent": false,
   "pourquoi": "GLM 5.3 Flash, 4,2 M téléch.",
   "premiereVue": "2026-10-11",
   "resume": "Le « Flash » de GLM 5.3.",
-  "score": 74,
+  "score": 75,
   "source": "likes30d",
   "tache": "Vision-langage",
   "taille": "321 B",

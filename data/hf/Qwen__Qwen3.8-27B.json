@@ -5,17 +5,17 @@
  "compteNom": "Qwen",
  "compteType": "organisation",
  "creeLe": "2026-08-05",
- "downloads": 6895303,
+ "downloads": 7221327,
  "formats": [
   "safetensors"
  ],
  "hfId": "Qwen/Qwen3.8-27B",
  "licence": "apache-2.0",
- "likes": 17589,
+ "likes": 17676,
  "majLe": "2026-08-14",
  "parametres": 27781427952,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

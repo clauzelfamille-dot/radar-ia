@@ -5,13 +5,13 @@
  "compteNom": "Perplexity",
  "compteType": "organisation",
  "creeLe": "2026-10-05",
- "downloads": 2480,
+ "downloads": 3154,
  "formats": [
   "safetensors"
  ],
  "hfId": "perplexity-ai/pplx-decider-v1.1-27b",
  "licence": "apache-2.0",
- "likes": 135,
+ "likes": 146,
  "majLe": "2026-10-12",
  "modeleBase": [
   {
@@ -23,5 +23,5 @@
  "tache": "text-classification",
  "type": "model",
  "url": "https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

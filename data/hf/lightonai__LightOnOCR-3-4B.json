@@ -9,17 +9,17 @@
  "compteNom": "LightOn AI",
  "compteType": "organisation",
  "creeLe": "2026-10-06",
- "downloads": 3222,
+ "downloads": 7896,
  "formats": [
   "safetensors"
  ],
  "hfId": "lightonai/LightOnOCR-3-4B",
  "licence": "apache-2.0",
- "likes": 76,
+ "likes": 84,
  "majLe": "2026-10-09",
  "parametres": 4539265536,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/lightonai/LightOnOCR-3-4B",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

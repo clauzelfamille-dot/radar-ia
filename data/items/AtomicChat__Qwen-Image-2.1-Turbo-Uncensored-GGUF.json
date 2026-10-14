@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-10",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,15 +24,21 @@
       "downloads": 162000,
       "likes": 378,
       "score": 66
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 162000,
+      "likes": 378,
+      "score": 66
     }
   ],
   "licence": null,
   "likes": 378,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen-Image-2.1-Turbo-Uncensored-GGUF",
   "org": "AtomicChat",
   "pertinent": false,
-  "pourquoi": "Vague Turbo : encodeur GGUF 3,3 à 16 Go",
+  "pourquoi": "Génération d'images en local via ComfyUI.",
   "premiereVue": "2026-10-11",
   "resume": "Encodeur texte Qwen3-VL-8B « décensuré » en GGUF (3,3 à 16 Go) pour stable-diffusion.cpp.",
   "score": 66,

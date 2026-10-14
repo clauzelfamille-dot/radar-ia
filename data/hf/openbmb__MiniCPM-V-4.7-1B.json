@@ -5,17 +5,17 @@
  "compteNom": "OpenBMB",
  "compteType": "organisation",
  "creeLe": "2026-10-06",
- "downloads": 14,
+ "downloads": 2543,
  "formats": [
   "safetensors"
  ],
  "hfId": "openbmb/MiniCPM-V-4.7-1B",
  "licence": "apache-2.0",
- "likes": 115,
- "majLe": "2026-10-12",
+ "likes": 323,
+ "majLe": "2026-10-14",
  "parametres": 1554476272,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-1B",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

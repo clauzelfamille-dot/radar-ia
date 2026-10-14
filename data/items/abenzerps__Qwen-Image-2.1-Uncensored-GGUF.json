@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-09-20",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
   "downloads": 2190000,
-  "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
+  "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
   "historique": [
     {
       "date": "2026-10-11",
@@ -24,21 +24,27 @@
       "downloads": 2190000,
       "likes": 4120,
       "score": 75
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 2190000,
+      "likes": 4120,
+      "score": 75
     }
   ],
   "licence": null,
   "likes": 4120,
-  "majLe": "2026-10-13T07:30:00+02:00",
-  "nom": "Qwen-Image-2.1-Uncensored-GGUF",
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "Qwen-Image-2.1-Uncensored-Quantized",
   "org": "abenzerps",
   "pertinent": false,
-  "pourquoi": "GGUF image le plus téléchargé",
+  "pourquoi": "2,2 M de téléchargements : la version la plus téléchargée de Qwen-Image.",
   "premiereVue": "2026-10-11",
-  "resume": "Version GGUF de Qwen-Image-2.1 la plus téléchargée.",
+  "resume": "Quantisations communautaires de Qwen-Image-2.1 (dépôt renommé « Quantized », ex-GGUF), mises à jour il y a 22 h.",
   "score": 75,
   "source": "trending",
   "tache": "Texte→image",
   "taille": "7 B",
   "type": "model",
-  "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF"
+  "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized"
 }

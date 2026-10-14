@@ -1,0 +1,32 @@
+{
+  "creeLe": "2025-08-19",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 732000,
+  "hfId": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 732000,
+      "likes": 1180,
+      "score": 57
+    }
+  ],
+  "licence": "DINOv3",
+  "likes": 1180,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "dinov3-vitl16-pretrain-lvd1689m",
+  "org": "Meta",
+  "pertinent": false,
+  "pourquoi": "Brique vision générique.",
+  "premiereVue": "2026-10-14",
+  "resume": "Backbone visuel DINOv3 ViT-L.",
+  "score": 57,
+  "source": "trending",
+  "tache": "Features image",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m"
+}

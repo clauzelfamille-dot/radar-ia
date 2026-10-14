@@ -13,6 +13,12 @@
       "downloads": 16778,
       "likes": 52,
       "score": 64
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 16778,
+      "likes": 52,
+      "score": 58
     }
   ],
   "licence": "LFM Open License",
@@ -24,7 +30,7 @@
   "pourquoi": "Déjà 16,8 k téléchargements : la version locale du d1-3B vu le 11/10.",
   "premiereVue": "2026-10-13",
   "resume": "Quantisations GGUF officielles du d1-3B de Liquid AI pour llama.cpp.",
-  "score": 64,
+  "score": 58,
   "source": "nouveau",
   "tache": "Vision-langage / décision",
   "taille": "3 B",

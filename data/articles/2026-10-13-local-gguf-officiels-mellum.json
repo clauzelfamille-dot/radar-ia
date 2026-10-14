@@ -1,0 +1,45 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "JetBrains publie les GGUF officiels de Mellum 2.1, son MoE de code à 2,5 B actifs : 8,1 Go en Q4_K_M, contexte 131 k, une commande Ollama. La même semaine, OpenBMB (MiniCPM-V 4.7) et Liquid AI (d1-3B) livrent eux-mêmes la version quantisée.",
+  "corpsHtml": "<p>JetBrains publie les <a href=\"https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF\">GGUF officiels de Mellum 2.1</a>, son MoE de code à 2,5 B actifs : 8,1 Go en Q4_K_M, contexte 131 k, une commande Ollama. La même semaine, OpenBMB livre <a href=\"https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B\">MiniCPM-V 4.7</a> avec ses GGUF et Liquid AI publie <a href=\"https://huggingface.co/LiquidAI/d1-3B-GGUF\">d1-3B-GGUF</a> : les éditeurs n'attendent plus la communauté pour sortir la version locale.</p> <h2>Mellum 2.1 en GGUF : ce que la fiche donne</h2> <p>Le modèle d'origine, <a href=\"https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking\">Mellum2.1-12B-A2.5B-Thinking</a>, compte 64 experts dont 8 actifs par token, sous Apache 2.0, et écrit son raisonnement dans des blocs <code>&lt;think&gt;</code>. D'après la page de liste, sa fiche annonce 47 sur SWE-bench Verified et 82 sur LiveCodeBench ; la page GGUF, elle, ne publie aucun benchmark de capacité et renvoie au modèle d'origine. Elle donne en revanche ce que les GGUF communautaires donnent rarement : une mesure de fidélité par quantisation.</p> <table><thead><tr><th>Fichier</th><th>Taille</th><th>Divergence KL vs BF16</th><th>Même premier token</th></tr></thead><tbody> <tr><td>BF16</td><td>24,3 Go</td><td>référence</td><td>référence</td></tr> <tr><td>Q8_0</td><td>12,9 Go</td><td>0,008</td><td>96,1 %</td></tr> <tr><td>Q6_K</td><td>10,9 Go</td><td>0,020</td><td>93,9 %</td></tr> <tr><td>Q4_K_M (recommandé)</td><td>8,1 Go</td><td>0,075</td><td>88,0 %</td></tr> <tr><td>MXFP4_MOE</td><td>7,0 Go</td><td>0,115</td><td>85,6 %</td></tr> </tbody></table> <p>Ces mesures sont faites sur Wikitext-2 avec un contexte de 512 tokens, donc sur du texte, pas sur du code, et sur un contexte court. En Q4, 12 % des premiers tokens diffèrent de la version complète : à vérifier sur une tâche de code réelle avant d'en faire son agent du quotidien. Paramètres recommandés : température 0,6, top_p 0,95, top_k 20. La base compte 20,6 k téléchargements ; la page en affiche 7,8 k sur le mois.</p> <h2>MiniCPM-V 4.7 et d1-3B : deux autres livraisons directes</h2> <p>MiniCPM-V 4.7 35B-A3B est le premier MoE de la série, sous Apache 2.0, avec un LLM issu de Qwen3.6 et un encodeur SigLIP2 qui compresse les tokens visuels par 4 ou par 16. La fiche liste FP8, int4, AWQ, GPTQ, GGUF pour CPU, un modèle de brouillon « DSpark » pour le décodage spéculatif, et une présence sur Ollama. Elle annonce plus de 13 tokens par seconde sur un iPhone 17 Pro Max et un score global supérieur à Qwen3.6 35B-A3B en mode Instruct, mais les chiffres ne sont présentés qu'en images : aucun score OCR ou DocVQA n'est lisible dans le texte, et la mémoire requise n'est pas indiquée. Des guides OCR, PDF et grounding sont fournis. Le petit frère MiniCPM-V-4.7-1B n'a pas pu être lu ce matin : sa page ne répond pas.</p> <p><a href=\"https://huggingface.co/LiquidAI/d1-3B-GGUF\">d1-3B-GGUF</a> apporte le modèle de décision de Liquid AI, vu le 11 octobre, en 1,67 Go (Q4_K_M), 2,87 Go (Q8_0) ou 5,4 Go (BF16), sous licence LFM 1.0, à relire avant tout usage commercial. L'intérêt est ailleurs : llama.cpp expose directement un point d'entrée <code>/v1/systemone</code> qui accepte un état (texte, JSON, images en base64) et des questions typées. Aucun benchmark sur la page GGUF ; la base compte déjà 16,8 k téléchargements.</p> <h2>Face aux GGUF communautaires</h2> <p>Jusqu'ici, la version locale venait de la communauté : <a href=\"https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0\">Underdog-Saluki</a> (Qwen3.8-27B en 7,9 Go, 242 k téléchargements) ou les Swift-Qwen3.8 vus le 11 octobre. Ces versions arrivent vite, mais sans mesure de fidélité, avec des noms de fichiers variables et parfois des modifications non documentées. Un GGUF d'éditeur apporte trois choses : le modèle de chat et la quantisation sont alignés, la perte est chiffrée, et le serveur de référence est supporté le jour de la sortie. Le revers : les éditeurs ne publient pas toujours les plus petites tailles, et les chiffres de perte restent les leurs.</p> <h2>Comment l'essayer</h2> <ol> <li>Mellum, sur un PC avec 16 Go de RAM ou une carte de 12 Go : <code>ollama run hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M</code>. Avec llama.cpp, ramener <code>--ctx-size</code> à 32 768 plutôt que 131 072 si la mémoire manque, et filtrer les blocs <code>&lt;think&gt;</code> côté application.</li> <li>d1-3B : <code>llama-server -hf LiquidAI/d1-3B-GGUF:Q4_K_M</code>, puis un <code>curl</code> sur <code>http://127.0.0.1:8080/v1/systemone</code> avec un ticket et trois questions typées.</li> <li>MiniCPM-V 4.7 : passer par Ollama ; la fiche ne donne pas la taille des GGUF, prévoir au moins les 3 B actifs en mémoire vive plus le reste des experts sur disque ou en RAM.</li> <li>Comparer Mellum Q4_K_M et Q6_K sur une même tâche de dépôt (ajouter un test, corriger un bug) et noter les écarts : c'est la seule façon de savoir ce que valent les 12 % de tokens perdus.</li> </ol> <p>À surveiller : un GGUF officiel pour d3 et JEV-35B, la fiche du MiniCPM-V-4.7-1B, et des mesures de fidélité sur du code plutôt que sur Wikitext.</p>",
+  "date": "2026-10-13",
+  "domaine": "local",
+  "itemIds": [
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF",
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking",
+    "openbmb__MiniCPM-V-4.7-35B-A3B",
+    "openbmb__MiniCPM-V-4.7-1B",
+    "LiquidAI__d1-3B-GGUF",
+    "LiquidAI__d1-3B",
+    "ConwayResearch__Underdog-Saluki-27B-1.0"
+  ],
+  "motsCles": [
+    "GGUF",
+    "Mellum 2.1",
+    "JetBrains",
+    "MiniCPM-V 4.7",
+    "d1-3B",
+    "llama.cpp",
+    "Ollama",
+    "local"
+  ],
+  "publieLe": "2026-10-13T08:21:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+      "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF"
+    },
+    {
+      "titre": "Fiche openbmb/MiniCPM-V-4.7-35B-A3B",
+      "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B"
+    },
+    {
+      "titre": "Fiche LiquidAI/d1-3B-GGUF",
+      "url": "https://huggingface.co/LiquidAI/d1-3B-GGUF"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "GGUF officiels : Mellum 2.1 tient en 8 Go, MiniCPM-V 4.7 et d1-3B livrent aussi leur version locale",
+  "verifiePar": "redac-chef"
+}

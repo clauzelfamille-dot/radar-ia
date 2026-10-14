@@ -1,0 +1,33 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "audio",
+    "local"
+  ],
+  "downloads": null,
+  "hfId": "sahilmahendrakar/paradee",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": null,
+      "likes": 37,
+      "score": 39
+    }
+  ],
+  "licence": null,
+  "likes": 37,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "paradee",
+  "org": "sahilmahendrakar",
+  "pertinent": true,
+  "pourquoi": "Preuve qu'une voix de synthèse tient dans 8 M.",
+  "premiereVue": "2026-10-14",
+  "resume": "TTS anglais de 8 M de paramètres distillé de Kokoro-82M : 24 kHz, phonèmes affichés, tourne sur CPU.",
+  "score": 39,
+  "source": "trending",
+  "tache": "Synthèse vocale",
+  "taille": "8 M",
+  "type": "space",
+  "url": "https://huggingface.co/spaces/sahilmahendrakar/paradee"
+}

@@ -1,0 +1,23 @@
+{
+ "acces": "libre",
+ "bibliotheque": "diffusion-single-file",
+ "compte": "Comfy-Org",
+ "compteNom": "Comfy Org",
+ "compteType": "organisation",
+ "creeLe": "2026-07-30",
+ "downloads": 24139135,
+ "hfId": "Comfy-Org/MiniMax-H3",
+ "licence": "minimax-h3-community-license-agreement",
+ "licenceLien": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+ "likes": 2277,
+ "majLe": "2026-09-29",
+ "modeleBase": [
+  {
+   "id": "MiniMaxAI/MiniMax-H3",
+   "relation": "finetune"
+  }
+ ],
+ "type": "model",
+ "url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

@@ -1,13 +1,13 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents",
     "local",
     "multilingue"
   ],
-  "downloads": 10942,
+  "downloads": 10500,
   "hfId": "LiquidAI/d1-omni-600M",
   "historique": [
     {
@@ -21,18 +21,24 @@
       "downloads": 10942,
       "likes": 115,
       "score": 67
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 10500,
+      "likes": 105,
+      "score": 66
     }
   ],
   "licence": "LFM1.0",
-  "likes": 115,
-  "majLe": "2026-10-13T07:05:00+02:00",
+  "likes": 105,
+  "majLe": "2026-10-14T07:05:00+02:00",
   "nom": "d1-omni-600M",
   "org": "Liquid AI",
   "pertinent": true,
   "pourquoi": "Décision multimodale qui tient sur un CPU, 15 langues",
   "premiereVue": "2026-10-12",
   "resume": "Modèle de décision de 587 M (tronc 381 M + encodeurs vision 94 M et audio 112 M) : réponses typées sans génération de token, texte, images et 30 s d'audio, 15 langues, CPU/MPS/CUDA. Usage : routage, tri, modération, garde-fous d'agents, contrôle visuel.",
-  "score": 67,
+  "score": 66,
   "source": "nouveau",
   "tache": "Décision multimodale",
   "taille": "0,6 B",

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-21",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "audio",
     "local"
@@ -19,11 +19,17 @@
       "downloads": 40900,
       "likes": 2434,
       "score": 75
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 40900,
+      "likes": 2434,
+      "score": 75
     }
   ],
   "licence": "Apache-2.0",
   "likes": 2434,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Audio8-ASR-Infinite",
   "org": "Edge0",
   "pertinent": true,

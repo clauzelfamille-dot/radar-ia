@@ -1,0 +1,33 @@
+{
+  "creeLe": "2023-11-01",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "donnees",
+    "agents"
+  ],
+  "downloads": 11300,
+  "hfId": "gaia-benchmark/GAIA",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 11300,
+      "likes": 882,
+      "score": 58
+    }
+  ],
+  "licence": null,
+  "likes": 882,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "GAIA",
+  "org": "GAIA",
+  "pertinent": true,
+  "pourquoi": "Retour au classement : l'éval agents de référence.",
+  "premiereVue": "2026-10-14",
+  "resume": "Benchmark d'assistants généralistes (agents + outils).",
+  "score": 58,
+  "source": "trending",
+  "tache": "Évaluation d'agents",
+  "taille": "932 lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/gaia-benchmark/GAIA"
+}

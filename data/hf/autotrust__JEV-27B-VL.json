@@ -1,14 +1,15 @@
 {
  "acces": "libre",
  "arxiv": [
-  "2512.16899"
+  "2512.16899",
+  "2609.14973"
  ],
  "bibliotheque": "transformers",
  "compte": "autotrust",
  "compteNom": "AutoTrust AI Lab",
  "compteType": "organisation",
  "creeLe": "2026-09-30",
- "downloads": 1550455,
+ "downloads": 1570992,
  "formats": [
   "safetensors"
  ],
@@ -17,8 +18,8 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 3858,
- "majLe": "2026-10-11",
+ "likes": 4526,
+ "majLe": "2026-10-14",
  "modeleBase": [
   {
    "id": "Qwen/Qwen3.8-27B",
@@ -29,5 +30,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/autotrust/JEV-27B-VL",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

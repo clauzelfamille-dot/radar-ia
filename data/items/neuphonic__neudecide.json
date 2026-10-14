@@ -14,6 +14,12 @@
       "downloads": 460,
       "likes": 72,
       "score": 59
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 460,
+      "likes": 72,
+      "score": 53
     }
   ],
   "licence": "Apache 2.0",
@@ -25,7 +31,7 @@
   "pourquoi": "46 ms sur un portable, 206 ms sur Raspberry Pi 5, un seul cœur CPU : l'appel d'outil vocal embarqué.",
   "premiereVue": "2026-10-13",
   "resume": "Modèle vocal minuscule (3 graphes ONNX, 43 Mo) qui transforme une commande parlée directement en appel d'outil JSON, sans transcription. Anglais seulement, accès sous condition.",
-  "score": 59,
+  "score": 53,
   "source": "nouveau",
   "tache": "Voix vers appel d'outil",
   "taille": "55 M",

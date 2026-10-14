@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-01",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,18 +24,24 @@
       "downloads": 0,
       "likes": 1270,
       "score": 43
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 1510,
+      "score": 44
     }
   ],
   "licence": null,
-  "likes": 1270,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 1510,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "MiniMax-H3-Turbo-Lora",
   "org": "Pepe104",
   "pertinent": false,
   "pourquoi": "N°1 des Spaces",
   "premiereVue": "2026-10-11",
   "resume": "N°1 des Spaces : vidéo + bande-son synchronisée à partir d'un prompt.",
-  "score": 43,
+  "score": 44,
   "source": "trending",
   "tache": "Vidéo",
   "taille": null,

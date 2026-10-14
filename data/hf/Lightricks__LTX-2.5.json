@@ -8,7 +8,7 @@
  "compteNom": "LTX.io",
  "compteType": "organisation",
  "creeLe": "2026-07-23",
- "downloads": 1719766,
+ "downloads": 1823507,
  "hfId": "Lightricks/LTX-2.5",
  "langues": [
   "en",
@@ -23,10 +23,10 @@
  ],
  "licence": "ltx-2.x-community-license-agreement",
  "licenceLien": "https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x",
- "likes": 7506,
+ "likes": 7739,
  "majLe": "2026-10-11",
  "tache": "image-to-video",
  "type": "model",
  "url": "https://huggingface.co/Lightricks/LTX-2.5",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

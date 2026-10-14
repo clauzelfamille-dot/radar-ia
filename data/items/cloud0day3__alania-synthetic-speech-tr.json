@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-01",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "donnees",
+    "audio",
+    "multilingue"
+  ],
+  "downloads": 3930,
+  "hfId": "cloud0day3/alania-synthetic-speech-tr",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 3930,
+      "likes": 50,
+      "score": 55
+    }
+  ],
+  "licence": "CC-BY-4.0 / CC-BY-SA-4.0",
+  "likes": 50,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "alania-synthetic-speech-tr",
+  "org": "cloud0day3",
+  "pertinent": true,
+  "pourquoi": "Recette reproductible pour un corpus ASR/TTS dans une langue donnée.",
+  "premiereVue": "2026-10-14",
+  "resume": "Parole turque synthétique (VoxCPM2) avec transcriptions, descriptions de voix et scores qualité ; pour ASR et TTS.",
+  "score": 55,
+  "source": "trending",
+  "tache": "Parole synthétique (turc)",
+  "taille": "2 M lignes",
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr"
+}

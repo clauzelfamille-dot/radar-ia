@@ -6,7 +6,7 @@
  "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-10-08",
- "downloads": 242329,
+ "downloads": 311969,
  "formats": [
   "GGUF"
  ],
@@ -15,7 +15,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 379,
+ "likes": 448,
  "majLe": "2026-10-10",
  "modeleBase": [
   {
@@ -27,5 +27,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

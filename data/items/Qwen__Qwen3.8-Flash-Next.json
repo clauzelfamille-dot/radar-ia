@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-24",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "code",
     "agents"
@@ -25,15 +25,21 @@
       "downloads": 1930000,
       "likes": 6150,
       "score": 70
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1930000,
+      "likes": 6150,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
   "likes": 6150,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen3.8-Flash-Next",
   "org": "Qwen",
   "pertinent": false,
-  "pourquoi": "MoE 177 B, le gros Qwen",
+  "pourquoi": "Base des quantisations ISTA.",
   "premiereVue": "2026-10-11",
   "resume": "Le « gros » Qwen, MoE 177 B.",
   "score": 70,

@@ -1,0 +1,20 @@
+{
+ "acces": "sur demande",
+ "arxiv": [
+  "2311.12983"
+ ],
+ "compte": "gaia-benchmark",
+ "compteNom": "GAIA",
+ "compteType": "organisation",
+ "creeLe": "2023-10-20",
+ "downloads": 11678,
+ "hfId": "gaia-benchmark/GAIA",
+ "langues": [
+  "en"
+ ],
+ "likes": 885,
+ "majLe": "2025-10-28",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

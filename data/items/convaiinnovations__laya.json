@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-18",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents",
@@ -26,15 +26,21 @@
       "downloads": 45100,
       "likes": 5540,
       "score": 79
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 45100,
+      "likes": 5540,
+      "score": 79
     }
   ],
   "licence": null,
   "likes": 5540,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "laya",
   "org": "Convai",
   "pertinent": true,
-  "pourquoi": "Décision typée 0,4 B sur CPU",
+  "pourquoi": "5,5 k likes ; classification rapide.",
   "premiereVue": "2026-10-11",
   "resume": "Modèle de décision typée de 0,4 B qui tourne sur CPU ; n°1 des likes sur 30 jours.",
   "score": 79,

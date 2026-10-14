@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-07-23",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,17 +24,23 @@
       "downloads": 1720000,
       "likes": 7510,
       "score": 71
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1720000,
+      "likes": 7510,
+      "score": 71
     }
   ],
-  "licence": null,
+  "licence": "LTX",
   "likes": 7510,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "LTX-2.5",
   "org": "Lightricks",
   "pertinent": false,
-  "pourquoi": "Vidéo ouverte de référence",
+  "pourquoi": "Le modèle vidéo ouvert le plus aimé du moment.",
   "premiereVue": "2026-10-11",
-  "resume": "Modèle vidéo ouvert de référence, mis à jour en continu.",
+  "resume": "Générateur vidéo ouvert avec audio natif, mis à jour il y a 2 j.",
   "score": 71,
   "source": "trending",
   "tache": "Image→vidéo",

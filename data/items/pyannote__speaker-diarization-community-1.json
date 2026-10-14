@@ -1,0 +1,33 @@
+{
+  "creeLe": "2025-09-29",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "audio",
+    "local"
+  ],
+  "downloads": 5420000,
+  "hfId": "pyannote/speaker-diarization-community-1",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 5420000,
+      "likes": 2760,
+      "score": 74
+    }
+  ],
+  "licence": "CC-BY-4.0",
+  "likes": 2760,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "speaker-diarization-community-1",
+  "org": "pyannote",
+  "pertinent": true,
+  "pourquoi": "Entre au classement (rang 33) avec 5,4 M de téléchargements.",
+  "premiereVue": "2026-10-14",
+  "resume": "Pipeline « qui parle quand » de pyannote, successeur de 3.1 : meilleure attribution des locuteurs, alignement facile avec une transcription ; CPU ou GPU, accès sous token.",
+  "score": 74,
+  "source": "trending",
+  "tache": "Diarisation audio",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/pyannote/speaker-diarization-community-1"
+}

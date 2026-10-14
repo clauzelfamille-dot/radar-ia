@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "multilingue"
@@ -25,17 +25,23 @@
       "downloads": 71900,
       "likes": 285,
       "score": 74
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 71900,
+      "likes": 285,
+      "score": 74
     }
   ],
-  "licence": null,
+  "licence": "Gemma",
   "likes": 285,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "embeddinggemma-2-GGUF",
   "org": "Unsloth",
   "pertinent": true,
-  "pourquoi": "Version GGUF 0,3 B",
+  "pourquoi": "Embeddings multilingues sur CPU en une commande.",
   "premiereVue": "2026-10-11",
-  "resume": "Version GGUF d'EmbeddingGemma 2.",
+  "resume": "GGUF officiel Unsloth d'EmbeddingGemma 2.",
   "score": 74,
   "source": "trending",
   "tache": "Embeddings",

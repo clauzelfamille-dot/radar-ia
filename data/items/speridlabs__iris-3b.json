@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-05",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,11 +18,17 @@
       "downloads": 706,
       "likes": 205,
       "score": 48
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 706,
+      "likes": 205,
+      "score": 48
     }
   ],
   "licence": "Apache 2.0",
   "likes": 205,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "iris-3b",
   "org": "speridlabs",
   "pertinent": false,

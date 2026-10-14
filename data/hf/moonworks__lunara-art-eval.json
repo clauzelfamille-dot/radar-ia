@@ -9,14 +9,14 @@
  "compteNom": "Moonworks AI",
  "compteType": "organisation",
  "creeLe": "2026-10-07",
- "downloads": 808,
+ "downloads": 1319,
  "hfId": "moonworks/lunara-art-eval",
  "licence": "apache-2.0",
- "likes": 32,
+ "likes": 40,
  "majLe": "2026-10-09",
  "tache": "text-to-image",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/moonworks/lunara-art-eval",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1K<n<10K"
 }

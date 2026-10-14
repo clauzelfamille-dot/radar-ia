@@ -1,6 +1,6 @@
 {
-  "creeLe": null,
-  "derniereVue": "2026-10-13",
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents"
   ],
@@ -18,18 +18,24 @@
       "downloads": 0,
       "likes": 613,
       "score": 44
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 631,
+      "score": 50
     }
   ],
   "licence": null,
-  "likes": 613,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 631,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "jev-decision-index",
   "org": "multimodalart",
   "pertinent": true,
   "pourquoi": "L'arbitre de la course aux modèles de décision",
   "premiereVue": "2026-10-12",
   "resume": "Tableau de bord communautaire qui compare les modèles de décision (Jev, clef, pplx-decider, d1) sur le Decision Index, avec actualités des reproductions.",
-  "score": 44,
+  "score": 50,
   "source": "trending",
   "tache": "Benchmark de décision",
   "taille": null,

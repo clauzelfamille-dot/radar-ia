@@ -1,12 +1,12 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "code",
     "agents",
     "local"
   ],
-  "downloads": 1068,
+  "downloads": 803,
   "hfId": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
   "historique": [
     {
@@ -20,18 +20,24 @@
       "downloads": 1068,
       "likes": 114,
       "score": 62
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 803,
+      "likes": 100,
+      "score": 61
     }
   ],
   "licence": "Apache 2.0",
-  "likes": 114,
-  "majLe": "2026-10-13T07:05:00+02:00",
+  "likes": 100,
+  "majLe": "2026-10-14T07:05:00+02:00",
   "nom": "Mellum2.1-12B-A2.5B-Thinking",
   "org": "JetBrains",
   "pertinent": true,
   "pourquoi": "Un agent de code à 2,5 B actifs, taillé pour tourner en local une fois quantisé",
   "premiereVue": "2026-10-12",
   "resume": "MoE de JetBrains pour le code agentique (navigation de dépôt, commandes, appel d'outils) : 12 B dont 2,5 B actifs, contexte 131 k, RL sur de vrais dépôts. SWE-bench Verified 47, LiveCodeBench 82. GGUF officiels annoncés, 13 quantisations communautaires.",
-  "score": 62,
+  "score": 61,
   "source": "nouveau",
   "tache": "Génération de code / agents",
   "taille": "12 B (2,5 B actifs)",

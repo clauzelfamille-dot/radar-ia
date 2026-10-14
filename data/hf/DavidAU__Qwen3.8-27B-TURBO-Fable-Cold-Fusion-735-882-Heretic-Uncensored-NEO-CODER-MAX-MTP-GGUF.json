@@ -4,7 +4,7 @@
  "compteType": "utilisateur",
  "contexte": 262144,
  "creeLe": "2026-09-01",
- "downloads": 2025498,
+ "downloads": 1900731,
  "formats": [
   "GGUF"
  ],
@@ -14,8 +14,8 @@
   "zh"
  ],
  "licence": "apache-2.0",
- "likes": 1699,
- "majLe": "2026-09-25",
+ "likes": 1759,
+ "majLe": "2026-10-14",
  "modeleBase": [
   {
    "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NM-DAU",
@@ -26,5 +26,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

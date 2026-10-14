@@ -9,7 +9,7 @@
  "compteNom": "OpenBMB",
  "compteType": "organisation",
  "creeLe": "2026-09-06",
- "downloads": 1278419,
+ "downloads": 1247513,
  "formats": [
   "safetensors"
  ],
@@ -19,11 +19,11 @@
   "zh"
  ],
  "licence": "apache-2.0",
- "likes": 1757,
+ "likes": 1770,
  "majLe": "2026-09-29",
  "parametres": 2516756480,
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

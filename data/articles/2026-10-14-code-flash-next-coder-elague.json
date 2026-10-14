@@ -1,0 +1,39 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "ISTA-DASLab retire la moitié des experts de Qwen3.8-Flash-Next et quantise le reste à 3,5 bits : 29,6 Go résidents, 75,6 sur SWE-bench Verified d'après la fiche, contre 82,8 pour la base de 354 Go. C'est un modèle de code de première classe à la portée d'une station de travail, pas encore d'un portable.",
+  "corpsHtml": "<p><a href=\"https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF\">Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF</a> est une version de <a href=\"https://huggingface.co/Qwen/Qwen3.8-Flash-Next\">Qwen3.8-Flash-Next</a>, le gros MoE de 177 B d'Alibaba, dont ISTA-DASLab (IST Austria) a retiré la moitié des experts avant de quantiser le reste à 3,5 bits. Le fichier résident pèse 29,6 Go ; la fiche annonce 75,6 sur SWE-bench Verified, contre 82,8 pour la base en BF16 qui pèse 354 Go. La fiche le présente comme exécutable sur un seul accélérateur de 32 Go.</p>\n\n<h2>Ce que fait le modèle</h2>\n<p>Qwen3.8-Flash-Next compte 48 couches de 512 experts, dont 10 actifs par token. La version « Coder » n'en garde que 256 par couche, choisis par la méthode RCO (une optimisation sous contrainte de budget, un budget exact par couche, décrite dans un article de mai 2026) avec des données de calibration orientées code, appel d'outils et vision. Les poids conservés sont ensuite quantisés par GSQ (article d'avril 2026) à 3,5 bits. La fiche parle d'un débit effectif de 1,89 bit par paramètre du modèle d'origine. Elle précise que l'usage généraliste est mieux servi par les versions non élaguées, et que l'élagage s'adresse au code, aux agents et au raisonnement spatial sur image.</p>\n<p>Un détail compte pour la mémoire : le dépôt contient deux fichiers. Le premier (29,6 Go) est le transformeur et doit être en mémoire. Le second (28,8 Go) est une table n-gram servant au décodage, que llama.cpp peut lire sur disque par <code>mmap</code> sans la charger. D'où « 32 Go d'accélérateur » et non 58 Go.</p>\n\n<h2>Ce que la fiche annonce et ce qu'il faut vérifier</h2>\n<table>\n<thead><tr><th>Benchmark</th><th>Base BF16 (354 Go)</th><th>Coder GSQ-RCO (29,6 Go résidents)</th><th>Conservé</th></tr></thead>\n<tbody>\n<tr><td>SWE-bench Verified</td><td>82,8</td><td>75,6</td><td>91 %</td></tr>\n<tr><td>LiveCodeBench v6</td><td>87,4</td><td>86,3</td><td>99 %</td></tr>\n</tbody>\n</table>\n<p>Ces deux chiffres sont ceux des auteurs, obtenus « à effort de raisonnement xhigh », et aucun autre modèle n'est comparé. La perte sur SWE-bench (7 points) est bien plus marquée que sur LiveCodeBench (1 point) : les tâches longues d'agent de code, avec navigation dans un dépôt, souffrent davantage de l'élagage que la résolution d'exercices isolés. La fiche ne donne ni longueur de contexte, ni paramètres d'échantillonnage, ni date de publication ; les métadonnées affichent 117 B de paramètres, le texte 176,9 B pour la base. Une mention de 8 Go de VRAM avec un moteur tiers (Strata) est un retour d'utilisateur, non vérifié. Licence Apache 2.0, héritée de la base ; 679 k téléchargements sur le mois et 377 likes.</p>\n\n<h2>Face aux alternatives déjà connues</h2>\n<p>Le même laboratoire publie <a href=\"https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF\">la version non élaguée</a> en quatre tailles, de 66 à 84 Go au total, dont 38 à 55 Go résidents ; sa fiche annonce 86,3 à 86,9 sur LiveCodeBench, soit l'équivalent de la version Coder, mais avec un besoin mémoire presque double. C'est donc l'élagage, pas la quantisation, qui fait passer sous 32 Go. Pour un PC de bureau, les deux alternatives vues ces derniers jours restent plus accessibles : <a href=\"https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF\">Mellum 2.1 en GGUF</a> tient en 8,1 Go avec 47 sur SWE-bench Verified d'après sa fiche, et <a href=\"https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF\">Qwen3.8-27B GSQ-RCO</a> tient en 8 à 12 Go. Le Coder 177 B se place entre les deux : trop gros pour un portable, à la portée d'une station avec une carte de 32 Go.</p>\n\n<h2>Comment l'essayer</h2>\n<ol>\n<li>Vérifier le matériel : 32 Go de VRAM (ou de mémoire unifiée) pour le premier fichier, plus de la marge pour le cache KV ; un disque SSD rapide pour la table n-gram de 28,8 Go.</li>\n<li>Avec Ollama : <code>ollama run hf.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF:IQ1_M</code> (le tag IQ1_M est celui du Hub ; il ne reflète pas les 3,5 bits réels des poids).</li>\n<li>Avec llama.cpp : <code>llama-server</code> avec le premier fichier en argument ; la fiche fournit la commande et recommande le chargement différé de la table n-gram.</li>\n<li>Brancher un agent de code (la fiche donne les réglages pour Hermes Agent, OpenClaw et Pi) et rejouer trois tickets réels d'un de vos projets : le test qui compte est la navigation dans un dépôt existant, là où la fiche montre la plus grosse perte.</li>\n</ol>\n<p>À surveiller : une évaluation indépendante sur SWE-bench, la longueur de contexte réelle en llama.cpp, et une éventuelle version élaguée de Qwen3.8-27B par la même méthode, qui ramènerait ce type de modèle sur un portable.</p>",
+  "date": "2026-10-14",
+  "domaine": "code",
+  "itemIds": [
+    "ISTA-DASLab__Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+    "ISTA-DASLab__Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "Qwen__Qwen3.8-Flash-Next",
+    "JetBrains__Mellum2.1-12B-A2.5B-Thinking-GGUF",
+    "ISTA-DASLab__Qwen3.8-27B-GSQ-RCO-GGUF"
+  ],
+  "motsCles": [
+    "génération de code",
+    "GGUF",
+    "MoE",
+    "élagage d'experts",
+    "quantisation",
+    "SWE-bench",
+    "llama.cpp",
+    "ISTA-DASLab"
+  ],
+  "publieLe": "2026-10-14T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+      "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF"
+    },
+    {
+      "titre": "Fiche ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+      "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "Qwen3.8-Flash-Next élagué : ISTA-DASLab fait tenir un modèle de code de 177 B dans 32 Go",
+  "verifiePar": "redac-chef"
+}

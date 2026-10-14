@@ -1,0 +1,32 @@
+{
+  "creeLe": "2025-11-20",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 2050000,
+  "hfId": "facebook/sam3",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 2050000,
+      "likes": 4170,
+      "score": 64
+    }
+  ],
+  "licence": "SAM",
+  "likes": 4170,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "sam3",
+  "org": "Meta",
+  "pertinent": false,
+  "pourquoi": "Retour dans le top 30 ; brique vision de référence.",
+  "premiereVue": "2026-10-14",
+  "resume": "Segment Anything 3 de Meta : segmentation d'images par prompt texte/points.",
+  "score": 64,
+  "source": "trending",
+  "tache": "Segmentation",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/facebook/sam3"
+}

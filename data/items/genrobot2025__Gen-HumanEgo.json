@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-20",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "donnees"
+  ],
+  "downloads": 400000,
+  "hfId": "genrobot2025/Gen-HumanEgo",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 400000,
+      "likes": 77,
+      "score": 56
+    }
+  ],
+  "licence": null,
+  "likes": 77,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "Gen-HumanEgo",
+  "org": "GenRobot",
+  "pertinent": false,
+  "pourquoi": "400 k téléchargements.",
+  "premiereVue": "2026-10-14",
+  "resume": "Vidéos humaines égocentriques pour la robotique.",
+  "score": 56,
+  "source": "trending",
+  "tache": "Robotique",
+  "taille": null,
+  "type": "dataset",
+  "url": "https://huggingface.co/datasets/genrobot2025/Gen-HumanEgo"
+}

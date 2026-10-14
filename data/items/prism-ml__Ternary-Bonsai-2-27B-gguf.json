@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-16",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local"
   ],
@@ -24,11 +24,17 @@
       "downloads": 4460000,
       "likes": 2633,
       "score": 84
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 4460000,
+      "likes": 2633,
+      "score": 84
     }
   ],
   "licence": null,
   "likes": 2633,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Ternary-Bonsai-2-27B-gguf",
   "org": "Prism ML",
   "pertinent": true,

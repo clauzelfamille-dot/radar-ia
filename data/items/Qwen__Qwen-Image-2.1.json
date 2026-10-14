@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-14",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,15 +24,21 @@
       "downloads": 142000,
       "likes": 3270,
       "score": 69
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 142000,
+      "likes": 3270,
+      "score": 69
     }
   ],
   "licence": "Apache-2.0",
   "likes": 3270,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen-Image-2.1",
   "org": "Qwen",
   "pertinent": false,
-  "pourquoi": "Origine de la vague Turbo",
+  "pourquoi": "Base de toute la vague Qwen-Image.",
   "premiereVue": "2026-10-11",
   "resume": "A généré toute la vague Turbo / LoRA / Spaces.",
   "score": 69,

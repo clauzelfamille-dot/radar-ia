@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-09",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents",
@@ -26,15 +26,21 @@
       "downloads": 38500,
       "likes": 172,
       "score": 70
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 38500,
+      "likes": 163,
+      "score": 70
     }
   ],
   "licence": "Apache-2.0",
-  "likes": 172,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 163,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "typed-decisions",
   "org": "LocalLLaMA",
   "pertinent": true,
-  "pourquoi": "Benchmark décisions, dont factures",
+  "pourquoi": "Le benchmark des modèles de décision.",
   "premiereVue": "2026-10-11",
   "resume": "Benchmark de 1,6 k décisions typées sur 4 domaines dont le traitement de factures.",
   "score": 70,

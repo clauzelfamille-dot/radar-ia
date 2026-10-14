@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "code"
@@ -25,11 +25,17 @@
       "downloads": 189000,
       "likes": 406,
       "score": 77
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 189000,
+      "likes": 406,
+      "score": 77
     }
   ],
   "licence": "Swift Open License v1.0",
   "likes": 406,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Swift-Qwen3.8-27B-GGUF",
   "org": "ukisai",
   "pertinent": true,

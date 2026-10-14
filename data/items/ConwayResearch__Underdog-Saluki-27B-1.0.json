@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "agents"
@@ -25,17 +25,23 @@
       "downloads": 242000,
       "likes": 379,
       "score": 77
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 242000,
+      "likes": 379,
+      "score": 77
     }
   ],
-  "licence": null,
+  "licence": "Apache 2.0",
   "likes": 379,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Underdog-Saluki-27B-1.0",
   "org": "Conway Research",
   "pertinent": true,
   "pourquoi": "Téléchargements doublés en 24 h (242 k) : le 27 B compressé pour agents locaux prend.",
   "premiereVue": "2026-10-11",
-  "resume": "Qwen3.8-27B ramené à 7,9 Go avec l'appel d'outils intact.",
+  "resume": "LLM 27 B dérivé de Qwen3.8, orienté raisonnement et agents.",
   "score": 77,
   "source": "trending",
   "tache": "Génération de texte",

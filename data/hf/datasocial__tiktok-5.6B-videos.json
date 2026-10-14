@@ -3,13 +3,13 @@
  "compte": "datasocial",
  "compteType": "utilisateur",
  "creeLe": "2026-10-03",
- "downloads": 14099,
+ "downloads": 17164,
  "hfId": "datasocial/tiktok-5.6B-videos",
  "licence": "cc-by-nc-4.0",
- "likes": 255,
+ "likes": 297,
  "majLe": "2026-10-07",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/datasocial/tiktok-5.6B-videos",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "n>1T"
 }

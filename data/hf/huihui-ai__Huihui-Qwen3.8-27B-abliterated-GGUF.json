@@ -1,0 +1,27 @@
+{
+ "acces": "libre",
+ "bibliotheque": "transformers",
+ "compte": "huihui-ai",
+ "compteType": "utilisateur",
+ "contexte": 262144,
+ "creeLe": "2026-08-16",
+ "downloads": 2277894,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+ "licence": "apache-2.0",
+ "likes": 1320,
+ "majLe": "2026-10-10",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-27B",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 27320697856,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

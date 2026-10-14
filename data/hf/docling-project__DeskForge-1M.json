@@ -7,17 +7,17 @@
  "compteNom": "Docling",
  "compteType": "organisation",
  "creeLe": "2026-08-25",
- "downloads": 5711,
+ "downloads": 6131,
  "hfId": "docling-project/DeskForge-1M",
  "langues": [
   "en"
  ],
  "licence": "mit",
- "likes": 38,
+ "likes": 44,
  "majLe": "2026-10-09",
  "tache": "image-to-text, object-detection",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/docling-project/DeskForge-1M",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1M<n<10M"
 }

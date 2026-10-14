@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents"
   ],
@@ -12,18 +12,24 @@
       "downloads": 0,
       "likes": 27,
       "score": 43
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": null,
+      "likes": 34,
+      "score": 44
     }
   ],
   "licence": null,
-  "likes": 27,
-  "majLe": "2026-10-13T07:05:00+02:00",
+  "likes": 34,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "System One Arcade",
   "org": "Liquid AI",
   "pertinent": true,
   "pourquoi": "Voir ce qu'un modèle de décision sait faire en quelques clics.",
   "premiereVue": "2026-10-13",
   "resume": "Arcade de démonstration des modèles de décision « System 1 » de Liquid AI (d1) sur des mini-jeux et des tâches de routage.",
-  "score": 43,
+  "score": 44,
   "source": "nouveau",
   "tache": "Démo décision",
   "taille": null,

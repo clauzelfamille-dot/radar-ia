@@ -1,0 +1,33 @@
+{
+  "creeLe": "2024-05-10",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "audio",
+    "local"
+  ],
+  "downloads": 6860000,
+  "hfId": "pyannote/speaker-diarization-3.1",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 6860000,
+      "likes": 4290,
+      "score": 76
+    }
+  ],
+  "licence": "MIT",
+  "likes": 4290,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "speaker-diarization-3.1",
+  "org": "pyannote",
+  "pertinent": true,
+  "pourquoi": "Référence historique (6,9 M).",
+  "premiereVue": "2026-10-14",
+  "resume": "Version 3.1 du pipeline de diarisation, toujours la plus téléchargée.",
+  "score": 76,
+  "source": "trending",
+  "tache": "Diarisation audio",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/pyannote/speaker-diarization-3.1"
+}

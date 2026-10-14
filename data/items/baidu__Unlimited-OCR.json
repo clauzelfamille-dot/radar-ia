@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-06-19",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "documents",
     "local"
   ],
-  "downloads": 1205646,
+  "downloads": 1210000,
   "hfId": "baidu/Unlimited-OCR",
   "historique": [
     {
@@ -13,11 +13,17 @@
       "downloads": 1205646,
       "likes": 4520,
       "score": 73
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1210000,
+      "likes": 4530,
+      "score": 73
     }
   ],
   "licence": "MIT",
-  "likes": 4520,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 4530,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Unlimited-OCR",
   "org": "baidu",
   "pertinent": true,

@@ -8,7 +8,7 @@
  "compteNom": "BAIDU",
  "compteType": "organisation",
  "creeLe": "2026-06-19",
- "downloads": 1205646,
+ "downloads": 1154213,
  "formats": [
   "safetensors"
  ],
@@ -17,11 +17,11 @@
   "multilingual"
  ],
  "licence": "mit",
- "likes": 4531,
- "majLe": "2026-07-29",
+ "likes": 4633,
+ "majLe": "2026-10-14",
  "parametres": 3336106240,
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/baidu/Unlimited-OCR",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

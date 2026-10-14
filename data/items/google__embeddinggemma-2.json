@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-04",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "multilingue"
@@ -25,17 +25,23 @@
       "downloads": 116000,
       "likes": 1961,
       "score": 76
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 116000,
+      "likes": 1960,
+      "score": 76
     }
   ],
   "licence": "Gemma",
-  "likes": 1961,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 1960,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "embeddinggemma-2",
   "org": "Google",
   "pertinent": true,
-  "pourquoi": "Embeddings 0,7 B pour recherche sémantique locale",
+  "pourquoi": "Toujours n°1 : la brique de recherche sémantique locale de référence.",
   "premiereVue": "2026-10-11",
-  "resume": "Modèle d'embeddings de 0,7 B pour la recherche sémantique locale, décliné en GGUF par Unsloth.",
+  "resume": "Modèle d'embeddings multilingue léger de Google, tournant sur CPU/WebGPU ; GGUF Unsloth disponible.",
   "score": 76,
   "source": "trending",
   "tache": "Embeddings",

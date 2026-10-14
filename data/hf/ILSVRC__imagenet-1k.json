@@ -10,17 +10,17 @@
  "compteNom": "Large Scale Visual Recognition Challenge",
  "compteType": "organisation",
  "creeLe": "2022-05-02",
- "downloads": 89956,
+ "downloads": 90337,
  "hfId": "ILSVRC/imagenet-1k",
  "langues": [
   "en"
  ],
  "licence": "other",
- "likes": 1015,
+ "likes": 1020,
  "majLe": "2025-09-17",
  "tache": "image-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/ILSVRC/imagenet-1k",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1M<n<10M"
 }

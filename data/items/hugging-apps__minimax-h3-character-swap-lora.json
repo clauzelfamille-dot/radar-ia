@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-10-10",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": null,
+  "hfId": "hugging-apps/minimax-h3-character-swap-lora",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": null,
+      "likes": 112,
+      "score": 39
+    }
+  ],
+  "licence": null,
+  "likes": 112,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "minimax-h3-character-swap-lora",
+  "org": "hugging-apps",
+  "pertinent": false,
+  "pourquoi": "Édition vidéo en un clic.",
+  "premiereVue": "2026-10-14",
+  "resume": "Remplacement de personnage dans un clip (MiniMax-H3).",
+  "score": 39,
+  "source": "trending",
+  "tache": "Vidéo",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/hugging-apps/minimax-h3-character-swap-lora"
+}

@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-29",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "vclnhihihi/qwen-image-21-uncensored",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 48,
+      "score": 30
+    }
+  ],
+  "licence": null,
+  "likes": 48,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "Qwen Image 2.1 Uncensored",
+  "org": "vclnhihihi",
+  "pertinent": false,
+  "pourquoi": "Énième dérivé non filtré de Qwen-Image-2.1, hors périmètre.",
+  "premiereVue": "2026-10-14",
+  "resume": "Space Gradio (ZeroGPU) de génération et d'édition d'images sans filtre, bâti sur Qwen-Image-2.1 et sa variante GGUF.",
+  "score": 30,
+  "source": "trending",
+  "tache": "Génération d'image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/vclnhihihi/qwen-image-21-uncensored"
+}

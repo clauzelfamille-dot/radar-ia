@@ -5,7 +5,7 @@
  "compteNom": "Xiaomi MiMo",
  "compteType": "organisation",
  "creeLe": "2026-09-21",
- "downloads": 96316,
+ "downloads": 98513,
  "formats": [
   "safetensors"
  ],
@@ -15,11 +15,11 @@
   "zh"
  ],
  "licence": "mit",
- "likes": 705,
+ "likes": 716,
  "majLe": "2026-10-09",
  "parametres": 1024216603392,
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

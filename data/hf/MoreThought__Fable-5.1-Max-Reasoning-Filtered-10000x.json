@@ -3,17 +3,17 @@
  "compte": "MoreThought",
  "compteType": "utilisateur",
  "creeLe": "2026-09-02",
- "downloads": 5415,
+ "downloads": 5565,
  "hfId": "MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x",
  "langues": [
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 312,
+ "likes": 328,
  "majLe": "2026-10-10",
  "tache": "text-generation, question-answering",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/MoreThought/Fable-5.1-Max-Reasoning-Filtered-10000x",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1K<n<10K"
 }

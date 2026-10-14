@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-09",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "audio"
   ],
@@ -18,11 +18,17 @@
       "downloads": 37000,
       "likes": 1124,
       "score": 56
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 37000,
+      "likes": 1124,
+      "score": 56
     }
   ],
   "licence": null,
   "likes": 1124,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "YuE2-3B",
   "org": "m-a-p",
   "pertinent": false,

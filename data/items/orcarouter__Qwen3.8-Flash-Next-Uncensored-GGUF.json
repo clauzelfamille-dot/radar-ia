@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-26",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "agents"
@@ -13,11 +13,17 @@
       "downloads": 630000,
       "likes": 821,
       "score": 70
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 630000,
+      "likes": 821,
+      "score": 70
     }
   ],
   "licence": "Apache 2.0",
   "likes": 821,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen3.8-Flash-Next-Uncensored-GGUF",
   "org": "orcarouter",
   "pertinent": true,

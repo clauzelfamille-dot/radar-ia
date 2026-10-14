@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "audio"
   ],
@@ -24,15 +24,21 @@
       "downloads": 20300,
       "likes": 393,
       "score": 63
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 20300,
+      "likes": 393,
+      "score": 63
     }
   ],
   "licence": "Apache-2.0",
   "likes": 393,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "ema-lightning",
   "org": "canberkkkkkk",
   "pertinent": false,
-  "pourquoi": "TTS 34 Mo en streaming, turc uniquement",
+  "pourquoi": "Voix de synthèse légère, populaire cette semaine.",
   "premiereVue": "2026-10-11",
   "resume": "TTS de 8,6 millions de paramètres (34 Mo), streaming, turc uniquement.",
   "score": 63,

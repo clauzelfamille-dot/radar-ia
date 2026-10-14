@@ -1,0 +1,32 @@
+{
+  "creeLe": "2025-12-13",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": null,
+  "hfId": "selfit-camera/Omni-Image-Editor",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": null,
+      "likes": 2800,
+      "score": 35
+    }
+  ],
+  "licence": null,
+  "likes": 2800,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "Omni-Image-Editor",
+  "org": "selfit-camera",
+  "pertinent": false,
+  "pourquoi": "2,8 k likes.",
+  "premiereVue": "2026-10-14",
+  "resume": "Éditeur d'images tout-en-un (génération, upscaling, suppression de filigrane).",
+  "score": 35,
+  "source": "trending",
+  "tache": "Édition d'images",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor"
+}

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-30",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local"
   ],
@@ -24,11 +24,17 @@
       "downloads": 81100,
       "likes": 3570,
       "score": 78
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 81100,
+      "likes": 3570,
+      "score": 78
     }
   ],
   "licence": "Apache-2.0",
   "likes": 3570,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Edge0-35B-A3B-preview",
   "org": "Edge0",
   "pertinent": true,

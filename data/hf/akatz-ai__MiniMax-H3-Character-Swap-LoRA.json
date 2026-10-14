@@ -4,14 +4,14 @@
  "compte": "akatz-ai",
  "compteType": "utilisateur",
  "creeLe": "2026-09-25",
- "downloads": 44615,
+ "downloads": 52021,
  "hfId": "akatz-ai/MiniMax-H3-Character-Swap-LoRA",
  "langues": [
   "en"
  ],
  "licence": "minimax-h3-community-license-agreement",
  "licenceLien": "https://huggingface.co/akatz-ai/MiniMax-H3-Character-Swap-LoRA/blob/main/LICENSE",
- "likes": 433,
+ "likes": 454,
  "majLe": "2026-10-10",
  "modeleBase": [
   {
@@ -22,5 +22,5 @@
  "tache": "video-to-video",
  "type": "model",
  "url": "https://huggingface.co/akatz-ai/MiniMax-H3-Character-Swap-LoRA",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

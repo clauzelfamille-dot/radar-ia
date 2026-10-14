@@ -1,0 +1,38 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "pyannote publie le successeur libre de speaker-diarization-3.1 : meilleure attribution des locuteurs, sortie « exclusive » prête à aligner sur une transcription, CPU suffisant. Sur le seul corpus francophone du tableau, le nouveau modèle fait pourtant moins bien que l'ancien.",
+  "corpsHtml": "<p><a href=\"https://huggingface.co/pyannote/speaker-diarization-community-1\">speaker-diarization-community-1</a> est le successeur libre de <a href=\"https://huggingface.co/pyannote/speaker-diarization-3.1\">speaker-diarization-3.1</a>, l'un des pipelines de diarisation les plus téléchargés de Hugging Face. Il entre au classement Radar ce matin avec 5,4 M de téléchargements sur le mois et 2,8 k likes, d'après la fiche. La question pour un compte rendu de réunion en français n'est pas « est-il meilleur » mais « sur quel corpus ».</p>\n\n<h2>Ce que fait le pipeline</h2>\n<p>Il prend un fichier audio mono à 16 kHz (le stéréo est moyenné, les autres fréquences sont rééchantillonnées) et renvoie, pour chaque segment, un locuteur anonyme et ses bornes de temps. On peut fixer le nombre de locuteurs (<code>num_speakers=2</code>) ou l'encadrer (<code>min_speakers</code>, <code>max_speakers</code>). Il tourne sur CPU par défaut ; le GPU est un simple <code>pipeline.to(\"cuda\")</code>. La fiche annonce quatre changements par rapport à la 3.1 : une meilleure attribution et un meilleur comptage des locuteurs, une sortie « exclusive » où aucun segment ne se chevauche, un usage hors ligne simplifié après clonage du dépôt, et un hébergement optionnel chez pyannoteAI.</p>\n<p>La sortie exclusive est le point utile pour nous. Une transcription (Whisper, parakeet) donne des mots horodatés ; une diarisation classique donne des plages qui se recouvrent quand deux personnes parlent en même temps. Avec <code>output.exclusive_speaker_diarization</code>, chaque instant n'a qu'un locuteur, ce qui permet d'aligner les deux listes par simple comparaison d'horodatages, sans règle d'arbitrage à écrire. La fiche précise que cette fonction est « rétroportée » de leur modèle commercial precision-2.</p>\n\n<h2>Ce que la fiche annonce et ce qu'il faut vérifier</h2>\n<p>La licence passe de MIT (3.1) à CC-BY-4.0 : attribution obligatoire, usage commercial permis. Le dépôt reste à accès restreint (« gated ») : il faut un compte Hugging Face, accepter les conditions et fournir un token. La fiche ne donne aucune vitesse ni aucune consommation mémoire ; la 3.1 non plus.</p>\n<p>Les taux d'erreur de diarisation (DER, plus bas est mieux) sont publiés sur douze corpus, dans la configuration la plus sévère : pas de tolérance aux bornes, parole superposée comptée, aucune aide manuelle. Les chiffres sont ceux de l'éditeur, datés de septembre 2025.</p>\n<table>\n<thead><tr><th>Corpus</th><th>3.1</th><th>community-1</th><th>precision-2 (cloud)</th></tr></thead>\n<tbody>\n<tr><td>AMI (micro-casque)</td><td>18,8</td><td>17,0</td><td>12,9</td></tr>\n<tr><td>AMI (micro de table)</td><td>22,7</td><td>19,9</td><td>15,6</td></tr>\n<tr><td>AliMeeting</td><td>24,5</td><td>20,3</td><td>15,2</td></tr>\n<tr><td>DIHARD 3</td><td>21,4</td><td>20,2</td><td>14,7</td></tr>\n<tr><td>VoxConverse</td><td>11,2</td><td>11,2</td><td>8,5</td></tr>\n<tr><td>REPERE (TV française)</td><td>7,9</td><td>8,9</td><td>7,4</td></tr>\n</tbody>\n</table>\n<p>Sur AMI, le corpus de réunions de référence, le gain est de 1,8 à 2,8 points. Sur REPERE, seul corpus francophone du tableau, community-1 recule d'un point par rapport à la 3.1. La fiche le reconnaît sans l'expliquer. Pour des réunions en français, ce point n'est donc pas tranché par les chiffres de l'éditeur. La troisième colonne montre aussi la stratégie de pyannote : le modèle libre progresse, le modèle payant garde 1,5 à 5,5 points d'avance.</p>\n\n<h2>Face aux alternatives déjà vues</h2>\n<p><a href=\"https://huggingface.co/nvidia/Nemotron-3-Diarization\">Nemotron-3-Diarization</a>, cité le 11 octobre comme complément de parakeet, compte 72 k téléchargements contre 5,4 M ici : l'écosystème (exemples, intégrations, tutoriels) est du côté de pyannote. La 3.1 reste disponible, sous MIT, avec 6,9 M de téléchargements ; elle demeure le choix si la licence CC-BY pose problème ou si le corpus REPERE est représentatif de vos enregistrements. Côté transcription, la chaîne locale reste la même : <a href=\"https://huggingface.co/Cactus-Compute/whistle\">whistle</a> (17 Mo) ou <a href=\"https://huggingface.co/moondream/parakeet-redux\">parakeet-redux</a> (178 Mo, 25 langues) pour les mots, pyannote pour les voix.</p>\n\n<h2>Comment l'essayer</h2>\n<ol>\n<li>Sur huggingface.co, accepter les conditions du dépôt et créer un token de lecture.</li>\n<li><code>pip install pyannote.audio</code> (la fiche indique la compatibilité avec la version 4.x).</li>\n<li>Charger <code>Pipeline.from_pretrained(\"pyannote/speaker-diarization-community-1\", token=...)</code>, puis appeler le pipeline sur un WAV mono 16 kHz. Un <code>ProgressHook</code> affiche l'avancement.</li>\n<li>Lire <code>output.exclusive_speaker_diarization</code> et l'aligner sur les horodatages de la transcription.</li>\n<li>Comparer avec la 3.1 sur deux ou trois réunions réelles de trente minutes : compter les changements de locuteur manqués et les locuteurs confondus, à la main, sur les cinq premières minutes.</li>\n</ol>\n<p>À surveiller : une mesure indépendante sur du français conversationnel, et une version de pyannote.audio qui publierait enfin les temps de traitement sur CPU.</p>",
+  "date": "2026-10-14",
+  "domaine": "audio",
+  "itemIds": [
+    "pyannote__speaker-diarization-community-1",
+    "pyannote__speaker-diarization-3.1",
+    "nvidia__Nemotron-3-Diarization",
+    "Cactus-Compute__whistle",
+    "moondream__parakeet-redux"
+  ],
+  "motsCles": [
+    "diarisation",
+    "pyannote",
+    "audio",
+    "compte rendu de réunion",
+    "CPU",
+    "CC-BY-4.0",
+    "transcription"
+  ],
+  "publieLe": "2026-10-14T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche pyannote/speaker-diarization-community-1",
+      "url": "https://huggingface.co/pyannote/speaker-diarization-community-1"
+    },
+    {
+      "titre": "Fiche pyannote/speaker-diarization-3.1",
+      "url": "https://huggingface.co/pyannote/speaker-diarization-3.1"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "pyannote community-1 : la diarisation libre progresse sur les réunions, recule sur le corpus français",
+  "verifiePar": "redac-chef"
+}

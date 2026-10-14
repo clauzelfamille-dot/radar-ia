@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-07-15",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,18 +18,24 @@
       "downloads": 0,
       "likes": 388,
       "score": 32
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 502,
+      "score": 28
     }
   ],
   "licence": null,
-  "likes": 388,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 502,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Wan2.2 14B Preview",
   "org": "kulkas2pintu",
   "pertinent": false,
   "pourquoi": "Hors périmètre.",
   "premiereVue": "2026-10-12",
   "resume": "Génération de vidéo à partir d'une image et d'un texte avec Wan 2.2 14B.",
-  "score": 32,
+  "score": 28,
   "source": "trending",
   "tache": "Démo image vers vidéo",
   "taille": null,

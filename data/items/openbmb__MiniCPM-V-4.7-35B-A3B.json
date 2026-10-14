@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-10-07",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "documents"
   ],
-  "downloads": 166,
+  "downloads": 630,
   "hfId": "openbmb/MiniCPM-V-4.7-35B-A3B",
   "historique": [
     {
@@ -13,18 +13,24 @@
       "downloads": 166,
       "likes": 180,
       "score": 61
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 630,
+      "likes": 462,
+      "score": 67
     }
   ],
   "licence": "Apache 2.0",
-  "likes": 180,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 462,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "MiniCPM-V-4.7-35B-A3B",
   "org": "OpenBMB",
   "pertinent": true,
   "pourquoi": "Vision-langage de 3 B actifs annoncé au-dessus de Qwen3.6-35B-A3B, directement exécutable en local.",
   "premiereVue": "2026-10-13",
   "resume": "Premier MoE de la série MiniCPM-V : image, multi-images et vidéo, avec ordonnancement d'experts et décodage spéculatif pensés pour l'appareil (13 tok/s sur iPhone 17 Pro Max). GGUF, Ollama, FP8, int4.",
-  "score": 61,
+  "score": 67,
   "source": "nouveau",
   "tache": "Vision-langage",
   "taille": "35 B (3 B actifs)",

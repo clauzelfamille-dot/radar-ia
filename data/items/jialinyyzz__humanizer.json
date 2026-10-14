@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-02",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [],
   "downloads": 46100,
   "hfId": "jialinyyzz/humanizer",
@@ -22,17 +22,23 @@
       "downloads": 46100,
       "likes": 1350,
       "score": 63
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 46100,
+      "likes": 1350,
+      "score": 63
     }
   ],
   "licence": null,
   "likes": 1350,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "humanizer",
   "org": "jialinyyzz",
   "pertinent": false,
-  "pourquoi": "Réécriture « humaine » 12 B, n°2 du trending",
+  "pourquoi": "Engouement communautaire, mais usage discutable.",
   "premiereVue": "2026-10-11",
-  "resume": "Modèle de réécriture « humaine » de 12 B.",
+  "resume": "Modèle qui « humanise » les textes générés par IA pour passer les détecteurs.",
   "score": 63,
   "source": "trending",
   "tache": "Génération de texte",

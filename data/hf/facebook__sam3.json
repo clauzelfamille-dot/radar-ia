@@ -1,0 +1,24 @@
+{
+ "acces": "sur demande",
+ "bibliotheque": "transformers",
+ "compte": "facebook",
+ "compteNom": "AI at Meta",
+ "compteType": "organisation",
+ "creeLe": "2025-11-07",
+ "downloads": 2019842,
+ "formats": [
+  "safetensors"
+ ],
+ "hfId": "facebook/sam3",
+ "langues": [
+  "en"
+ ],
+ "licence": "other",
+ "likes": 4304,
+ "majLe": "2025-11-20",
+ "parametres": 859922360,
+ "tache": "mask-generation",
+ "type": "model",
+ "url": "https://huggingface.co/facebook/sam3",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

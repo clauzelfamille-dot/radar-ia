@@ -1,0 +1,23 @@
+{
+ "acces": "sur demande",
+ "arxiv": [
+  "2012.01477",
+  "2104.03603",
+  "2110.07058",
+  "2111.14448"
+ ],
+ "bibliotheque": "pyannote-audio",
+ "compte": "pyannote",
+ "compteNom": "pyannote",
+ "compteType": "organisation",
+ "creeLe": "2025-04-15",
+ "downloads": 5457659,
+ "hfId": "pyannote/speaker-diarization-community-1",
+ "licence": "cc-by-4.0",
+ "likes": 2893,
+ "majLe": "2025-09-29",
+ "tache": "automatic-speech-recognition",
+ "type": "model",
+ "url": "https://huggingface.co/pyannote/speaker-diarization-community-1",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

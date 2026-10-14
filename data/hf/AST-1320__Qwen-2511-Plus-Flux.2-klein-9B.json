@@ -1,0 +1,14 @@
+{
+ "acces": "libre",
+ "compte": "AST-1320",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-19",
+ "hfId": "AST-1320/Qwen-2511-Plus-Flux.2-klein-9B",
+ "licence": "apache-2.0",
+ "likes": 85,
+ "majLe": "2026-10-12",
+ "tache": "gradio",
+ "type": "space",
+ "url": "https://huggingface.co/spaces/AST-1320/Qwen-2511-Plus-Flux.2-klein-9B",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-10",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "donnees"
@@ -25,18 +25,24 @@
       "downloads": 5460,
       "likes": 34,
       "score": 50
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 5460,
+      "likes": 34,
+      "score": 60
     }
   ],
   "licence": "MIT",
   "likes": 34,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "DeskForge-1M",
   "org": "docling-project (IBM / ETH)",
-  "pertinent": false,
-  "pourquoi": "Captures annotées pour agents, équipe Docling",
+  "pertinent": true,
+  "pourquoi": "Données documentaires, mises à jour il y a 3 j.",
   "premiereVue": "2026-10-11",
   "resume": "1,2 M captures d'écran annotées pour agents « computer-use », par l'équipe Docling.",
-  "score": 50,
+  "score": 60,
   "source": "nouveau",
   "tache": "Agents computer-use",
   "taille": "1,2 M captures",

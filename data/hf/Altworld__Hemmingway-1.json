@@ -5,7 +5,7 @@
  "compteNom": "Altworld",
  "compteType": "organisation",
  "creeLe": "2026-09-20",
- "downloads": 11510,
+ "downloads": 11737,
  "formats": [
   "safetensors"
  ],
@@ -14,7 +14,7 @@
   "en"
  ],
  "licence": "cc-by-nc-4.0",
- "likes": 860,
+ "likes": 863,
  "majLe": "2026-10-01",
  "modeleBase": [
   {
@@ -26,5 +26,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/Altworld/Hemmingway-1",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

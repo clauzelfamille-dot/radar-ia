@@ -1,10 +1,10 @@
 {
   "creeLe": "2026-09-25",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents"
   ],
-  "downloads": 1540000,
+  "downloads": 1550000,
   "hfId": "autotrust/JEV-27B-VL",
   "historique": [
     {
@@ -24,11 +24,17 @@
       "downloads": 1540000,
       "likes": 3853,
       "score": 84
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1550000,
+      "likes": 3780,
+      "score": 84
     }
   ],
   "licence": "Apache 2.0",
-  "likes": 3853,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 3780,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "JEV-27B-VL",
   "org": "AutoTrust",
   "pertinent": true,

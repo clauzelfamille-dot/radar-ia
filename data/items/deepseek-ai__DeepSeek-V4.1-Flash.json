@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-09-10",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "code",
     "agents"
   ],
-  "downloads": 1290000,
+  "downloads": 1360000,
   "hfId": "deepseek-ai/DeepSeek-V4.1-Flash",
   "historique": [
     {
@@ -25,17 +25,23 @@
       "downloads": 1290000,
       "likes": 4420,
       "score": 68
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1360000,
+      "likes": 4420,
+      "score": 68
     }
   ],
   "licence": "MIT",
   "likes": 4420,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "DeepSeek-V4.1-Flash",
   "org": "DeepSeek",
   "pertinent": false,
-  "pourquoi": "MoE contexte 1 M, licence MIT",
+  "pourquoi": "Mise à jour fraîche d'un modèle à 1,3 M de téléchargements.",
   "premiereVue": "2026-10-11",
-  "resume": "MoE, contexte 1 M, licence MIT.",
+  "resume": "Version rapide de DeepSeek V4.1, mise à jour il y a 20 h (fiche inaccessible ce matin).",
   "score": 68,
   "source": "likes30d",
   "tache": "Vision-langage",

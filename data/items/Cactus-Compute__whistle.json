@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-01",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "audio",
     "local"
@@ -25,15 +25,21 @@
       "downloads": 18600,
       "likes": 367,
       "score": 66
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 18600,
+      "likes": 367,
+      "score": 66
     }
   ],
   "licence": null,
   "likes": 367,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "whistle",
   "org": "Cactus Compute",
   "pertinent": true,
-  "pourquoi": "ASR ultra-léger",
+  "pourquoi": "Transcription locale légère.",
   "premiereVue": "2026-10-11",
   "resume": "ASR ultra-léger pour l'embarqué et le CPU.",
   "score": 66,

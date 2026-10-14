@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-26",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees"
   ],
@@ -18,11 +18,17 @@
       "downloads": 3500,
       "likes": 296,
       "score": 52
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 3500,
+      "likes": 296,
+      "score": 52
     }
   ],
   "licence": "Apache-2.0",
   "likes": 296,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "opus5-5-doctor-patient-conversations",
   "org": "nisten",
   "pertinent": false,

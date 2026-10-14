@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-09",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees",
     "agents"
@@ -19,11 +19,17 @@
       "downloads": 1810,
       "likes": 35,
       "score": 48
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1810,
+      "likes": 35,
+      "score": 48
     }
   ],
   "licence": null,
   "likes": 35,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "openai-math",
   "org": "FineEnvs",
   "pertinent": false,

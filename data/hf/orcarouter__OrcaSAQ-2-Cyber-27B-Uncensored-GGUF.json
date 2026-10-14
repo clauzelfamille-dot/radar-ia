@@ -1,0 +1,32 @@
+{
+ "acces": "sur demande",
+ "bibliotheque": "llama.cpp",
+ "compte": "orcarouter",
+ "compteNom": "OrcaRouter",
+ "compteType": "organisation",
+ "contexte": 262144,
+ "creeLe": "2026-09-26",
+ "downloads": 25403,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+ "langues": [
+  "en",
+  "zh"
+ ],
+ "licence": "apache-2.0",
+ "likes": 523,
+ "majLe": "2026-10-12",
+ "modeleBase": [
+  {
+   "id": "orcarouter/Qwen3.8-27B-Uncensored",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 27320697856,
+ "tache": "text-generation",
+ "type": "model",
+ "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

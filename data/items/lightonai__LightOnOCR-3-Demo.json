@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "documents"
   ],
@@ -12,18 +12,24 @@
       "downloads": 0,
       "likes": 29,
       "score": 44
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": null,
+      "likes": 45,
+      "score": 45
     }
   ],
   "licence": null,
-  "likes": 29,
-  "majLe": "2026-10-13T07:05:00+02:00",
-  "nom": "LightOnOCR-3 Demo",
+  "likes": 45,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "LightOnOCR-3-Demo",
   "org": "LightOn (Paris)",
   "pertinent": true,
   "pourquoi": "Tester l'OCR de LightOn sans rien installer.",
   "premiereVue": "2026-10-13",
   "resume": "Démo Gradio de LightOnOCR-3 : déposer un PDF ou une image, récupérer le markdown et les boîtes.",
-  "score": 44,
+  "score": 45,
   "source": "nouveau",
   "tache": "Démo OCR",
   "taille": null,

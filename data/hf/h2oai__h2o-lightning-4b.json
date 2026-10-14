@@ -5,14 +5,14 @@
  "compteNom": "H2O.ai",
  "compteType": "organisation",
  "creeLe": "2026-10-02",
- "downloads": 1578,
+ "downloads": 2568,
  "formats": [
   "safetensors"
  ],
  "hfId": "h2oai/h2o-lightning-4b",
  "licence": "apache-2.0",
- "likes": 62,
- "majLe": "2026-10-13",
+ "likes": 68,
+ "majLe": "2026-10-14",
  "modeleBase": [
   {
    "id": "Qwen/Qwen3.5-4B",
@@ -23,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/h2oai/h2o-lightning-4b",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

@@ -8,7 +8,7 @@
  "compteNom": "JetBrains",
  "compteType": "organisation",
  "creeLe": "2026-09-20",
- "downloads": 1068,
+ "downloads": 1783,
  "formats": [
   "safetensors"
  ],
@@ -17,7 +17,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 114,
+ "likes": 128,
  "majLe": "2026-10-07",
  "modeleBase": [
   {
@@ -29,5 +29,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

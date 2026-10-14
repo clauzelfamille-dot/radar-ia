@@ -1,0 +1,34 @@
+{
+  "creeLe": "2026-10-02",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "local",
+    "code",
+    "agents"
+  ],
+  "downloads": 23200,
+  "hfId": "orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 23200,
+      "likes": 502,
+      "score": 68
+    }
+  ],
+  "licence": "Apache 2.0",
+  "likes": 502,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+  "org": "orcarouter",
+  "pertinent": true,
+  "pourquoi": "27 B dans 16 Go, code et tool-use en local.",
+  "premiereVue": "2026-10-14",
+  "resume": "Qwen3.8-27B sans refus, orienté cybersécurité (red team autorisé), code et appel d'outils ; quantisation mixte 15,7 Go pour llama.cpp / LM Studio.",
+  "score": 68,
+  "source": "trending",
+  "tache": "Génération de texte",
+  "taille": "27 B (15,7 Go)",
+  "type": "model",
+  "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF"
+}

@@ -8,7 +8,7 @@
  "compteNom": "fastino",
  "compteType": "organisation",
  "creeLe": "2026-09-24",
- "downloads": 15209,
+ "downloads": 16141,
  "formats": [
   "safetensors"
  ],
@@ -18,7 +18,7 @@
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 61,
+ "likes": 63,
  "majLe": "2026-10-08",
  "modeleBase": [
   {
@@ -29,5 +29,5 @@
  "parametres": 287355159,
  "type": "model",
  "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

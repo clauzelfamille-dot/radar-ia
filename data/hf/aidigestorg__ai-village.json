@@ -4,16 +4,16 @@
  "compteNom": "AI Digest",
  "compteType": "organisation",
  "creeLe": "2026-06-05",
- "downloads": 2095,
+ "downloads": 2135,
  "hfId": "aidigestorg/ai-village",
  "langues": [
   "en"
  ],
  "licence": "ai-village-research-terms",
- "likes": 133,
+ "likes": 138,
  "majLe": "2026-10-07",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/aidigestorg/ai-village",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1M<n<10M"
 }

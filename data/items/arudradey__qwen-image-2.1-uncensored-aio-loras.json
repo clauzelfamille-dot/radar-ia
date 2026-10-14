@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-26",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,18 +18,24 @@
       "downloads": 0,
       "likes": 227,
       "score": 36
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 284,
+      "score": 37
     }
   ],
   "licence": null,
-  "likes": 227,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 284,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen Image 2.1 Uncensored AIO LoRA Studio",
   "org": "arudradey",
   "pertinent": false,
   "pourquoi": "Hors périmètre.",
   "premiereVue": "2026-10-12",
   "resume": "Démo de Qwen-Image-2.1 non censuré avec LoRA tout-en-un.",
-  "score": 36,
+  "score": 37,
   "source": "trending",
   "tache": "Démo texte vers image",
   "taille": null,

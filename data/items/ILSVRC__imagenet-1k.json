@@ -1,6 +1,6 @@
 {
   "creeLe": "2022-05-02",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees",
     "image-video"
@@ -19,11 +19,17 @@
       "downloads": 89700,
       "likes": 1010,
       "score": 52
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 89700,
+      "likes": 1010,
+      "score": 52
     }
   ],
   "licence": "other",
   "likes": 1010,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "imagenet-1k",
   "org": "ILSVRC",
   "pertinent": false,

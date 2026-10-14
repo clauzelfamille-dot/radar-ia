@@ -1,0 +1,87 @@
+{
+  "aTester": [
+    {
+      "itemId": "openbmb__MiniCPM-V-4.7-35B-A3B",
+      "texte": "Parsing PDF en local : MiniCPM-V 4.7 via Ollama ou llama.cpp avec le GGUF officiel OpenBMB (Q4 ≈ 20 Go, RAM 32 Go ; 3 B actifs donc rapide) ; comparer à LightOnOCR-3 (13/10) sur un même lot de PDF scannés."
+    },
+    {
+      "itemId": "pyannote__speaker-diarization-community-1",
+      "texte": "Compte rendu de réunion « qui dit quoi » : pyannote community-1 (token HF à accepter, CPU suffisant) + whistle (Cactus) pour la transcription ; sortie « exclusive diarization » prête à aligner sur les timestamps."
+    },
+    {
+      "itemId": "tencent__Youtu-Parsing-Omni",
+      "texte": "Documents → JSON structuré (tableaux OTSL, formules, Mermaid) : Youtu-Parsing-Omni 5 B en GGUF via Ollama / LM Studio ; licence custom, à vérifier avant usage pro."
+    }
+  ],
+  "agent": "veille",
+  "creeLe": "2026-10-14T07:05:00+02:00",
+  "date": "2026-10-14",
+  "essentiel": [
+    {
+      "itemIds": [
+        "openbmb__MiniCPM-V-4.7-35B-A3B"
+      ],
+      "texte": "⭐ MiniCPM-V 4.7 (35 B, 3 B actifs) mis à jour il y a 2 h : OCR, parsing PDF, appel d'outils, GGUF/FP8/int4, Apache 2.0 — le vision-document MoE monte au rang 21 (vu le 13/10, mais la fiche a changé)."
+    },
+    {
+      "itemIds": [
+        "pyannote__speaker-diarization-community-1",
+        "sahilmahendrakar__paradee",
+        "cloud0day3__alania-synthetic-speech-tr"
+      ],
+      "texte": "⭐ L'audio entre au classement : pyannote speaker-diarization-community-1 (CC-BY-4.0, 5,4 M téléch.) arrive au rang 33 avec la 3.1 ; côté Spaces, Paradee (TTS de 8 M de paramètres) ; côté données, 2 M de phrases turques synthétiques pour l'ASR."
+    },
+    {
+      "itemIds": [
+        "autotrust__JEV-27B-VL",
+        "autotrust__JEV-35B",
+        "tencent__Youtu-Parsing-Omni"
+      ],
+      "texte": "⭐ La décision typée se muscle : JEV-27B-VL (3,8 k likes, 1,55 M téléch.) mis à jour il y a 17 h avec une démo recherche/reco, JEV-35B et pplx-decider rafraîchis ; Youtu-Parsing-Omni (Tencent, 5 B) publie poids + plugin vLLM pour le parsing documentaire en JSON."
+    }
+  ],
+  "mailEnvoye": true,
+  "nouveauxIds": [
+    "openbmb__MiniCPM-V-4.7-35B-A3B",
+    "autotrust__JEV-27B-VL",
+    "deepseek-ai__DeepSeek-V4.1-Flash",
+    "tencent__Youtu-Parsing-Omni",
+    "autotrust__JEV-35B",
+    "Venastine-Research__Xing4.0-29B-A4B-GGUF",
+    "huihui-ai__Huihui-Qwen3.8-27B-abliterated-GGUF",
+    "speridlabs__iris-3b",
+    "perplexity-ai__pplx-decider-v1.1-27b",
+    "pyannote__speaker-diarization-community-1",
+    "ISTA-DASLab__Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+    "orcarouter__OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+    "facebook__sam3",
+    "MoreThought__Fable-5.1-Max-Reasoning-Filtered-10000x",
+    "LocalLLaMA__typed-decisions",
+    "cloud0day3__alania-synthetic-speech-tr",
+    "gaia-benchmark__GAIA",
+    "sahilmahendrakar__paradee",
+    "selfit-camera__Omni-Image-Editor",
+    "lightonai__LightOnOCR-3-Demo"
+  ],
+  "stats": {
+    "analyses": 114,
+    "etoiles": 37,
+    "fichesLues": 8
+  },
+  "tendance": "Les rangs 31-60 sont saturés de dérivés « uncensored / abliterated » de Qwen3.8 et GLM-5.3 (8 des 30 entrées : huihui-ai, HauhauCS, SC117, JonathanColetti, dealignai, Infatoshi, alesha-pro, Mia-AiLab), tous en GGUF ou EXL3 : la communauté de quantisation devient le premier canal de diffusion des gros modèles chinois vers le PC. Deuxième signal : le format MoE « A3B » (3-4 B actifs) s'impose comme standard du local — MiniCPM-V 4.7 35B-A3B, Xing4.0 29B-A4B, JEV-35B, Mellum 12B-A2.5B — avec des GGUF officiels le jour J. Enfin, l'audio refait surface (pyannote, Paradee, corpus turc) après deux semaines dominées par l'image et la décision.",
+  "titre": "MiniCPM-V 4.7 se met à jour, l'audio et la décision reviennent",
+  "topIds": [
+    "google__embeddinggemma-2",
+    "jialinyyzz__humanizer",
+    "Qwen__Qwen-Image-2.1-Turbo",
+    "abenzerps__Qwen-Image-2.1-Uncensored-GGUF",
+    "Cloudflare__clef",
+    "Lightricks__LTX-2.5",
+    "ConwayResearch__Underdog-Saluki-27B-1.0",
+    "Qwen__Qwen3.8-27B",
+    "LiquidAI__d1-3B",
+    "AtomicChat__Qwen-Image-2.1-Turbo-Uncensored-GGUF",
+    "canberkkkkkk__ema-lightning",
+    "nerkyor__Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2"
+  ]
+}

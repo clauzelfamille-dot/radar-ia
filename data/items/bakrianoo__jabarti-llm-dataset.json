@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-04",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees",
     "multilingue"
@@ -19,11 +19,17 @@
       "downloads": 1590,
       "likes": 64,
       "score": 39
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1590,
+      "likes": 64,
+      "score": 39
     }
   ],
   "licence": "CC-BY-SA-4.0",
   "likes": 64,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "jabarti-llm-dataset",
   "org": "bakrianoo",
   "pertinent": false,

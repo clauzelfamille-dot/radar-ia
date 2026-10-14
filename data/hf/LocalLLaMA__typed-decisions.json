@@ -4,17 +4,17 @@
  "compteNom": "LocalLLaMA",
  "compteType": "organisation",
  "creeLe": "2026-09-16",
- "downloads": 40294,
+ "downloads": 45304,
  "hfId": "LocalLLaMA/typed-decisions",
  "langues": [
   "en"
  ],
  "licence": "apache-2.0",
- "likes": 173,
- "majLe": "2026-10-13",
+ "likes": 185,
+ "majLe": "2026-10-14",
  "tache": "text-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "n<1K"
 }

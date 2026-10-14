@@ -4,17 +4,17 @@
  "compteNom": "Lightwheel",
  "compteType": "organisation",
  "creeLe": "2026-08-07",
- "downloads": 2962,
+ "downloads": 5675,
  "hfId": "LightwheelAI/EgoStandard",
  "langues": [
   "en"
  ],
  "licence": "commercial-training-no-resale-v1.0",
- "likes": 249,
- "majLe": "2026-10-10",
+ "likes": 253,
+ "majLe": "2026-10-14",
  "tache": "video-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/LightwheelAI/EgoStandard",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "10K<n<100K"
 }

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-21",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents"
@@ -19,11 +19,17 @@
       "downloads": 4310,
       "likes": 764,
       "score": 66
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 4310,
+      "likes": 764,
+      "score": 66
     }
   ],
   "licence": "Apache-2.0",
   "likes": 764,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "CLM-v0.1-8B",
   "org": "Contrastive-LM",
   "pertinent": true,

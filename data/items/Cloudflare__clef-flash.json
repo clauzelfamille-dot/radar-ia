@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-03",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents",
@@ -26,11 +26,17 @@
       "downloads": 23300,
       "likes": 791,
       "score": 70
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 23300,
+      "likes": 791,
+      "score": 70
     }
   ],
   "licence": "Apache 2.0",
   "likes": 791,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "clef-flash",
   "org": "Cloudflare",
   "pertinent": true,

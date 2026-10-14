@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-11",
-  "derniereVue": "2026-10-12",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,11 +18,17 @@
       "downloads": 40600,
       "likes": 415,
       "score": 64
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 40600,
+      "likes": 415,
+      "score": 64
     }
   ],
   "licence": null,
   "likes": 415,
-  "majLe": "2026-10-12T07:05:00+02:00",
+  "majLe": "2026-10-14T07:05:00+02:00",
   "nom": "MiniMax-H3-Character-Swap-LoRA",
   "org": "akatz-ai",
   "pertinent": false,

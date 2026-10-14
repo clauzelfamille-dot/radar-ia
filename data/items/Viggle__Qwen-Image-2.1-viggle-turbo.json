@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-22",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,18 +18,24 @@
       "downloads": 0,
       "likes": 228,
       "score": 36
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 292,
+      "score": 37
     }
   ],
   "licence": null,
-  "likes": 228,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 292,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Viggle Turbo for Qwen-Image-2.1",
   "org": "Viggle",
   "pertinent": false,
   "pourquoi": "Hors périmètre.",
   "premiereVue": "2026-10-12",
   "resume": "Qwen-Image-2.1 en 6 étapes (génération et édition), comparé au modèle de base.",
-  "score": 36,
+  "score": 37,
   "source": "trending",
   "tache": "Démo texte vers image",
   "taille": null,

@@ -1,0 +1,43 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "Deux dérivés « abliterated » de Qwen3.8-27B entrent au classement, l'un à 2,2 M de téléchargements ; une seule des deux fiches mesure la perte due à la quantisation, aucune celle due à l'abliteration. Pour traiter des documents ou coder, le GGUF Unsloth d'origine reste le bon point de départ.",
+  "corpsHtml": "<p>Deux GGUF « sans refus » de Qwen3.8-27B entrent au classement ce matin : <a href=\"https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF\">Huihui-Qwen3.8-27B-abliterated-GGUF</a>, 2,2 M de téléchargements sur le mois, et <a href=\"https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF\">OrcaSAQ-2-Cyber-27B-Uncensored-GGUF</a>, 23 k. Ils illustrent le constat de la Veille du jour : huit des trente entrées des rangs 31 à 60 sont des dérivés « uncensored » ou « abliterated ». Avant d'en installer un, il faut savoir ce qu'on y gagne et ce qu'on y perd.</p>\n\n<h2>Ce que ces modèles font</h2>\n<p>L'« abliteration » consiste à repérer, dans les activations du modèle, la direction qui déclenche les refus, puis à la soustraire des poids de certaines couches. Aucun réentraînement, aucune donnée nouvelle. La fiche huihui parle elle-même d'une « implémentation brute, preuve de concept ». Elle précise les couches modifiées (17 à 52 ou 22 à 52 selon la série) et indique que les composants vision et MTP ne sont pas touchés. OrcaRouter part d'un point de contrôle abliteré, puis applique sa propre quantisation « sensible à la précision », dont la méthode n'est pas divulguée. Les deux conservent le mode réflexion et l'appel d'outils de la base ; OrcaSAQ-2 retire l'encodeur vision (texte seul) et annonce un contexte de 262 k tokens.</p>\n\n<h2>Ce que les fiches annoncent et ce qu'il faut vérifier</h2>\n<p>OrcaRouter publie une mesure de fidélité : sur WikiText-2 (16 k tokens), divergence KL moyenne de 0,020 et 94,4 % d'accord sur le premier token par rapport au BF16, perplexité en hausse de 0,8 %, pour un fichier de 15,7 Go au lieu de 54,7. Vitesse annoncée : 20,5 tokens par seconde sur une carte, 27,6 avec le brouillon DFlash2, pour 14,9 à 18,1 Go de VRAM. Ces chiffres sont ceux de l'éditeur et mesurent la perte due à la quantisation, pas celle due à l'abliteration : aucun benchmark de capacité (code, raisonnement, appel d'outils) n'est donné. Les 98 % sur CyberGym affichés sur la page concernent un autre modèle de la même maison. Le dépôt est à accès restreint (« gated »).</p>\n<p>La fiche huihui ne publie aucune mesure : ni divergence, ni perplexité, ni taux de refus. Elle liste une trentaine de fichiers, de 6,6 Go (TQ1_0) à 54,7 Go (BF16), avec des variantes « _L » où les tenseurs modifiés restent en Q8_0, d'où des tailles inhabituelles (un Q2_K_L de 17,2 Go, plus gros qu'un Q4_K_S de 15,6 Go). La série ternaire exige un fork de llama.cpp. L'avertissement est explicite : filtrage de sécurité « significativement réduit », usage déconseillé en production ou en public, revue manuelle recommandée. L'en-tête indique Apache 2.0.</p>\n\n<h2>Comment les situer</h2>\n<table>\n<thead><tr><th>Dépôt</th><th>Modification</th><th>Fidélité mesurée</th><th>Taille Q4 (≈)</th><th>Licence</th></tr></thead>\n<tbody>\n<tr><td><a href=\"https://huggingface.co/unsloth/Qwen3.8-27B-GGUF\">unsloth/Qwen3.8-27B-GGUF</a></td><td>aucune (quantisation seule)</td><td>non publiée sur la fiche</td><td>16,5 Go (UD-Q4_K_M)</td><td>Apache 2.0</td></tr>\n<tr><td>Huihui abliterated</td><td>refus retirés</td><td>aucune</td><td>16,6 Go (Q4_K_M)</td><td>Apache 2.0</td></tr>\n<tr><td>OrcaSAQ-2 Cyber</td><td>refus retirés + quantisation mixte</td><td>KL 0,020 (quantisation)</td><td>15,7 Go (unique)</td><td>Apache 2.0</td></tr>\n<tr><td><a href=\"https://huggingface.co/ConwayResearch/Underdog-Saluki-27B-1.0\">Underdog-Saluki</a></td><td>ajustement pour agents</td><td>aucune</td><td>7,9 Go</td><td>Apache 2.0</td></tr>\n</tbody>\n</table>\n<p>Pour les usages de ce site (extraction de documents, classification, agents outillés, code), un contrat, une facture ou un journal d'erreurs ne déclenchent normalement pas de refus du modèle d'origine. Le gain d'un modèle abliteré y est donc faible, et la perte n'est pas mesurée. Le seul cas où la question se pose est celui que cible OrcaRouter : l'analyse de journaux d'attaque par une équipe de sécurité autorisée. Même là, la fiche renvoie la responsabilité des garde-fous à celui qui déploie. Le GGUF Unsloth, 6,5 M de téléchargements, reste le point de départ.</p>\n\n<h2>Comment les essayer, si vous y tenez</h2>\n<ol>\n<li>Installer d'abord la référence : <code>ollama run hf.co/unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_M</code>, et constituer un jeu de 20 requêtes représentatives de vos tâches.</li>\n<li>Charger la variante abliterée dans le même outil (<code>ollama run huihui_ai/Qwen3.8-abliterated</code> ou le GGUF OrcaSAQ-2 après acceptation des conditions), avec les mêmes paramètres (température 1,0, top_p 0,95, top_k 20 en mode réflexion).</li>\n<li>Comparer les sorties deux à deux : si aucune requête du jeu n'était refusée par la référence, l'écart ne peut être que négatif ou nul.</li>\n<li>Ne jamais exposer ces variantes à des utilisateurs externes sans filtre en amont.</li>\n</ol>\n<p>À surveiller : une mesure indépendante de ce que l'abliteration coûte en raisonnement et en appel d'outils sur Qwen3.8-27B, qui manque toujours trois semaines après la sortie du modèle.</p>",
+  "date": "2026-10-14",
+  "domaine": "local",
+  "itemIds": [
+    "huihui-ai__Huihui-Qwen3.8-27B-abliterated-GGUF",
+    "orcarouter__OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+    "unsloth__Qwen3.8-27B-GGUF",
+    "Qwen__Qwen3.8-27B",
+    "ConwayResearch__Underdog-Saluki-27B-1.0"
+  ],
+  "motsCles": [
+    "Qwen3.8-27B",
+    "GGUF",
+    "abliterated",
+    "uncensored",
+    "llama.cpp",
+    "Ollama",
+    "quantisation",
+    "local"
+  ],
+  "publieLe": "2026-10-14T08:20:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+      "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF"
+    },
+    {
+      "titre": "Fiche orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF",
+      "url": "https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF"
+    },
+    {
+      "titre": "Fiche unsloth/Qwen3.8-27B-GGUF",
+      "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "Qwen3.8-27B « sans refus » : ce que valent les GGUF de huihui et OrcaSAQ-2 pour un usage professionnel",
+  "verifiePar": "redac-chef"
+}

@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-28",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "agents"
@@ -25,17 +25,23 @@
       "downloads": 52800,
       "likes": 705,
       "score": 71
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 52800,
+      "likes": 705,
+      "score": 71
     }
   ],
   "licence": null,
   "likes": 705,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Xing4.0-29B-A4B-GGUF",
   "org": "Venastine Research",
   "pertinent": true,
   "pourquoi": "MoE 4 B actifs en GGUF, rapide en local",
   "premiereVue": "2026-10-11",
-  "resume": "MoE 29 B avec 4 B actifs en GGUF, rapide en local.",
+  "resume": "GGUF de Xing4.0 29B-A4B (MoE), mis à jour il y a 1 j.",
   "score": 71,
   "source": "trending",
   "tache": "Génération de texte",

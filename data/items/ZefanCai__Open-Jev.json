@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-20",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees",
     "agents"
@@ -19,11 +19,17 @@
       "downloads": 5890,
       "likes": 94,
       "score": 59
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 5890,
+      "likes": 94,
+      "score": 59
     }
   ],
   "licence": "CC0-1.0",
   "likes": 94,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Open-Jev",
   "org": "ZefanCai",
   "pertinent": true,

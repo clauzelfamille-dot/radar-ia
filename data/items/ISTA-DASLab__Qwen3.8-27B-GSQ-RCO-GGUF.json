@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-28",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local"
   ],
@@ -18,11 +18,17 @@
       "downloads": 1480000,
       "likes": 2180,
       "score": 75
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 1480000,
+      "likes": 2180,
+      "score": 75
     }
   ],
   "licence": "Apache-2.0",
   "likes": 2180,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen3.8-27B-GSQ-RCO-GGUF",
   "org": "ISTA-DASLab",
   "pertinent": true,

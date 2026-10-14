@@ -5,13 +5,13 @@
  "compteNom": "Cloudflare",
  "compteType": "organisation",
  "creeLe": "2026-10-09",
- "downloads": 600,
+ "downloads": 1949,
  "formats": [
   "safetensors"
  ],
  "hfId": "Cloudflare/clef-omni",
  "licence": "apache-2.0",
- "likes": 109,
+ "likes": 118,
  "majLe": "2026-10-09",
  "modeleBase": [
   {
@@ -23,5 +23,5 @@
  "tache": "image-text-to-text",
  "type": "model",
  "url": "https://huggingface.co/Cloudflare/clef-omni",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

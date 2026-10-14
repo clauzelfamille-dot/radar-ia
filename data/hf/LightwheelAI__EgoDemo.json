@@ -4,17 +4,17 @@
  "compteNom": "Lightwheel",
  "compteType": "organisation",
  "creeLe": "2026-08-07",
- "downloads": 61116,
+ "downloads": 59544,
  "hfId": "LightwheelAI/EgoDemo",
  "langues": [
   "en"
  ],
  "licence": "commercial-training-no-resale-v1.0",
- "likes": 194,
+ "likes": 206,
  "majLe": "2026-10-10",
  "tache": "video-classification",
  "type": "dataset",
  "url": "https://huggingface.co/datasets/LightwheelAI/EgoDemo",
- "verifieLe": "2026-10-13T05:42+00:00",
+ "verifieLe": "2026-10-14T16:26+00:00",
  "volumetrie": "1K<n<10K"
 }

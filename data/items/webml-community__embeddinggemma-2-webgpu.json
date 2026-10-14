@@ -1,6 +1,6 @@
 {
-  "creeLe": null,
-  "derniereVue": "2026-10-13",
+  "creeLe": "2026-10-05",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "multilingue"
@@ -19,18 +19,24 @@
       "downloads": 0,
       "likes": 42,
       "score": 33
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 54,
+      "score": 40
     }
   ],
   "licence": null,
-  "likes": 42,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 54,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "embeddinggemma-2-webgpu",
   "org": "webml-community",
   "pertinent": true,
   "pourquoi": "Démo concrète d'embeddings 100 % locaux",
   "premiereVue": "2026-10-12",
   "resume": "Recherche de médias similaires par embeddings calculés dans le navigateur (WebGPU) avec EmbeddingGemma 2, sans serveur.",
-  "score": 33,
+  "score": 40,
   "source": "nouveau",
   "tache": "Recherche sémantique locale",
   "taille": null,

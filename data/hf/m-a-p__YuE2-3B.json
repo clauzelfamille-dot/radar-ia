@@ -9,7 +9,7 @@
  "compteNom": "Multimodal Art Projection",
  "compteType": "organisation",
  "creeLe": "2026-09-09",
- "downloads": 36201,
+ "downloads": 35060,
  "formats": [
   "safetensors"
  ],
@@ -19,11 +19,11 @@
   "en"
  ],
  "licence": "cc-by-nc-4.0",
- "likes": 1136,
+ "likes": 1147,
  "majLe": "2026-10-06",
  "parametres": 3630684224,
  "tache": "text-to-audio",
  "type": "model",
  "url": "https://huggingface.co/m-a-p/YuE2-3B",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

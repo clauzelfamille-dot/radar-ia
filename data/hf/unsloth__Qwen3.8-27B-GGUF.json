@@ -5,13 +5,13 @@
  "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-08-13",
- "downloads": 6597425,
+ "downloads": 6634241,
  "formats": [
   "GGUF"
  ],
  "hfId": "unsloth/Qwen3.8-27B-GGUF",
  "licence": "apache-2.0",
- "likes": 5063,
+ "likes": 5086,
  "majLe": "2026-08-20",
  "modeleBase": [
   {
@@ -22,5 +22,5 @@
  "parametres": 27320697856,
  "type": "model",
  "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

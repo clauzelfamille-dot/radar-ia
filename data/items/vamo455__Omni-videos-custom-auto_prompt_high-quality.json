@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,18 +18,24 @@
       "downloads": 0,
       "likes": 201,
       "score": 29
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 236,
+      "score": 30
     }
   ],
   "licence": null,
-  "likes": 201,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 236,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Omni Video Factory",
   "org": "vamo455",
   "pertinent": false,
   "pourquoi": "Hors périmètre.",
   "premiereVue": "2026-10-12",
   "resume": "Texte vers vidéo, image vers vidéo et extension de vidéo.",
-  "score": 29,
+  "score": 30,
   "source": "trending",
   "tache": "Démo génération vidéo",
   "taille": null,

@@ -12,6 +12,12 @@
       "downloads": 14,
       "likes": 110,
       "score": 54
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 14,
+      "likes": 110,
+      "score": 48
     }
   ],
   "licence": "Apache 2.0",
@@ -23,7 +29,7 @@
   "pourquoi": "Un VLM de 1 B pour le tri d'images ou de scans sans GPU.",
   "premiereVue": "2026-10-13",
   "resume": "Petit frère de MiniCPM-V 4.7 pour mobile et CPU (fiche non lue : la page n'a pas répondu ce matin).",
-  "score": 54,
+  "score": 48,
   "source": "nouveau",
   "tache": "Vision-langage",
   "taille": "1 B",

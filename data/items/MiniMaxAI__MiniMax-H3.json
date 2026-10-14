@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-13",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,18 +24,24 @@
       "downloads": 4300000,
       "likes": 5680,
       "score": 71
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 4300000,
+      "likes": 6040,
+      "score": 72
     }
   ],
   "licence": null,
-  "likes": 5680,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 6040,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "MiniMax-H3",
   "org": "MiniMax",
   "pertinent": false,
   "pourquoi": "Vidéo + bande-son, n°1 des Spaces",
   "premiereVue": "2026-10-11",
   "resume": "Vidéo avec bande-son synchronisée ; n°1 des Spaces.",
-  "score": 71,
+  "score": 72,
   "source": "likes30d",
   "tache": "Image+texte→vidéo",
   "taille": "33 B",

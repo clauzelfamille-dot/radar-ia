@@ -6,13 +6,13 @@
  "compteType": "organisation",
  "contexte": 262144,
  "creeLe": "2026-09-16",
- "downloads": 4615462,
+ "downloads": 4786442,
  "formats": [
   "GGUF"
  ],
  "hfId": "prism-ml/Ternary-Bonsai-2-27B-gguf",
  "licence": "apache-2.0",
- "likes": 2663,
+ "likes": 2689,
  "majLe": "2026-09-25",
  "modeleBase": [
   {
@@ -24,5 +24,5 @@
  "tache": "text-generation",
  "type": "model",
  "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

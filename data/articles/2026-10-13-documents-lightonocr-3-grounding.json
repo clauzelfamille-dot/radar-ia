@@ -1,0 +1,39 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "LightOn, éditeur parisien, publie LightOnOCR-3 en deux tailles, 4 B et 0,8 B, sous Apache 2.0. La fiche du 4 B annonce 86,3 sur olmOCR-bench et ajoute un mode « grounding » qui renvoie, pour chaque bloc de la page, un type et une boîte.",
+  "corpsHtml": "<p>LightOn, éditeur parisien, publie LightOnOCR-3 en deux tailles, <a href=\"https://huggingface.co/lightonai/LightOnOCR-3-4B\">4 B</a> et <a href=\"https://huggingface.co/lightonai/LightOnOCR-3-0.8B\">0,8 B</a>, sous Apache 2.0. La fiche du 4 B annonce 86,3 sur olmOCR-bench et ajoute un mode « grounding » qui renvoie, pour chaque bloc de la page, un type et une boîte : de quoi relier un tableau extrait à sa position dans le PDF d'origine.</p> <h2>Ce que fait le modèle</h2> <p>LightOnOCR-3 est un OCR de bout en bout : une image de page en entrée, du markdown en sortie, sans pipeline de détection séparé. Le 4 B passe sur l'architecture vision-langage Qwen3.5 ; le 0,8 B est affiné depuis Qwen3.5-0.8B-Base. Deux prompts seulement sont dans la distribution d'entraînement. Le prompt vide donne la transcription markdown. Le prompt <code>grounding</code> ajoute, devant chaque bloc, un label parmi 16 types (texte, titre, tableau, graphique, formule, etc.), un suffixe « + » pour les blocs qui continuent une colonne, et une boîte en coordonnées normalisées de 0 à 1000. Dans ce mode, les images reçoivent une courte description et les graphiques sont convertis en tableaux HTML de données. La fiche prévient que toute autre instruction est hors distribution, et que le modèle tourne avec le mode de réflexion désactivé.</p> <h2>Ce que la fiche annonce, et ce qu'il faut vérifier</h2> <p>Les scores du 4 B sont olmOCR-bench 86,3 (Arxiv Math 91,1, Old Scans Math 89,1) et ParseBench 75,1 en moyenne ; les autres colonnes ne sont pas lisibles dans le texte de la page, et aucun tableau comparatif avec d'autres OCR n'y figure. Ces chiffres sont auto-déclarés. Le 0,8 B n'a aucun score publié : il est présenté comme « rapide et efficace », sans mesure de débit chiffrée, ni pour lui ni pour le 4 B. Hugging Face affiche 5 B de paramètres pour le modèle nommé 4 B, et 0,9 B pour le 0,8 B, sans explication. Aucune langue n'est listée pour le 4 B ; les métadonnées du 0,8 B ne mentionnent que l'anglais. Pour un éditeur français, c'est le point à tester en premier. Le mode grounding coûte environ 25 % de tokens en plus (1 433 contre 1 158 par page en moyenne). La fiche référence 13 quantisations pour llama.cpp, Ollama, LM Studio et Jan, sans nommer le format. D'après la page de liste, le 4 B cumule 3,2 k téléchargements et 76 likes depuis le 6 octobre.</p> <h2>Face à Youtu-Parsing-Omni et TeleOCR</h2> <table><thead><tr><th>Modèle</th><th>Taille</th><th>Sortie</th><th>Score annoncé</th><th>Licence</th><th>En local</th></tr></thead><tbody> <tr><td>LightOnOCR-3-4B</td><td>4 B (5 B affichés)</td><td>markdown, boîtes, graphiques en tableaux HTML</td><td>olmOCR-bench 86,3</td><td>Apache 2.0</td><td>13 quantisations</td></tr> <tr><td>LightOnOCR-3-0.8B</td><td>0,9 B</td><td>idem</td><td>aucun</td><td>Apache 2.0</td><td>GPU léger, pas de quantisation listée</td></tr> <tr><td><a href=\"https://huggingface.co/tencent/Youtu-Parsing-Omni\">Youtu-Parsing-Omni</a></td><td>5 B</td><td>JSON (mise en page, tableaux OTSL, LaTeX, Mermaid, audio)</td><td>OmniDocBench 97,0</td><td>propre</td><td>GPU requis</td></tr> <tr><td><a href=\"https://huggingface.co/XingChen-AGI/TeleOCR\">TeleOCR</a></td><td>1,2 B</td><td>OCR, tableaux, formules, mise en page</td><td>voir fiche</td><td>Apache 2.0</td><td>GGUF</td></tr> </tbody></table> <p>Les trois ne sont pas mesurés sur le même banc : olmOCR-bench d'un côté, OmniDocBench de l'autre. Ce que LightOn apporte, c'est la licence Apache 2.0 et une sortie markdown avec boîtes, plus simple à relire qu'un JSON complet ; ce que Tencent apporte, c'est la structure (OTSL, Mermaid) et l'audio. TeleOCR reste le plus petit des trois à proposer des GGUF.</p> <h2>Comment l'essayer</h2> <ol> <li>Sans rien installer : déposer un PDF ou une image sur le Space <a href=\"https://huggingface.co/spaces/lightonai/LightOnOCR-3-Demo\">LightOnOCR-3-Demo</a> et comparer les sorties des deux prompts.</li> <li>En local : prendre une quantisation du 4 B dans LM Studio ou Ollama. Rendre les PDF à 400 DPI, côté le plus long à 2048 px, en gardant les proportions, comme le recommande la fiche.</li> <li>Avec un GPU : <code>vllm serve lightonai/LightOnOCR-3-4B --trust-remote-code</code>, réflexion désactivée, puis envoyer l'image seule (prompt vide) ou avec <code>grounding</code>.</li> <li>Constituer un lot de 20 pages en français (procédures scannées, tableaux à cellules fusionnées, en-têtes avec logos) et passer le même lot à Youtu-Parsing-Omni, vu le 12 octobre : compter les accents perdus, les cellules décalées et le temps par page.</li> </ol> <p>À surveiller : un résultat chiffré en français, des quantisations pour le 0,8 B, et une reproduction indépendante du 86,3.</p>",
+  "date": "2026-10-13",
+  "domaine": "documents",
+  "itemIds": [
+    "lightonai__LightOnOCR-3-4B",
+    "lightonai__LightOnOCR-3-0.8B",
+    "lightonai__LightOnOCR-3-Demo",
+    "tencent__Youtu-Parsing-Omni",
+    "XingChen-AGI__TeleOCR"
+  ],
+  "motsCles": [
+    "OCR",
+    "LightOn",
+    "LightOnOCR-3",
+    "grounding",
+    "olmOCR-bench",
+    "PDF",
+    "Apache 2.0",
+    "documents"
+  ],
+  "publieLe": "2026-10-13T08:21:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche lightonai/LightOnOCR-3-4B",
+      "url": "https://huggingface.co/lightonai/LightOnOCR-3-4B"
+    },
+    {
+      "titre": "Fiche lightonai/LightOnOCR-3-0.8B",
+      "url": "https://huggingface.co/lightonai/LightOnOCR-3-0.8B"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "LightOnOCR-3 : l'OCR de LightOn passe sur Qwen3.5, avec boîtes et graphiques convertis en tableaux",
+  "verifiePar": "redac-chef"
+}

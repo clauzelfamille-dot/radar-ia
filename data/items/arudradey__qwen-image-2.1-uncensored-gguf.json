@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-09-22",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -18,11 +18,17 @@
       "downloads": 0,
       "likes": 383,
       "score": 38
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 416,
+      "score": 38
     }
   ],
   "licence": null,
-  "likes": 383,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 416,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen Image 2.1 Uncensored GGUF Studio",
   "org": "arudradey",
   "pertinent": false,

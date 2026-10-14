@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-08",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents",
@@ -26,17 +26,23 @@
       "downloads": 11900,
       "likes": 354,
       "score": 71
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 11900,
+      "likes": 354,
+      "score": 71
     }
   ],
   "licence": "LFM1.0",
   "likes": 354,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "d1-3B",
   "org": "Liquid AI",
   "pertinent": true,
-  "pourquoi": "Décision multimodale 3 B",
+  "pourquoi": "Décision typée sur PC : 3 B, démo caméra/dessin.",
   "premiereVue": "2026-10-11",
-  "resume": "Modèle de décision multimodal de 3 B : réponse typée en une passe, sans texte généré.",
+  "resume": "Modèle de décision « System One » de 3 B (texte + image) qui renvoie une probabilité par option ; GGUF officiel.",
   "score": 71,
   "source": "trending",
   "tache": "Vision-langage",

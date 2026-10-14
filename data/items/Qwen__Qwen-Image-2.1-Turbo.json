@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-09",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "image-video"
   ],
@@ -24,11 +24,17 @@
       "downloads": 6790,
       "likes": 650,
       "score": 63
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 6790,
+      "likes": 650,
+      "score": 63
     }
   ],
   "licence": "Apache-2.0",
   "likes": 650,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen-Image-2.1-Turbo",
   "org": "Qwen",
   "pertinent": false,

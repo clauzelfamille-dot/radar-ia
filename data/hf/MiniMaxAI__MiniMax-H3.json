@@ -5,18 +5,18 @@
  "compteNom": "MiniMax",
  "compteType": "organisation",
  "creeLe": "2026-07-28",
- "downloads": 3616038,
+ "downloads": 3765471,
  "formats": [
   "safetensors"
  ],
  "hfId": "MiniMaxAI/MiniMax-H3",
  "licence": "minimax-h3-community-license-agreement",
  "licenceLien": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
- "likes": 6086,
+ "likes": 6134,
  "majLe": "2026-08-13",
  "parametres": 33122992896,
  "tache": "image-text-to-video",
  "type": "model",
  "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

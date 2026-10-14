@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-19",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 0,
+  "hfId": "AST-1320/Qwen-2511-Plus-Flux.2-klein-9B",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 0,
+      "likes": 83,
+      "score": 32
+    }
+  ],
+  "licence": null,
+  "likes": 83,
+  "majLe": "2026-10-14T07:25:00+02:00",
+  "nom": "Qwen 2511 + Flux.2 klein 9B",
+  "org": "AST-1320",
+  "pertinent": false,
+  "pourquoi": "Chaîne d'édition d'image en deux étapes, hors périmètre documentaire.",
+  "premiereVue": "2026-10-14",
+  "resume": "Space Gradio (ZeroGPU) qui édite une ou deux images avec Qwen-Image-Edit-2511 puis les améliore avec FLUX.2 klein 9B.",
+  "score": 32,
+  "source": "trending",
+  "tache": "Édition d'image",
+  "taille": null,
+  "type": "space",
+  "url": "https://huggingface.co/spaces/AST-1320/Qwen-2511-Plus-Flux.2-klein-9B"
+}

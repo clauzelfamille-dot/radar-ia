@@ -1,0 +1,20 @@
+{
+ "acces": "libre",
+ "compte": "cloud0day3",
+ "compteType": "utilisateur",
+ "creeLe": "2026-09-30",
+ "downloads": 4332,
+ "hfId": "cloud0day3/alania-synthetic-speech-tr",
+ "langues": [
+  "tr"
+ ],
+ "licence": "cc-by-4.0-and-cc-by-sa-4.0",
+ "licenceLien": "https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr/blob/main/LICENSE.md",
+ "likes": 50,
+ "majLe": "2026-10-04",
+ "tache": "text-to-speech, automatic-speech-recognition",
+ "type": "dataset",
+ "url": "https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr",
+ "verifieLe": "2026-10-14T16:26+00:00",
+ "volumetrie": "1M<n<10M"
+}

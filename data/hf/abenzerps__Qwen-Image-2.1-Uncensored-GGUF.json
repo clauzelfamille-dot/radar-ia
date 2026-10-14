@@ -4,14 +4,14 @@
  "compte": "abenzerps",
  "compteType": "utilisateur",
  "creeLe": "2026-09-20",
- "downloads": 2188658,
+ "downloads": 2315771,
  "formats": [
   "GGUF",
   "MLX"
  ],
- "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
+ "hfId": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
  "licence": "qwen-research",
- "likes": 4121,
+ "likes": 4278,
  "majLe": "2026-10-12",
  "modeleBase": [
   {
@@ -22,6 +22,6 @@
  "parametres": 7115124736,
  "tache": "text-to-image",
  "type": "model",
- "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
- "verifieLe": "2026-10-13T05:42+00:00"
+ "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+ "verifieLe": "2026-10-14T16:26+00:00"
 }

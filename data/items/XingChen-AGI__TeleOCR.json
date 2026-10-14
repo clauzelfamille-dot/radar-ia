@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-17",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "documents",
     "local"
@@ -25,11 +25,17 @@
       "downloads": 45100,
       "likes": 1290,
       "score": 67
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 45100,
+      "likes": 1290,
+      "score": 67
     }
   ],
   "licence": "Apache-2.0",
   "likes": 1290,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "TeleOCR",
   "org": "XingChen-AGI",
   "pertinent": true,

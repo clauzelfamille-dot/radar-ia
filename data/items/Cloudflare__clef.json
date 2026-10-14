@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-10-03",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents"
@@ -25,15 +25,21 @@
       "downloads": 15100,
       "likes": 2101,
       "score": 73
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 15100,
+      "likes": 2100,
+      "score": 73
     }
   ],
   "licence": "Apache 2.0",
-  "likes": 2101,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "likes": 2100,
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "clef",
   "org": "Cloudflare",
   "pertinent": true,
-  "pourquoi": "Modèle de décision multimodal 27 B",
+  "pourquoi": "Agents + documents web, licence Apache.",
   "premiereVue": "2026-10-11",
   "resume": "Modèle de décision multimodal 27 B de Cloudflare : réponse typée et calibrée à partir d'un texte ou d'une image.",
   "score": 73,

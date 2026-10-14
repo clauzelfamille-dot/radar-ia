@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-07",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "donnees",
     "image-video"
@@ -19,11 +19,17 @@
       "downloads": 2430,
       "likes": 227,
       "score": 44
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 2430,
+      "likes": 227,
+      "score": 44
     }
   ],
   "licence": "other",
   "likes": 227,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "EgoStandard",
   "org": "LightwheelAI",
   "pertinent": false,

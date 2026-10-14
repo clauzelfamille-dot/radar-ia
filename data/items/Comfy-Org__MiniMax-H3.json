@@ -1,0 +1,32 @@
+{
+  "creeLe": "2026-09-01",
+  "derniereVue": "2026-10-14",
+  "domaines": [
+    "image-video"
+  ],
+  "downloads": 23600000,
+  "hfId": "Comfy-Org/MiniMax-H3",
+  "historique": [
+    {
+      "date": "2026-10-14",
+      "downloads": 23600000,
+      "likes": 2220,
+      "score": 69
+    }
+  ],
+  "licence": null,
+  "likes": 2220,
+  "majLe": "2026-10-14T07:05:00+02:00",
+  "nom": "MiniMax-H3",
+  "org": "Comfy-Org",
+  "pertinent": false,
+  "pourquoi": "23,6 M de téléchargements : le plus téléchargé du classement.",
+  "premiereVue": "2026-10-14",
+  "resume": "Poids ComfyUI de MiniMax-H3.",
+  "score": 69,
+  "source": "trending",
+  "tache": "Vidéo",
+  "taille": null,
+  "type": "model",
+  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3"
+}

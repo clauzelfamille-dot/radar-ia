@@ -1,0 +1,32 @@
+{
+ "acces": "libre",
+ "arxiv": [
+  "2604.18556",
+  "2605.00649"
+ ],
+ "bibliotheque": "gguf",
+ "compte": "ISTA-DASLab",
+ "compteNom": " IST Austria Distributed Algorithms and Systems Lab",
+ "compteType": "organisation",
+ "contexte": 262144,
+ "creeLe": "2026-09-26",
+ "downloads": 759931,
+ "formats": [
+  "GGUF"
+ ],
+ "hfId": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+ "licence": "apache-2.0",
+ "likes": 396,
+ "majLe": "2026-09-29",
+ "modeleBase": [
+  {
+   "id": "Qwen/Qwen3.8-Flash-Next",
+   "relation": "quantized"
+  }
+ ],
+ "parametres": 116514464640,
+ "tache": "image-text-to-text",
+ "type": "model",
+ "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+ "verifieLe": "2026-10-14T16:26+00:00"
+}

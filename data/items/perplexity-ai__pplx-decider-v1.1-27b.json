@@ -1,11 +1,11 @@
 {
   "creeLe": "2026-10-10",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "agents",
     "documents"
   ],
-  "downloads": 2480,
+  "downloads": 2220,
   "hfId": "perplexity-ai/pplx-decider-v1.1-27b",
   "historique": [
     {
@@ -19,11 +19,17 @@
       "downloads": 2480,
       "likes": 135,
       "score": 64
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 2220,
+      "likes": 120,
+      "score": 64
     }
   ],
   "licence": "Apache 2.0",
-  "likes": 135,
-  "majLe": "2026-10-13T07:05:00+02:00",
+  "likes": 120,
+  "majLe": "2026-10-14T07:05:00+02:00",
   "nom": "pplx-decider-v1.1-27b",
   "org": "Perplexity",
   "pertinent": true,

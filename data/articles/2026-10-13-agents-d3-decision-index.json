@@ -1,0 +1,47 @@
+{
+  "auteur": "Rédacteur IA",
+  "chapo": "L'équipe vLLM Semantic Router publie d3, un modèle de décision de 27 B dont la fiche annonce 65,5 au Decision Index public, devant pplx-decider (61,6). En trois jours, AutoTrust (JEV-35B, 3 B actifs) et H2O.ai (Lightning 4B) ajoutent deux modèles du même type, et la taille utile descend jusqu'à 4 B.",
+  "corpsHtml": "<p>L'équipe vLLM Semantic Router publie <a href=\"https://huggingface.co/vllm-sr/d3\">d3</a>, un modèle de décision de 27 B dont la fiche annonce 65,5 au Decision Index public, devant pplx-decider (61,6), traité hier. En trois jours, AutoTrust avec <a href=\"https://huggingface.co/autotrust/JEV-35B\">JEV-35B</a> et H2O.ai avec <a href=\"https://huggingface.co/h2oai/h2o-lightning-4b\">H2O-Lightning-4B</a> ajoutent deux modèles du même type, et la taille utile descend jusqu'à 4 B.</p> <h2>Ce que fait d3</h2> <p>d3 est un dérivé de <a href=\"https://huggingface.co/Qwen/Qwen3.8-27B\">Qwen3.8-27B</a>, publié sous Apache 2.0. La fiche compte 26,1 B de paramètres, dont 0,46 B pour l'encodeur de vision. Il ne génère pas de texte : on lui soumet un état (texte ou JSON, plusieurs images PNG, JPEG ou WebP, plusieurs vidéos MP4, WebM, MOV ou MKV) et des questions typées (choix, oui/non, score), et il renvoie une probabilité par réponse. C'est le même principe que clef, pplx-decider ou d1, avec la vidéo en plus. Les images sont lues jusqu'à 1,6 mégapixel, les vidéos à 2 images par seconde, 32 images au plus.</p> <h2>Ce que la fiche annonce, et ce qu'il faut vérifier</h2> <p>Le chiffre mis en avant est 65,45 sur la suite publique du Decision Index 0.3 ; le tableau détaillé donne 64,7 sur la version 0.3.1, les deux sections ne concordent donc pas tout à fait. Le gain annoncé sur le modèle précédent (Decision 2.0, 27 B) est de 8,5 points. Sur la vision, la fiche affiche 71,6 contre 70,6 pour pplx-decider ; sur la vidéo, 77,4 au Perception Test, marqué « évaluation interne ». Plusieurs résultats visuels sont signalés comme des reconstructions approximatives, et les scores des concurrents viennent du tableau de bord public, pas d'une mesure refaite. Autrement dit : tout est auto-déclaré, et le <a href=\"https://huggingface.co/spaces/multimodalart/jev-decision-index\">Decision Index communautaire</a> n'a pas encore confirmé le 65,5.</p> <p>Côté matériel, la fiche ne donne aucun minimum de mémoire. Les latences (55 ms en texte, 273 ms avec image, 553 ms avec une vidéo de 10 s) sont mesurées sur un AMD MI325X, une carte de centre de données. Aucun GGUF n'est listé, et l'usage passe par Transformers 5.17 avec <code>trust_remote_code</code> et un appel <code>model.system_one(...)</code>. Aucune langue n'est indiquée. Pour un test sur PC, ce n'est pas le candidat du jour.</p> <h2>JEV-35B et Lightning 4B : la même idée, en plus léger</h2> <table><thead><tr><th>Modèle</th><th>Taille</th><th>Score annoncé</th><th>Matériel indiqué</th><th>Entrées</th></tr></thead><tbody> <tr><td>d3</td><td>27 B dense</td><td>Decision Index 65,5 (public)</td><td>non précisé, mesuré sur MI325X</td><td>texte, images, vidéos</td></tr> <tr><td>JEV-35B</td><td>35 B MoE, 3 B actifs</td><td>Decision Index 59,7 (NVFP4 : 59,2)</td><td>BF16 72 Go (GPU 80 Go) ; NVFP4 25,6 Go (GPU 32 Go)</td><td>texte, images</td></tr> <tr><td>H2O-Lightning-4B</td><td>4 B (5 B affichés)</td><td>JevBench v1.6.1 : 72,5 ; 88,7 % sur 231 items texte</td><td>7 quantisations llama.cpp / Ollama / LM Studio</td><td>texte, 4 images au plus</td></tr> <tr><td>pplx-decider v1.1</td><td>27 B dense</td><td>Decision Index 61,6</td><td>49 Go en BF16 (vu le 12/10)</td><td>texte, images</td></tr> </tbody></table> <p>JEV-35B, base Qwen3.5-35B-A3B, dépasse JEV-27B-VL sur 24 des 37 benchmarks de sa fiche, avec une latence médiane de 204 ms sur B200. La fiche est franche sur ses faiblesses : connaissances et raisonnement (GPQA 0,360, HLE à 0), anglais surtout, et elle recommande encore JEV-27B-VL pour les jeux. H2O-Lightning-4B, base Qwen3.5-4B, ne cite pas le Decision Index mais un autre classement, JevBench, où il annonce 72,5 en composite ; les deux ne sont pas comparables. Son argument est ailleurs : 29 ms par décision sur une RTX PRO 4500, 7 quantisations, et une étude de seuils de routage utile en production. Au seuil 0,9, la fiche annonce 53,1 % de questions escaladées, 98,5 % de bonnes réponses sur le reste et 0,7 % de réponses confiantes mais fausses. Plus de 99 % des données d'entraînement sont en anglais.</p> <h2>Comment l'essayer</h2> <ol> <li>Sur un PC avec 8 à 12 Go de VRAM, prendre une quantisation de <a href=\"https://huggingface.co/h2oai/h2o-lightning-4b\">H2O-Lightning-4B</a> dans LM Studio ou Ollama ; la fiche fournit aussi un serveur vLLM 0.30 avec un adaptateur qui expose <code>/v1/systemone</code>.</li> <li>Préparer dix tickets ou factures en français avec trois questions typées : un choix (catégorie), un oui/non (pièce manquante ?), un score (urgence 0-5).</li> <li>Passer le même lot à <a href=\"https://huggingface.co/fastino/GLiNER2.5-Decide\">GLiNER2.5-Decide</a> (CPU) et à <a href=\"https://huggingface.co/LiquidAI/d1-3B-GGUF\">d1-3B en GGUF</a>, puis compter les erreurs et le taux d'escalade à 0,9.</li> <li>Pour une mesure plus large, le jeu <a href=\"https://huggingface.co/datasets/LocalLLaMA/typed-decisions\">typed-decisions</a> (1,6 k lignes, dont des factures) sert de référence commune.</li> </ol> <p>À surveiller : la confirmation du 65,5 de d3 par le tableau de bord communautaire, l'apparition de GGUF pour d3 et JEV-35B, et surtout les premiers chiffres en français, absents des trois fiches.</p>",
+  "date": "2026-10-13",
+  "domaine": "agents",
+  "itemIds": [
+    "vllm-sr__d3",
+    "autotrust__JEV-35B",
+    "h2oai__h2o-lightning-4b",
+    "perplexity-ai__pplx-decider-v1.1-27b",
+    "Qwen__Qwen3.8-27B",
+    "multimodalart__jev-decision-index",
+    "fastino__GLiNER2.5-Decide",
+    "LiquidAI__d1-3B-GGUF",
+    "LocalLLaMA__typed-decisions"
+  ],
+  "motsCles": [
+    "modèle de décision",
+    "Decision Index",
+    "d3",
+    "JEV-35B",
+    "H2O-Lightning-4B",
+    "vLLM",
+    "routage",
+    "agents"
+  ],
+  "publieLe": "2026-10-13T08:21:00+02:00",
+  "sources": [
+    {
+      "titre": "Fiche vllm-sr/d3",
+      "url": "https://huggingface.co/vllm-sr/d3"
+    },
+    {
+      "titre": "Fiche autotrust/JEV-35B",
+      "url": "https://huggingface.co/autotrust/JEV-35B"
+    },
+    {
+      "titre": "Fiche h2oai/h2o-lightning-4b",
+      "url": "https://huggingface.co/h2oai/h2o-lightning-4b"
+    }
+  ],
+  "statut": "publie",
+  "tempsLecture": 4,
+  "titre": "d3 : vLLM Semantic Router prend la tête du Decision Index, JEV-35B et Lightning 4B descendent en taille",
+  "verifiePar": "redac-chef"
+}

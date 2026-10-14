@@ -1,6 +1,6 @@
 {
   "creeLe": "2026-08-05",
-  "derniereVue": "2026-10-13",
+  "derniereVue": "2026-10-14",
   "domaines": [
     "local",
     "code",
@@ -26,15 +26,21 @@
       "downloads": 6900000,
       "likes": 17600,
       "score": 77
+    },
+    {
+      "date": "2026-10-14",
+      "downloads": 6900000,
+      "likes": 17600,
+      "score": 77
     }
   ],
   "licence": "Apache-2.0",
   "likes": 17600,
-  "majLe": "2026-10-13T07:30:00+02:00",
+  "majLe": "2026-10-14T07:25:00+02:00",
   "nom": "Qwen3.8-27B",
   "org": "Qwen",
   "pertinent": false,
-  "pourquoi": "Socle de la moitié des dérivés du classement",
+  "pourquoi": "La base de la majorité des dérivés GGUF du classement.",
   "premiereVue": "2026-10-11",
   "resume": "Le modèle socle de la période : la moitié des dérivés du classement en sont issus.",
   "score": 77,
