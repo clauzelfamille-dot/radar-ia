@@ -894,9 +894,11 @@ def build_guides(site, write, write_md) -> list[tuple[str, str, str]]:
 
     # Familles : un modèle de base et ses dérivés suivis
     suivis = site.by_hf()
+    courts = [b.split("/", 1)[-1] for b in site.familles()]
     for bid, ders in site.familles().items():
         p = site.fam_page(bid)
         nom = bid.split("/", 1)[-1]
+        if courts.count(nom) > 1: nom = bid  # deux bases de même nom chez deux éditeurs : nom complet
         t = titre_court(f"{nom} : dérivés, GGUF et fine-tunes ({mois})", f"{nom} : dérivés et fine-tunes", f"Dérivés de {nom}", nom)
         base = suivis.get(bid)
         tete = (f'<p>Modèle de base suivi : <a href="../{site.item_page(base)}"><strong>{esc(base["nom"])}</strong></a> {score_badge(base.get("score"))} — {esc(base.get("resume"))}</p>' if base

@@ -46,7 +46,7 @@ def main():
             if not dd or len(dd.group(1).strip()) < 50: alertes.append(f"{rel} : meta description absente ou trop courte")
             else: descs.setdefault(html.unescape(dd.group(1)).strip(), []).append(rel)
         t = re.search(r"<title>(.*?)</title>", h, re.S)
-        if t and html.unescape(t.group(1)).rstrip().endswith("…"):
+        if t and html.unescape(t.group(1)).rstrip().endswith("…") and not rel.startswith("modeles/"):  # noms Hugging Face parfois > 70 car.
             alertes.append(f"{rel} : titre tronqué")
         if t and len(html.unescape(t.group(1))) > 70 and not rel.startswith(("articles/", "editions/")):  # titres éditoriaux gardés entiers
             alertes.append(f"{rel} : titre de {len(html.unescape(t.group(1)))} caractères")
